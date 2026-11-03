@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Copy to ~/Library/LaunchAgents/ and replace REPO_PATH. Runs daily at 08:40. If the laptop was asleep, it runs at next wake. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.fares.jobagent</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>REPO_PATH/scripts/run_scheduled.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>JOBAGENT_MODE</key><string>script</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>8</integer>
+    <key>Minute</key><integer>40</integer>
+  </dict>
+  <key>StandardOutPath</key><string>/tmp/jobagent.out</string>
+  <key>StandardErrorPath</key><string>/tmp/jobagent.err</string>
+</dict>
+</plist>

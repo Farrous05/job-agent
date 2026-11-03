@@ -1,0 +1,244 @@
+# Company job boards fetched by `python3 -m jobagent`.
+#
+# Each board token is the slug in the company's careers URL:
+#   greenhouse: job-boards.greenhouse.io/<token>       (API: boards-api.greenhouse.io/v1/boards/<token>/jobs)
+#   lever:      jobs.lever.co/<token>                  (API: api.lever.co/v0/postings/<token>)
+#   ashby:      jobs.ashbyhq.com/<token>               (API: api.ashbyhq.com/posting-api/job-board/<token>)
+#   workday:    <tenant>.wd<N>.myworkdayjobs.com/<site> (API: POST .../wday/cxs/<tenant>/<site>/jobs)
+#   smartrecruiters: jobs.smartrecruiters.com/<token>
+#
+# verified = true means the token was seen in a live job URL during research (Nov 2026).
+# Unverified tokens are best guesses. After each run, data/source_status.json lists the boards
+# that failed (404 etc.). Fix or delete those entries.
+#
+# Companies with no public ATS feed (Jane Street, Bloomberg, Revolut, Two Sigma, PwC, Data Reply,
+# Tower, Squarepoint, Qube...) are under [[watch]] at the bottom. The Claude Code /job-run command
+# checks them with web search.
+
+[[board]]
+company = "Hudson River Trading"
+ats = "greenhouse"
+token = "wehrtyou"
+verified = true
+
+[[board]]
+company = "IMC"
+ats = "greenhouse"
+token = "imc"
+verified = true
+
+[[board]]
+company = "XTX Markets"
+ats = "greenhouse"
+token = "xtxmarketstechnologies"
+verified = true
+
+[[board]]
+company = "DRW"
+ats = "greenhouse"
+token = "drweng"
+verified = true
+
+[[board]]
+company = "DRW"
+ats = "greenhouse"
+token = "drwuniversityjobs"
+verified = true
+
+[[board]]
+company = "Graphcore"
+ats = "greenhouse"
+token = "graphcore"
+verified = true
+
+[[board]]
+company = "Optiver"
+ats = "greenhouse"
+token = "optiverus"
+verified = false
+
+[[board]]
+company = "Google DeepMind"
+ats = "greenhouse"
+token = "deepmind"
+verified = false
+
+[[board]]
+company = "Anthropic"
+ats = "greenhouse"
+token = "anthropic"
+verified = false
+
+[[board]]
+company = "Isomorphic Labs"
+ats = "greenhouse"
+token = "isomorphiclabs"
+verified = false
+
+[[board]]
+company = "Databricks"
+ats = "greenhouse"
+token = "databricks"
+verified = false
+
+[[board]]
+company = "Stripe"
+ats = "greenhouse"
+token = "stripe"
+verified = false
+
+[[board]]
+company = "Monzo"
+ats = "greenhouse"
+token = "monzo"
+verified = false
+
+[[board]]
+company = "Cloudflare"
+ats = "greenhouse"
+token = "cloudflare"
+verified = false
+
+[[board]]
+company = "Datadog"
+ats = "greenhouse"
+token = "datadog"
+verified = false
+
+[[board]]
+company = "Wayve"
+ats = "greenhouse"
+token = "wayve"
+verified = false
+
+[[board]]
+company = "Helsing"
+ats = "greenhouse"
+token = "helsing"
+verified = false
+
+[[board]]
+company = "Jump Trading"
+ats = "greenhouse"
+token = "jumptrading"
+verified = false
+
+[[board]]
+company = "G-Research"
+ats = "greenhouse"
+token = "gresearch"
+verified = false
+
+[[board]]
+company = "Palantir"
+ats = "lever"
+token = "palantir"
+verified = true
+
+[[board]]
+company = "Mistral AI"
+ats = "lever"
+token = "mistral"
+verified = false
+
+[[board]]
+company = "Spotify"
+ats = "lever"
+token = "spotify"
+verified = false
+
+[[board]]
+company = "ElevenLabs"
+ats = "ashby"
+token = "elevenlabs"
+verified = true
+
+[[board]]
+company = "OpenAI"
+ats = "ashby"
+token = "openai"
+verified = false
+
+[[board]]
+company = "Cohere"
+ats = "ashby"
+token = "cohere"
+verified = false
+
+[[board]]
+company = "Synthesia"
+ats = "ashby"
+token = "synthesia"
+verified = false
+
+[[board]]
+company = "NVIDIA"
+ats = "workday"
+token = "nvidia"
+host = "nvidia.wd5.myworkdayjobs.com"
+site = "NVIDIAExternalCareerSite"
+search = "graduate"
+verified = false
+
+# ---------------------------------------------------------------------------
+# No public ATS feed: checked by Claude in /job-run with WebSearch/WebFetch.
+# ---------------------------------------------------------------------------
+[[watch]]
+company = "Jane Street"
+url = "https://www.janestreet.com/join-jane-street/open-roles/"
+query = "Jane Street London new grad 2027"
+
+[[watch]]
+company = "Revolut"
+url = "https://www.revolut.com/careers/"
+query = "Revolut Graduate Programme 2027"
+
+[[watch]]
+company = "Bloomberg"
+url = "https://www.bloomberg.com/company/careers/"
+query = "Bloomberg 2027 software engineer London OR Dublin"
+
+[[watch]]
+company = "Two Sigma"
+url = "https://careers.twosigma.com/"
+query = "Two Sigma campus hire London 2027"
+
+[[watch]]
+company = "Squarepoint"
+url = "https://www.squarepoint-capital.com/careers"
+query = "Squarepoint graduate 2027 London"
+
+[[watch]]
+company = "Qube Research & Technologies"
+url = "https://www.qube-rt.com/careers/"
+query = "QRT Qube 2027 graduate London"
+
+[[watch]]
+company = "Tower Research Capital"
+url = "https://www.tower-research.com/open-positions"
+query = "Tower Research graduate 2027 London"
+
+[[watch]]
+company = "Citadel"
+url = "https://www.citadel.com/careers/open-opportunities/"
+query = "Citadel OR Citadel Securities London 2027 graduate"
+
+[[watch]]
+company = "PwC"
+url = "https://www.pwc.co.uk/careers/early-careers.html"
+query = "PwC Graduate Technology and AI 2027"
+
+[[watch]]
+company = "Data Reply"
+url = "https://www.reply.com/en/careers"
+query = "Data Reply UK graduate 2027"
+
+[[watch]]
+company = "Hugging Face"
+url = "https://apply.workable.com/huggingface/"
+query = "Hugging Face junior OR new grad machine learning Paris"
+
+[[watch]]
+company = "UK graduate boards"
+url = "https://www.gradcracker.com/search/computing-technology/ai-machine-learning-graduate-jobs-in-london-and-south-east"
+query = "graduate machine learning 2027 London site:gradcracker.com OR site:brightnetwork.co.uk OR site:targetjobs.co.uk"

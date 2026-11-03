@@ -1,0 +1,55 @@
+# Your preferences. The fetcher (python3 -m jobagent) and the Claude Code
+# commands (.claude/commands/*.md) both read this file.
+
+[profile]
+name = "Fares Shretah"
+cv_path = "cv/cv.tex"
+graduation = "2027-09"          # MSc ML, UCL
+target_start = "2027 autumn"
+home_city = "London"
+# Companies you've already applied to: their roles stay in the list, marked "already applied".
+already_applied = ["Bloomberg", "Data Reply", "G-Research", "G Research", "PwC"]
+
+[work_rights]
+# UK: student visa now. A UK role passes only if it sponsors (Skilled Worker)
+# OR accepts the Graduate visa. Unknown status is kept but flagged.
+# Note: Graduate visa is 18 months for applications made from 1 Jan 2027.
+uk_needs_sponsorship_or_graduate_visa = true
+# EU/EEA/Switzerland: French passport, no sponsorship needed.
+eu_free = true
+
+[locations]
+# Substring match on the job's location (case-insensitive).
+uk = ["london", "united kingdom", "uk", "england"]
+eu = ["paris", "france", "amsterdam", "netherlands", "berlin", "munich", "germany",
+      "dublin", "ireland", "zurich", "zürich", "switzerland", "madrid", "barcelona",
+      "spain", "lisbon", "portugal", "milan", "italy", "stockholm", "sweden",
+      "copenhagen", "denmark", "warsaw", "krakow", "poland", "vienna", "austria",
+      "brussels", "belgium", "luxembourg", "helsinki", "finland", "oslo", "norway",
+      "prague", "europe", "emea"]
+# UK cities other than London are allowed but ranked lower.
+uk_prefer = ["london"]
+
+[filters]
+exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "manager",
+                       "director", "head of", "vp", "architect", "phd", "postdoc",
+                       "post-doc", "mid-level", "experienced"]
+max_years_experience = 2        # "3+ years" and above is excluded
+exclude_summer_internships = true   # summer 2027 clashes with the MSc dissertation (visa)
+exclude_graduation_years = ["2028", "2029"]   # roles for later grads
+
+[ranking]
+# Role families (title match) and their weight.
+families = { ml = 10, ai = 10, data_science = 8, quant = 8, software = 6 }
+# Company quality tiers (ranking tie-breaker, not a filter).
+tier1 = ["Google DeepMind", "DeepMind", "Anthropic", "OpenAI", "Jane Street", "Hudson River Trading",
+         "HRT", "XTX Markets", "Citadel", "Optiver", "G-Research", "Two Sigma", "Jump Trading",
+         "Isomorphic Labs", "Mistral AI", "Palantir", "Qube", "Squarepoint", "IMC", "DRW",
+         "Wayve", "ElevenLabs", "Hugging Face", "Databricks", "Stripe", "NVIDIA", "Meta", "Google"]
+tier2 = ["Revolut", "Monzo", "Wise", "Bloomberg", "Cohere", "Synthesia", "PolyAI", "Faculty",
+         "Helsing", "Graphcore", "Datadog", "Cloudflare", "Tower Research", "Man Group",
+         "Spotify", "Arm", "Criteo", "Booking.com", "Adyen"]
+
+[output]
+shortlist_size = 15
+candidates_size = 40            # pool handed to Claude for the final ranking

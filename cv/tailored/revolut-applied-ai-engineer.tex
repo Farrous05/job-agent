@@ -1,0 +1,98 @@
+% TAILORING (based on cv/cv.tex; review before sending):
+%  - Profile reworded toward shipping LLM product features (role is product + AI).
+%  - ML/LLMs skills line leads with LLM agents, fine-tuning and evaluation.
+%  - Merged the two prompt/agent bullets at To Ai into one stronger bullet.
+\documentclass[10pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.55in,right=0.55in,top=0.4in,bottom=0.3in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xurl}
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=0.18in}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{3pt}
+
+% Entry header: bold title left, date right
+\newcommand{\entry}[2]{\vspace{5pt}\textbf{#1}\hfill\textbf{#2}\par}
+% Italic sub-line
+\newcommand{\sub}[1]{\textit{#1}\par}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{FARES SHRETAH}} \\[3pt]
+    \small +44 74 54 76 84 53 $\bullet$ \href{mailto:faresshretah@gmail.com}{faresshretah@gmail.com} $\bullet$ London, UK \\
+    \small \href{https://github.com/Farrous05}{github.com/Farrous05} $\bullet$ \href{https://www.linkedin.com/in/fares-shretah/}{linkedin.com/in/fares-shretah}
+\end{center}
+
+\section*{PROFILE}
+MSc Machine Learning student at UCL with research experience at the Max Planck Institute and industry experience building production LLM agents. Focus on turning language models into product features: fine-tuning, LLM-as-a-judge evaluation and agentic systems.
+
+\section*{EDUCATION}
+\entry{University College London (UCL)}{2026 -- 2027}
+MSc Machine Learning $\cdot$ Said Foundation Scholar
+
+\entry{Universit\'e Paris-Saclay}{2023 -- 2026}
+BSc Computer Science $\cdot$ Grade: 15.43/20, top 4 in cohort \\
+\textit{Coursework:} Machine Learning, Data Science, Advanced Algorithms, Symbolic AI, Fairness in AI
+
+\section*{EXPERIENCE}
+\entry{Machine Learning Research Intern, Max Planck Institute for Human Development}{Jun 2026 -- Aug 2026}
+\sub{Berlin, Germany $\cdot$ Full time $\cdot$ PyTorch, Hugging Face Transformers, vLLM, SLURM, Python}
+\begin{itemize}
+    \item Led a self-directed research project on conversational mode collapse in LLMs (models in a closed loop degrading into repetitive text), testing whether a model can detect the collapse state and recover from it.
+    \item Designed the methodology and timeline, built a 10,000-example training dataset, and fine-tuned Qwen 2.5 3B on the institute's HPC cluster using SLURM.
+    \item Extended an existing NLP research codebase with an LLM-as-a-judge evaluation and ran the models with vLLM.
+    % TODO: add one bullet with the result, e.g. "Recovery rate improved from X% to Y%."
+    \item Result: the model detects its own collapse in unseen conversations and switches to a new topic.
+\end{itemize}
+
+\entry{Agentic Engineer , To Ai}{May 2024 -- Oct 2025}
+\sub{Beirut, Lebanon $\cdot$ Part time $\cdot$ LangChain, LangGraph, Python, AWS, RabbitMQ, Meta APIs}
+\begin{itemize}
+    \item Built LLM agents for booking, sales and customer support with LangChain and LangGraph, using dynamic routing and prompt orchestration; wrote the prompts and example data that guide agent behaviour.
+    \item Built a message-queue architecture on AWS SQS and RabbitMQ to process webhook events reliably.
+    \item Led development of the company's production website (\href{https://to-ai.ai}{to-ai.ai}).
+\end{itemize}
+
+\section*{PROJECTS}
+\entry{Image Captioning with Transformers (\href{https://github.com/Farrous05/image-caption-transformer}{GitHub})}{PyTorch}
+\begin{itemize}
+    \item Built a multimodal captioning model: pre-trained ResNet-50 encoder with a custom Transformer decoder using cross-attention.
+    \item Implemented the full pipeline: preprocessing, attention-based decoding, multi-reference BLEU evaluation, and a Flask app that visualizes attention heatmaps.
+\end{itemize}
+
+\entry{ATP Tennis Match Prediction (\href{https://github.com/Farrous05/atp-tennis-ml}{GitHub})}{Scikit-learn, Pandas}
+\begin{itemize}
+    \item Built an ML pipeline with feature engineering on historical ATP data to predict match outcomes.
+\end{itemize}
+
+\entry{Co-Founder, Velora-Dev}{Aug 2025 -- Present}
+\sub{Freelance web and AI studio, Lebanon (Remote) $\cdot$ Next.js, TypeScript, Supabase, SQL}
+\begin{itemize}
+    \item Built CRM dashboards, AI-based company workspaces and AI agents for client companies.
+    \item Delivered full-stack apps, including \href{https://www.silver-rent.be}{Silver Rent} (car rental platform with booking logic, payments and email confirmations) and the official portal of Hasroun Municipality.
+\end{itemize}
+
+\section*{SKILLS}
+\begin{itemize}
+    \item \textbf{ML / LLMs:} LLM agents (LangChain, LangGraph), fine-tuning, LLM-as-a-judge evaluation, vLLM, PyTorch, Hugging Face Transformers, Scikit-learn, Pandas, NumPy
+    \item \textbf{Languages:} Python, C, C++, Java, OCaml, JavaScript / TypeScript
+    \item \textbf{Infrastructure \& Web:} SLURM (HPC), AWS, Docker, Git, RabbitMQ, SQL, REST APIs, Next.js
+\end{itemize}
+
+\section*{HONORS \& LANGUAGES}
+\begin{itemize}
+    \item Merit Scholarship (Excellence); Top 10 student, two consecutive years; Academic Tutor
+    \item \textbf{Languages:} English (fluent, IELTS 8.0), French (fluent), Arabic (fluent)
+\end{itemize}
+
+\end{document}
