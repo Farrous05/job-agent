@@ -11,7 +11,11 @@ import argparse
 import json
 import os
 import sys
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python < 3.11 (e.g. macOS's built-in 3.9)
+    sys.exit(f"job-agent needs Python 3.11 or newer; this is {sys.version.split()[0]}.\n"
+             "On macOS: run `brew install python`, open a new Terminal window, check `python3 --version`.")
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime
 from pathlib import Path
