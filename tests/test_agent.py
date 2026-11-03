@@ -230,6 +230,21 @@ class StoreTests(unittest.TestCase):
             self.assertIn("4/5 fit", page)
             self.assertIn("About the role: build ML models", page)
 
+    def test_status_tracking(self):
+        with tempfile.TemporaryDirectory() as d:
+            st = SeenStore(Path(d) / "seen.json")
+            st.set_status("gh:a:1", "applied", "Acme", "ML Eng", "https://u")      # unknown id gets added
+            st.set_status("gh:a:2", "interested", "Beta", "SWE", "https://v")
+            st.save()
+            st2 = SeenStore(Path(d) / "seen.json")
+            self.assertEqual(st2.statuses()["gh:a:1"], "applied")
+            self.assertEqual(st2.applied_companies(), {"Acme"})
+            page = report.applications_html(st2.data["jobs"])
+            self.assertIn("Applied (1)", page)
+            self.assertIn("Interested (not applied yet) (1)", page)
+            with self.assertRaises(ValueError):
+                st2.set_status("gh:a:1", "hacked")
+
     def test_shortlist_roundtrip(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / "s.md"

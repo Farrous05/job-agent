@@ -4,7 +4,7 @@
   python3 -m jobagent run --dry-run    same, but writes data/candidates/<date>.json only (no shortlist, no marking)
   python3 -m jobagent mark FILE.md     mark every job listed in a shortlist file as seen
   python3 -m jobagent status           show seen-job counts and last source errors
-  python3 -m jobagent view             build shortlist/*.html pages and open the newest in your browser
+  python3 -m jobagent view             open the job page (with Applied / Interested / Not for me buttons)
 """
 from __future__ import annotations
 
@@ -111,7 +111,7 @@ def cmd_run(args) -> int:
     pool = kept[: cfg["output"]["candidates_size"]]
     cand = [{**j.to_dict(), "description": j.description[:4000], "score": v.score, "region": v.region,
              "sponsorship": v.sponsorship, "why": v.why, "flags": v.flags, "internship": v.internship,
-             "applied": filters.is_applied(j.company, cfg),
+             "applied": filters.is_applied(j.company, cfg) or j.company in store.applied_companies(),
              "new_company": not any(k in j.company.lower() or j.company.lower() in k for k in known)}
             for v, j in pool]
     cdir = data / "candidates"
@@ -153,19 +153,78 @@ def cmd_mark(args) -> int:
 
 
 def cmd_view(args) -> int:
-    files = sorted((ROOT / "shortlist").glob("*.md"), key=lambda f: f.stat().st_mtime)
+    """Serves the shortlist pages on http://127.0.0.1:<port> (your computer only) so the Applied /
+    Interested / Not for me buttons can save to seen_jobs.json. Also writes static shortlist/*.html."""
+    import http.server
+    import threading
+    import webbrowser
+    shortlist_dir = ROOT / "shortlist"
+    files = sorted(shortlist_dir.glob("*.md"), key=lambda f: f.name)
     if not files:
         print("No shortlist yet. Run /job-run in Claude Code (or python3 -m jobagent run).")
         return 1
-    for f in files:
+    store_path = ROOT / "seen_jobs.json"
+    for f in files:                              # static copies (no buttons) for double-clicking
         report.write_html(f, ROOT / "data", f.with_suffix(".html"), files)
-    newest = files[-1].with_suffix(".html")
-    latest = ROOT / "shortlist" / "LATEST.html"
-    report.write_html(files[-1], ROOT / "data", latest, files)
-    print(f"Open: {latest.relative_to(ROOT)}  (same as {newest.name})")
-    if not args.no_open and sys.platform == "darwin":
-        import subprocess
-        subprocess.run(["open", str(latest)], check=False)
+    report.write_html(files[-1], ROOT / "data", shortlist_dir / "LATEST.html", files)
+    if args.static:
+        print(f"Wrote {shortlist_dir.relative_to(ROOT)}/LATEST.html")
+        return 0
+    lock = threading.Lock()
+
+    class Handler(http.server.BaseHTTPRequestHandler):
+        def log_message(self, *a):               # keep the terminal quiet
+            pass
+
+        def _send(self, code: int, body: str, ctype: str = "text/html; charset=utf-8"):
+            data = body.encode()
+            self.send_response(code)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
+
+        def do_GET(self):
+            fs = sorted(shortlist_dir.glob("*.md"), key=lambda f: f.name)
+            store = SeenStore(store_path)
+            if self.path in ("/", "/index.html"):
+                md = fs[-1]
+            elif self.path.startswith("/s/"):
+                name = self.path[3:].split("?")[0]
+                md = next((f for f in fs if f.stem == name), None)
+                if md is None:
+                    return self._send(404, "Not found")
+            elif self.path == "/applied":
+                return self._send(200, report.applications_html(store.data["jobs"]))
+            else:
+                return self._send(404, "Not found")
+            self._send(200, report.write_html(md, ROOT / "data", None, fs, store.statuses(), interactive=True))
+
+        def do_POST(self):
+            if self.path != "/api/status":
+                return self._send(404, "Not found", "text/plain")
+            try:
+                n = int(self.headers.get("Content-Length", "0"))
+                body = json.loads(self.rfile.read(min(n, 10_000)) or b"{}")
+                with lock:
+                    store = SeenStore(store_path)
+                    store.set_status(str(body["id"]), body["status"], str(body.get("company", ""))[:200],
+                                     str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000])
+                    store.save()
+            except (KeyError, ValueError, json.JSONDecodeError):
+                return self._send(400, "Bad request", "text/plain")
+            self._send(200, '{"ok": true}', "application/json")
+
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
+    url = f"http://127.0.0.1:{args.port}/"
+    print(f"Job page: {url}   (My applications: {url}applied)\nLeave this window open while you use it. "
+          "Press Ctrl+C to stop.")
+    if not args.no_open:
+        webbrowser.open(url)
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        print("\nStopped. Your marks are saved in seen_jobs.json (commit and push to keep them on GitHub).")
     return 0
 
 
@@ -193,6 +252,8 @@ def main(argv=None) -> int:
     sub.add_parser("status")
     vw = sub.add_parser("view")
     vw.add_argument("--no-open", action="store_true")
+    vw.add_argument("--static", action="store_true", help="only write shortlist/*.html, no server")
+    vw.add_argument("--port", type=int, default=8765)
     args = ap.parse_args(argv)
     if args.cmd is None:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))

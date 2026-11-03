@@ -43,8 +43,23 @@ class SeenStore:
         }
         self._fuzzy.add(fk)
 
-    def set_status(self, source_id: str, status: str) -> None:
-        self.data["jobs"][source_id]["status"] = status
+    STATUSES = ("reported", "applied", "interested", "not_interested")
+
+    def set_status(self, source_id: str, status: str, company: str = "", title: str = "", url: str = "") -> None:
+        """Your own tracking from the browser page. 'reported' = no mark."""
+        if status not in self.STATUSES:
+            raise ValueError(status)
+        if source_id not in self.data["jobs"]:
+            self.add(source_id, company, title, url)
+        job = self.data["jobs"][source_id]
+        job["status"] = status
+        job["status_date"] = date.today().isoformat()
+
+    def statuses(self) -> dict:
+        return {k: v.get("status", "reported") for k, v in self.data["jobs"].items()}
+
+    def applied_companies(self) -> set[str]:
+        return {v["company"] for v in self.data["jobs"].values() if v.get("status") == "applied" and v.get("company")}
 
     def save(self) -> None:
         self.path.write_text(json.dumps(self.data, indent=2, ensure_ascii=False) + "\n")

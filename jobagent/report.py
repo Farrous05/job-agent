@@ -93,8 +93,12 @@ def _summary(text: str, n: int = 650) -> str:
     return cut[: cut.rfind(". ") + 1] if ". " in cut[200:] else cut.rsplit(" ", 1)[0] + "…"
 
 
-def write_html(md_path: Path, data_dir: Path, out: Path, others: list[Path]) -> int:
+def write_html(md_path: Path, data_dir: Path, out: Path | None, others: list[Path],
+               statuses: dict | None = None, interactive: bool = False) -> int | str:
+    """Builds the shortlist page. With interactive=True (served by `jobagent view`) each card gets
+    Applied / Interested / Not for me buttons; returns the HTML instead of writing it when out is None."""
     rows = parse_shortlist(md_path)
+    statuses = statuses or {}
     desc = _descriptions(data_dir)
     esc = html.escape
 
@@ -115,8 +119,13 @@ def write_html(md_path: Path, data_dir: Path, out: Path, others: list[Path]) -> 
             '<span class="b applied">already applied</span>' if applied else ""])
         why = re.sub(r"^\s*\d/5:\s*", "", r["why"]).replace("(new)", "").strip()
         body = f'<p class="desc">{esc(_summary(d))}</p>' if d else ""
+        st = statuses.get(sid, "reported")
+        buttons = "".join(
+            f'<button class="st {k}{" on" if st == k else ""}" data-s="{k}">{label}</button>'
+            for k, label in (("applied", "✓ Applied"), ("interested", "★ Interested"), ("not_interested", "✕ Not for me")))
         cards.append(f"""
-<article class="card">
+<article class="card s-{st}" data-id="{esc(sid)}" data-company="{esc(r['company'].replace('**', '').replace('(already applied)', '').strip())}"
+ data-title="{esc(r['title'])}" data-url="{esc(r['url'])}">
   <div class="top"><span class="rank">{r['rank']}</span><div class="head">
     <h2>{esc(r['title'])}</h2>
     <div class="meta">{md_inline(r['company'].replace('(already applied)', ''))} · {esc(r['location'])}</div>
@@ -125,6 +134,7 @@ def write_html(md_path: Path, data_dir: Path, out: Path, others: list[Path]) -> 
   <dl><dt>Deadline</dt><dd>{esc(r['deadline'])}</dd><dt>Sponsorship</dt><dd>{esc(r['sponsorship'])}</dd></dl>
   <p class="why"><b>Why it fits:</b> {md_inline(why)}</p>
   {body}
+  {f'<div class="actions">{buttons}</div>' if interactive else ''}
 </article>""")
     older = "".join(f'<li><a href="{esc(o.stem)}.html">{esc(o.stem)}</a></li>' for o in others if o != md_path)
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -145,12 +155,73 @@ h2{{font-size:17px;margin:0}} .meta{{color:var(--mute);margin-top:2px}}
 dl{{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;margin:8px 0 0 34px}} dt{{color:var(--mute)}} dd{{margin:0}}
 .why,.desc{{margin:8px 0 0 34px}} .desc{{color:var(--mute);font-size:14px}}
 ul{{color:var(--mute)}} a{{color:var(--accent)}}
+.actions{{margin:12px 0 0 34px;display:flex;gap:8px;flex-wrap:wrap}}
+.st{{font:inherit;font-size:13px;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}}
+.st.applied.on{{background:var(--good);border-color:var(--good);color:#fff}} .st.interested.on{{background:var(--mid);border-color:var(--mid);color:#fff}}
+.st.not_interested.on{{background:var(--low);border-color:var(--low);color:#fff}}
+.card.s-not_interested{{opacity:.5}} .card.s-applied{{border-color:var(--good)}}
+nav{{margin:0 0 18px}} nav a{{margin-right:14px}} .hint{{background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;color:var(--mute)}}
+label.hide{{color:var(--mute);font-size:14px;margin-left:8px}}
 @media (max-width:560px){{.top{{flex-wrap:wrap}} .apply{{margin-left:34px}} .badges,dl,.why,.desc{{margin-left:0}}}}
 </style></head><body><main>
 <h1>Your job shortlist</h1>
 <p class="sub">{esc(md_path.stem)} · {len(rows)} roles · ranked best first. Click <b>Apply</b> to open the posting.</p>
+{NAV if interactive else HINT}
 {''.join(cards) or '<p>No roles in this shortlist.</p>'}
 {f'<h3>Earlier shortlists</h3><ul>{older}</ul>' if older else ''}
-</main></body></html>"""
+</main>{SCRIPT if interactive else ''}</body></html>"""
+    if interactive:
+        page = page.replace('href="' , 'href="').replace('.html">', '">').replace('<li><a href="', '<li><a href="/s/')
+    if out is None:
+        return page
     out.write_text(page)
     return len(rows)
+
+
+NAV = """<nav><a href="/">Latest shortlist</a><a href="/applied">My applications</a>
+<label class="hide"><input type="checkbox" id="hide"> hide "not for me"</label></nav>"""
+HINT = """<p class="hint">To mark jobs as Applied / Interested / Not for me, open this page with
+<code>python3 -m jobagent view</code> instead of double-clicking the file.</p>"""
+SCRIPT = """<script>
+document.querySelectorAll('.card').forEach(card => card.querySelectorAll('.st').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const s = btn.classList.contains('on') ? 'reported' : btn.dataset.s;
+    const r = await fetch('/api/status', {method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({id: card.dataset.id, status: s, company: card.dataset.company,
+                            title: card.dataset.title, url: card.dataset.url})});
+    if (!r.ok) { alert('Could not save (is the jobagent view server still running?)'); return; }
+    card.querySelectorAll('.st').forEach(b => b.classList.toggle('on', b.dataset.s === s));
+    card.className = 'card s-' + s; hide();
+  });
+}));
+const box = document.getElementById('hide');
+function hide() { if (!box) return; document.querySelectorAll('.card.s-not_interested')
+  .forEach(c => c.style.display = box.checked ? 'none' : ''); }
+if (box) { box.checked = localStorage.getItem('hideNI') === '1'; box.onchange = () => {
+  try { localStorage.setItem('hideNI', box.checked ? '1' : '0'); } catch (e) {} hide(); }; hide(); }
+</script>"""
+
+
+def applications_html(jobs: dict) -> str:
+    """'My applications' page: everything you marked Applied or Interested, newest first."""
+    esc = html.escape
+    groups = {"applied": [], "interested": []}
+    for jid, j in jobs.items():
+        if j.get("status") in groups:
+            groups[j["status"]].append(j)
+    parts = []
+    for key, label in (("applied", "Applied"), ("interested", "Interested (not applied yet)")):
+        items = sorted(groups[key], key=lambda j: j.get("status_date", ""), reverse=True)
+        li = "".join(f'<li><b>{esc(j.get("company", ""))}</b>: {esc(j.get("title", ""))} '
+                     f'<span class="mute">· {esc(j.get("status_date", ""))}</span> · '
+                     f'<a href="{esc(j.get("url", ""))}" target="_blank" rel="noopener">posting ↗</a></li>' for j in items)
+        parts.append(f"<h2>{label} ({len(items)})</h2><ul>{li or '<li class=mute>None yet.</li>'}</ul>")
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>My applications</title>
+<style>:root{{--bg:#f6f7f9;--ink:#1d2330;--mute:#5d6676;--accent:#2457d6}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#12151b;--ink:#e8ebf0;--mute:#9aa3b2;--accent:#7aa2ff}}}}
+body{{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}}
+main{{max-width:860px;margin:0 auto;padding:24px 16px}} a{{color:var(--accent)}} .mute{{color:var(--mute)}} nav a{{margin-right:14px}}
+h2{{font-size:18px;margin-top:24px}}</style></head><body><main>
+<nav><a href="/">Latest shortlist</a><a href="/applied">My applications</a></nav>
+<h1>My applications</h1>{''.join(parts)}</main></body></html>"""

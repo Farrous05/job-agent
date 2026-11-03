@@ -1,10 +1,14 @@
 # How to use it (simple version)
 
 ## Where are my jobs?
-- **Open `shortlist/LATEST.html`** (double-click it, or run `python3 -m jobagent view`).
-  It opens in your browser with one card per job: title, company, city, deadline, sponsorship,
-  fit score, why it fits, a short description and an **Apply** button.
-- Older lists are linked at the bottom of that page. The raw files are `shortlist/<date>.md`.
+- Run `python3 -m jobagent view`. Your browser opens the job page: one card per job with title, company,
+  city, deadline, sponsorship, fit score, why it fits, a short description and an **Apply** button.
+- Under each job, click **✓ Applied**, **★ Interested** or **✕ Not for me**. Click again to undo.
+  Your clicks are saved in `seen_jobs.json`. Tick "hide not for me" to hide those.
+- **My applications** (link at the top) lists everything you marked Applied or Interested, with dates.
+- Leave the Terminal window open while you use the page. Press Ctrl+C there when you're done.
+- Then save your marks to GitHub: `git add -A && git commit -m "Applications" && git push`.
+- Quick look without buttons: double-click `shortlist/LATEST.html`.
 
 ## Where are my CVs?
 - Tailored CVs (one per top job): `cv/build/<company>-<role>.pdf`.

@@ -22,7 +22,9 @@ Arguments: $ARGUMENTS. "skip-cv" skips steps 3–4 and "skip-outreach" skips ste
    `config/companies.toml` in your final report (don't edit the config without asking).
 4. For roles found by web search (not from the fetcher), WebFetch the posting to confirm it's still open.
    Drop it if it's closed or the page is gone.
-5. Drop anything already in `seen_jobs.json` (same company + same role title).
+5. Drop anything already in `seen_jobs.json` (same company + same role title). Jobs I marked "applied" in
+   the job page (`"status": "applied"`) mean that company counts as already applied; jobs I marked
+   "not_interested" tell you what I don't want, so rank similar roles lower.
 
 ## 2. Rank and write the shortlist
 Apply these rules strictly:
@@ -46,8 +48,9 @@ per role. Top 15. Then run `python3 -m jobagent mark shortlist/<date>.md`.
 ## 5. Outreach → run `/outreach` steps (unless skip-outreach)
 
 ## 6. Open the results page
-Run `python3 -m jobagent view`. It turns the shortlist into `shortlist/LATEST.html` (one card per job with an
-Apply button and a short description) and opens it in the browser.
+Tell me to run `python3 -m jobagent view` in my own terminal: it opens the job page with Apply buttons and
+Applied / Interested / Not for me buttons (it keeps running until Ctrl+C, so don't start it yourself;
+run `python3 -m jobagent view --static` instead to just refresh `shortlist/LATEST.html`).
 
 ## 7. Report back (keep it short)
 Show the shortlist table, the outreach drafts, the CV diff (`git diff main..cv-edits -- cv/cv.tex`) and the
