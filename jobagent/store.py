@@ -14,7 +14,7 @@ from pathlib import Path
 
 def fuzzy_key(company: str, title: str) -> str:
     c = re.sub(r"\b(trading|technologies|technology|capital|group|ltd|limited|inc|llc|plc|labs|ai|"
-               r"research|securities|markets|uk)\b", " ", company.lower())
+               r"research|securities|markets|uk|early careers?|careers|jobs|systems|inc\.?)\b", " ", company.lower())
     c = re.sub(r"[^a-z0-9]+", "", c) or re.sub(r"[^a-z0-9]+", "", company.lower())
     t = re.sub(r"\(.*?\)|[-–—:|,]", " ", title.lower())
     t = re.sub(r"\b(20\d\d|start|grads?|graduate|new|london|uk|programme|program)\b", " ", t)

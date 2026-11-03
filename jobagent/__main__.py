@@ -16,7 +16,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from . import filters, report, sources
-from .store import SeenStore
+from .store import SeenStore, fuzzy_key
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -51,6 +51,12 @@ def fetch_all(companies: dict, cfg: dict) -> tuple[list[sources.Job], dict]:
             status[key] = {"company": b["company"], "ok": err is None, "jobs": len(js), "error": err}
             jobs.extend(js)
     try:
+        fh = sources.freehire(cfg)
+        status["freehire"] = {"ok": True, "jobs": len(fh), "error": None}
+        jobs.extend(fh)
+    except sources.SourceError as e:
+        status["freehire"] = {"ok": False, "jobs": 0, "error": str(e)}
+    try:
         r = sources.reed(["graduate machine learning", "graduate software engineer", "graduate data scientist",
                           "graduate quantitative"])
         status["reed"] = {"ok": True, "jobs": len(r), "error": None if r else "REED_API_KEY not set"}
@@ -74,6 +80,16 @@ def cmd_run(args) -> int:
     bad = [k for k, s in status.items() if not s["ok"]]
     print(f"  {len(jobs)} jobs fetched; {len(bad)} sources failed (see data/source_status.json)")
 
+    # same role from two sources (company board + aggregator): keep the first, boards come first
+    uniq, keys = [], set()
+    for j in jobs:
+        k = fuzzy_key(j.company, j.title) + "|" + j.location.lower()[:20]
+        if k not in keys:
+            keys.add(k)
+            uniq.append(j)
+    jobs = uniq
+    known = {b["company"].lower() for b in companies.get("board", [])} | \
+            {w["company"].lower() for w in companies.get("watch", [])}
     kept, excluded = [], {}
     for j in jobs:
         v = filters.evaluate(j, cfg)
@@ -90,7 +106,9 @@ def cmd_run(args) -> int:
     pool = kept[: cfg["output"]["candidates_size"]]
     cand = [{**j.to_dict(), "description": j.description[:4000], "score": v.score, "region": v.region,
              "sponsorship": v.sponsorship, "why": v.why, "flags": v.flags, "internship": v.internship,
-             "applied": filters.is_applied(j.company, cfg)} for v, j in pool]
+             "applied": filters.is_applied(j.company, cfg),
+             "new_company": not any(k in j.company.lower() or j.company.lower() in k for k in known)}
+            for v, j in pool]
     cdir = data / "candidates"
     cdir.mkdir(exist_ok=True)
     (cdir / f"{run_date}.json").write_text(json.dumps(

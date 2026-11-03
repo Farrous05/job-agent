@@ -11,8 +11,8 @@ FAMILY_PATTERNS = {
     "ml": r"machine learning|\bml\b|deep learning|\bmle\b|research engineer|applied scientist|nlp|computer vision",
     "ai": r"\bai\b|artificial intelligence|llm|genai|generative",
     "data_science": r"data scien|data analyst|analytics|statistic",
-    "quant": r"quant|algorithm(ic)? develop|research(er)?\b",
-    "software": r"software|developer|engineer|swe\b|backend|full[- ]?stack|platform|infrastructure",
+    "quant": r"\bquant(itative)?\b(?! surveyor)|algorithm(ic)? develop|\bresearch(er)?\b",
+    "software": r"software|developer|\bswe\b|back[- ]?end|front[- ]?end|full[- ]?stack|platform engineer|infrastructure engineer|data engineer|devops|\bsre\b|site reliability|systems engineer|(c\+\+|java|python|rust|go|cloud|backend|frontend) engineer|engineering graduate|graduate engineer",
 }
 ENTRY_WORDS = r"graduate|new grad|grads?\b|entry|junior|campus|early career|university|2027|class of|associate programme|graduate programme"
 
@@ -83,7 +83,8 @@ def sponsorship_status(description: str, region: str) -> tuple[str, str]:
         return "EU role: no sponsorship needed (French passport)", "yes"
     t = description.lower()
     no = re.search(r"(unable|not able|cannot|can't|can not|do not|don't|will not|won't|not)\s+"
-                   r"(to\s+)?(provide|offer|sponsor|support)\w*\s+(any\s+)?(visa|sponsorship|work permit|immigration)", t) \
+                   r"(to\s+)?(provide|offer|sponsor|support)\w*\s+(any\s+)?(work\s+)?(visa|sponsorship|work permit|immigration)", t) \
+        or re.search(r"without (requiring|needing|the need for|need of) (a |any )?(visa )?sponsorship", t) \
         or re.search(r"(visa )?sponsorship (is )?not (available|provided|offered)", t) \
         or re.search(r"right to work in the uk without (the need for )?(visa )?sponsorship", t) \
         or re.search(r"no (visa )?sponsorship(?! (is )?(required|needed))", t)
@@ -147,7 +148,9 @@ def evaluate(job: Job, cfg: dict) -> Verdict:
         v.reasons.append(f"{yrs}+ years' experience required")
 
     # --- internships
-    v.internship = _has(r"\bintern(ship)?\b|placement|industrial year|co-?op\b|working student|werkstudent", title)
+    v.internship = _has(r"\bintern(ship)?\b|placement|industrial year|co-?op\b|working student|werkstudent|praktikant|praktikum|stagiaire|\bstage\b|alternan|tirocinio|prácticas|becario", title)
+    if _has(r"\b(sc|dv|nv)[- ]?clear(ed|ance)\b|security clearance", text):
+        v.flags.append("needs UK security clearance (usually years of UK residency)")
     if v.internship:
         if f.get("exclude_summer_internships") and _has(r"summer|jun(e)?\s*[-–]|10[- ]week|12[- ]week", text) \
                 and not _has(r"off[- ]cycle|part[- ]time", text):

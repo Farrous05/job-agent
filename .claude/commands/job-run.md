@@ -14,7 +14,15 @@ Arguments: $ARGUMENTS. "skip-cv" skips steps 3–4 and "skip-outreach" skips ste
 2. For every `[[watch]]` entry in `config/companies.toml`, use WebSearch (and WebFetch for the URL) to find
    current graduate/new-grad/entry roles that are open now. Use only real postings with a working link.
    Never make up a role, deadline or sponsorship status. If a field is unknown, write "not stated".
-3. Drop anything already in `seen_jobs.json` (same company + same role title).
+3. Discovery (companies NOT in the config): the fetcher already includes freehire.me (an aggregator of
+   ~185k companies, startups included). In candidates.json those rows have `"new_company": true`. Also run
+   3–4 WebSearch queries for startup/graduate boards (TARGETjobs, Bright Network, Gradcracker, Welcome to the
+   Jungle, YC Work at a Startup), e.g. "graduate machine learning engineer 2027 London startup".
+   If a good company keeps appearing and has a Greenhouse/Lever/Ashby URL, suggest adding it to
+   `config/companies.toml` in your final report (don't edit the config without asking).
+4. For roles found by web search (not from the fetcher), WebFetch the posting to confirm it's still open.
+   Drop it if it's closed or the page is gone.
+5. Drop anything already in `seen_jobs.json` (same company + same role title).
 
 ## 2. Rank and write the shortlist
 Apply these rules strictly:
@@ -29,7 +37,8 @@ Apply these rules strictly:
 - Keep roles at companies in `already_applied`, but label them "already applied".
 
 Write `shortlist/<date>.md` in the same format as earlier shortlist files: a table with title, company,
-location, link, deadline, sponsorship status and a one-line reason it fits, plus one `<!-- id: ... -->` line
+location, link, deadline, sponsorship status and a one-line reason it fits. Start that reason with a fit score
+like "4/5:", and mark companies not in our config with "(new)". Add one `<!-- id: ... -->` line
 per role. Top 15. Then run `python3 -m jobagent mark shortlist/<date>.md`.
 
 ## 3. CV review → run `/cv-review` steps (unless skip-cv)

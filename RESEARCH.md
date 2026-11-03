@@ -45,6 +45,7 @@ checked by web search. Workday (NVIDIA) works.
 | Workday `POST <tenant>.wdN.myworkdayjobs.com/wday/cxs/<t>/<site>/jobs` | Undocumented JSON, 20/page | No | Medium (can change; some tenants block bots) | NVIDIA, banks | Implemented, unverified |
 | Company career sites (Jane Street, Revolut, Bloomberg, Two Sigma, PwC…) | HTML | No | Medium | Several top targets | Via `/job-run` web search |
 | Bright Network / Gradcracker / TARGETjobs | HTML only; no API or RSS found | No | Low to scrape | Best for UK grad schemes and deadlines | Via `/job-run` web search (worked well in first run) |
+| freehire.me open API (`/api/v1/agent/jobs/search`) | JSON, filters by country/seniority/date | No (2,000 req/day free) | High | ~7M postings, ~185k companies incl. startups, WTTJ, Personio, Workday | **Implemented**; adds roles from companies not in config |
 | Reed.co.uk Jobseeker API | JSON | Free key | High | UK aggregator, grad filter | Optional (`REED_API_KEY`) |
 | Adzuna API | JSON | Free key (app id + key) | High | UK/EU aggregator | Not wired in (Reed covers the UK) |
 | GOV.UK Register of Licensed Sponsors (CSV) | Public CSV | No | Medium: name matching gave false hits (e.g. 'Alan' matched 21 firms) | Can sponsor ≠ will sponsor this role | Tried, then removed; only explicit statements in the job description are used |
@@ -57,6 +58,18 @@ checked by web search. Workday (NVIDIA) works.
   "right to work in the UK without restrictions" (e.g. LSEG) is kept and marked "check".
 - Full-time off-cycle internships during the MSc (e.g. UBS April–Sept 2027) exceed student-visa hours, so they're
   excluded. Off-cycle roles starting **after** graduation (Graduate visa) are fine.
+
+## What others built (GitHub, Nov 2026)
+Reddit blocks this server, so I couldn't read the thread you linked. GitHub had the useful material:
+- [career-ops](https://github.com/career-ops-hq/career-ops) (~80k★): checks a posting is still live, scores 1–5 against your CV,
+  says "do not apply" below 4/5, drafts but never submits. **Taken:** liveness check + 1–5 fit score.
+- [JobFinderOS](https://github.com/matthewprice/JobFinderOS): Claude Code agents that poll Greenhouse/Ashby/Lever, plus a "market
+  analyst" that tracks funding and new teams to find companies. Same architecture as this repo.
+- [seekter](https://github.com/selfishprimate/seekter): Claude Code + Chrome. Uses the **freehire** API as a main source; LinkedIn
+  reading off by default (ToS risk). **Taken:** freehire.
+- [ashby-job-scraper](https://github.com/rishilahoti/ashby-job-scraper): finds new company boards automatically from Common Crawl.
+  Common Crawl's index wasn't reachable reliably from here; freehire covers the same need.
+- [job-scraper](https://github.com/chrisdothtml/job-scraper): resolves a company name to its ATS board (15k companies mapped).
 
 ## Sources
 - Greenhouse API: [Medium guide](https://medium.com/@sevicdev/integration-with-greenhouse-public-jobs-api-b548b23ad867), [Apify actor](https://apify.com/schnellscrapers/greenhouse-jobs-scraper)

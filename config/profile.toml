@@ -48,7 +48,8 @@ exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "ma
                        "mid-level", "experienced", "hardware", "fpga",
                        "trading support", "sales", "recruiter", "consultant", "value engineer",
                        "business developer", "apprentice", "trading days", "insight", "kickstarter",
-                       "futurefocus", "open day", "spring week"]
+                       "futurefocus", "open day", "spring week", "surveyor", "civil engineer",
+                       "structural engineer", "mechanical engineer", "electrical engineer", "quality engineer"]
 max_years_experience = 2        # "3+ years" and above is excluded
 exclude_summer_internships = true   # summer 2027 clashes with the MSc dissertation (visa)
 exclude_graduation_years = ["2028", "2029"]   # roles for later grads
@@ -65,6 +66,21 @@ tier2 = ["Revolut", "Monzo", "Wise", "Bloomberg", "Cohere", "Synthesia", "PolyAI
          "Helsing", "Graphcore", "Datadog", "Cloudflare", "Tower Research", "Man Group",
          "Spotify", "Arm", "Criteo", "Booking.com", "Adyen", "Celonis", "DeepL",
          "Poolside", "Flow Traders", "Dataiku", "Doctolib", "Mollie", "N26", "Wolt", "SAP", "Zalando", "ASML"]
+
+[freehire]
+# Aggregator search across ~185k companies (startups included). Set enabled = false to switch off.
+enabled = true
+open_within_days = 30      # only postings first seen in the last N days
+pages = 2                  # 50 results per page per query
+countries = ["gb", "fr", "nl", "de", "ie", "ch", "es", "pt", "it", "be", "lu", "at", "dk", "se", "fi",
+             "no", "pl", "cz"]
+# max 5 OR alternatives per query (API limit)
+queries = [
+  { q = '"machine learning" OR "ML engineer" OR "AI engineer" OR "LLM"', seniority = ["junior", "intern"] },
+  { q = '"data scientist" OR "research engineer" OR "applied scientist"', seniority = ["junior", "intern"] },
+  { q = 'quantitative OR quant OR "software engineer" OR "software developer"', seniority = ["junior"] },
+  { q = 'graduate OR "new grad" OR "early careers" OR "2027"' },
+]
 
 [output]
 shortlist_size = 15

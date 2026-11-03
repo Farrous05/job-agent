@@ -203,5 +203,38 @@ def reed(queries: list[str], location: str = "London") -> list[Job]:
     return out
 
 
+# --------------------------------------------------------------------------- freehire (aggregator, no key)
+def freehire(cfg: dict) -> list[Job]:
+    """freehire.me open API: ~7M live postings from ~185k companies' own ATS boards.
+    Finds startups and companies that aren't in companies.toml. Free tier: 120 req/min, 2,000/day.
+    Docs: https://freehire.me/docs/api"""
+    fh = cfg.get("freehire", {})
+    if not fh.get("enabled", True):
+        return []
+    out, seen = [], set()
+    for q in fh["queries"]:
+        params = [("q", q["q"]), ("description_format", "text"), ("limit", "50"),
+                  ("open_within_days", str(fh.get("open_within_days", 30)))]
+        params += [("countries", c) for c in fh["countries"]]
+        params += [("seniority", s) for s in q.get("seniority", [])]
+        for page in range(fh.get("pages", 2)):
+            qs = urllib.parse.urlencode(params + [("offset", str(page * 50))])
+            data = _request(f"https://freehire.me/api/v1/agent/jobs/search?{qs}")
+            rows = data.get("data", [])
+            for j in rows:
+                slug = j.get("public_slug")
+                if not slug or slug in seen or not (j.get("company") or "").strip():
+                    continue
+                seen.add(slug)
+                url = re.sub(r"[?&]utm_source=freehire\.me$", "", j.get("url", ""))
+                out.append(Job(source="freehire", source_id=f"fh:{slug}", company=j["company"].strip(),
+                               title=(j.get("title") or "").strip(), location=j.get("location") or "",
+                               url=url, description=j.get("description") or "",
+                               posted=j.get("posted_at") or "", extra={"via": j.get("source", "")}))
+            if len(rows) < 50:
+                break
+    return out
+
+
 FETCHERS = {"greenhouse": greenhouse, "lever": lever, "ashby": ashby, "workday": workday,
             "smartrecruiters": smartrecruiters}

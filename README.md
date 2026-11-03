@@ -5,7 +5,8 @@ Why it's built this way: see [RESEARCH.md](RESEARCH.md).
 
 **How it works**
 1. `python3 -m jobagent run` fetches public ATS feeds (Greenhouse, Lever, Ashby, Workday) for the companies in
-   `config/companies.toml`. It filters them with your rules in `config/profile.toml`, reads each description for an explicit
+   `config/companies.toml`, plus freehire.me (free aggregator, ~185k companies incl. startups) and Reed (if
+   `REED_API_KEY` is set). It filters them with your rules in `config/profile.toml`, reads each description for an explicit
    sponsorship statement, skips anything in `seen_jobs.json` and writes `shortlist/YYYY-MM-DD.md`.
    No LLM, free, safe to schedule.
 2. `/job-run` inside Claude Code does the judgement work. It runs the fetcher, checks company pages and UK grad

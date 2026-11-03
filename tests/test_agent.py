@@ -54,6 +54,9 @@ class FilterTests(unittest.TestCase):
         v = filters.evaluate(job("Engineering Graduate Programme (Backend)", lseg), CFG)
         self.assertTrue(v.keep, v.reasons)   # right-to-work wording alone is not an explicit "no sponsorship"
         self.assertIn("check", v.sponsorship)
+        real = ("Applicants must already have the right to work in the UK for the full duration of the programme, "
+                "without requiring visa sponsorship. We are unable to sponsor work visas for our Early Careers op")
+        self.assertFalse(filters.evaluate(job("Graduate Machine Learning Engineer 2027", real, "Bristol, UK"), CFG).keep)
         graphcore = "graduate opportunities are permanent positions, and we are unable to provide visa sponsorship."
         self.assertFalse(filters.evaluate(job("Graduate Machine Learning Engineer 2027", graphcore, "Bristol, UK"), CFG).keep)
 
@@ -140,6 +143,29 @@ class SourceTests(unittest.TestCase):
         with mock.patch.object(sources, "_request", side_effect=[page, detail]):
             js = sources.workday("NV", "nv", host="nv.wd5.myworkdayjobs.com", site="Ext")
         self.assertEqual(js[0].description, "PyTorch")
+
+
+class FreehireTests(unittest.TestCase):
+    def test_freehire_maps_and_skips_blank_company(self):
+        page = {"data": [{"public_slug": "ml-eng-ramblr-1", "company": "ramblr", "title": "ML Engineer",
+                          "location": "Munich", "url": "https://x/1?utm_source=freehire.me", "description": "PyTorch",
+                          "source": "personio"},
+                         {"public_slug": "x-2", "company": "", "title": "ML Engineer", "location": "Assen"}],
+                "meta": {"total": 2}}
+        with mock.patch.object(sources, "_request", return_value=page):
+            js = sources.freehire(CFG)
+        self.assertEqual([j.company for j in js], ["ramblr"])
+        self.assertEqual(js[0].url, "https://x/1")
+
+    def test_non_tech_engineers_dropped(self):
+        for t in ["Graduate Quantity Surveyor", "Graduate Civil Engineer", "Graduate Structural Engineer"]:
+            self.assertFalse(filters.evaluate(job(t), CFG).keep, t)
+        for t in ["Graduate Software Engineer", "Junior AI Engineer", "Graduate Machine Learning Engineer",
+                  "Quantitative Researcher", "Research Engineer", "Junior Data Engineer", "C++ Engineer"]:
+            self.assertTrue(filters.evaluate(job(t), CFG).keep, t)
+
+    def test_foreign_internship_words(self):
+        self.assertTrue(filters.evaluate(job("Machine Learning Engineer H/F - Stage", loc="Paris"), CFG).internship)
 
 
 class StoreTests(unittest.TestCase):
