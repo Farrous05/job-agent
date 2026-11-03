@@ -76,15 +76,75 @@ def region_of(location: str, cfg: dict) -> str:
 
 
 # --------------------------------------------------------------------------- experience
-def years_required(text: str) -> int | None:
-    """Smallest 'N+ years' / 'N-M years' / 'at least N years' experience demand found, else None."""
-    mins = []
-    for m in re.finditer(r"(\d{1,2})\s*(?:\+|-|–|to)?\s*(\d{1,2})?\s*\+?\s*years?(?:'|’)?\s*(?:of\s+)?"
+def years_range(text: str) -> tuple[int, int | None] | None:
+    """Smallest experience demand as (min, max-or-None): '3+ years' -> (3, None), '2-3 years' -> (2, 3)."""
+    best = None
+    for m in re.finditer(r"(\d{1,2})\s*(?:(\+)|(?:-|–|to)\s*(\d{1,2}))?\s*\+?\s*years?(?:'|’)?\s*(?:of\s+)?"
                          r"(?:[\w/-]+\s+){0,4}?(?:experience|exp\b)", text, re.I):
-        mins.append(int(m.group(1)))
+        lo, hi = int(m.group(1)), (int(m.group(3)) if m.group(3) else None)
+        if best is None or lo < best[0]:
+            best = (lo, hi)
     for m in re.finditer(r"(?:at least|minimum of|minimum)\s+(\d{1,2})\s+years", text, re.I):
-        mins.append(int(m.group(1)))
-    return min(mins) if mins else None
+        lo = int(m.group(1))
+        if best is None or lo < best[0]:
+            best = (lo, None)
+    return best
+
+
+def years_required(text: str) -> int | None:
+    r = years_range(text)
+    return r[0] if r else None
+
+
+def too_much_experience(text: str, max_years: int) -> str | None:
+    """'3+ years' with max 2 -> too much. A range starting AT the max and going above it ('2-3 years')
+    also counts, since that's what experienced hires are asked for; '1-3 years' is fine."""
+    r = years_range(text)
+    if not r:
+        return None
+    lo, hi = r
+    if lo > max_years or (hi is not None and lo == max_years and hi > max_years):
+        return f"{lo}{'-' + str(hi) if hi else '+'} years' experience required"
+    return None
+
+
+# --------------------------------------------------------------------------- language
+_STOP = {
+    "en": "the and with you our for are will your this that have team work",
+    "fr": "les des et vous nous pour une avec dans sur est sont votre poste équipe",
+    "de": "und die der mit sie wir für das ist eine bei unsere auf zu ihre",
+    "es": "los las con para una que por del nuestro equipo sus como más",
+    "it": "il della con per una che sono nel nostro gli delle alla",
+    "nl": "het een van voor met zijn wij jouw onze bij naar ook",
+    "pt": "para com uma que dos das nossa você equipe são mais",
+    "pl": "się oraz jest dla nas w na z do pracy jako",
+    "sv": "och att med för vi som är på din våra av",
+    "da": "og at med for vi som er på din vores af",
+}
+_STOP = {k: set(v.split()) for k, v in _STOP.items()}
+LANG_NAMES = {"en": "English", "fr": "French", "de": "German", "es": "Spanish", "it": "Italian", "nl": "Dutch",
+              "pt": "Portuguese", "pl": "Polish", "sv": "Swedish", "da": "Danish"}
+
+
+def posting_language(text: str) -> str | None:
+    words = re.findall(r"[a-zà-ÿäöüßąęłńśźż]+", text.lower()[:3000])
+    if len(words) < 40:
+        return None
+    counts = {lang: sum(w in sw for w in words) for lang, sw in _STOP.items()}
+    lang = max(counts, key=counts.get)
+    return lang if counts[lang] >= 8 else None
+
+
+def languages_required(text: str) -> list[str]:
+    """Languages a posting explicitly asks for (fluent/native/business-level X, X required)."""
+    out = []
+    for code, name in LANG_NAMES.items():
+        n = name.lower()
+        if re.search(rf"(fluent|fluency|native|business[- ]level|proficien\w*|excellent|strong|very good)\s+"
+                     rf"(in\s+)?(written and spoken\s+)?{n}|{n}\s+(is\s+)?(required|mandatory|essential|"
+                     rf"\(c1|\(c2|c1|c2|native)|{n}\s+(fluent|fluency)", text, re.I):
+            out.append(code)
+    return out
 
 
 # --------------------------------------------------------------------------- sponsorship
@@ -169,10 +229,10 @@ def evaluate(job: Job, cfg: dict) -> Verdict:
                 and not re.search(r"phd (is )?(preferred|a plus|desirable|not required)", job.description, re.I):
             v.keep = False
             v.reasons.append("PhD required")
-    yrs = years_required(job.description)
-    if yrs is not None and yrs > f["max_years_experience"]:
+    exp = too_much_experience(job.description, f["max_years_experience"])
+    if exp:
         v.keep = False
-        v.reasons.append(f"{yrs}+ years' experience required")
+        v.reasons.append(exp)
 
     # --- internships
     v.internship = _has(INTERN_WORDS, title)
@@ -241,16 +301,28 @@ def evaluate(job: Job, cfg: dict) -> Verdict:
     # sponsorship: only an explicit statement counts; "not stated" changes nothing
     score += {"yes": 3}.get(sv, 0)
     # location preference
-    pref = [c.lower() for c in cfg["regions"].get("preferred_cities", [])]
-    if pref and not any(c in job.location.lower() for c in pref):
-        score -= 2
+    # city size / importance: preferred > hub > major > other (others are kept, just lower)
+    score += city_bonus(job.location, cfg)
+    # language: posting written in, or asking for, a language you don't speak
+    spoken = set(p.get("languages", ["en"]))
+    lang = posting_language(job.description)
+    if lang and lang not in spoken:
+        score -= 5
+        v.flags.append(f"posting is in {LANG_NAMES[lang]}")
+    else:
+        need = [l for l in languages_required(job.description) if l not in spoken]
+        if need:
+            score -= 3
+            v.flags.append("asks for " + "/".join(LANG_NAMES[l] for l in need))
     # company quality
     comp = job.company.lower()
-    if any(t.lower() in comp for t in p.get("dream_companies", [])):
+    def named(names):
+        return any(re.search(rf"(?<![a-z0-9]){re.escape(t.lower())}(?![a-z0-9])", comp) for t in names)
+    if named(p.get("dream_companies", [])):
         score += 4
-    elif any(t.lower() in comp for t in cfg["ranking"].get("tier1", [])):
+    elif named(cfg["ranking"].get("tier1", [])):
         score += 3
-    elif any(t.lower() in comp for t in cfg["ranking"].get("tier2", [])):
+    elif named(cfg["ranking"].get("tier2", [])):
         score += 1.5
     if v.internship:
         score -= 4
@@ -258,6 +330,25 @@ def evaluate(job: Job, cfg: dict) -> Verdict:
     v.score = round(score, 2)
     v.why = f"{'/'.join(v.families[:2])} role; matches CV on {', '.join(hits[:5]) or 'title only'}"
     return v
+
+
+def city_bonus(location: str, cfg: dict) -> float:
+    """Best city tier among a posting's locations: your preferred cities, then the `hub` and `major`
+    cities of your accepted regions (config/regions.toml). Other cities are kept, just ranked lower."""
+    loc = location.lower()
+    r = cfg["regions"]
+    accepted = [cfg["_regions"][n] for n in r["accept"]]
+    tiers = {"preferred": r.get("preferred_cities", []),
+             "hub": [c for a in accepted for c in a.get("hub", [])],
+             "major": [c for a in accepted for c in a.get("major", [])]}
+    w = {"preferred": 2.0, "hub": 1.5, "major": 0.5, "other": -1.0} | r.get("city_weights", {})
+
+    def hit(cities):
+        return any(re.search(rf"(?<![a-zà-ÿ]){re.escape(c.lower())}(?![a-zà-ÿ])", loc) for c in cities)
+    for tier in ("preferred", "hub", "major"):
+        if hit(tiers[tier]):
+            return w[tier]
+    return 0.0 if "remote" in loc else w["other"]
 
 
 def is_applied(company: str, cfg: dict) -> bool:

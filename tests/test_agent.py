@@ -155,6 +155,40 @@ class GenericProfileTests(unittest.TestCase):
         self.assertIn("/onboard", str(e.exception))
 
 
+class RankingTests(unittest.TestCase):
+    def test_experience_ranges(self):
+        self.assertTrue(filters.too_much_experience("2-3 years of full-time professional work experience", 2))
+        self.assertTrue(filters.too_much_experience("3+ years of experience", 2))
+        self.assertIsNone(filters.too_much_experience("1-3 years of experience", 2))
+        self.assertIsNone(filters.too_much_experience("2+ years of experience", 2))
+
+    def test_city_priority(self):
+        b = lambda loc: filters.city_bonus(loc, CFG)
+        self.assertGreater(b("London, UK"), b("Paris, France"))           # preferred > hub
+        self.assertGreater(b("Paris, France"), b("Lisbon, Portugal"))     # hub > major
+        self.assertGreater(b("Lisbon, Portugal"), b("Aachen, Germany"))   # major > other
+        self.assertEqual(b("Bristol; London"), b("London"))               # best location wins
+        small = filters.evaluate(job("Graduate ML Engineer", "pytorch", "Assen, Netherlands"), CFG)
+        self.assertTrue(small.keep)                                       # smaller cities still shown
+        self.assertGreater(filters.evaluate(job("Graduate ML Engineer", "pytorch", "Amsterdam"), CFG).score, small.score)
+
+    def test_language(self):
+        de = ("Wir suchen eine Person für unser Team. Sie arbeiten mit der Gruppe und die Kunden. " * 6)
+        fr = ("Nous cherchons une personne pour notre équipe. Vous travaillez avec les clients et des données. " * 6)
+        self.assertIn("posting is in German", filters.evaluate(job("Junior ML Engineer", de, "Berlin"), CFG).flags)
+        self.assertIn("posting is in French", filters.evaluate(job("Junior ML Engineer", fr, "Paris"), CFG).flags)
+        c = copy.deepcopy(CFG)
+        c["profile"]["languages"] = ["en", "fr"]
+        self.assertFalse(any("posting is in" in f for f in filters.evaluate(job("Junior ML Engineer", fr, "Paris"), c).flags))
+        v = filters.evaluate(job("Graduate ML Engineer", "Fluent German is required. " + "The team works with you. " * 20, "Munich"), CFG)
+        self.assertIn("asks for German", v.flags)
+
+    def test_tier_whole_word(self):
+        a = filters.evaluate(job("Graduate Data Scientist", "python", "London", company="Arm"), CFG).score
+        b = filters.evaluate(job("Graduate Data Scientist", "python", "London", company="Pharma Ltd"), CFG).score
+        self.assertGreater(a, b)
+
+
 class SourceTests(unittest.TestCase):
     def test_greenhouse(self):
         payload = {"jobs": [{"id": 1, "title": "Graduate SWE", "location": {"name": "London"},

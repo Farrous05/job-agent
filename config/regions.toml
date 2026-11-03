@@ -2,9 +2,13 @@
 # and your work rights in each ([work_rights]). Matching is whole-word and case-insensitive.
 # `iso` = ISO country codes used for the freehire aggregator search.
 # Add cities if postings in your area use only a city name.
+# `hub` and `major` cities rank higher (preferred cities in your profile rank highest); others are
+# kept, just lower.
 
 [uk]
 label = "UK"
+hub = ["london"]
+major = ["manchester", "cambridge", "oxford", "edinburgh", "bristol", "birmingham", "leeds", "glasgow"]
 iso = ["gb"]
 words = ["united kingdom", "uk", "england", "scotland", "wales", "northern ireland", "great britain", "gb",
          "london", "manchester", "birmingham", "leeds", "glasgow", "edinburgh", "bristol", "cambridge",
@@ -13,6 +17,8 @@ words = ["united kingdom", "uk", "england", "scotland", "wales", "northern irela
 
 [eu]
 label = "EU / EEA / Switzerland"
+hub = ["paris", "amsterdam", "berlin", "munich", "münchen", "zurich", "zürich", "dublin"]
+major = ["madrid", "barcelona", "milan", "stockholm", "copenhagen", "brussels", "vienna", "lisbon", "frankfurt", "hamburg", "geneva", "warsaw", "prague", "helsinki", "oslo", "rotterdam", "eindhoven", "lyon", "zug", "lausanne"]
 iso = ["fr", "nl", "de", "ie", "ch", "es", "pt", "it", "be", "lu", "at", "dk", "se", "fi", "no", "pl", "cz",
        "ro", "hu", "gr", "ee", "lv", "lt", "si", "sk", "hr", "bg", "cy", "mt", "is"]
 words = ["europe", "emea", "eu", "france", "netherlands", "germany", "ireland", "switzerland", "spain", "portugal",
@@ -32,6 +38,8 @@ words = ["europe", "emea", "eu", "france", "netherlands", "germany", "ireland", 
 
 [us]
 label = "United States"
+hub = ["new york", "nyc", "san francisco", "bay area", "seattle", "boston"]
+major = ["chicago", "austin", "los angeles", "washington, dc", "washington dc", "denver", "atlanta", "palo alto", "mountain view", "menlo park", "san jose", "cambridge, ma"]
 iso = ["us"]
 words = ["united states", "usa", "us", "u.s.", "new york", "nyc", "san francisco", "sf", "bay area", "seattle",
          "boston", "chicago", "austin", "los angeles", "washington, dc", "washington dc", "denver", "atlanta",
@@ -42,21 +50,29 @@ words = ["united states", "usa", "us", "u.s.", "new york", "nyc", "san francisco
 
 [canada]
 label = "Canada"
+hub = ["toronto", "vancouver", "montreal", "montréal"]
+major = ["ottawa", "calgary", "waterloo"]
 iso = ["ca"]
 words = ["canada", "toronto", "montreal", "montréal", "vancouver", "ottawa", "calgary", "waterloo", "edmonton"]
 
 [australia_nz]
 label = "Australia / New Zealand"
+hub = ["sydney", "melbourne"]
+major = ["brisbane", "perth", "auckland"]
 iso = ["au", "nz"]
 words = ["australia", "new zealand", "sydney", "melbourne", "brisbane", "perth", "canberra", "auckland", "wellington"]
 
 [singapore]
 label = "Singapore"
+hub = ["singapore"]
+major = []
 iso = ["sg"]
 words = ["singapore"]
 
 [uae]
 label = "UAE"
+hub = ["dubai"]
+major = ["abu dhabi"]
 iso = ["ae"]
 words = ["united arab emirates", "uae", "dubai", "abu dhabi"]
 

@@ -10,13 +10,14 @@ schools = ["Example University"]        # for alumni-first outreach
 graduation = "2027-06"                  # YYYY-MM; "" if you've already graduated
 earliest_start = "2027-07"              # YYYY-MM you can start
 home_city = "London"
+languages = ["en"]                      # ISO codes you can work in; others rank lower
 level = "graduate"                      # graduate | junior | mid
 already_applied = []                    # companies: still shown, marked "already applied"
 dream_companies = []                    # ranked a little higher
 
 [regions]
 accept = ["uk", "eu"]                   # names from config/regions.toml
-preferred_cities = ["london"]           # other cities in accepted regions are ranked a little lower
+preferred_cities = ["london"]           # rank highest; then each region's hub/major cities (regions.toml)
 accept_remote = true                    # keep "Remote" postings that name no non-accepted region
 
 [work_rights]
@@ -44,7 +45,7 @@ exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "ma
                        "vp", "vice president", "architect", "mid-level", "experienced", "sales", "recruiter",
                        "consultant", "apprentice", "insight", "open day", "spring week", "surveyor",
                        "civil engineer", "structural engineer", "mechanical engineer", "electrical engineer"]
-max_years_experience = 2                # roles asking for more are removed
+max_years_experience = 2                # "3+ years" and "2-3 years" removed; "1-3 years" kept
 phd = "exclude_phd_only"                # exclude_phd_only | keep_all
 allow_internships = true
 exclude_summer_internships = false      # true if summer internships clash with your studies/visa

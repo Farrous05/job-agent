@@ -23,12 +23,14 @@ Ask for the path to their CV.
 - Keep a copy of the original in `cv/original/`.
 
 ## 2. Questions (pre-fill from the CV where possible)
-1. **Basics:** name, current/last degree, school(s), graduation date (or "already graduated"), city they live in.
+1. **Basics:** name, current/last degree, school(s), graduation date (or "already graduated"), city they live in,
+   and the languages they can work in (ISO codes, e.g. en, fr, de).
 2. **Target roles:** which job types (e.g. ML engineer, data analyst, product manager, nurse, accountant)?
    Level: graduate/entry, junior (1–2 yrs) or mid (3–5 yrs)? Max years of experience a posting may ask for?
 3. **Start date:** earliest date they can start.
 4. **Locations:** which regions from `config/regions.toml` (UK, EU/EEA/CH, US, Canada, Australia/NZ, Singapore,
-   UAE)? Preferred cities? OK with remote roles?
+   UAE)? Preferred cities (ranked highest; then each region's big hubs, then other major cities, then the
+   rest)? OK with remote roles?
 5. **Work rights, per accepted region:** "Can you work there without visa sponsorship?" → `free` or
    `needs_sponsorship`. Ask for anything relevant for the notes (visa type, post-study visa and its length,
    hours limits). Explain: a role is removed only if its description explicitly says it won't sponsor.
