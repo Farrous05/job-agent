@@ -63,3 +63,18 @@ Approved on 2026-11-03 and tailored files rebuilt. Tracked-changes PDF: `cv/cv-c
 5. "Top 10 student, two consecutive years": which programme, and out of how many?
 6. Which UCL MSc modules are you taking?
 7. Velora-Dev: how many client projects have you delivered?
+
+## Run 3 (2026-11-03, `shortlist/2026-11-03-run3.md`)
+New general edit on local branch `cv-edits` (not merged; the older remote `cv-edits` is already merged, so push with care):
+| Change | Reason |
+|---|---|
+| Header adds "French citizen (EU right to work)" | 8 of the 15 new roles are in the EU/Switzerland (ARM, Ericsson, UBS, Reply Munich, Techwolf, Dassault, WTW, Arista, Stripe); screeners see right to work first |
+
+Tailored versions (top 5 not already applied; Reply may overlap Data Reply, which you applied to):
+| File | Tweaks |
+|---|---|
+| `reply-graduate-ai-ml-engineer.tex` | Profile → LLM agents on AWS for clients; LangChain/LangGraph first; AWS/Docker first |
+| `anthropic-research-resident.tex` | Profile → mode-collapse research + LLM evaluation; fine-tuning/judge/vLLM first; SLURM first |
+| `hudson-river-trading-research-engineer.tex` | Profile → ML research engineering at scale; Python, C++ first; SLURM first |
+| `arm-graduate-machine-learning-engineer.tex` | Profile → ML engineering (PyTorch, vLLM) with C/C++; Python, C++, C first; PyTorch first |
+| `arm-graduate-ml-software-engineer.tex` | Profile → ML software engineering in Python/C++; Python, C++, C first; Docker/Git first |
