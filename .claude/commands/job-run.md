@@ -19,12 +19,13 @@ Arguments: $ARGUMENTS. "skip-cv" skips steps 3–4 and "skip-outreach" skips ste
 ## 2. Rank and write the shortlist
 Apply these rules strictly:
 - Exclude: 3+ years' experience, senior/lead/staff/principal titles, PhD required, closed deadlines,
-  summer-2027 internships, and UK roles with no sponsorship and no Graduate-visa acceptance
-  (this includes "must have unrestricted right to work for the programme").
+  summer-2027 internships, and UK roles whose DESCRIPTION explicitly says there is no visa sponsorship.
+- Sponsorship not stated, mixed, or only "must have right to work in the UK": KEEP the role, don't rank it
+  lower, and write the status as stated ("Not stated", "Mixed: check", "asks for UK right to work: check").
 - Internships only if off-cycle/term-time and they fit student-visa hours. Otherwise flag or drop them.
 - Flag UK programmes longer than 18 months when sponsorship isn't stated (that's the Graduate visa length).
 - Rank by: fit to my CV and target families (ML eng, AI eng, data science, quant research/dev, SWE) >
-  start-date fit (autumn 2027) > sponsorship clarity > company quality.
+  start-date fit (autumn 2027) > sponsorship explicitly offered > company quality.
 - Keep roles at companies in `already_applied`, but label them "already applied".
 
 Write `shortlist/<date>.md` in the same format as earlier shortlist files: a table with title, company,

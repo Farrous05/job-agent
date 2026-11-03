@@ -42,9 +42,21 @@ class FilterTests(unittest.TestCase):
     def test_uk_no_sponsorship_excluded(self):
         lseg = "Candidates should have the right to work in the UK without restrictions for the duration of the programme."
         self.assertFalse(filters.evaluate(job("Graduate Software Engineer", "We are unable to provide visa sponsorship."), CFG).keep)
-        self.assertFalse(filters.evaluate(job("Engineering Graduate Programme (Backend)", lseg), CFG).keep)
+        v = filters.evaluate(job("Engineering Graduate Programme (Backend)", lseg), CFG)
+        self.assertTrue(v.keep, v.reasons)   # right-to-work wording alone is not an explicit "no sponsorship"
+        self.assertIn("check", v.sponsorship)
         graphcore = "graduate opportunities are permanent positions, and we are unable to provide visa sponsorship."
         self.assertFalse(filters.evaluate(job("Graduate Machine Learning Engineer 2027", graphcore, "Bristol, UK"), CFG).keep)
+
+    def test_not_stated_or_mixed_kept(self):
+        self.assertTrue(filters.evaluate(job("Graduate Software Engineer", "Python."), CFG).keep)
+        v = filters.evaluate(job("Graduate Software Engineer",
+                                 "We sponsor visas for full-time roles. We cannot sponsor visas for internships."), CFG)
+        self.assertTrue(v.keep, v.reasons)
+        self.assertEqual(v.sponsorship, "Mixed statements: check")
+
+    def test_title_ignored_for_sponsorship(self):
+        self.assertTrue(filters.evaluate(job("Graduate SWE (no sponsorship)", "Python."), CFG).keep)
 
     def test_eu_no_sponsorship_needed(self):
         v = filters.evaluate(job("Software Engineer, New Grad", "We cannot sponsor visas.", loc="Paris, France"), CFG)

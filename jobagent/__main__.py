@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime
 from pathlib import Path
 
-from . import filters, report, sponsors, sources
+from . import filters, report, sources
 from .store import SeenStore
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -74,10 +74,9 @@ def cmd_run(args) -> int:
     bad = [k for k, s in status.items() if not s["ok"]]
     print(f"  {len(jobs)} jobs fetched; {len(bad)} sources failed (see data/source_status.json)")
 
-    register = sponsors.load(data)
     kept, excluded = [], {}
     for j in jobs:
-        v = filters.evaluate(j, cfg, sponsors.on_register(j.company, register))
+        v = filters.evaluate(j, cfg)
         if not v.keep:
             for r in v.reasons[:1]:
                 excluded[r] = excluded.get(r, 0) + 1

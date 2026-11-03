@@ -75,35 +75,36 @@ def years_required(text: str) -> int | None:
     return min(mins) if mins else None
 
 
-def sponsorship_status(text: str, region: str, company_on_register: bool | None) -> tuple[str, str]:
-    """Returns (status, verdict) where verdict in {'yes','no','graduate_visa','unknown'}."""
+def sponsorship_status(description: str, region: str) -> tuple[str, str]:
+    """Reads the job DESCRIPTION only. Returns (status, verdict); verdict in
+    {'yes', 'no', 'mixed', 'graduate_visa', 'unknown'}. Only an explicit 'no sponsorship'
+    statement gives 'no' (the only verdict that removes a job)."""
     if region == "eu":
         return "EU role: no sponsorship needed (French passport)", "yes"
-    t = text.lower()
+    t = description.lower()
     no = re.search(r"(unable|not able|cannot|can't|can not|do not|don't|will not|won't|not)\s+"
                    r"(to\s+)?(provide|offer|sponsor|support)\w*\s+(any\s+)?(visa|sponsorship|work permit|immigration)", t) \
         or re.search(r"(visa )?sponsorship (is )?not (available|provided|offered)", t) \
         or re.search(r"right to work in the uk without (the need for )?(visa )?sponsorship", t) \
-        or re.search(r"(unrestricted|full) right to work .{0,60}(duration|programme|program)", t) \
-        or re.search(r"right to work in the uk without (any )?restrictions?", t) \
-        or re.search(r"(must|need to|should) (already )?have the right to work in the uk", t) \
-        or re.search(r"no (visa )?sponsorship", t)
+        or re.search(r"no (visa )?sponsorship(?! (is )?(required|needed))", t)
     yes = re.search(r"(visa )?sponsorship (is )?(available|provided|offered|considered)", t) \
-        or re.search(r"(we|will|can|able to) (offer |provide )?(visa )?sponsor", t) \
+        or re.search(r"\b(we|will|can|able to) (offer |provide )?(visa )?sponsor", t) \
         or re.search(r"skilled worker (visa )?sponsor", t)
-    grad = re.search(r"graduate (route )?visa", t)
-    if yes and not no:
+    grad = re.search(r"graduate (route )?visa", t) and not re.search(r"(not|no)\s+(accept|eligible).{0,30}graduate visa", t)
+    if yes and no:
+        return "Mixed statements: check", "mixed"
+    if yes:
         return "Sponsorship offered (stated)", "yes"
-    if grad and not re.search(r"(not|no)\s+(accept|eligible).{0,30}graduate visa", t):
-        return "Graduate visa mentioned/accepted (stated)", "graduate_visa"
+    if grad:
+        return "Graduate visa accepted (stated)", "graduate_visa"
     if no:
         return "No sponsorship (stated)", "no"
-    reg = {True: "company IS on UK sponsor register", False: "company NOT found on UK sponsor register",
-           None: "sponsor register not checked"}[company_on_register]
-    return f"Not stated; {reg}", "unknown"
+    if re.search(r"right to work in the uk", t):
+        return "Not stated (asks for UK right to work: check)", "unknown"
+    return "Not stated", "unknown"
 
 
-def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Verdict:
+def evaluate(job: Job, cfg: dict) -> Verdict:
     f = cfg["filters"]
     title = job.title
     tl = title.lower()
@@ -155,7 +156,7 @@ def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Ve
     if v.region == "other":
         v.keep = False
         v.reasons.append("location outside UK/EU")
-    status, sv = sponsorship_status(text, v.region, company_on_register)
+    status, sv = sponsorship_status(job.description, v.region)
     v.sponsorship = status
     if v.region == "uk" and sv == "no":
         v.keep = False
@@ -190,9 +191,8 @@ def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Ve
     hits = [k for k in CV_KEYWORDS if k in desc or k in tl]
     score += min(len(hits), 12) * 0.75
     # sponsorship clarity
-    score += {"yes": 3, "graduate_visa": 3, "unknown": 0}.get(sv, 0)
-    if v.region == "uk" and company_on_register:
-        score += 1
+    # sponsorship: only an explicit statement counts; "not stated" changes nothing
+    score += {"yes": 3, "graduate_visa": 3}.get(sv, 0)
     # location preference
     if v.region == "uk" and not any(c in job.location.lower() for c in cfg["locations"]["uk_prefer"]):
         score -= 2

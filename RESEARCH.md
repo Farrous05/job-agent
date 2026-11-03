@@ -35,7 +35,7 @@ Why:
 
 **Live test (3 Nov 2026, after network access was opened):** 24 boards fetched without errors, 6,021 jobs.
 Wayve is on Ashby, not Greenhouse. Google DeepMind, G-Research and Mistral have no usable public board, so they're
-checked by web search. The GOV.UK sponsor register download works. Workday (NVIDIA) works.
+checked by web search. Workday (NVIDIA) works.
 
 | Source | Access | Key? | Reliability | Coverage for you | Status |
 |---|---|---|---|---|---|
@@ -47,14 +47,14 @@ checked by web search. The GOV.UK sponsor register download works. Workday (NVID
 | Bright Network / Gradcracker / TARGETjobs | HTML only; no API or RSS found | No | Low to scrape | Best for UK grad schemes and deadlines | Via `/job-run` web search (worked well in first run) |
 | Reed.co.uk Jobseeker API | JSON | Free key | High | UK aggregator, grad filter | Optional (`REED_API_KEY`) |
 | Adzuna API | JSON | Free key (app id + key) | High | UK/EU aggregator | Not wired in (Reed covers the UK) |
-| GOV.UK Register of Licensed Sponsors (CSV) | Public CSV, updated often | No | High | Sponsorship check for every UK role | Implemented (`jobagent/sponsors.py`) |
+| GOV.UK Register of Licensed Sponsors (CSV) | Public CSV | No | Medium: name matching gave false hits (e.g. 'Alan' matched 21 firms) | Can sponsor ≠ will sponsor this role | Tried, then removed; only explicit statements in the job description are used |
 | LinkedIn job search via your browser | Signed-in browser | — | Medium | Very broad | Optional; ToS bans scraping and bots, so keep it manual/low-volume |
 
 ## Things that matter for your filters
 - The Graduate visa is **18 months** for applications made from 1 Jan 2027. You'll apply after Sept 2027, so
   2-year UK programmes that don't sponsor are risky. The agent flags these.
-- Many UK schemes say "right to work in the UK without restrictions for the duration of the programme"
-  (e.g. LSEG). That means no sponsorship and no Graduate visa, so the agent excludes them.
+- A UK role is removed only if its description explicitly says there's no sponsorship. Wording like
+  "right to work in the UK without restrictions" (e.g. LSEG) is kept and marked "check".
 - Full-time off-cycle internships during the MSc (e.g. UBS April–Sept 2027) exceed student-visa hours, so they're
   excluded. Off-cycle roles starting **after** graduation (Graduate visa) are fine.
 

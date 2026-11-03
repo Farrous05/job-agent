@@ -5,8 +5,8 @@ Why it's built this way: see [RESEARCH.md](RESEARCH.md).
 
 **How it works**
 1. `python3 -m jobagent run` fetches public ATS feeds (Greenhouse, Lever, Ashby, Workday) for the companies in
-   `config/companies.toml`. It filters them with your rules in `config/profile.toml`, checks UK companies against
-   the GOV.UK sponsor register, skips anything in `seen_jobs.json` and writes `shortlist/YYYY-MM-DD.md`.
+   `config/companies.toml`. It filters them with your rules in `config/profile.toml`, reads each description for an explicit
+   sponsorship statement, skips anything in `seen_jobs.json` and writes `shortlist/YYYY-MM-DD.md`.
    No LLM, free, safe to schedule.
 2. `/job-run` inside Claude Code does the judgement work. It runs the fetcher, checks company pages and UK grad
    boards by web search, ranks the roles, reviews the CV (`/cv-review`) and drafts LinkedIn notes (`/outreach`).
@@ -14,7 +14,7 @@ Why it's built this way: see [RESEARCH.md](RESEARCH.md).
 ```
 config/profile.toml      your filters, targets, already-applied list
 config/companies.toml    ATS boards + [[watch]] companies checked by web search
-jobagent/                fetcher, filters, sponsor register, seen store (Python stdlib only)
+jobagent/                fetcher, filters, seen store (Python stdlib only)
 seen_jobs.json           every job already reported (reruns show only new ones)
 shortlist/DATE.md        top 15 per run
 outreach/DATE.md         people + draft connection notes (you send them)
