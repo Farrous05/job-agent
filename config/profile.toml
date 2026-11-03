@@ -7,6 +7,7 @@ cv_path = "cv/cv.tex"
 graduation = "2027-09"          # MSc ML, UCL
 target_start = "2027 autumn"
 home_city = "London"
+languages = ["en", "fr", "ar"]  # postings in, or requiring, other languages rank lower
 # Companies you've already applied to: their roles stay in the list, marked "already applied".
 already_applied = ["Bloomberg", "Data Reply", "G-Research", "G Research", "PwC"]
 
@@ -37,8 +38,15 @@ eu = [# countries and regions (EU + EEA + Switzerland)
       "warsaw", "krakow", "kraków", "wroclaw", "wrocław", "gdansk", "vienna", "brussels", "antwerp", "ghent", "leuven",
       "prague", "brno", "bucharest", "cluj", "budapest", "sofia", "athens", "zagreb", "ljubljana", "bratislava",
       "tallinn", "riga", "vilnius", "limassol", "valletta", "reykjavik"]
-# UK cities other than London are allowed but ranked lower.
-uk_prefer = ["london"]
+# City priority: every city in your regions is allowed, but bigger hubs rank higher.
+# Score bonus per tier (best tier among a posting's locations wins; remote = 0).
+city_weights = { preferred = 2.0, hub = 1.5, major = 0.5, other = -1.0 }
+[locations.city_tiers]
+preferred = ["london"]
+hub = ["paris", "amsterdam", "berlin", "munich", "münchen", "zurich", "zürich", "dublin"]
+major = ["madrid", "barcelona", "milan", "stockholm", "copenhagen", "brussels", "vienna", "lisbon", "frankfurt",
+         "hamburg", "geneva", "warsaw", "prague", "helsinki", "oslo", "rotterdam", "eindhoven", "lyon",
+         "cambridge", "oxford", "edinburgh", "manchester", "bristol", "zug", "lausanne"]
 
 [filters]
 # PhD is handled separately: a role is dropped only if it is PhD-only (titles or text that also
@@ -50,7 +58,7 @@ exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "ma
                        "business developer", "apprentice", "trading days", "insight", "kickstarter",
                        "futurefocus", "open day", "spring week", "surveyor", "civil engineer",
                        "structural engineer", "mechanical engineer", "electrical engineer", "quality engineer"]
-max_years_experience = 2        # "3+ years" and above is excluded
+max_years_experience = 2        # "3+ years" and "2-3 years" are excluded; "1-3 years" is kept
 exclude_summer_internships = true   # summer 2027 clashes with the MSc dissertation (visa)
 exclude_graduation_years = ["2028", "2029"]   # roles for later grads
 
@@ -65,7 +73,8 @@ tier1 = ["Google DeepMind", "DeepMind", "Anthropic", "OpenAI", "Jane Street", "H
 tier2 = ["Revolut", "Monzo", "Wise", "Bloomberg", "Cohere", "Synthesia", "PolyAI", "Faculty",
          "Helsing", "Graphcore", "Datadog", "Cloudflare", "Tower Research", "Man Group",
          "Spotify", "Arm", "Criteo", "Booking.com", "Adyen", "Celonis", "DeepL",
-         "Poolside", "Flow Traders", "Dataiku", "Doctolib", "Mollie", "N26", "Wolt", "SAP", "Zalando", "ASML"]
+         "Poolside", "Flow Traders", "Dataiku", "Doctolib", "Mollie", "N26", "Wolt", "SAP", "Zalando", "ASML",
+         "ARM", "Ericsson", "UBS", "Techwolf"]
 
 [freehire]
 # Aggregator search across ~185k companies (startups included). Set enabled = false to switch off.
