@@ -73,6 +73,17 @@ class FilterTests(unittest.TestCase):
         v = filters.evaluate(job("Research Engineer, Pretraining", "Build large models."), CFG)
         self.assertIn("not labelled entry-level: check experience bar", v.flags)
 
+    def test_europe_locations(self):
+        for loc in ["Hamburg", "Lyon", "Eindhoven", "Bucharest", "Zug", "Aarhus, Denmark", "Remote, Europe"]:
+            self.assertEqual(filters.region_of(loc, CFG), "eu", loc)
+        for loc in ["Kyiv, Ukraine", "Porto Alegre, Brazil", "Belgrade, Serbia", "Toronto"]:
+            self.assertEqual(filters.region_of(loc, CFG), "other", loc)
+        self.assertEqual(filters.region_of("London, United Kingdom", CFG), "uk")
+
+    def test_early_start_flag(self):
+        v = filters.evaluate(job("Graduate ML Engineer", "the next cohort expected to start in January 2027"), CFG)
+        self.assertIn("starts before you graduate (Sept 2027)", v.flags)
+
     def test_years_parser(self):
         self.assertEqual(filters.years_required("at least 5 years of relevant experience"), 5)
         self.assertIsNone(filters.years_required("a 2027 start, 12-month programme"))

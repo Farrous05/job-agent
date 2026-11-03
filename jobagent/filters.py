@@ -42,16 +42,26 @@ def _has(pat: str, text: str) -> bool:
     return re.search(pat, text, re.I) is not None
 
 
+def _any_word(words, text: str) -> bool:
+    return any(re.search(rf"(?<![a-zà-ÿ]){re.escape(w)}(?![a-zà-ÿ])", text) for w in words)
+
+
+NON_EU = r"\b(us|usa|united states|canada|apac|asia|india|brazil|mexico|san francisco|new york|seattle|nyc|sf|toronto|ca|ny|wa)\b"
+
+
 def region_of(location: str, cfg: dict) -> str:
-    loc = location.lower()
-    if any(w in loc for w in cfg["locations"]["uk"]) or re.search(r"\buk\b", loc):
-        return "uk"
-    if any(w in loc for w in cfg["locations"]["eu"]):
-        return "eu"
-    if "remote" in loc and not re.search(r"\b(us|usa|united states|canada|apac|asia|san francisco|new york|"
-                                         r"seattle|nyc|sf|toronto|ca|ny|wa)\b", loc):
-        return "eu"   # remote with no non-EU marker: keep, let Claude check
-    return "other"
+    """Whole-word match per listed location, so 'uk' doesn't hit 'Ukraine' and 'porto' doesn't hit
+    'Porto Alegre, Brazil'. Multi-location strings ('London; New York') pass if any part is UK/EU."""
+    parts = [p.strip() for p in re.split(r"[;/|]| or ", location.lower()) if p.strip()] or [""]
+    regions = set()
+    for loc in parts:
+        if _any_word(cfg["locations"]["uk"], loc):
+            regions.add("uk")
+        elif _any_word(cfg["locations"]["eu"], loc) and not re.search(NON_EU, loc):
+            regions.add("eu")
+        elif "remote" in loc and not re.search(NON_EU, location.lower()):
+            regions.add("eu")   # remote with no non-EU marker: keep, let Claude check
+    return "uk" if "uk" in regions else "eu" if "eu" in regions else "other"
 
 
 def years_required(text: str) -> int | None:
@@ -171,6 +181,10 @@ def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Ve
         score += 4
     if _has(r"immediate start|asap|start date:? (now|immediately)", text):
         score -= 3
+    if _has(r"start\w*[^.]{0,40}\b(january|february|march|april|may|june)\s+2027|"
+            r"\b(january|february|march|april|may|june)\s+2027\s+(start|cohort|intake)", text):
+        score -= 8
+        v.flags.append("starts before you graduate (Sept 2027)")
     # CV fit
     desc = job.description.lower()
     hits = [k for k in CV_KEYWORDS if k in desc or k in tl]
