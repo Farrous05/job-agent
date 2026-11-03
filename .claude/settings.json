@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": ["Bash(python3 -m jobagent:*)", "Bash(python3 -m unittest:*)", "Bash(scripts/build_cv.sh:*)",
+              "Bash(git diff:*)", "Bash(git status:*)", "Bash(date:*)", "WebSearch", "WebFetch"],
+    "deny": ["Bash(git merge:*)"]
+  }
+}
