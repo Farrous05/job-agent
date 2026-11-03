@@ -1,0 +1,74 @@
+# Region presets. config/profile.toml picks which ones you accept ([regions] accept = [...])
+# and your work rights in each ([work_rights]). Matching is whole-word and case-insensitive.
+# `iso` = ISO country codes used for the freehire aggregator search.
+# Add cities if postings in your area use only a city name.
+
+[uk]
+label = "UK"
+iso = ["gb"]
+words = ["united kingdom", "uk", "england", "scotland", "wales", "northern ireland", "great britain", "gb",
+         "london", "manchester", "birmingham", "leeds", "glasgow", "edinburgh", "bristol", "cambridge",
+         "oxford", "reading", "belfast", "cardiff", "liverpool", "newcastle", "sheffield", "nottingham",
+         "southampton", "brighton", "milton keynes", "guildford", "aberdeen", "dundee"]
+
+[eu]
+label = "EU / EEA / Switzerland"
+iso = ["fr", "nl", "de", "ie", "ch", "es", "pt", "it", "be", "lu", "at", "dk", "se", "fi", "no", "pl", "cz",
+       "ro", "hu", "gr", "ee", "lv", "lt", "si", "sk", "hr", "bg", "cy", "mt", "is"]
+words = ["europe", "emea", "eu", "france", "netherlands", "germany", "ireland", "switzerland", "spain", "portugal",
+         "italy", "sweden", "denmark", "poland", "austria", "belgium", "luxembourg", "finland", "norway", "czechia",
+         "czech republic", "romania", "hungary", "bulgaria", "greece", "croatia", "slovenia", "slovakia", "estonia",
+         "latvia", "lithuania", "cyprus", "malta", "iceland", "liechtenstein",
+         "paris", "lyon", "toulouse", "grenoble", "nice", "sophia antipolis", "lille", "bordeaux", "nantes", "montpellier",
+         "amsterdam", "rotterdam", "eindhoven", "utrecht", "the hague", "delft", "veldhoven",
+         "berlin", "munich", "münchen", "hamburg", "frankfurt", "cologne", "köln", "stuttgart", "düsseldorf", "leipzig",
+         "heidelberg", "karlsruhe", "tübingen", "darmstadt", "aachen", "bonn",
+         "dublin", "cork", "galway", "zurich", "zürich", "geneva", "lausanne", "basel", "zug", "bern",
+         "madrid", "barcelona", "valencia", "seville", "malaga", "lisbon", "lisboa", "porto", "milan", "rome", "turin", "bologna",
+         "stockholm", "gothenburg", "malmö", "lund", "copenhagen", "aarhus", "oslo", "bergen", "trondheim", "helsinki", "espoo",
+         "warsaw", "krakow", "kraków", "wroclaw", "wrocław", "gdansk", "vienna", "brussels", "antwerp", "ghent", "leuven",
+         "prague", "brno", "bucharest", "cluj", "budapest", "sofia", "athens", "zagreb", "ljubljana", "bratislava",
+         "tallinn", "riga", "vilnius", "limassol", "valletta", "reykjavik"]
+
+[us]
+label = "United States"
+iso = ["us"]
+words = ["united states", "usa", "us", "u.s.", "new york", "nyc", "san francisco", "sf", "bay area", "seattle",
+         "boston", "chicago", "austin", "los angeles", "washington, dc", "washington dc", "denver", "atlanta",
+         "miami", "palo alto", "mountain view", "menlo park", "sunnyvale", "san jose", "santa clara", "cambridge, ma",
+         "pittsburgh", "philadelphia", "dallas", "houston", "san diego", "portland", "salt lake city", "raleigh",
+         # states ("georgia" alone is ambiguous with the country, so only with a city or "usa")
+         "alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia, usa", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming", "duluth, georgia", "atlanta, georgia"]
+
+[canada]
+label = "Canada"
+iso = ["ca"]
+words = ["canada", "toronto", "montreal", "montréal", "vancouver", "ottawa", "calgary", "waterloo", "edmonton"]
+
+[australia_nz]
+label = "Australia / New Zealand"
+iso = ["au", "nz"]
+words = ["australia", "new zealand", "sydney", "melbourne", "brisbane", "perth", "canberra", "auckland", "wellington"]
+
+[singapore]
+label = "Singapore"
+iso = ["sg"]
+words = ["singapore"]
+
+[uae]
+label = "UAE"
+iso = ["ae"]
+words = ["united arab emirates", "uae", "dubai", "abu dhabi"]
+
+[asia]
+label = "Rest of Asia (used only to recognise non-accepted locations)"
+iso = []
+words = ["india", "bangalore", "bengaluru", "mumbai", "hyderabad", "pune", "gurugram", "delhi", "china", "shanghai",
+         "beijing", "shenzhen", "hong kong", "japan", "tokyo", "osaka", "korea", "seoul", "taiwan", "taipei", "hsinchu",
+         "apac", "asia"]
+
+[latam]
+label = "Latin America (used only to recognise non-accepted locations)"
+iso = []
+words = ["brazil", "são paulo", "sao paulo", "mexico", "mexico city", "argentina", "buenos aires", "colombia", "bogota",
+         "chile", "santiago", "costa rica", "porto alegre"]

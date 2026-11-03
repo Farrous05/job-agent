@@ -1,0 +1,66 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.45in,right=0.45in,top=0.4in,bottom=0.3in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xurl}
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=0.18in}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{3pt}
+
+% Entry header: bold title left, date right
+\newcommand{\entry}[2]{\vspace{5pt}\textbf{#1}\hfill\textbf{#2}\par}
+% Italic sub-line
+\newcommand{\sub}[1]{\textit{#1}\par}
+
+\begin{document}
+% Template used by /onboard to rebuild a CV that isn't in LaTeX. Fill ONLY with content from the person's CV.
+% Remove any section that has no content. Keep it to one page.
+
+\begin{center}
+    {\huge \textbf{FULL NAME}} \\[3pt]
+    \small PHONE $\bullet$ \href{mailto:EMAIL}{EMAIL} $\bullet$ CITY, COUNTRY \\
+    \small \href{https://LINK}{LINK} $\bullet$ \href{https://LINK}{LINK}
+\end{center}
+
+\section*{PROFILE}
+One or two sentences, taken from the person's own CV.
+
+\section*{EDUCATION}
+\entry{University}{Start -- End}
+Degree $\cdot$ Grade or honours \\
+\textit{Coursework:} Module, Module
+
+\section*{EXPERIENCE}
+\entry{Job title, Organisation}{Start -- End}
+\sub{City, Country $\cdot$ Full-time $\cdot$ Main tools}
+\begin{itemize}
+    \item Bullet from the CV.
+\end{itemize}
+
+\section*{PROJECTS}
+\entry{Project name (\href{https://LINK}{link})}{Tools}
+\begin{itemize}
+    \item Bullet from the CV.
+\end{itemize}
+
+\section*{SKILLS}
+\begin{itemize}
+    \item \textbf{Category:} skill, skill, skill
+\end{itemize}
+
+\section*{HONOURS \& LANGUAGES}
+\begin{itemize}
+    \item Award; Award
+    \item \textbf{Languages:} Language (level)
+\end{itemize}
+
+\end{document}

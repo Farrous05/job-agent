@@ -10,7 +10,15 @@ from jobagent.__main__ import load_cfg
 from jobagent.sources import Job
 from jobagent.store import SeenStore, fuzzy_key
 
-CFG, COMPANIES = load_cfg()
+import copy
+ROOT = Path(__file__).resolve().parent.parent
+CFG, COMPANIES = load_cfg(profile_path=ROOT / "config/profile.example.toml")
+
+
+def cfg_with(**filters_overrides):
+    c = copy.deepcopy(CFG)
+    c["filters"].update(filters_overrides)
+    return c
 
 
 def job(title, desc="", loc="London, UK", company="Acme"):
@@ -79,7 +87,10 @@ class FilterTests(unittest.TestCase):
         self.assertFalse(filters.evaluate(job("New Grad SWE", loc="New York, NY"), CFG).keep)
 
     def test_summer_intern_excluded_offcycle_kept(self):
-        self.assertFalse(filters.evaluate(job("Quant Research Intern", "10-week summer internship 2027"), CFG).keep)
+        self.assertFalse(filters.evaluate(job("Quant Research Intern", "10-week summer internship 2027"),
+                                          cfg_with(exclude_summer_internships=True)).keep)
+        self.assertTrue(filters.evaluate(job("Quant Research Intern", "10-week summer internship 2027"), CFG).keep)
+        self.assertFalse(filters.evaluate(job("ML Intern"), cfg_with(allow_internships=False)).keep)
         v = filters.evaluate(job("Off-Cycle Quant Internship", "6-month off-cycle internship"), CFG)
         self.assertTrue(v.keep, v.reasons)
         self.assertTrue(v.internship)
@@ -106,11 +117,42 @@ class FilterTests(unittest.TestCase):
 
     def test_early_start_flag(self):
         v = filters.evaluate(job("Graduate ML Engineer", "the next cohort expected to start in January 2027"), CFG)
-        self.assertIn("starts before you graduate (Sept 2027)", v.flags)
+        self.assertIn("starts before you graduate (June 2027)", v.flags)
 
     def test_years_parser(self):
         self.assertEqual(filters.years_required("at least 5 years of relevant experience"), 5)
         self.assertIsNone(filters.years_required("a 2027 start, 12-month programme"))
+
+
+class GenericProfileTests(unittest.TestCase):
+    def test_longest_region_match(self):
+        self.assertEqual(filters.region_of("Cambridge, MA", CFG), "other")      # US, not UK Cambridge
+        self.assertEqual(filters.region_of("Cambridge, UK", CFG), "uk")
+        self.assertEqual(filters.region_of("Porto Alegre, Brazil", CFG), "other")
+        self.assertEqual(filters.region_of("Porto, Portugal", CFG), "eu")
+
+    def test_us_citizen_profile(self):
+        c = copy.deepcopy(CFG)
+        c["regions"]["accept"] = ["us"]
+        c["work_rights"] = {"us": "free"}
+        v = filters.evaluate(job("New Grad Software Engineer", "We do not sponsor visas.", "New York, NY"), c)
+        self.assertTrue(v.keep, v.reasons)                       # free there: sponsorship text irrelevant
+        self.assertFalse(filters.evaluate(job("New Grad Software Engineer", loc="London"), c).keep)
+        for loc in ["Michigan", "Remote - California", "Duluth, Georgia, United States"]:
+            self.assertEqual(filters.region_of(loc, c), "us", loc)
+
+    def test_needs_sponsorship_us_wording(self):
+        c = copy.deepcopy(CFG)
+        c["regions"]["accept"] = ["us"]
+        c["work_rights"] = {"us": "needs_sponsorship"}
+        v = filters.evaluate(job("New Grad SWE", "Candidates must not now or in the future require sponsorship.",
+                                 "Austin"), c)
+        self.assertFalse(v.keep)
+
+    def test_missing_profile_message(self):
+        with self.assertRaises(SystemExit) as e:
+            load_cfg(profile_path=Path("/nonexistent/profile.toml"))
+        self.assertIn("/onboard", str(e.exception))
 
 
 class SourceTests(unittest.TestCase):

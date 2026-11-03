@@ -1,0 +1,81 @@
+# Example profile. Run /onboard in Claude Code to create your own config/profile.toml
+# (it interviews you and fills this in). Or copy this file to config/profile.toml and edit it.
+# The fetcher (python3 -m jobagent) and the Claude Code commands both read config/profile.toml.
+
+[profile]
+name = "Alex Example"
+cv_path = "cv/cv.tex"
+degree = "MSc Computer Science"
+schools = ["Example University"]        # for alumni-first outreach
+graduation = "2027-06"                  # YYYY-MM; "" if you've already graduated
+earliest_start = "2027-07"              # YYYY-MM you can start
+home_city = "London"
+level = "graduate"                      # graduate | junior | mid
+already_applied = []                    # companies: still shown, marked "already applied"
+dream_companies = []                    # ranked a little higher
+
+[regions]
+accept = ["uk", "eu"]                   # names from config/regions.toml
+preferred_cities = ["london"]           # other cities in accepted regions are ranked a little lower
+accept_remote = true                    # keep "Remote" postings that name no non-accepted region
+
+[work_rights]
+# Per accepted region: "free" (you can work there without sponsorship) or "needs_sponsorship".
+# A needs_sponsorship role is removed ONLY if its description explicitly says it doesn't sponsor.
+uk = "needs_sponsorship"
+eu = "free"
+# Free-text notes Claude reads when judging roles (e.g. visa type, how long a post-study visa lasts).
+notes = "Student visa now; UK Graduate visa after graduating. EU citizen."
+
+[roles]
+# Role families matched on the job TITLE (regex, case-insensitive) with a weight for ranking.
+families = [
+  { name = "ml", weight = 10, pattern = 'machine learning|\bml\b|deep learning|\bmle\b|research engineer|applied scientist|nlp|computer vision' },
+  { name = "ai", weight = 10, pattern = '\bai\b|artificial intelligence|llm|genai|generative' },
+  { name = "quant", weight = 8, pattern = '\bquant(itative)?\b(?! surveyor)|algorithm(ic)? develop|\bresearch(er)?\b' },
+  { name = "data_science", weight = 8, pattern = 'data scien|data analyst|analytics|statistic' },
+  { name = "software", weight = 6, pattern = 'software|developer|\bswe\b|back[- ]?end|front[- ]?end|full[- ]?stack|platform engineer|data engineer|devops|(c\+\+|java|python|rust|go|cloud) engineer|graduate engineer' },
+]
+# Skills from YOUR CV (lower-case). Matched in job descriptions to rank fit and explain it.
+cv_keywords = ["python", "pytorch", "sql", "machine learning", "deep learning", "statistics", "docker", "aws"]
+
+[filters]
+exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "manager", "director", "head of",
+                       "vp", "vice president", "architect", "mid-level", "experienced", "sales", "recruiter",
+                       "consultant", "apprentice", "insight", "open day", "spring week", "surveyor",
+                       "civil engineer", "structural engineer", "mechanical engineer", "electrical engineer"]
+max_years_experience = 2                # roles asking for more are removed
+phd = "exclude_phd_only"                # exclude_phd_only | keep_all
+allow_internships = true
+exclude_summer_internships = false      # true if summer internships clash with your studies/visa
+internship_note = ""                    # e.g. "student visa: max 20h/week in term"
+
+[ranking]
+tier1 = ["Google DeepMind", "Anthropic", "OpenAI", "Jane Street", "Hudson River Trading", "Optiver",
+         "Palantir", "Databricks", "Stripe", "NVIDIA", "Meta", "Google"]
+tier2 = ["Revolut", "Monzo", "Wise", "Bloomberg", "Spotify", "Arm", "Booking.com", "Adyen", "Datadog", "Cloudflare"]
+
+[freehire]
+# Aggregator search across ~185k companies (startups included). Max 5 OR terms per query.
+enabled = true
+open_within_days = 30
+pages = 2
+queries = [
+  { q = '"machine learning" OR "ML engineer" OR "AI engineer" OR "LLM"', seniority = ["junior", "intern"] },
+  { q = '"data scientist" OR "data analyst" OR "applied scientist"', seniority = ["junior", "intern"] },
+  { q = '"software engineer" OR "software developer" OR "backend engineer"', seniority = ["junior"] },
+  { q = 'graduate OR "new grad" OR "early careers" OR "2027"' },
+]
+
+[reed]
+# UK only; needs REED_API_KEY. Free key: https://www.reed.co.uk/developers/jobseeker
+queries = ["graduate machine learning", "graduate software engineer", "graduate data scientist"]
+
+[outreach]
+enabled = true
+per_role = 2
+top_roles = 10
+
+[output]
+shortlist_size = 15
+candidates_size = 80

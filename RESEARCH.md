@@ -51,13 +51,13 @@ checked by web search. Workday (NVIDIA) works.
 | GOV.UK Register of Licensed Sponsors (CSV) | Public CSV | No | Medium: name matching gave false hits (e.g. 'Alan' matched 21 firms) | Can sponsor ≠ will sponsor this role | Tried, then removed; only explicit statements in the job description are used |
 | LinkedIn job search via your browser | Signed-in browser | — | Medium | Very broad | Optional; ToS bans scraping and bots, so keep it manual/low-volume |
 
-## Things that matter for your filters
-- The Graduate visa is **18 months** for applications made from 1 Jan 2027. You'll apply after Sept 2027, so
-  2-year UK programmes that don't sponsor are risky. The agent flags these.
-- A UK role is removed only if its description explicitly says there's no sponsorship. Wording like
-  "right to work in the UK without restrictions" (e.g. LSEG) is kept and marked "check".
-- Full-time off-cycle internships during the MSc (e.g. UBS April–Sept 2027) exceed student-visa hours, so they're
-  excluded. Off-cycle roles starting **after** graduation (Graduate visa) are fine.
+## Things that matter for the filters
+- Work rights are per region (`[work_rights]` in the profile). A role in a region where you need
+  sponsorship is removed only if its description explicitly says it won't sponsor; "not stated" is kept.
+- Many UK schemes say "right to work in the UK without restrictions for the duration of the programme".
+  That's kept and marked "check", because it isn't an explicit statement about sponsorship.
+- Post-study visas have limited length (e.g. the UK Graduate visa is 18 months for applications from
+  1 Jan 2027). Put yours in `[work_rights].notes` so `/job-run` can flag programmes that outlast it.
 
 ## What others built (GitHub, Nov 2026)
 Reddit blocks this server, so I couldn't read the thread you linked. GitHub had the useful material:
@@ -82,4 +82,4 @@ Reddit blocks this server, so I couldn't read the thread you linked. GitHub had 
 - Reed API: [jobspipe write-up](https://jobspipe.dev/blog/reed-api), [reed-mcp](https://glama.ai/mcp/servers/soheilfallah/reed-mcp/tree)
 - UK sponsor register: [GOV.UK CSV example](https://www.gov.uk/csv-preview/6a3917a2c6e94f095f3efb8c/2026-06-22_-_Worker_and_Temporary_Worker.csv)
 - LinkedIn automation policy: [LinkedIn help: automated activity](https://www.linkedin.com/help/linkedin/answer/90586), [hiQ ruling blog](https://blog.linkedin.com/2022/november/4/update-hi-q-legal-proceeding)
-- Graduate visa change: [Accenture 2027 listing / visa notes](https://www.jointheintake.com/graduate-schemes/software-engineering), [HRT 2027 grads aggregator](https://www.kadoa.com/quant/job/hudsonrivertrading-software-engineer-c-or-python-2027-grads-c9e7c316)
+- UK Graduate visa change: [visa notes](https://www.jointheintake.com/graduate-schemes/software-engineering)

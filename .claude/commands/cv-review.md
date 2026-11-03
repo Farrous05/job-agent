@@ -8,7 +8,7 @@ Hard rules:
 - NEVER edit `cv/cv.tex` on the main working branch. General edits go on the git branch `cv-edits` only.
   Don't merge it. I merge after I approve.
 - NEVER invent experience, skills, results or metrics. If a bullet needs a number I haven't given you
-  (e.g. the TODO in the Max Planck entry), add it to the "Questions for you" list in `cv/cv_feedback.md`.
+  (e.g. a result with no figure), add it to the "Questions for you" list in `cv/cv_feedback.md`.
 - Every version must compile and fit on ONE page.
 
 Steps:

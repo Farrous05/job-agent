@@ -179,7 +179,7 @@ def smartrecruiters(company: str, token: str, **_) -> list[Job]:
 
 
 # --------------------------------------------------------------------------- reed (optional, needs key)
-def reed(queries: list[str], location: str = "London") -> list[Job]:
+def reed(queries: list[str], location: str = "United Kingdom") -> list[Job]:
     """Reed.co.uk Jobseeker API. Free key: https://www.reed.co.uk/developers/jobseeker"""
     key = os.environ.get("REED_API_KEY")
     if not key:
@@ -215,7 +215,9 @@ def freehire(cfg: dict) -> list[Job]:
     for q in fh["queries"]:
         params = [("q", q["q"]), ("description_format", "text"), ("limit", "50"),
                   ("open_within_days", str(fh.get("open_within_days", 30)))]
-        params += [("countries", c) for c in fh["countries"]]
+        countries = fh.get("countries") or [c for r in cfg["regions"]["accept"]
+                                             for c in cfg["_regions"][r].get("iso", [])]
+        params += [("countries", c) for c in countries]
         params += [("seniority", s) for s in q.get("seniority", [])]
         for page in range(fh.get("pages", 2)):
             qs = urllib.parse.urlencode(params + [("offset", str(page * 50))])

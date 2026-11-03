@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import tomllib
 from concurrent.futures import ThreadPoolExecutor
@@ -21,9 +22,20 @@ from .store import SeenStore, fuzzy_key
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def load_cfg(root: Path = ROOT) -> tuple[dict, dict]:
-    with open(root / "config/profile.toml", "rb") as fh:
+def load_cfg(root: Path = ROOT, profile_path: Path | None = None) -> tuple[dict, dict]:
+    """Loads config/profile.toml (or JOBAGENT_PROFILE / profile_path), regions and companies."""
+    path = profile_path or Path(os.environ.get("JOBAGENT_PROFILE", root / "config/profile.toml"))
+    if not path.exists():
+        raise SystemExit("No config/profile.toml yet. Run /onboard in Claude Code "
+                         "(or copy config/profile.example.toml to config/profile.toml and edit it).")
+    with open(path, "rb") as fh:
         profile = tomllib.load(fh)
+    with open(root / "config/regions.toml", "rb") as fh:
+        regions = tomllib.load(fh)
+    for name in profile["regions"]["accept"]:
+        if name not in regions:
+            raise SystemExit(f"Unknown region '{name}' in profile; choose from {', '.join(regions)}")
+    profile["_regions"] = regions
     with open(root / "config/companies.toml", "rb") as fh:
         companies = tomllib.load(fh)
     return profile, companies
@@ -57,8 +69,11 @@ def fetch_all(companies: dict, cfg: dict) -> tuple[list[sources.Job], dict]:
     except sources.SourceError as e:
         status["freehire"] = {"ok": False, "jobs": 0, "error": str(e)}
     try:
-        r = sources.reed(["graduate machine learning", "graduate software engineer", "graduate data scientist",
-                          "graduate quantitative"])
+        r = []
+        if "uk" in cfg["regions"]["accept"]:
+            home = cfg["profile"].get("home_city", "")
+            loc = home if filters.region_of(home, cfg) == "uk" else "United Kingdom"
+            r = sources.reed(cfg.get("reed", {}).get("queries", []), location=loc)
         status["reed"] = {"ok": True, "jobs": len(r), "error": None if r else "REED_API_KEY not set"}
         jobs.extend(r)
     except sources.SourceError as e:
