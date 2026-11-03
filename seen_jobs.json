@@ -119,6 +119,134 @@
       "fuzzy": "mistralai::softwareengineer",
       "first_reported": "2026-11-03",
       "status": "reported"
+    },
+    "gh:imc:4914883101": {
+      "company": "IMC",
+      "title": "Graduate Deep Learning Researcher  - London",
+      "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4914883101",
+      "fuzzy": "imc::deeplearningresearcher",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:jumptrading:7977132": {
+      "company": "Jump Trading",
+      "title": "Campus ML Research Engineer (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=7977132",
+      "fuzzy": "jump::campusmlresearchengineer",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:databricks:8847747002": {
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - London",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8847747002",
+      "fuzzy": "databricks::softwareengineer",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:jumptrading:8050796": {
+      "company": "Jump Trading",
+      "title": "Campus Quantitative Researcher (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=8050796",
+      "fuzzy": "jump::campusquantitativeresearcher",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:drweng:7276024": {
+      "company": "DRW",
+      "title": "Quantitative Researcher - Machine Learning",
+      "url": "https://job-boards.greenhouse.io/drweng/jobs/7276024",
+      "fuzzy": "drw::quantitativeresearchermachinelearning",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:stripe:8130930": {
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130930",
+      "fuzzy": "stripe::softwareengineer",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "lv:palantir:2aa14e4f-d406-486e-9aa8-6ff3358d70a0": {
+      "company": "Palantir",
+      "title": "Forward Deployed Software Engineer, New Grad - Commercial",
+      "url": "https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0",
+      "fuzzy": "palantir::forwarddeployedsoftwareengineercommercial",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "lv:palantir:9265acce-12cd-4179-8c50-55d15963532b": {
+      "company": "Palantir",
+      "title": "Software Engineer, New Grad - Infrastructure",
+      "url": "https://jobs.lever.co/palantir/9265acce-12cd-4179-8c50-55d15963532b",
+      "fuzzy": "palantir::softwareengineerinfrastructure",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:databricks:6866549002": {
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - Amsterdam",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002",
+      "fuzzy": "databricks::softwareengineeramsterdam",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:stripe:8130881": {
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130881",
+      "fuzzy": "stripe::softwareengineer",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:imc:4892687101": {
+      "company": "IMC",
+      "title": "Graduate Quant Researcher - Digital Assets",
+      "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4892687101",
+      "fuzzy": "imc::quantresearcherdigitalassets",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:drweng:8007851": {
+      "company": "DRW",
+      "title": "Software Developer",
+      "url": "https://job-boards.greenhouse.io/drweng/jobs/8007851",
+      "fuzzy": "drw::softwaredeveloper",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:jumptrading:7217856": {
+      "company": "Jump Trading",
+      "title": "Campus Crypto Researcher (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=7217856",
+      "fuzzy": "jump::campuscryptoresearcher",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "lv:palantir:b4aa51a2-bc43-4d67-bf55-12db7feefb3a": {
+      "company": "Palantir",
+      "title": "Forward Deployed Software Engineer, New Grad - UK Government",
+      "url": "https://jobs.lever.co/palantir/b4aa51a2-bc43-4d67-bf55-12db7feefb3a",
+      "fuzzy": "palantir::forwarddeployedsoftwareengineergovernment",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:databricks:6886281002": {
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - Berlin",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=6886281002",
+      "fuzzy": "databricks::softwareengineerberlin",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
+    },
+    "gh:databricks:8133691002": {
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - Aarhus",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8133691002",
+      "fuzzy": "databricks::softwareengineeraarhus",
+      "first_reported": "2026-11-03-live",
+      "status": "reported"
     }
   }
 }

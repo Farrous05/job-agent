@@ -33,9 +33,9 @@ Why:
 
 ## Data sources
 
-"Reachable" was tested from this cloud session. **Its network policy blocked every job host** (403 at the
-proxy), so I couldn't test direct reachability here. The status column is based on documentation and on live
-postings found through web search. Run `python3 -m jobagent run` on your laptop to confirm.
+**Live test (3 Nov 2026, after network access was opened):** 24 boards fetched without errors, 6,021 jobs.
+Wayve is on Ashby, not Greenhouse. Google DeepMind, G-Research and Mistral have no usable public board, so they're
+checked by web search. The GOV.UK sponsor register download works. Workday (NVIDIA) works.
 
 | Source | Access | Key? | Reliability | Coverage for you | Status |
 |---|---|---|---|---|---|

@@ -65,6 +65,14 @@ class FilterTests(unittest.TestCase):
         b = filters.evaluate(job("Software Developer", "java"), CFG)
         self.assertGreater(a.score, b.score)
 
+    def test_live_run_regressions(self):
+        self.assertFalse(filters.evaluate(job("Research Engineer", loc="Remote-Friendly (Travel-Required) | San Francisco, CA"), CFG).keep)
+        self.assertFalse(filters.evaluate(job("Algorithm Developer (Quant Research & Trading) – 2027 PhDs"), CFG).keep)
+        self.assertFalse(filters.evaluate(job("Equity Options Trader", loc="Amsterdam"), CFG).keep)
+        self.assertTrue(filters.evaluate(job("Quantitative Trader/Researcher Graduate Programme 2027"), CFG).keep)
+        v = filters.evaluate(job("Research Engineer, Pretraining", "Build large models."), CFG)
+        self.assertIn("not labelled entry-level: check experience bar", v.flags)
+
     def test_years_parser(self):
         self.assertEqual(filters.years_required("at least 5 years of relevant experience"), 5)
         self.assertIsNone(filters.years_required("a 2027 start, 12-month programme"))
@@ -111,6 +119,10 @@ class StoreTests(unittest.TestCase):
             s2 = SeenStore(Path(d) / "seen.json")
             self.assertTrue(s2.seen("gh:wehrtyou:99", "Hudson River Trading", "Software Engineer (C++ or Python) – 2027 Grads"))
             self.assertFalse(s2.seen("gh:wehrtyou:98", "Hudson River Trading", "Algorithm Developer - 2027 Grads"))
+
+    def test_company_alias(self):
+        self.assertEqual(fuzzy_key("IMC Trading", "Graduate Software Engineer (2027)"),
+                         fuzzy_key("IMC", "Graduate Software Engineer (2027)"))
 
     def test_shortlist_roundtrip(self):
         with tempfile.TemporaryDirectory() as d:

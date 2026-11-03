@@ -13,7 +13,9 @@ from pathlib import Path
 
 
 def fuzzy_key(company: str, title: str) -> str:
-    c = re.sub(r"[^a-z0-9]+", "", company.lower())
+    c = re.sub(r"\b(trading|technologies|technology|capital|group|ltd|limited|inc|llc|plc|labs|ai|"
+               r"research|securities|markets|uk)\b", " ", company.lower())
+    c = re.sub(r"[^a-z0-9]+", "", c) or re.sub(r"[^a-z0-9]+", "", company.lower())
     t = re.sub(r"\(.*?\)|[-–—:|,]", " ", title.lower())
     t = re.sub(r"\b(20\d\d|start|grads?|graduate|new|london|uk|programme|program)\b", " ", t)
     t = re.sub(r"[^a-z0-9]+", "", t)
@@ -26,7 +28,8 @@ class SeenStore:
         self.data = {"jobs": {}}
         if path.exists():
             self.data = json.loads(path.read_text() or '{"jobs": {}}')
-        self._fuzzy = {v.get("fuzzy") for v in self.data["jobs"].values()}
+        # recompute so key-format changes apply to old entries too
+        self._fuzzy = {fuzzy_key(v["company"], v["title"]) for v in self.data["jobs"].values()}
 
     def seen(self, source_id: str, company: str, title: str) -> bool:
         return source_id in self.data["jobs"] or fuzzy_key(company, title) in self._fuzzy

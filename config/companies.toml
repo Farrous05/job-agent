@@ -7,7 +7,7 @@
 #   workday:    <tenant>.wd<N>.myworkdayjobs.com/<site> (API: POST .../wday/cxs/<tenant>/<site>/jobs)
 #   smartrecruiters: jobs.smartrecruiters.com/<token>
 #
-# verified = true means the token was seen in a live job URL during research (Nov 2026).
+# verified = true means the board returned jobs in a live fetch (3 Nov 2026).
 # Unverified tokens are best guesses. After each run, data/source_status.json lists the boards
 # that failed (404 etc.). Fix or delete those entries.
 #
@@ -55,79 +55,67 @@ verified = true
 company = "Optiver"
 ats = "greenhouse"
 token = "optiverus"
-verified = false
-
-[[board]]
-company = "Google DeepMind"
-ats = "greenhouse"
-token = "deepmind"
-verified = false
+verified = true
 
 [[board]]
 company = "Anthropic"
 ats = "greenhouse"
 token = "anthropic"
-verified = false
+verified = true
 
 [[board]]
 company = "Isomorphic Labs"
 ats = "greenhouse"
 token = "isomorphiclabs"
-verified = false
+verified = true
 
 [[board]]
 company = "Databricks"
 ats = "greenhouse"
 token = "databricks"
-verified = false
+verified = true
 
 [[board]]
 company = "Stripe"
 ats = "greenhouse"
 token = "stripe"
-verified = false
+verified = true
 
 [[board]]
 company = "Monzo"
 ats = "greenhouse"
 token = "monzo"
-verified = false
+verified = true
 
 [[board]]
 company = "Cloudflare"
 ats = "greenhouse"
 token = "cloudflare"
-verified = false
+verified = true
 
 [[board]]
 company = "Datadog"
 ats = "greenhouse"
 token = "datadog"
-verified = false
+verified = true
 
 [[board]]
 company = "Wayve"
-ats = "greenhouse"
+ats = "ashby"
 token = "wayve"
-verified = false
+verified = true
 
 [[board]]
 company = "Helsing"
 ats = "greenhouse"
 token = "helsing"
-verified = false
+verified = true
 
 [[board]]
 company = "Jump Trading"
 ats = "greenhouse"
 token = "jumptrading"
-verified = false
-
-[[board]]
-company = "G-Research"
-ats = "greenhouse"
-token = "gresearch"
-verified = false
+verified = true
 
 [[board]]
 company = "Palantir"
@@ -136,16 +124,10 @@ token = "palantir"
 verified = true
 
 [[board]]
-company = "Mistral AI"
-ats = "lever"
-token = "mistral"
-verified = false
-
-[[board]]
 company = "Spotify"
 ats = "lever"
 token = "spotify"
-verified = false
+verified = true
 
 [[board]]
 company = "ElevenLabs"
@@ -157,19 +139,19 @@ verified = true
 company = "OpenAI"
 ats = "ashby"
 token = "openai"
-verified = false
+verified = true
 
 [[board]]
 company = "Cohere"
 ats = "ashby"
 token = "cohere"
-verified = false
+verified = true
 
 [[board]]
 company = "Synthesia"
 ats = "ashby"
 token = "synthesia"
-verified = false
+verified = true
 
 [[board]]
 company = "NVIDIA"
@@ -178,7 +160,7 @@ token = "nvidia"
 host = "nvidia.wd5.myworkdayjobs.com"
 site = "NVIDIAExternalCareerSite"
 search = "graduate"
-verified = false
+verified = true
 
 # ---------------------------------------------------------------------------
 # No public ATS feed: checked by Claude in /job-run with WebSearch/WebFetch.
@@ -242,3 +224,18 @@ query = "Hugging Face junior OR new grad machine learning Paris"
 company = "UK graduate boards"
 url = "https://www.gradcracker.com/search/computing-technology/ai-machine-learning-graduate-jobs-in-london-and-south-east"
 query = "graduate machine learning 2027 London site:gradcracker.com OR site:brightnetwork.co.uk OR site:targetjobs.co.uk"
+
+[[watch]]
+company = "Google DeepMind"
+url = "https://deepmind.google/about/careers/"
+query = "Google DeepMind London graduate OR new grad OR student researcher 2027"
+
+[[watch]]
+company = "G-Research"
+url = "https://www.gresearch.com/join-us/"
+query = "G-Research graduate 2027 London"
+
+[[watch]]
+company = "Mistral AI"
+url = "https://mistral.ai/careers"
+query = "Mistral AI new grad OR junior Paris 2027"

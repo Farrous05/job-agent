@@ -32,8 +32,9 @@ uk_prefer = ["london"]
 
 [filters]
 exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "manager",
-                       "director", "head of", "vp", "architect", "phd", "postdoc",
-                       "post-doc", "mid-level", "experienced"]
+                       "director", "head of", "vp", "vice president", "architect", "phd", "postdoc",
+                       "post-doc", "phds", "mid-level", "experienced", "hardware", "fpga",
+                       "trading support", "sales", "recruiter"]
 max_years_experience = 2        # "3+ years" and above is excluded
 exclude_summer_internships = true   # summer 2027 clashes with the MSc dissertation (visa)
 exclude_graduation_years = ["2028", "2029"]   # roles for later grads
@@ -52,4 +53,4 @@ tier2 = ["Revolut", "Monzo", "Wise", "Bloomberg", "Cohere", "Synthesia", "PolyAI
 
 [output]
 shortlist_size = 15
-candidates_size = 40            # pool handed to Claude for the final ranking
+candidates_size = 80            # pool handed to Claude for the final ranking

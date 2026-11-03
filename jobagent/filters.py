@@ -11,7 +11,7 @@ FAMILY_PATTERNS = {
     "ml": r"machine learning|\bml\b|deep learning|\bmle\b|research engineer|applied scientist|nlp|computer vision",
     "ai": r"\bai\b|artificial intelligence|llm|genai|generative",
     "data_science": r"data scien|data analyst|analytics|statistic",
-    "quant": r"quant|algorithm(ic)? develop|trader|trading|research(er)?\b",
+    "quant": r"quant|algorithm(ic)? develop|research(er)?\b",
     "software": r"software|developer|engineer|swe\b|backend|full[- ]?stack|platform|infrastructure",
 }
 ENTRY_WORDS = r"graduate|new grad|grads?\b|entry|junior|campus|early career|university|2027|class of|associate programme|graduate programme"
@@ -48,7 +48,8 @@ def region_of(location: str, cfg: dict) -> str:
         return "uk"
     if any(w in loc for w in cfg["locations"]["eu"]):
         return "eu"
-    if "remote" in loc and not re.search(r"\b(us|usa|united states|canada|apac|asia)\b", loc):
+    if "remote" in loc and not re.search(r"\b(us|usa|united states|canada|apac|asia|san francisco|new york|"
+                                         r"seattle|nyc|sf|toronto|ca|ny|wa)\b", loc):
         return "eu"   # remote with no non-EU marker: keep, let Claude check
     return "other"
 
@@ -123,7 +124,7 @@ def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Ve
         v.reasons.append(f"{yrs}+ years' experience required")
 
     # --- internships
-    v.internship = _has(r"\bintern(ship)?\b|placement|industrial year|co-?op\b", title)
+    v.internship = _has(r"\bintern(ship)?\b|placement|industrial year|co-?op\b|working student|werkstudent", title)
     if v.internship:
         if f.get("exclude_summer_internships") and _has(r"summer|jun(e)?\s*[-–]|10[- ]week|12[- ]week", text) \
                 and not _has(r"off[- ]cycle|part[- ]time", text):
@@ -143,7 +144,7 @@ def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Ve
     v.region = region_of(job.location, cfg)
     if v.region == "other":
         v.keep = False
-        v.reasons.append(f"location outside UK/EU ({job.location or 'unknown'})")
+        v.reasons.append("location outside UK/EU")
     status, sv = sponsorship_status(text, v.region, company_on_register)
     v.sponsorship = status
     if v.region == "uk" and sv == "no":
@@ -160,8 +161,11 @@ def evaluate(job: Job, cfg: dict, company_on_register: bool | None = None) -> Ve
     score = max(fam_w.get(fm, 0) for fm in v.families)
     if _has(ENTRY_WORDS, title):
         score += 6
-    elif _has(ENTRY_WORDS, job.description[:1500]):
+    elif _has(ENTRY_WORDS + r"|recent graduate|no experience required|0-2 years|fellows|residen", job.description[:3000] + title):
         score += 3
+    else:
+        score -= 6
+        v.flags.append("not labelled entry-level: check experience bar")
     # start date fit
     if _has(r"(september|autumn|fall|summer|august|2027)\s*(start|intake)?.{0,20}2027|2027 start|start(ing)? in 2027", text):
         score += 4
