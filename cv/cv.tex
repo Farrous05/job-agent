@@ -45,10 +45,10 @@ BSc Computer Science $\cdot$ Grade: 15.43/20, top 4 in cohort \\
 \sub{Berlin, Germany $\cdot$ Full-time $\cdot$ PyTorch, Hugging Face Transformers, vLLM, SLURM, Python}
 \begin{itemize}
     \item Led a self-directed research project on conversational mode collapse in LLMs (models in a closed loop degrading into repetitive text), testing whether a model can detect the collapse state and recover from it.
-    \item Designed the methodology, built a 10,000-example training dataset, and fine-tuned Qwen 2.5 3B on the institute's HPC cluster using SLURM.
-    \item Added an LLM-as-a-judge evaluation pipeline to an existing NLP research codebase and ran inference with vLLM.
-    % TODO: add one bullet with the result, e.g. "Recovery rate improved from X% to Y%."
-    \item Result: the model detects its own collapse in unseen conversations and switches to a new topic.
+    \item Built an 8,504-example training set from 10,000 collected self-conversations, labelled by a 31B LLM judge validated at 95\% on known loops and known healthy text; found and fixed a writer-style confound by regenerating the healthy class with the same model.
+    \item Fully fine-tuned Qwen2.5-3B-Instruct on the institute's HPC cluster (SLURM) over five model versions; added an LLM-as-a-judge evaluation pipeline to an existing NLP research codebase and ran inference with vLLM.
+    \item Result: the final model detects collapse in unseen conversations and always names a new topic when it does; it was preferred over the previous best in 11 of 15 paired conversations and cut empty turns from 2.8\% to 0.4\%.
+    \item Showed in 500-turn runs that recovery is temporary (median $\sim$6 turns), matching theory that a closed loop cannot generate its own novelty.
 \end{itemize}
 
 \entry{Agentic Engineer, To Ai}{May 2024 -- Oct 2025}
