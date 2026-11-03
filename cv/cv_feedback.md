@@ -41,17 +41,17 @@ General edits are on branch **`cv-edits`** (not merged). Review them with
 - **EU applications:** consider adding "French citizen (EU right to work)" for IMC, Mistral, Bloomberg Dublin
   and Revolut EU offices. You stated this, so it's safe to add if you want it.
 
-## Tailored versions (`cv/tailored/`, based on the current `cv/cv.tex`, not on `cv-edits`)
+## Tailored versions (`cv/tailored/`, rebuilt from the APPROVED `cv-edits` version)
 G-Research is #2 on the shortlist but skipped because you've already applied. The top 5 not yet applied are:
 | File | Tweaks |
 |---|---|
-| `revolut-applied-ai-engineer.tex` | Profile → shipping LLM product features; ML skills lead with agents/fine-tuning/eval; merged To Ai prompt bullet |
+| `revolut-applied-ai-engineer.tex` | Profile → shipping LLM product features; ML skills lead with agents/fine-tuning/eval; Velora bullet leads with AI agents |
 | `hudson-river-trading-algorithm-developer.tex` | Profile → ML/statistical modelling for trading; tennis prediction above captioning; Python, C++ first |
 | `optiver-graduate-quantitative-researcher.tex` | Profile → academic ranking + research method; tennis project first; quantitative coursework first |
 | `jane-street-quantitative-researcher.tex` | OCaml first in languages; profile names OCaml/Python/C++; tennis project first |
-| `palantir-software-engineer-new-grad.tex` | Velora-Dev → Experience; profile leads with shipped production software; Languages/Infra before ML |
+| `palantir-software-engineer-new-grad.tex` | Profile leads with shipped production software; Languages/Infra before ML; To Ai backend bullet first |
 
-After you approve `cv-edits`, I'll regenerate the tailored files from the new master so they pick up the fixes.
+Approved on 2026-11-03 and tailored files rebuilt. Tracked-changes PDF: `cv/cv-changes.pdf` (red = removed, blue = added).
 
 ## Questions for you
 1. Max Planck: what's the measurable result? (e.g. collapse-detection accuracy on held-out conversations,
