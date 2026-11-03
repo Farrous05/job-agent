@@ -4,6 +4,7 @@
   python3 -m jobagent run --dry-run    same, but writes data/candidates/<date>.json only (no shortlist, no marking)
   python3 -m jobagent mark FILE.md     mark every job listed in a shortlist file as seen
   python3 -m jobagent status           show seen-job counts and last source errors
+  python3 -m jobagent view             build shortlist/*.html pages and open the newest in your browser
 """
 from __future__ import annotations
 
@@ -129,6 +130,7 @@ def cmd_run(args) -> int:
         store.add(r["source_id"], r["company"], r["title"], r["url"], run=run_date)
     store.save()
     print(f"Shortlist: {out.relative_to(ROOT)} ({len(rows)} roles)")
+    report.write_html(out, ROOT / "data", ROOT / "shortlist" / "LATEST.html", [])
     return 0
 
 
@@ -143,6 +145,23 @@ def cmd_mark(args) -> int:
                 n += 1
     store.save()
     print(f"Marked {n} new jobs as seen ({len(store.data['jobs'])} total).")
+    return 0
+
+
+def cmd_view(args) -> int:
+    files = sorted((ROOT / "shortlist").glob("*.md"), key=lambda f: f.stat().st_mtime)
+    if not files:
+        print("No shortlist yet. Run /job-run in Claude Code (or python3 -m jobagent run).")
+        return 1
+    for f in files:
+        report.write_html(f, ROOT / "data", f.with_suffix(".html"), files)
+    newest = files[-1].with_suffix(".html")
+    latest = ROOT / "shortlist" / "LATEST.html"
+    report.write_html(files[-1], ROOT / "data", latest, files)
+    print(f"Open: {latest.relative_to(ROOT)}  (same as {newest.name})")
+    if not args.no_open and sys.platform == "darwin":
+        import subprocess
+        subprocess.run(["open", str(latest)], check=False)
     return 0
 
 
@@ -168,10 +187,12 @@ def main(argv=None) -> int:
     m = sub.add_parser("mark")
     m.add_argument("files", nargs="+")
     sub.add_parser("status")
+    vw = sub.add_parser("view")
+    vw.add_argument("--no-open", action="store_true")
     args = ap.parse_args(argv)
     if args.cmd is None:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))
-    return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status}[args.cmd](args)
+    return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view}[args.cmd](args)
 
 
 if __name__ == "__main__":

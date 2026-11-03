@@ -45,7 +45,11 @@ per role. Top 15. Then run `python3 -m jobagent mark shortlist/<date>.md`.
 ## 4. Tailored CVs → part of `/cv-review`
 ## 5. Outreach → run `/outreach` steps (unless skip-outreach)
 
-## 6. Report back (keep it short)
+## 6. Open the results page
+Run `python3 -m jobagent view`. It turns the shortlist into `shortlist/LATEST.html` (one card per job with an
+Apply button and a short description) and opens it in the browser.
+
+## 7. Report back (keep it short)
 Show the shortlist table, the outreach drafts, the CV diff (`git diff main..cv-edits -- cv/cv.tex`) and the
 list of tailored files. End with: what to tune in `config/`, and the top 3 CV changes.
 Ask me for any missing metrics; don't guess them.

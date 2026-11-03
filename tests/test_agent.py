@@ -214,6 +214,22 @@ class StoreTests(unittest.TestCase):
         self.assertEqual(fuzzy_key("IMC Trading", "Graduate Software Engineer (2027)"),
                          fuzzy_key("IMC", "Graduate Software Engineer (2027)"))
 
+    def test_html_view(self):
+        with tempfile.TemporaryDirectory() as d:
+            md, data = Path(d) / "s.md", Path(d) / "data"
+            (data / "candidates").mkdir(parents=True)
+            (data / "candidates" / "x.json").write_text(json.dumps({"candidates": [
+                {"source_id": "gh:a:1", "description": "About Acme. We are a company that does many things. " * 3
+                 + "About the role: build ML models in PyTorch."}]}))
+            report.write_shortlist(md, "2026-11-03", [{"source_id": "gh:a:1", "title": "ML Eng", "company": "Acme",
+                                                        "location": "London", "url": "https://u", "why": "4/5: fits"}], [])
+            out = Path(d) / "s.html"
+            self.assertEqual(report.write_html(md, data, out, [md]), 1)
+            page = out.read_text()
+            self.assertIn('href="https://u"', page)
+            self.assertIn("4/5 fit", page)
+            self.assertIn("About the role: build ML models", page)
+
     def test_shortlist_roundtrip(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / "s.md"

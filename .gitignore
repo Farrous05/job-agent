@@ -6,3 +6,5 @@ __pycache__/
 .DS_Store
 cv/preview-*.png
 data/
+shortlist/*.html
+shortlist/preview.png
