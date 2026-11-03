@@ -39,6 +39,15 @@ class FilterTests(unittest.TestCase):
         self.assertFalse(filters.evaluate(job("Research Scientist", "A PhD is required."), CFG).keep)
         self.assertTrue(filters.evaluate(job("Research Engineer", "MSc or PhD in ML."), CFG).keep)
 
+    def test_phd_or_masters_kept(self):
+        for title, desc in [("Quantitative Researcher (PhD/Masters) 2027", ""), ("ML Engineer (MSc/PhD)", ""),
+                            ("Graduate ML Engineer", "You hold a PhD/MSc in machine learning."),
+                            ("Graduate ML Engineer", "PhD or Master's degree in ML required.")]:
+            self.assertTrue(filters.evaluate(job(title, desc), CFG).keep, title + desc)
+        for title, desc in [("Algorithm Developer - 2027 PhDs", ""), ("Research Scientist", "A PhD is required."),
+                            ("Research Intern", "You are currently pursuing a PhD in ML.")]:
+            self.assertFalse(filters.evaluate(job(title, desc), CFG).keep, title + desc)
+
     def test_uk_no_sponsorship_excluded(self):
         lseg = "Candidates should have the right to work in the UK without restrictions for the duration of the programme."
         self.assertFalse(filters.evaluate(job("Graduate Software Engineer", "We are unable to provide visa sponsorship."), CFG).keep)

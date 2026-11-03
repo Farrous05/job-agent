@@ -41,9 +41,11 @@ eu = [# countries and regions (EU + EEA + Switzerland)
 uk_prefer = ["london"]
 
 [filters]
+# PhD is handled separately: a role is dropped only if it is PhD-only (titles or text that also
+# accept a Master's, e.g. "PhD/Masters", are kept).
 exclude_title_words = ["senior", "sr.", "sr ", "lead", "staff", "principal", "manager",
-                       "director", "head of", "vp", "vice president", "architect", "phd", "postdoc",
-                       "post-doc", "phds", "mid-level", "experienced", "hardware", "fpga",
+                       "director", "head of", "vp", "vice president", "architect",
+                       "mid-level", "experienced", "hardware", "fpga",
                        "trading support", "sales", "recruiter", "consultant", "value engineer",
                        "business developer", "apprentice", "trading days", "insight", "kickstarter",
                        "futurefocus", "open day", "spring week"]

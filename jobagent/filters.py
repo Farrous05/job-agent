@@ -123,9 +123,21 @@ def evaluate(job: Job, cfg: dict) -> Verdict:
             v.keep = False
             v.reasons.append(f"title contains '{w.strip()}'")
             break
-    if re.search(r"phd (is )?(required|essential)|must (have|hold) a phd|(completed|pursuing|hold) a phd\b(?! or)|"
-                 r"doctoral degree (is )?required", text, re.I) \
-            and not re.search(r"phd (is )?(preferred|a plus|desirable|not required)|master'?s or phd|msc or phd", text, re.I):
+    # PhD: drop only PhD-only roles. Any Master's alternative nearby keeps the role.
+    MASTERS = r"master|msc|m\.sc|\bms\b|mres|mphil|meng"
+    def phd_only(t: str) -> bool:
+        for m in re.finditer(r"ph\.?d|doctora|postdoc|post-doc", t, re.I):
+            window = t[max(0, m.start() - 40): m.end() + 40]
+            if not re.search(MASTERS, window, re.I):
+                return True
+        return False
+    if re.search(r"ph\.?d|postdoc|post-doc", title, re.I) and phd_only(title):
+        v.keep = False
+        v.reasons.append("PhD-only role (title)")
+    elif re.search(r"(phd|ph\.d|doctoral degree|doctorate)\s+(is\s+)?(required|essential|mandatory)|"
+                   r"must (have|hold) a (phd|doctorate)|(currently )?(pursuing|enrolled in) a (phd|doctora)",
+                   job.description, re.I) and phd_only(job.description) \
+            and not re.search(r"phd (is )?(preferred|a plus|desirable|not required)", job.description, re.I):
         v.keep = False
         v.reasons.append("PhD required")
 
