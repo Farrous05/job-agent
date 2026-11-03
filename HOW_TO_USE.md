@@ -33,9 +33,13 @@
    ```
 
 ## If it suggests changes to your main CV
-1. See them: `git diff HEAD..cv-edits -- cv/cv.tex`.
+1. See them: `scripts/cv_diff.sh`. A PDF opens with removed text in red and new text in blue.
+   (`scripts/cv_diff.sh --text` shows the same in the terminal.)
 2. If you like them: `git merge cv-edits && git push`.
 3. If not: do nothing. Your CV stays as it is.
+
+## Rebuild the CV PDFs
+`scripts/build_cv.sh` compiles `cv/cv.tex` and every tailored CV into `cv/build/` and checks each is one page.
 
 ## Only want one part?
 In Claude, type one of these instead of `/job-run`:

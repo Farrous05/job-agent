@@ -17,7 +17,7 @@ Steps:
    issues and typos.
 2. **General edits.** Run `git switch cv-edits` (create it from the current branch if it doesn't exist),
    edit `cv/cv.tex`, commit with one line per change, then switch back. Show me
-   `git diff <base>..cv-edits -- cv/cv.tex` with a one-line reason per change.
+   `scripts/cv_diff.sh --text` with a one-line reason per change, and tell me to run `scripts/cv_diff.sh` for the PDF.
 3. **Tailored versions.** For each of the top-5 shortlisted roles I haven't already applied to, write
    `cv/tailored/<company>-<role>.tex` (lower-case, hyphens), based on the APPROVED `cv/cv.tex` from the
    current branch. Make 2–3 targeted tweaks only (reorder, reword, emphasise relevant skills), and list them

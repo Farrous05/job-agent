@@ -241,7 +241,7 @@ class StoreTests(unittest.TestCase):
             self.assertEqual(st2.applied_companies(), {"Acme"})
             page = report.applications_html(st2.data["jobs"])
             self.assertIn("Applied (1)", page)
-            self.assertIn("Interested (not applied yet) (1)", page)
+            self.assertIn("Interested, not applied yet (1)", page)
             with self.assertRaises(ValueError):
                 st2.set_status("gh:a:1", "hacked")
 

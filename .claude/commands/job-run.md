@@ -53,6 +53,6 @@ Applied / Interested / Not for me buttons (it keeps running until Ctrl+C, so don
 run `python3 -m jobagent view --static` instead to just refresh `shortlist/LATEST.html`).
 
 ## 7. Report back (keep it short)
-Show the shortlist table, the outreach drafts, the CV diff (`git diff main..cv-edits -- cv/cv.tex`) and the
+Show the shortlist table, the outreach drafts, the CV changes (`scripts/cv_diff.sh --text`) and the
 list of tailored files. End with: what to tune in `config/`, and the top 3 CV changes.
 Ask me for any missing metrics; don't guess them.

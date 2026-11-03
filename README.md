@@ -81,6 +81,7 @@ For each failure, open the company's careers page, copy the slug from the job UR
 - **Just CV work:** `/cv-review` · **Just outreach:** `/outreach`
 - **Mark a hand-edited shortlist as seen:** `python3 -m jobagent mark shortlist/2026-11-03.md`
 - **Compile CVs and check one page:** `scripts/build_cv.sh`
+- **See suggested CV changes (red/blue PDF):** `scripts/cv_diff.sh`
 
 ## Scheduling locally (launchd)
 ```bash
