@@ -2,7 +2,40 @@
 
 Your folder is `~/code/job-agent`. Every command below starts there: `cd ~/code/job-agent`.
 
-## 0. One-time shortcut (recommended)
+## Set up once (10 minutes), then it runs by itself
+1. Telegram (your phone remote): `python3 -m jobagent notify-setup --telegram` and follow the steps.
+2. Install everything that runs by itself: `scripts/install_mac.sh`
+   - **Daily job search at 08:40:** fetch, Claude scores every role, summary with buttons to your Telegram.
+   - **Telegram bot, always on:** answers your commands (below).
+   - **Job page, always on:** on this Mac at http://127.0.0.1:8765, and on your phone (home Wi-Fi) through
+     the private link the script prints. macOS may ask once to allow incoming connections: click Allow.
+3. Renew your Claude login when it asks (`/login` in Claude): the daily run needs it.
+
+## Your normal week (almost no typing)
+- **Each morning:** Telegram shows the new jobs. Tap **✓** (applied), **★** (interested) or **✕** (not for me).
+- **To apply:** send the bot `/apply <company>`. A few minutes later you get the cover letter PDF and the
+  form answers. Read them, apply on the company's site, then tap ✓.
+- **CV changes:** send `/changes` to get the red/blue PDF with **Accept** and **Reject** buttons (also on the job
+  page's **CV** tab).
+- **Anything else:** `/jobs` top picks · `/all` best unmarked roles · `/cv` your CV · `/tailored` tailored CVs ·
+  `/letter <company>` a drafted letter · `/run` search now · `/page` job-page link · `/reminders` · `/stats`
+- Everything is saved to GitHub automatically.
+
+## Telegram bot commands
+| Send | You get |
+|---|---|
+| `/jobs` | today's top picks with ✓ ★ ✕ buttons |
+| `/all` | best unmarked roles from All matches (fit 4+) |
+| `/apply resonance` | Claude drafts the application; you receive the cover letter PDF, answers and checklist |
+| `/changes` | suggested CV changes (PDF) with Accept / Reject buttons |
+| `/cv`, `/tailored`, `/letter <company>` | the PDFs |
+| `/run` | a full job search now (about 20 min), then the summary |
+| `/page` | the private job-page link for your phone |
+| `/reminders`, `/stats`, `/help` | deadlines, numbers, the command list |
+
+## By hand on the Mac (optional)
+
+### Shortcut
 Add a `findjobs` command to your Terminal (not `jobs`: that name is taken by zsh):
 ```bash
 echo 'alias findjobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc

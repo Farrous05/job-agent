@@ -295,7 +295,8 @@ def _card(j: dict, st: str, interactive: bool) -> str:
 </article>"""
 
 
-TABS = (("/", "Top picks"), ("/all", "All matches"), ("/applied", "My applications"), ("/stats", "Stats"))
+TABS = (("/", "Top picks"), ("/all", "All matches"), ("/applied", "My applications"), ("/cv", "CV"),
+        ("/stats", "Stats"))
 
 
 def _page(title: str, sub: str, active: str, inner: str, interactive: bool, tools: str = "", stats: str = "",
@@ -524,3 +525,51 @@ def stats_html(s: dict) -> str:
              f'Mark replies on the My applications tab to keep this accurate.</p>' + "".join(tables)
              + ("" if tables else '<p class="empty">Mark jobs as Applied to see which kinds of roles reply.</p>'))
     return _page("Stats", "what's working", "/stats", inner, True)
+
+
+def cv_html(pending: int, has_changes_pdf: bool, pdf_names: list[str], apps: list[dict], msg: str = "",
+            images: list[str] | None = None) -> str:
+    """CV tab: suggested changes with Accept / Reject, your CV and tailored CVs, application drafts."""
+    esc = html.escape
+    parts = []
+    if msg:
+        parts.append(f'<p class="remind">{esc(msg)}</p>')
+    if pending:
+        imgs = "".join(f'<img src="/file?p={esc(i)}" alt="CV changes" style="width:100%;border:1px solid var(--line);'
+                       f'border-radius:12px;background:#fff;margin-bottom:10px">' for i in (images or []))
+        viewer = ((imgs or "") + '<p class="sub"><a href="/file?p=cv/build/cv-changes.pdf" target="_blank">Open the PDF ↗</a></p>') \
+            if has_changes_pdf else \
+                 '<p class="sub">The changes PDF couldn\'t be built (LaTeX missing?). Text diff: <a href="/cv/diff">open</a>.</p>'
+        parts.append(f"""<h3>Suggested changes to your CV ({pending} lines)</h3>
+<p class="sub">Red = removed, blue = added. Nothing changes until you press Accept.</p>
+<div class="actions" style="margin-left:0">
+ <button class="apply" style="border:0;cursor:pointer" onclick="cvAct('accept')">✓ Accept changes</button>
+ <button class="st" onclick="cvAct('reject')">✕ Reject</button></div>
+<div style="margin-top:12px">{viewer}</div>""")
+    else:
+        parts.append('<h3>Suggested changes</h3><p class="empty">No suggested CV changes waiting.</p>')
+    main = [n for n in pdf_names if n == "cv"]
+    tailored = [n for n in pdf_names if n != "cv"]
+    links = "".join(f'<li><a href="/file?p=cv/build/{esc(n)}.pdf" target="_blank">{esc(n)}.pdf</a></li>' for n in main + tailored)
+    parts.append(f"<h3>Your CVs ({len(pdf_names)})</h3>" + (f'<ul class="older">{links}</ul>' if links else
+                 '<p class="empty">No PDFs yet. <button class="st" onclick="cvAct(\'build\')">Build them</button></p>'))
+    app_cards = []
+    for a in apps:
+        letter = (f'<a class="apply" href="/file?p=applications/{esc(a["name"])}/cover_letter.pdf" target="_blank">'
+                  f'Cover letter PDF ↗</a>') if a["letter"] else '<span class="tag warn">no cover letter PDF</span>'
+        app_cards.append(f"""<article class="card"><div class="top-line"><div class="head"><h2>{esc(a['name'])}</h2>
+<div class="meta">applications/{esc(a['name'])}/</div></div>{letter}</div>
+{f'<details><summary>Answers to the form</summary><pre style="white-space:pre-wrap">{esc(a["answers"])}</pre></details>' if a['answers'] else ''}
+{f'<details><summary>Checklist</summary><pre style="white-space:pre-wrap">{esc(a["checklist"])}</pre></details>' if a['checklist'] else ''}
+</article>""")
+    parts.append(f"<h3>Application drafts ({len(apps)})</h3>" + ("".join(app_cards) or
+                 '<p class="empty">None yet. In Claude (or Telegram) use /apply &lt;company&gt;.</p>'))
+    script = """
+async function cvAct(what) {
+  if (what === 'reject' && !confirm('Throw the suggested CV changes away?')) return;
+  if (what === 'accept' && !confirm('Apply the suggested changes to your CV?')) return;
+  document.body.style.cursor = 'wait';
+  const r = await fetch('/api/cv/' + what, {method: 'POST'});
+  const t = await r.text(); location.href = '/cv?msg=' + encodeURIComponent(t);
+}"""
+    return _page("CV", "your CV, tailored CVs, cover letters", "/cv", "".join(parts), True, script=script)

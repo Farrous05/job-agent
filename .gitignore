@@ -12,3 +12,5 @@ shortlist/preview.png
 config/ntfy_topic
 applications/*/cover_letter.log
 config/telegram.json
+config/page_token
+cv/build/cv-changes.pdf

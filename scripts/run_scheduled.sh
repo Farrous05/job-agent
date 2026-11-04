@@ -7,6 +7,14 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/TeX/texbin:$HOME/.local/bin:$PATH"
 mkdir -p data/logs
+# only one run at a time (the 08:40 run and a /run from your phone could overlap)
+if ! mkdir data/run.lock 2>/dev/null; then
+  if [ -n "$(find data/run.lock -maxdepth 0 -mmin -180 2>/dev/null)" ]; then
+    echo "A run is already in progress; not starting another." | tee -a "data/logs/$(date +%F).log"; exit 0
+  fi
+  rm -rf data/run.lock && mkdir data/run.lock     # stale lock (older than 3 h): take over
+fi
+trap 'rm -rf data/run.lock' EXIT
 log="data/logs/$(date +%F).log"
 {
   echo "=== $(date) mode=${JOBAGENT_MODE:-script}"

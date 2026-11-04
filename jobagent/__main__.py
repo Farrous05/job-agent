@@ -278,7 +278,21 @@ def cmd_notify(args) -> int:
     counts["tailored"] = sum(1 for f in (ROOT / "cv" / "tailored").glob("*.tex")
                              if date.fromtimestamp(f.stat().st_mtime).isoformat() == today)
     title, msg, html_msg, prio = notify.rich_summary(rows, tracker.reminders(store), counts)
-    print(notify.send(ROOT, title, msg, priority=prio, html_text=html_msg))
+    if notify.get_telegram(ROOT):
+        from . import bot
+        html_msg += "\n\nButtons: 1–5 = the jobs above. Send /help for everything else."
+        print(bot.send_summary(ROOT, title, html_msg, rows))
+    else:
+        print(notify.send(ROOT, title, msg, priority=prio, html_text=html_msg))
+    return 0
+
+
+def cmd_bot(_args) -> int:
+    from . import bot
+    try:
+        bot.Bot(ROOT).loop()
+    except KeyboardInterrupt:
+        print("\nBot stopped.")
     return 0
 
 
@@ -348,91 +362,19 @@ def cmd_mark(args) -> int:
 
 
 def cmd_view(args) -> int:
-    """Serves the shortlist pages on http://127.0.0.1:<port> (your computer only) so the Applied /
-    Interested / Not for me buttons can save to seen_jobs.json. Also writes static shortlist/*.html."""
-    import http.server
-    import threading
-    import webbrowser
+    """The job page: Top picks, All matches, My applications, CV (accept/reject changes), Stats."""
+    from . import server
     shortlist_dir = ROOT / "shortlist"
     files = sorted(shortlist_dir.glob("*.md"), key=report.shortlist_key)
-    if not files:
-        print("No shortlist yet. Run /job-run in Claude Code (or python3 -m jobagent run).")
-        return 1
-    store_path = ROOT / "seen_jobs.json"
     for f in files:                              # static copies (no buttons) for double-clicking
         report.write_html(f, ROOT / "data", f.with_suffix(".html"), files)
-    report.write_html(files[-1], ROOT / "data", shortlist_dir / "LATEST.html", files)
+    if files:
+        report.write_html(files[-1], ROOT / "data", shortlist_dir / "LATEST.html", files)
     if args.static:
-        print(f"Wrote {shortlist_dir.relative_to(ROOT)}/LATEST.html")
+        print(f"Wrote {shortlist_dir.relative_to(ROOT)}/LATEST.html" if files else "No shortlist yet.")
         return 0
-    lock = threading.Lock()
-
-    class Handler(http.server.BaseHTTPRequestHandler):
-        def log_message(self, *a):               # keep the terminal quiet
-            pass
-
-        def _send(self, code: int, body: str, ctype: str = "text/html; charset=utf-8"):
-            data = body.encode()
-            self.send_response(code)
-            self.send_header("Content-Type", ctype)
-            self.send_header("Content-Length", str(len(data)))
-            self.end_headers()
-            self.wfile.write(data)
-
-        def do_GET(self):
-            fs = sorted(shortlist_dir.glob("*.md"), key=report.shortlist_key)
-            store = SeenStore(store_path)
-            rem = tracker.reminders(store)
-            path = self.path.split("?")[0]
-            if path in ("/", "/index.html"):
-                md = fs[-1]
-            elif path.startswith("/s/"):
-                md = next((f for f in fs if f.stem == path[3:]), None)
-                if md is None:
-                    return self._send(404, "Not found")
-            elif path == "/all":
-                return self._send(200, report.all_matches_html(pipeline.latest_run(ROOT / "data"), store.statuses(),
-                                                               reminders=rem))
-            elif path == "/applied":
-                return self._send(200, report.applications_html(store.data["jobs"], reminders=rem))
-            elif path == "/stats":
-                return self._send(200, report.stats_html(tracker.stats(store)))
-            else:
-                return self._send(404, "Not found")
-            self._send(200, report.write_html(md, ROOT / "data", None, fs, store.statuses(), interactive=True,
-                                              reminders=rem))
-
-        def do_POST(self):
-            if self.path != "/api/status":
-                return self._send(404, "Not found", "text/plain")
-            try:
-                n = int(self.headers.get("Content-Length", "0"))
-                body = json.loads(self.rfile.read(min(n, 10_000)) or b"{}")
-                with lock:
-                    store = SeenStore(store_path)
-                    extra = {k: str(body[k])[:200] for k in ("deadline", "location") if body.get(k)}
-                    if str(body.get("fit", "")).isdigit() and int(body["fit"]) > 0:
-                        extra["fit"] = int(body["fit"])
-                    note = body.get("note")
-                    store.set_status(str(body["id"]), body["status"], str(body.get("company", ""))[:200],
-                                     str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000],
-                                     note=str(note) if note is not None else None, extra=extra)
-                    store.save()
-            except (KeyError, ValueError, json.JSONDecodeError):
-                return self._send(400, "Bad request", "text/plain")
-            self._send(200, '{"ok": true}', "application/json")
-
-    srv = http.server.ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
-    url = f"http://127.0.0.1:{args.port}/"
-    print(f"Job page: {url}  (tabs: Top picks, All matches, My applications, Stats)\n"
-          "Leave this window open while you use it. Press Ctrl+C to stop.")
-    if not args.no_open:
-        webbrowser.open(url)
-    try:
-        srv.serve_forever()
-    except KeyboardInterrupt:
-        print("\nStopped. Your marks are saved in seen_jobs.json.")
-    if not args.no_git:
+    server.serve(ROOT, args.port, lan=args.lan, autosave=args.autosave, open_browser=not args.no_open)
+    if not args.no_git and not args.autosave:
         from . import gitsave
         print("GitHub: " + gitsave.save(ROOT, "Job page marks"))
     return 0
@@ -485,6 +427,7 @@ def main(argv=None) -> int:
     ns.add_argument("--token", help="Telegram bot token (otherwise you're asked for it)")
     nt = sub.add_parser("notify", help="send today's summary to your phone (or a custom message)")
     nt.add_argument("message", nargs="*")
+    sub.add_parser("bot", help="run the Telegram bot (your phone remote)")
     sv = sub.add_parser("save", help="commit and push your results to GitHub")
     sv.add_argument("-m", "--message", default="Job agent results")
     vw = sub.add_parser("view")
@@ -492,13 +435,15 @@ def main(argv=None) -> int:
     vw.add_argument("--static", action="store_true", help="only write shortlist/*.html, no server")
     vw.add_argument("--port", type=int, default=8765)
     vw.add_argument("--no-git", action="store_true", help="don't commit and push your marks when you close it")
+    vw.add_argument("--lan", action="store_true", help="also open it on your phone (same Wi-Fi) via a private link")
+    vw.add_argument("--autosave", action="store_true", help="save to GitHub a minute after each change")
     args = ap.parse_args(argv)
     if args.cmd is None:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))
     return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view, "import": cmd_import,
             "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "audit": cmd_audit, "reminders": cmd_reminders,
             "stats": cmd_stats, "save": cmd_save, "notify-setup": cmd_notify_setup, "notify": cmd_notify,
-            "reset": cmd_reset}[args.cmd](args)
+            "reset": cmd_reset, "bot": cmd_bot}[args.cmd](args)
 
 
 if __name__ == "__main__":

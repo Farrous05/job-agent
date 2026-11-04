@@ -463,6 +463,22 @@ class GitSaveTests(unittest.TestCase):
             (Path(d) / "b.txt").write_text("hi")
             self.assertIn("push failed", gitsave.save(Path(d), "x"))      # no remote: reported, not raised
 
+    def test_save_pushes_unpushed_commits(self):
+        import subprocess
+        from jobagent import gitsave
+        with tempfile.TemporaryDirectory() as d:
+            remote, work = Path(d) / "remote.git", Path(d) / "work"
+            subprocess.run(["git", "init", "-q", "--bare", str(remote)], check=True)
+            subprocess.run(["git", "clone", "-q", str(remote), str(work)], check=True, capture_output=True)
+            for k, v in (("user.email", "t@t"), ("user.name", "t")):
+                subprocess.run(["git", "-C", str(work), "config", k, v], check=True)
+            (work / "a").write_text("1")
+            self.assertEqual(gitsave.save(work, "first"), "saved and pushed to GitHub")
+            (work / "a").write_text("2")
+            subprocess.run(["git", "-C", str(work), "commit", "-qam", "merge-like commit"], check=True)
+            self.assertEqual(gitsave.save(work, "x"), "saved and pushed to GitHub")   # pushes the waiting commit
+            self.assertEqual(gitsave.save(work, "x"), "nothing new to save")
+
 
 class NotifyTests(unittest.TestCase):
     def test_summary_text(self):
@@ -577,3 +593,63 @@ class ResetTests(unittest.TestCase):
             arch = next((d / "archive").iterdir())
             self.assertTrue((arch / "shortlist" / "2026-11-04.md").exists())
             self.assertTrue((arch / "score_cache.json").exists())
+
+
+class BotTests(unittest.TestCase):
+    def setUp(self):
+        from jobagent import bot
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        (self.root / "config").mkdir()
+        (self.root / "config" / "telegram.json").write_text(json.dumps({"token": "t", "chat_id": 42}))
+        (self.root / "shortlist").mkdir()
+        report.write_shortlist(self.root / "shortlist" / "2026-11-04.md", "2026-11-04",
+                               [{"source_id": "fh:x1", "title": "Graduate AI Engineer", "company": "Resonance",
+                                 "location": "London", "url": "https://r/1", "why": "5/5: agents"},
+                                {"source_id": "js:2", "title": "ML Researcher (New Grad)", "company": "Jane Street",
+                                 "location": "London", "url": "https://j/2", "why": "5/5: deep learning"}], [])
+        self.b = bot.Bot(self.root)
+        self.sent = []
+        self.b.api = lambda method, params, timeout=30: self.sent.append((method, params)) or {"ok": True, "result": []}
+        self.b.document = lambda path, caption="", buttons=None: self.sent.append(("doc", str(path), caption))
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def msg(self, text, chat=42):
+        self.b.handle({"message": {"chat": {"id": chat}, "text": text}})
+
+    def test_jobs_buttons_and_marking(self):
+        self.msg("/jobs")
+        method, params = self.sent[-1]
+        self.assertEqual(method, "sendMessage")
+        self.assertIn("Resonance", params["text"])
+        kb = params["reply_markup"]["inline_keyboard"]
+        self.assertEqual(len(kb), 2)
+        applied = kb[0][0]["callback_data"]
+        self.b.handle({"callback_query": {"id": "q", "data": applied, "message": {"chat": {"id": 42}}}})
+        self.assertEqual(SeenStore(self.root / "seen_jobs.json").statuses()["fh:x1"], "applied")
+        self.assertIn("Applied: Resonance", self.sent[-1][1]["text"])
+        self.msg("/jobs")                                   # marked job no longer offered
+        self.assertNotIn("Resonance", self.sent[-1][1]["text"])
+
+    def test_ignores_other_chats(self):
+        self.msg("/jobs", chat=999)
+        self.assertEqual(self.sent, [])
+        self.b.handle({"callback_query": {"id": "q", "data": "s|1|a", "message": {"chat": {"id": 999}}}})
+        self.assertEqual(self.sent, [])
+
+    def test_changes_letter_help(self):
+        self.msg("/changes")
+        self.assertIn("No suggested CV changes", self.sent[-1][1]["text"])
+        self.msg("/letter acme")
+        self.assertIn("No application draft", self.sent[-1][1]["text"])
+        d = self.root / "applications" / "acme-ml-engineer"
+        d.mkdir(parents=True)
+        (d / "cover_letter.pdf").write_bytes(b"%PDF")
+        (d / "answers.md").write_text("a")
+        self.msg("/letter acme")
+        self.assertEqual(self.sent[-2][0], "doc")
+        self.assertTrue(self.sent[-2][1].endswith("cover_letter.pdf"))
+        self.msg("/nonsense")
+        self.assertIn("/help", self.sent[-1][1]["text"])

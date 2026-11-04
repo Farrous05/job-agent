@@ -27,7 +27,7 @@ mkdir -p cv/build
 if pdflatex -interaction=nonstopmode -halt-on-error -output-directory "$tmp" "$tmp/cv-changes.tex" >/dev/null 2>&1; then
   cp "$tmp/cv-changes.pdf" cv/build/cv-changes.pdf
   echo "Tracked changes: cv/build/cv-changes.pdf  (red = removed, blue = added)"
-  [ "$(uname)" = "Darwin" ] && open cv/build/cv-changes.pdf || true
+  [ "$(uname)" = "Darwin" ] && [ -z "${NO_OPEN:-}" ] && open cv/build/cv-changes.pdf || true
 else
   echo "Couldn't build the tracked-changes PDF (a LaTeX package may be missing). Text diff instead:"
   git --no-pager diff --color --word-diff HEAD "$branch" -- cv/cv.tex

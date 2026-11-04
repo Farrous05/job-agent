@@ -17,11 +17,15 @@ def save(root: Path, message: str, push: bool = True) -> str:
             return "not a git repo: nothing saved"
         _git(root, "add", "-A")
         if _git(root, "diff", "--cached", "--quiet").returncode == 0:
-            return "nothing new to save"
-        stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-        c = _git(root, "commit", "-q", "-m", f"{message} ({stamp})")
-        if c.returncode != 0:
-            return "commit failed: " + (c.stderr or c.stdout).strip()[:200]
+            ahead = _git(root, "rev-list", "--count", "@{u}..HEAD")
+            if ahead.returncode != 0 or ahead.stdout.strip() in ("", "0"):
+                return "nothing new to save"
+            # nothing to commit, but commits (e.g. an accepted CV merge) are waiting to be pushed
+        else:
+            stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+            c = _git(root, "commit", "-q", "-m", f"{message} ({stamp})")
+            if c.returncode != 0:
+                return "commit failed: " + (c.stderr or c.stdout).strip()[:200]
         if not push:
             return "saved locally"
         _git(root, "pull", "-q", "--no-rebase", "--no-edit")
