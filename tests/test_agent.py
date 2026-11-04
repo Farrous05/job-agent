@@ -170,6 +170,20 @@ class SourceTests(unittest.TestCase):
             js = sources.ashby("Acme", "acme")
         self.assertEqual(js[0].location, "London / Paris")
 
+    def test_janestreet_feed(self):
+        payload = [{"id": 1, "position": "Machine Learning Researcher", "availability": "Full-Time: New Grad",
+                    "city": "LDN", "overview": "<p>Deep learning</p>", "team": "ML"},
+                   {"id": 2, "position": "Software Engineer", "availability": "Full-Time: Experienced", "city": "LDN"},
+                   {"id": 3, "position": "Quant Researcher", "availability": "Summer Internship", "city": "LDN",
+                    "overview": "10-week summer internship"}]
+        with mock.patch.object(sources, "_request", return_value=payload):
+            js = sources.janestreet()
+        self.assertEqual(js[0].title, "Machine Learning Researcher (New Grad)")
+        self.assertEqual(js[0].location, "London, United Kingdom")
+        self.assertTrue(filters.evaluate(js[0], CFG).keep)
+        self.assertFalse(filters.evaluate(js[1], CFG).keep)      # experienced hire
+        self.assertFalse(filters.evaluate(js[2], CFG).keep)      # summer internship
+
     def test_workday_pagination(self):
         page = {"total": 1, "jobPostings": [{"title": "Graduate ML Engineer", "externalPath": "/job/1",
                                              "locationsText": "London"}]}

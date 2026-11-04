@@ -16,6 +16,12 @@
 # checks them with web search.
 
 [[board]]
+company = "Jane Street"
+ats = "janestreet"
+token = "janestreet"
+verified = true
+
+[[board]]
 company = "Hudson River Trading"
 ats = "greenhouse"
 token = "wehrtyou"
@@ -275,11 +281,6 @@ verified = true
 # ---------------------------------------------------------------------------
 # No public ATS feed: checked by Claude in /job-run with WebSearch/WebFetch.
 # ---------------------------------------------------------------------------
-[[watch]]
-company = "Jane Street"
-url = "https://www.janestreet.com/join-jane-street/open-roles/"
-query = "Jane Street London new grad 2027"
-
 [[watch]]
 company = "Revolut"
 url = "https://www.revolut.com/careers/"

@@ -67,7 +67,20 @@ setting to change. Wrongly removed roles that fit me can be imported (step 2) an
 ## 5. CV → follow `/cv-review` (unless skip-cv)
 ## 6. Outreach → follow `/outreach` (unless skip-outreach)
 
-## 7. Report back (keep it short)
+## 7. Checklist: required before you report
+Go through this list. For every line that isn't done AND wasn't skipped by one of my arguments, do it now,
+then come back here. Only report when every line is ✅ or "skipped by argument". Write the list at the top of
+your report.
+- [ ] 1 fetch (`run --dry-run`)
+- [ ] 2.1 watch list + boards searched AND found postings imported (`import …/web.json`), even if just a few
+- [ ] 2.2 LinkedIn jobs (skip-linkedin, or say Chrome wasn't connected)
+- [ ] 3 every batch scored + `merge-scores` with 0 unscored (after imports, run batches → score → merge again)
+- [ ] 4 recall check run and read (skip-recall)
+- [ ] 4b filter audit read, findings reported
+- [ ] 5 `/cv-review` done (skip-cv)
+- [ ] 6 `/outreach` done or blocked with the reason (skip-outreach)
+
+## 8. Report back (keep it short)
 - Counts: fetched, kept, scored (new vs cached), shortlisted; recall % (this run and all runs) and the misses
   that matter; filter-audit findings.
 - The shortlist table (title, company, city, deadline, fit, one-line reason).

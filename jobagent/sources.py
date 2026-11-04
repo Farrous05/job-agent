@@ -264,5 +264,32 @@ def freehire(cfg: dict) -> list[Job]:
     return out
 
 
-FETCHERS = {"greenhouse": greenhouse, "lever": lever, "ashby": ashby, "workday": workday,
+# --------------------------------------------------------------------------- Jane Street (own JSON feed)
+JS_CITIES = {"LDN": "London, United Kingdom", "NYC": "New York, NY, United States", "HKG": "Hong Kong",
+             "SGP": "Singapore", "ATX": "Austin, TX, United States", "CHI": "Chicago, IL, United States",
+             "AMS": "Amsterdam, Netherlands"}
+
+
+def janestreet(company: str = "Jane Street", token: str = "janestreet", **_) -> list[Job]:
+    """janestreet.com/jobs/main.json: every open role with its availability (New Grad / Internship / Experienced)."""
+    data = _request("https://www.janestreet.com/jobs/main.json")
+    out = []
+    for j in data if isinstance(data, list) else []:
+        avail = (j.get("availability") or "").strip()
+        title = (j.get("position") or "").strip()
+        if "intern" in avail.lower() and "intern" not in title.lower():
+            title += " (Summer Internship)" if "summer" in avail.lower() else " (Internship)"
+        elif "new grad" in avail.lower():
+            title += " (New Grad)"
+        desc = f"{avail}. Team: {j.get('team') or ''}. " + html_to_text(j.get("overview") or "")
+        if "experienced" in avail.lower():
+            desc = "Experienced hire (not a graduate role). " + desc
+        out.append(Job(source="janestreet", source_id=f"js:{j.get('id')}", company=company, title=title,
+                       location=JS_CITIES.get(j.get("city", ""), j.get("city", "")),
+                       url=f"https://www.janestreet.com/join-jane-street/position/{j.get('id')}/",
+                       description=desc, extra={"availability": avail}))
+    return out
+
+
+FETCHERS = {"janestreet": janestreet, "greenhouse": greenhouse, "lever": lever, "ashby": ashby, "workday": workday,
             "smartrecruiters": smartrecruiters}

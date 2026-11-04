@@ -204,6 +204,9 @@ def evaluate(job: Job, cfg: dict) -> Verdict:
         v.keep = False
         v.reasons.append("PhD required")
 
+    if job.description.startswith("Experienced hire (not a graduate role)"):
+        v.keep = False
+        v.reasons.append("experienced hire (company marks it as not for graduates)")
     exp = too_much_experience(job.description, f["max_years_experience"])
     if exp:
         v.keep = False
