@@ -25,6 +25,8 @@ $prompt" \
 } >>"$log" 2>&1
 # save results to GitHub (new shortlist, scores, marks)
 python3 -m jobagent save -m "Scheduled run" >>"$log" 2>&1 || true
+# phone notification (if set up with `python3 -m jobagent notify-setup`)
+python3 -m jobagent notify >>"$log" 2>&1 || true
 # macOS notification with reminders (deadlines closing soon, follow-ups due); ignored elsewhere
 rem="$(python3 -m jobagent reminders 2>/dev/null | head -3 | tr '\n' ' ' | tr -d '"')"
 command -v osascript >/dev/null && osascript -e "display notification \"New jobs ready. ${rem}\" with title \"Job agent\"" || true

@@ -421,3 +421,22 @@ class GitSaveTests(unittest.TestCase):
             self.assertEqual(gitsave.save(Path(d), "x", push=False), "saved locally")
             (Path(d) / "b.txt").write_text("hi")
             self.assertIn("push failed", gitsave.save(Path(d), "x"))      # no remote: reported, not raised
+
+
+class NotifyTests(unittest.TestCase):
+    def test_summary_text(self):
+        from jobagent import notify
+        rows = [{"title": "ML Researcher (New Grad)", "company": "Jane Street", "why": "5/5: deep learning"},
+                {"title": "Junior AI Engineer", "company": "techwolf", "why": "4/5: LLM features"}]
+        title, msg, prio = notify.run_summary(None, rows, ["Closes in 3 days: Citi: Junior SWE"])
+        self.assertEqual(title, "2 new jobs picked")
+        self.assertIn("Jane Street (5/5)", msg)
+        self.assertIn("Closes in 3 days", msg)
+        self.assertEqual(prio, "high")
+        self.assertEqual(notify.run_summary(None, [], [])[1], "Nothing new today.")
+
+    def test_no_topic(self):
+        from jobagent import notify
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "config").mkdir()
+            self.assertIn("notify-setup", notify.send(Path(d), "t", "m"))

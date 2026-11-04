@@ -13,6 +13,7 @@
   python3 -m jobagent reminders        deadlines closing soon, follow-ups due
   python3 -m jobagent stats            applications by stage, reply rate by role type/region/source
   python3 -m jobagent save             commit + push your results to GitHub
+  python3 -m jobagent notify-setup     phone notifications (ntfy app), then: jobagent notify
 """
 from __future__ import annotations
 
@@ -222,6 +223,33 @@ def cmd_save(args) -> int:
     return 0
 
 
+def cmd_notify_setup(_args) -> int:
+    from . import notify
+    t = notify.setup(ROOT)
+    print(f"""Your private notification channel: {t}
+1. Install the free "ntfy" app on your phone (App Store / Google Play).
+2. In the app: tap +, Subscribe to topic, enter:  {t}
+   (keep the default server ntfy.sh). Anyone who knows this name can read the messages, so don't share it.
+3. Test it:  python3 -m jobagent notify "Hello from your job agent"
+The name is saved in config/ntfy_topic (never pushed to GitHub).""")
+    return 0
+
+
+def cmd_notify(args) -> int:
+    from . import notify
+    store = SeenStore(ROOT / "seen_jobs.json")
+    if args.message:
+        print(notify.send(ROOT, "Job agent", " ".join(args.message)))
+        return 0
+    fs = sorted((ROOT / "shortlist").glob("*.md"), key=report.shortlist_key)
+    newest = fs[-1] if fs else None
+    today = date.today().isoformat()
+    rows = report.parse_shortlist(newest) if newest and newest.stem.startswith(today) else []
+    title, msg, prio = notify.run_summary(newest, rows, tracker.reminders(store))
+    print(notify.send(ROOT, title, msg, priority=prio))
+    return 0
+
+
 def cmd_stats(_args) -> int:
     store = SeenStore(ROOT / "seen_jobs.json")
     print(tracker.stats_text(tracker.stats(store)))
@@ -377,6 +405,9 @@ def main(argv=None) -> int:
     au.add_argument("--date")
     sub.add_parser("reminders")
     sub.add_parser("stats")
+    sub.add_parser("notify-setup", help="create your private phone-notification channel (ntfy)")
+    nt = sub.add_parser("notify", help="send today's summary to your phone (or a custom message)")
+    nt.add_argument("message", nargs="*")
     sv = sub.add_parser("save", help="commit and push your results to GitHub")
     sv.add_argument("-m", "--message", default="Job agent results")
     vw = sub.add_parser("view")
@@ -389,7 +420,7 @@ def main(argv=None) -> int:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))
     return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view, "import": cmd_import,
             "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "audit": cmd_audit, "reminders": cmd_reminders,
-            "stats": cmd_stats, "save": cmd_save}[args.cmd](args)
+            "stats": cmd_stats, "save": cmd_save, "notify-setup": cmd_notify_setup, "notify": cmd_notify}[args.cmd](args)
 
 
 if __name__ == "__main__":

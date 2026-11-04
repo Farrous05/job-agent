@@ -55,6 +55,12 @@ then **saved and pushed to GitHub automatically**. (Open it any time with `pytho
 ## 5. LinkedIn messages
 `outreach/<date>.md`: who to contact, their profile link, a message ready to copy. You send them yourself.
 
+## 5b. Phone notifications (once)
+1. Run `python3 -m jobagent notify-setup` and follow the 3 steps it prints (install the free **ntfy** app,
+   subscribe to your private channel name, send a test).
+2. After every scheduled run your phone gets "N new jobs picked" with the top 3 and any deadline reminders
+   (high priority when something closes soon). Send one any time: `python3 -m jobagent notify`.
+
 ## 6. Saving
 Automatic: after `jobs`, when you close the job page, and after the daily schedule. To save by hand at any
 time: `python3 -m jobagent save`.

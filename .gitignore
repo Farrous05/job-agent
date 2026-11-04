@@ -9,3 +9,4 @@ data/*
 !data/score_cache.json
 shortlist/*.html
 shortlist/preview.png
+config/ntfy_topic
