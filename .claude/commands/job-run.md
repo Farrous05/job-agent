@@ -57,11 +57,16 @@ Save them to `data/runs/<today>/recall.json` (`[{"company", "title", "url", "loc
   `config/companies.toml` (don't edit the config without asking).
 Recall postings that fit me can be imported (step 2) and scored too.
 
+**Filter audit:** run `python3 -m jobagent audit`. It lists up to 40 roles the filters REMOVED that look
+relevant. Read `data/runs/<today>/audit.md`, follow its instructions, and report any wrong removals with the
+setting to change. Wrongly removed roles that fit me can be imported (step 2) and scored.
+
 ## 5. CV → follow `/cv-review` (unless skip-cv)
 ## 6. Outreach → follow `/outreach` (unless skip-outreach)
 
 ## 7. Report back (keep it short)
-- Counts: fetched, kept, scored (new vs cached), shortlisted; recall % and the misses that matter.
+- Counts: fetched, kept, scored (new vs cached), shortlisted; recall % (this run and all runs) and the misses
+  that matter; filter-audit findings.
 - The shortlist table (title, company, city, deadline, fit, one-line reason).
 - Output of `python3 -m jobagent reminders` (deadlines closing soon, follow-ups due).
 - CV changes (`scripts/cv_diff.sh --text`), tailored files, outreach file.

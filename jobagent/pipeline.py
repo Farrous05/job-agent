@@ -70,7 +70,10 @@ def evaluate_all(jobs: list[Job], cfg: dict, store: SeenStore, known: set[str], 
             reason = "already shown in an earlier shortlist"
         rows.append({"id": j.source_id, "company": j.company, "title": j.title, "location": j.location,
                      "url": j.url, "source": j.source, "kept": v.keep and not reason, "reason": reason,
-                     "score": v.score})
+                     "all_reasons": v.reasons,
+                     "score": v.score,
+                     # a short role excerpt for the filter audit, only for removed roles in a target family
+                     "snippet": role_text(j.description, 500) if (reason and v.families) else ""})
         if reason:
             key = ("location outside UK/EU" if reason.startswith("location outside")
                    else "too much experience asked" if "years' experience" in reason
@@ -350,3 +353,50 @@ def recall(rd: Path, benchmark: list[dict]) -> dict:
         lines.append("")
     (rd / "recall_report.md").write_text("\n".join(lines))
     return res
+
+
+# --------------------------------------------------------------------------- filter audit
+AUDIT_SKIP = ("location outside", "already shown", "not a target role family")
+ENTRY = re.compile(r"graduate|new grad|grads?\b|junior|entry|campus|early career|2027|intern", re.I)
+
+AUDIT_HEADER = """# Filter audit: {date}
+
+These roles were REMOVED by the filters but look relevant (target role family{entry}). Check each
+removal against its reason and excerpt. For every wrong removal, write a line in
+`{out}`: the title, the reason it was removed, why that's wrong, and which setting or pattern to fix
+(e.g. `[filters].exclude_title_words`, `max_years_experience`, the sponsorship wording, the PhD rule).
+If all removals are right, write "No wrong removals." Don't change any config without asking.
+
+"""
+
+
+def audit(rd: Path, n: int = 40) -> Path:
+    """Samples removed-but-relevant roles so Claude can spot filter bugs (wrong removals)."""
+    rows = [json.loads(line) for line in (rd / "all.jsonl").read_text().splitlines() if line.strip()]
+    # only roles removed by a single, possibly wrong, rule (not also wrong country / family / already shown)
+    pool = [r for r in rows if not r["kept"] and r.get("snippet")
+            and not any(x.startswith(AUDIT_SKIP) for x in (r.get("all_reasons") or [r["reason"]]))
+            and not r["reason"].startswith(AUDIT_SKIP)]
+    entry = [r for r in pool if ENTRY.search(r["title"])]
+    rest = [r for r in pool if r not in entry]
+    pick = (entry + rest)[:n]
+    out = rd / "audit_findings.md"
+    lines = [AUDIT_HEADER.format(date=rd.name, entry=", entry-level titles first", out=out)]
+    for r in pick:
+        lines.append(f"## {r['title']} · {r['company']} · {r['location']}\nRemoved because: **{r['reason']}** · "
+                     f"{r['url']}\n{r['snippet']}\n")
+    path = rd / "audit.md"
+    path.write_text("\n".join(lines))
+    return path
+
+
+def record_recall(history: Path, rd: Path, res: dict, n: int) -> None:
+    """Appends one line per recall check to history/recall.csv (tracked in git), so the benchmark grows."""
+    history.parent.mkdir(parents=True, exist_ok=True)
+    new = not history.exists()
+    missing = "; ".join(sorted({m.get("company", "") for m in res["missing"]}))
+    with history.open("a") as fh:
+        if new:
+            fh.write("date,postings,fetched_pct,kept_pct,filtered_out,missing,missing_companies\n")
+        fh.write(f"{rd.name},{n},{int(res['recall'] * 100)},{int(res['kept_rate'] * 100)},{len(res['excluded'])},"
+                 f"{len(res['missing'])},\"{missing}\"\n")

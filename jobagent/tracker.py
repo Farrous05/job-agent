@@ -57,10 +57,17 @@ def stats(store: SeenStore) -> dict:
             row["applied"] += 1
             row["replied"] += replied
             row["interviews"] += positive
+    cal = {"applied": [], "interested": [], "not_interested": []}
+    for j in store.data["jobs"].values():
+        st = j.get("status", "reported")
+        key = "applied" if st in SeenStore.APPLIED else st
+        if key in cal and isinstance(j.get("fit"), int):
+            cal[key].append(j["fit"])
+    calibration = {k: {"n": len(v), "avg": round(sum(v) / len(v), 1) if v else None} for k, v in cal.items()}
     applied_total = sum(stages[s] for s in SeenStore.APPLIED)
     replied_total = stages["interviewing"] + stages["offer"] + stages["rejected"]
     return {"stages": stages, "applied_total": applied_total, "replied_total": replied_total,
-            "interview_total": stages["interviewing"] + stages["offer"], "by": by}
+            "interview_total": stages["interviewing"] + stages["offer"], "by": by, "calibration": calibration}
 
 
 def stats_text(s: dict) -> str:
@@ -68,6 +75,10 @@ def stats_text(s: dict) -> str:
     lines = [f"Applied: {s['applied_total']} · replies: {s['replied_total']} · interviews/offers: "
              f"{s['interview_total']} · offers: {st['offer']} · rejected: {st['rejected']} · "
              f"interested (not applied): {st['interested']}"]
+    cal = s.get("calibration", {})
+    if any(v["n"] for v in cal.values()):
+        lines.append("\nClaude's average fit for jobs you marked: " + ", ".join(
+            f"{k.replace('_', ' ')} {v['avg']} ({v['n']})" for k, v in cal.items() if v["n"]))
     for dim, label in (("family", "role type"), ("region", "region"), ("source", "where found")):
         rows = s["by"][dim]
         if not rows:

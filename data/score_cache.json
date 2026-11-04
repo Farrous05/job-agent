@@ -1,0 +1,202 @@
+{
+ "fh:2027-technology-graduate-programme-ai-native-data-platform-engineering-td-srmtmq45": {
+  "fit": 3,
+  "reason": "2027 graduate programme in Dublin (EU, no visa needed); AI-native data platform work uses your Python/AWS/SQL more than your ML research",
+  "deadline": "",
+  "start": "2027",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:machine-learning-intern-2027-dublin-pinterest-ydxikvog": {
+  "fit": 2,
+  "reason": "Strong ML internship at Pinterest, but it's an internship in 2027",
+  "deadline": "",
+  "start": "",
+  "concerns": "Likely a summer internship, which clashes with your MSc dissertation",
+  "scored": "2026-11-03"
+ },
+ "gh:anthropic:5183044008": {
+  "fit": 2,
+  "reason": "AI safety fellowship fits your LLM evaluation work, but the stated application window has passed",
+  "deadline": "30 Oct 2026 (passed)",
+  "start": "January cohort",
+  "concerns": "Deadline passed; January start falls during your MSc",
+  "scored": "2026-11-03"
+ },
+ "fh:graduate-ai-ml-and-data-engineer-m-f-d-ericsson-dfakm3cu": {
+  "fit": 3,
+  "reason": "Graduate AI/ML and data engineering with mentorship, English posting, EU role; telecom domain and smaller city",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-ml-engineer-computer-vision-sc-cleared-sr2-bj67mk5g": {
+  "fit": 2,
+  "reason": "Junior computer-vision ML role in London, but for a defence programme needing SC clearance",
+  "deadline": "",
+  "start": "",
+  "concerns": "SC clearance usually needs years of UK residency",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-nlp-data-scientist-steerbridge-oivy7tzs": {
+  "fit": 1,
+  "reason": "Vienna, Virginia (USA), US-government work: outside your regions",
+  "deadline": "",
+  "start": "",
+  "concerns": "US location",
+  "scored": "2026-11-03"
+ },
+ "gh:anthropic:5439169008": {
+  "fit": 3,
+  "reason": "LLM safety research residency in London matches your fine-tuning and LLM-judge work; aimed at people moving from established careers",
+  "deadline": "22 Nov 2026",
+  "start": "offers Jan 2027",
+  "concerns": "Placements of 6 weeks to 6 months may fall during your MSc",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-engineer-techwolf-3imhv3ya": {
+  "fit": 4,
+  "reason": "Junior AI engineer shipping LLM features to customers, mentorship, English, EU (Ghent); matches your To Ai agent work",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-engineer-m-f-pwc-pricewaterhousecoopers-z4sc7yi2": {
+  "fit": 3,
+  "reason": "Junior AI/ML engineer with NLP and RAG in Luxembourg (EU); fits your LLM skills",
+  "deadline": "",
+  "start": "",
+  "concerns": "Same firm as your PwC UK application (different country entity)",
+  "scored": "2026-11-03"
+ },
+ "gh:wehrtyou:7583922": {
+  "fit": 3,
+  "reason": "Research engineering with PyTorch, Python and C++ next to quant teams; strong technical fit but not a labelled graduate role",
+  "deadline": "",
+  "start": "",
+  "concerns": "May expect industry experience",
+  "scored": "2026-11-03"
+ },
+ "gh:optiverus:8488699002": {
+  "fit": 2,
+  "reason": "Quant research internship at a top firm, but it's a ten-week internship",
+  "deadline": "",
+  "start": "2027",
+  "concerns": "Ten-week (summer) internship clashes with your MSc dissertation",
+  "scored": "2026-11-03"
+ },
+ "gh:anthropic:5183051008": {
+  "fit": 2,
+  "reason": "ML systems and RL fellowship fits your skills, but the cohort starts in January",
+  "deadline": "",
+  "start": "January 2027",
+  "concerns": "Starts during your MSc",
+  "scored": "2026-11-03"
+ },
+ "gh:stripe:8130927": {
+  "fit": 2,
+  "reason": "Top company new-grad role, but frontend-focused rather than ML",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-engineer-wtw-b524b3rl": {
+  "fit": 3,
+  "reason": "Junior AI engineer in Lisbon (EU); applied GenAI in an insurance/advisory firm",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:graduate-machine-learning-engineer-central-technology-arm-6ceockkd": {
+  "fit": 4,
+  "reason": "Graduate ML engineer analysing AI models on Arm platforms; PyTorch and ML research background fit, EU (Lund)",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-engineer-react-native-damia-2yze5qeu": {
+  "fit": 3,
+  "reason": "Junior AI engineer building agent features at a health startup in Lisbon; your agents and TypeScript fit",
+  "deadline": "",
+  "start": "",
+  "concerns": "Mobile (React Native) focus",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-engineer-w-m-d-bei-flex-capital-krwhowak": {
+  "fit": 2,
+  "reason": "LLM/RAG and agent work at a Berlin fund fits your skills, but the posting is in German",
+  "deadline": "",
+  "start": "",
+  "concerns": "German likely required",
+  "scored": "2026-11-03"
+ },
+ "fh:data-scientist-junior-h-f-upclear-p2es4un2": {
+  "fit": 3,
+  "reason": "Junior data scientist in Paris on a revenue-management SaaS; French posting, which you speak",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:data-scientist-junior-h-f-h-f-groupe-vyv-xhm3gn44": {
+  "fit": 3,
+  "reason": "Junior data scientist in Paris (insurance/health) building prediction models; French posting",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "gh:optiverus:8713409002": {
+  "fit": 2,
+  "reason": "Software engineering internship at Optiver, but a summer-style internship",
+  "deadline": "",
+  "start": "2027",
+  "concerns": "Internship timing clashes with your MSc",
+  "scored": "2026-11-03"
+ },
+ "fh:ai-engineer-junior-tecdata-engineering-kykgbvcd": {
+  "fit": 2,
+  "reason": "Junior LLM/RAG engineer in Madrid (0-2 years), but the posting is in Spanish",
+  "deadline": "",
+  "start": "",
+  "concerns": "Spanish likely required",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-platform-engineer-abc-fitness-mnsfuu2i": {
+  "fit": 3,
+  "reason": "Junior AI platform engineer in Poland (EU) at a software firm; fits your Python and AWS background",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:graduate-ai-engineer-scrumconnect-zohorecruit-eu-fxbhqcii": {
+  "fit": 3,
+  "reason": "Graduate AI engineer with structured learning in the UK (Staines, near London)",
+  "deadline": "",
+  "start": "",
+  "concerns": "Small consultancy; sponsorship not stated",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-software-engineer-ai-vision-computer-vision-vanderlande-industries-ql37w5zs": {
+  "fit": 3,
+  "reason": "Junior software engineer on computer vision in Barcelona (EU); your image-captioning project is relevant",
+  "deadline": "",
+  "start": "",
+  "concerns": "",
+  "scored": "2026-11-03"
+ },
+ "fh:junior-ai-application-engineer-ai-products-llm-rag-m-f-d-machine-learning-reply-3cece5op": {
+  "fit": 2,
+  "reason": "LLM and RAG application engineering fits well, but the posting is in German",
+  "deadline": "",
+  "start": "",
+  "concerns": "German likely required",
+  "scored": "2026-11-03"
+ }
+}

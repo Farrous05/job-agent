@@ -9,6 +9,7 @@
   python3 -m jobagent batches          write scoring batches (roles Claude hasn't scored yet)
   python3 -m jobagent merge-scores     read Claude's scores -> All matches + shortlist
   python3 -m jobagent recall F.json    compare real postings from other boards with this run
+  python3 -m jobagent audit            removed-but-relevant roles, for Claude to check the filters
   python3 -m jobagent reminders        deadlines closing soon, follow-ups due
   python3 -m jobagent stats            applications by stage, reply rate by role type/region/source
 """
@@ -190,6 +191,20 @@ def cmd_recall(args) -> int:
     print(f"Recall: fetched {int(res['recall'] * 100)}% of {len(bench)} benchmark postings, kept "
           f"{int(res['kept_rate'] * 100)}%. Missing {len(res['missing'])}, filtered out {len(res['excluded'])}.")
     print(f"  details: {(rd / 'recall_report.md').relative_to(ROOT)}")
+    hist = ROOT / "history" / "recall.csv"
+    pipeline.record_recall(hist, rd, res, len(bench))
+    rows = hist.read_text().splitlines()[1:]
+    total = sum(int(r.split(",")[1]) for r in rows)
+    avg = round(sum(int(r.split(",")[1]) * int(r.split(",")[2]) for r in rows) / max(total, 1))
+    print(f"  all checks so far: {len(rows)} runs, {total} postings, {avg}% fetched (history/recall.csv)")
+    return 0
+
+
+def cmd_audit(args) -> int:
+    rd = _rd(args)
+    path = pipeline.audit(rd, args.n)
+    n = path.read_text().count("\n## ")
+    print(f"{n} removed-but-relevant roles to check: {path.relative_to(ROOT)}")
     return 0
 
 
@@ -289,6 +304,8 @@ def cmd_view(args) -> int:
                 with lock:
                     store = SeenStore(store_path)
                     extra = {k: str(body[k])[:200] for k in ("deadline", "location") if body.get(k)}
+                    if str(body.get("fit", "")).isdigit() and int(body["fit"]) > 0:
+                        extra["fit"] = int(body["fit"])
                     note = body.get("note")
                     store.set_status(str(body["id"]), body["status"], str(body.get("company", ""))[:200],
                                      str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000],
@@ -345,6 +362,9 @@ def main(argv=None) -> int:
     rc = sub.add_parser("recall", help="compare a benchmark list of real postings with this run")
     rc.add_argument("file")
     rc.add_argument("--date")
+    au = sub.add_parser("audit", help="sample roles the filters removed, to check for wrong removals")
+    au.add_argument("--n", type=int, default=40)
+    au.add_argument("--date")
     sub.add_parser("reminders")
     sub.add_parser("stats")
     vw = sub.add_parser("view")
@@ -355,7 +375,7 @@ def main(argv=None) -> int:
     if args.cmd is None:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))
     return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view, "import": cmd_import,
-            "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "reminders": cmd_reminders,
+            "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "audit": cmd_audit, "reminders": cmd_reminders,
             "stats": cmd_stats}[args.cmd](args)
 
 

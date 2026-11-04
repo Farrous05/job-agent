@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 .DS_Store
 cv/preview-*.png
-data/
+data/*
+!data/score_cache.json
 shortlist/*.html
 shortlist/preview.png

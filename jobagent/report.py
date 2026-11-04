@@ -419,7 +419,8 @@ apply();
 STATUS_SCRIPT = """
 async function save(card, status, note) {
   const body = {id: card.dataset.id, status, company: card.dataset.company, title: card.dataset.title,
-                url: card.dataset.url, deadline: card.dataset.deadline || '', location: card.dataset.location || ''};
+                url: card.dataset.url, deadline: card.dataset.deadline || '', location: card.dataset.location || '',
+                fit: card.dataset.fit || ''};
   if (note !== undefined) body.note = note;
   let r;
   try { r = await fetch('/api/status', {method: 'POST', headers: {'Content-Type': 'application/json'},
@@ -508,6 +509,14 @@ def stats_html(s: dict) -> str:
                       for k, r in sorted(rows.items(), key=lambda x: -x[1]["applied"]))
         tables.append(f"<h3>{label}</h3><table><tr><th>{label}</th><th>Applied</th><th>Replies</th><th>Interviews</th>"
                       f"<th>Interview rate</th></tr>{trs}</table>")
+    cal = s.get("calibration", {})
+    cal_rows = "".join(f"<tr><td>{esc(lab)}</td><td>{cal[k]['n']}</td><td>{cal[k]['avg']}</td></tr>"
+                       for k, lab in (("applied", "Applied (any stage)"), ("interested", "Interested"),
+                                      ("not_interested", "Not for me")) if cal.get(k, {}).get("n"))
+    cal_html = (f"<h3>Do Claude's scores match your choices?</h3><table><tr><th>You marked</th><th>Jobs</th>"
+                f"<th>Avg Claude fit (1–5)</th></tr>{cal_rows}</table><p class='sub'>Good scoring: Applied/Interested "
+                f"average clearly higher than Not for me. If not, tell Claude what it gets wrong.</p>") if cal_rows else ""
+    tables.insert(0, cal_html)
     inner = (f'<div class="grid">{boxes}</div><p class="sub" style="margin-top:14px">Interview rate overall: <b>{rate}</b>. '
              f'Mark replies on the My applications tab to keep this accurate.</p>' + "".join(tables)
              + ("" if tables else '<p class="empty">Mark jobs as Applied to see which kinds of roles reply.</p>'))
