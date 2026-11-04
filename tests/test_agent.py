@@ -327,6 +327,17 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(sum(1 for r in rows if r["company"] == "Mako"), 1)
         self.assertEqual(len(rows), 15)                   # still fills 15 distinct roles
 
+    def test_remerge_updates_same_shortlist(self):
+        self._score_all()
+        a = pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)["shortlist"]
+        b = pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)["shortlist"]
+        self.assertEqual(a, b)
+        self.assertEqual(len(list(self.short.glob("*.md"))), 1)
+        # a new fetch (save_run without append) starts a new shortlist file
+        pipeline.save_run(self.rd, pipeline.load_candidates(self.rd), [], {}, [])
+        c = pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)["shortlist"]
+        self.assertNotEqual(a, c)
+
     def test_bad_score_lines_reported(self):
         (self.rd / "scores").mkdir(exist_ok=True)
         (self.rd / "scores" / "x.jsonl").write_text('{"id": "t:0", "fit": 9}\nnot json\n{"id": "t:1", "fit": 4}')

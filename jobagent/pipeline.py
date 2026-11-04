@@ -102,6 +102,7 @@ def save_run(rd: Path, kept: list[dict], rows: list[dict], excluded: dict, faile
         cpath.write_text(json.dumps({"run": rd.name, "excluded_counts": excluded, "failed_sources": failed,
                                      "candidates": kept}, indent=2, ensure_ascii=False) + "\n")
         mode = "w"
+        (rd / "shortlist_file.txt").unlink(missing_ok=True)   # a new fetch starts a new shortlist
     with (rd / "all.jsonl").open(mode) as fh:
         for r in rows:
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -294,7 +295,11 @@ def merge_scores(rd: Path, data: Path, cfg: dict, store: SeenStore, shortlist_di
                      "sponsorship": m["sponsorship"], "why": why, "flags": flags, "applied": m.get("applied")})
     from . import report
     name = rd.name
-    out = report.next_shortlist_path(shortlist_dir, name)
+    # merging again within the same run (after imports or a rescore) updates that run's shortlist file
+    marker = rd / "shortlist_file.txt"
+    prev = Path(marker.read_text().strip()) if marker.exists() else None
+    out = prev if prev is not None and prev.parent == shortlist_dir else report.next_shortlist_path(shortlist_dir, name)
+    marker.write_text(str(out) + "\n")
     notes = [f"{len(matches)} roles scored by Claude (all are in the job page's All matches tab); "
              f"shortlist = top {len(rows)} with fit {min_fit}+/5."]
     if unscored:
