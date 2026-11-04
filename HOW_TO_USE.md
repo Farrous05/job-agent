@@ -3,12 +3,12 @@
 Your folder is `~/code/job-agent`. Every command below starts there: `cd ~/code/job-agent`.
 
 ## 0. One-time shortcut (recommended)
-Add a `jobs` command to your Terminal:
+Add a `findjobs` command to your Terminal (not `findjobs`: that name is taken by zsh):
 ```bash
-echo 'alias jobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc
+echo 'alias findjobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc
 ```
 
-## 1. Get new jobs: type `jobs`
+## 1. Get new jobs: type `findjobs`
 That's it. It:
 1. gets the latest version of the agent,
 2. starts Claude with `/job-run` (approve the questions; it takes 20–40 minutes the first time, less later),
@@ -17,10 +17,10 @@ That's it. It:
 
 `/job-run` fetches ~9,000 jobs, removes the ones that don't fit your rules, has Claude score every remaining
 role against your CV, picks the best 15, checks what it might have missed, suggests CV changes and drafts
-LinkedIn notes. By default `jobs` skips the LinkedIn **job search** (outreach still runs). Variants:
-- `jobs full`: everything, including the LinkedIn job search.
-- `jobs skip-linkedin skip-outreach`: no LinkedIn at all.
-- `jobs skip-linkedin skip-cv skip-outreach`: just jobs and scores (fastest).
+LinkedIn notes. By default `findjobs` skips the LinkedIn **job search** (outreach still runs). Variants:
+- `findjobs full`: everything, including the LinkedIn job search.
+- `findjobs skip-linkedin skip-outreach`: no LinkedIn at all.
+- `findjobs skip-linkedin skip-cv skip-outreach`: just jobs and scores (fastest).
 
 ## 2. Look at the jobs
 Type `python3 -m jobagent view`. Your browser opens the job page with 4 tabs:
@@ -65,7 +65,7 @@ Send one any time: `python3 -m jobagent notify`. (Alternative: `notify-setup` wi
 ntfy app, but its iPhone notifications can be unreliable.)
 
 ## 6. Saving
-Automatic: after `jobs`, when you close the job page, and after the daily schedule. To save by hand at any
+Automatic: after `findjobs`, when you close the job page, and after the daily schedule. To save by hand at any
 time: `python3 -m jobagent save`.
 
 ## Handy commands
