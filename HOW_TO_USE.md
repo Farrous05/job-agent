@@ -17,7 +17,10 @@ That's it. It:
 
 `/job-run` fetches ~9,000 jobs, removes the ones that don't fit your rules, has Claude score every remaining
 role against your CV, picks the best 15, checks what it might have missed, suggests CV changes and drafts
-LinkedIn notes. Variants: `jobs skip-outreach`, `jobs skip-cv skip-outreach`.
+LinkedIn notes. By default `jobs` skips the LinkedIn **job search** (outreach still runs). Variants:
+- `jobs full`: everything, including the LinkedIn job search.
+- `jobs skip-linkedin skip-outreach`: no LinkedIn at all.
+- `jobs skip-linkedin skip-cv skip-outreach`: just jobs and scores (fastest).
 
 ## 2. Look at the jobs
 Type `python3 -m jobagent view`. Your browser opens the job page with 4 tabs:
