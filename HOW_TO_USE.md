@@ -2,14 +2,98 @@
 
 Your folder is `~/code/job-agent`. Every command below starts there: `cd ~/code/job-agent`.
 
-## Set up once (10 minutes), then it runs by itself
-1. Telegram (your phone remote): `python3 -m jobagent notify-setup --telegram` and follow the steps.
-2. Install everything that runs by itself: `scripts/install_mac.sh`
-   - **Daily job search at 08:40:** fetch, Claude scores every role, summary with buttons to your Telegram.
-   - **Telegram bot, always on:** answers your commands (below).
-   - **Job page, always on:** on this Mac at http://127.0.0.1:8765, and on your phone (home Wi-Fi) through
-     the private link the script prints. macOS may ask once to allow incoming connections: click Allow.
-3. Renew your Claude login when it asks (`/login` in Claude): the daily run needs it.
+## Set up once (about 30 minutes, most of it downloads)
+Do these in order in Terminal on your Mac. Each box is one command: copy it, paste it, press Enter.
+
+**1. Homebrew** (installs the other tools). Skip if `brew --version` already works.
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+At the end it prints 2 "Next steps" commands: run them too.
+
+**2. Tools:** Python 3.11+, git, GitHub login, PDF tools.
+```bash
+brew install python git gh poppler
+```
+**3. LaTeX** for the CV and cover-letter PDFs (big download, about 5 GB):
+```bash
+brew install --cask mactex-no-gui
+```
+Then **close Terminal and open a new one** so it finds the new tools.
+
+**4. Log in to GitHub** (so your results are saved automatically). Choose GitHub.com, HTTPS, "Login with a web browser":
+```bash
+gh auth login
+```
+```bash
+gh auth setup-git
+```
+
+**5. Claude Code**, then sign in with your Claude account (no API key):
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+```bash
+claude
+```
+Sign in in the browser it opens, then type `/exit`.
+
+**6. Get the agent** (skip the clone if `~/code/job-agent` already exists):
+```bash
+mkdir -p ~/code && git clone https://github.com/Farrous05/job-agent.git ~/code/job-agent
+```
+```bash
+cd ~/code/job-agent && git checkout claude/exciting-gates-89chfl && git pull
+```
+Check it works (should end with `OK`):
+```bash
+python3 -m unittest discover tests
+```
+
+**7. The `findjobs` shortcut:**
+```bash
+echo 'alias findjobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc
+```
+
+**8. Telegram bot (your phone remote).**
+1. On your phone, install Telegram and open a chat with **@BotFather**.
+2. Send `/newbot`, give it any name, then a username ending in `bot` (e.g. `fares_jobs_bot`).
+3. BotFather replies with a token like `123456:ABC-def...`. Open the link to your new bot and send it `hi`.
+4. On the Mac:
+   ```bash
+   python3 -m jobagent notify-setup --telegram
+   ```
+   Paste the token when asked. You get a test message on your phone straight away.
+
+**9. Switch on everything that runs by itself:**
+```bash
+scripts/install_mac.sh
+```
+It starts 3 things:
+- **Daily job search at 08:40:** fetch, Claude scores every role, then a summary with buttons on Telegram.
+- **The Telegram bot, always on:** answers your commands (below).
+- **The job page, always on:** http://127.0.0.1:8765 on the Mac. On your phone (home Wi-Fi) it's the private
+  link the script prints. You can also send `/page` to the bot.
+
+If macOS asks to allow incoming connections for Python, click **Allow**. On your phone, open the link in Safari,
+then Share → **Add to Home Screen** to get an app icon.
+
+**10. First search:** send `/run` to the bot (about 20–40 min, then the summary arrives), or type `findjobs` on
+the Mac to watch it run.
+
+**Check it's all working:** send `/help` to the bot (it replies), open the job page link on your phone, and
+tomorrow at about 08:45 a summary should arrive.
+
+**Optional extras**
+- **LinkedIn search and outreach drafts:** install the Claude extension in Chrome, sign in to the same Claude
+  account, and sign in to LinkedIn in that Chrome. Then use `findjobs full`.
+- **Reed (more UK jobs):** get a free key at https://www.reed.co.uk/developers/jobseeker, then:
+  ```bash
+  echo 'export REED_API_KEY=your_key_here' >> ~/.zshrc && source ~/.zshrc
+  ```
+- **Renew the Claude login** when it asks (`claude`, then `/login`): the daily run needs it.
+- **Start again from zero:** `python3 -m jobagent reset` (keeps your marked jobs; `--all` forgets them too).
+  To stop the background services: `scripts/install_mac.sh --uninstall`.
 
 ## Your normal week (almost no typing)
 - **Each morning:** Telegram shows the new jobs. Tap **✓** (applied), **★** (interested) or **✕** (not for me).
@@ -115,5 +199,9 @@ Jane Street's new-grad page) come from the web-search step.
 ## Something went wrong?
 - "No shortlist yet" → run `/job-run` first.
 - `ModuleNotFoundError: tomllib` → you need Python 3.11+: `brew install python`, then open a new Terminal.
+- `claude: command not found` → open a new Terminal, or rerun step 5.
+- No Telegram messages → check the bot log: `tail -20 data/logs/com.fares.jobagent.bot.log`, then rerun step 8.
+- Results not saved to GitHub → rerun step 4, then `python3 -m jobagent save`.
+- The daily run didn't happen → `tail -40 data/logs/com.fares.jobagent.log`.
 - Chrome not connected → in Claude type `/chrome` and follow the steps.
 - LinkedIn shows a warning or CAPTCHA → the agent stops by itself. Wait a day before LinkedIn steps again.

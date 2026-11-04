@@ -31,48 +31,10 @@ applications/            drafted cover letters and answers per role
 scripts/                 build_cv.sh, run_scheduled.sh, launchd plist
 ```
 
-## Setup (macOS; Linux is the same minus launchd)
-
-1. **Clone and check Python 3.11+** (no packages needed):
-   ```bash
-   git clone https://github.com/Farrous05/job-agent.git ~/job-agent
-   ```
-   ```bash
-   cd ~/job-agent && python3 --version && python3 -m unittest discover tests
-   ```
-2. **LaTeX** (for compiling CVs). On macOS:
-   ```bash
-   brew install --cask mactex-no-gui
-   ```
-   You also need `pdfinfo`:
-   ```bash
-   brew install poppler
-   ```
-3. **Claude Code**: install it, then sign in with your Claude account (no API key needed):
-   ```bash
-   npm install -g @anthropic-ai/claude-code
-   ```
-4. **Claude in Chrome** (outreach only): install the Claude extension in Chrome, sign in to the same Claude
-   account and sign in to LinkedIn in that Chrome. Then start Claude with `claude --chrome`, or run `/chrome`
-   inside a session.
-5. **Optional: Reed API** (adds a UK aggregator). Get a free key at https://www.reed.co.uk/developers/jobseeker,
-   then add it to `~/.zshrc`:
-   ```bash
-   echo 'export REED_API_KEY=your_key_here' >> ~/.zshrc
-   ```
-6. **Optional: fewer permission prompts.** Save this as `.claude/settings.json` (I couldn't write it from the cloud session):
-   ```json
-   {"permissions": {"allow": ["Bash(python3 -m jobagent:*)", "Bash(scripts/build_cv.sh:*)", "Bash(git diff:*)",
-     "Bash(date:*)", "WebSearch", "WebFetch"], "deny": ["Bash(git merge:*)"]}}
-   ```
-
-## First run on your laptop
-```bash
-python3 -m jobagent run --dry-run && python3 -m jobagent status
-```
-`status` lists the boards that failed. Some tokens in `config/companies.toml` are marked `verified = false`.
-For each failure, open the company's careers page, copy the slug from the job URL (for example
-`job-boards.greenhouse.io/<slug>`) and fix it, or delete the entry.
+## Setup
+Step by step, from a fresh Mac: **[HOW_TO_USE.md → Set up once](HOW_TO_USE.md#set-up-once-about-30-minutes-most-of-it-downloads)**.
+In short: Homebrew → `brew install python git gh poppler` + MacTeX → `gh auth login` → Claude Code → clone →
+`notify-setup --telegram` → `scripts/install_mac.sh`.
 
 ## Running it
 - **Full agent run** (interactive, about 10–20 min):
@@ -86,27 +48,10 @@ For each failure, open the company's careers page, copy the slug from the job UR
 - **Compile CVs and check one page:** `scripts/build_cv.sh`
 - **See suggested CV changes (red/blue PDF):** `scripts/cv_diff.sh`
 
-## Scheduling locally (launchd)
-```bash
-sed "s#REPO_PATH#$HOME/job-agent#" scripts/com.fares.jobagent.plist > ~/Library/LaunchAgents/com.fares.jobagent.plist
-```
-```bash
-launchctl load ~/Library/LaunchAgents/com.fares.jobagent.plist
-```
-It runs daily at 08:40, or at next wake if the laptop was asleep. Logs go to `data/logs/`.
-- `JOBAGENT_MODE=script` (default in the plist): fetcher only, £0.
-- `JOBAGENT_MODE=claude`: headless `claude -p` runs `/job-run skip-cv skip-outreach` using your Claude plan.
-- Outreach is **never** scheduled. LinkedIn browsing stays interactive and supervised.
-- To stop it:
-  ```bash
-  launchctl unload ~/Library/LaunchAgents/com.fares.jobagent.plist
-  ```
-- Cron alternative:
-  ```bash
-  (crontab -l; echo "40 8 * * * $HOME/job-agent/scripts/run_scheduled.sh") | crontab -
-  ```
-
-Choose one mode. Both mark shortlisted jobs as seen, so running both on the same day splits the new roles between them.
+## Scheduling
+`scripts/install_mac.sh` installs the daily 08:40 run (Claude mode), the Telegram bot and the always-on job page
+as launchd agents. Logs: `data/logs/`. Remove them: `scripts/install_mac.sh --uninstall`.
+Outreach is **never** scheduled: LinkedIn browsing stays interactive and supervised.
 
 ## CV workflow (you approve everything)
 - General edits live on branch **`cv-edits`**. Review them:
