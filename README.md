@@ -6,25 +6,28 @@ A local job-search agent for graduate ML/AI, data science, quant and SWE roles s
 Why it's built this way: see [RESEARCH.md](RESEARCH.md).
 
 **How it works**
-1. `python3 -m jobagent run` fetches public ATS feeds (Greenhouse, Lever, Ashby, Workday) for the companies in
-   `config/companies.toml`, plus freehire.me (free aggregator, ~185k companies incl. startups) and Reed (if
-   `REED_API_KEY` is set). It filters them with your rules in `config/profile.toml`, reads each description for an explicit
-   sponsorship statement, skips anything in `seen_jobs.json` and writes `shortlist/YYYY-MM-DD.md`.
-   No LLM, free, safe to schedule.
-2. `/job-run` inside Claude Code does the judgement work. It runs the fetcher, checks company pages and UK grad
-   boards by web search, ranks the roles, reviews the CV (`/cv-review`) and drafts LinkedIn notes (`/outreach`).
+1. `python3 -m jobagent run --dry-run` fetches ~9,000 jobs: company boards (Greenhouse, Lever, Ashby, Workday),
+   freehire.me (search terms + every role at watch-list firms) and Reed. It applies your filters and writes
+   **every** remaining role to `data/runs/<date>/candidates.json`.
+2. `/job-run` in Claude Code adds web-search and LinkedIn finds (`jobagent import`), then **Claude scores every
+   role 1–5 against your CV** (`jobagent batches` → score files → `jobagent merge-scores`; scores are cached).
+   Then it writes the top 15, runs a recall check against known postings, does CV work and outreach drafts.
+3. `python3 -m jobagent view` is the job page: Top picks, All matches, My applications (stages and notes), Stats.
+4. `/apply <company>` drafts the cover letter and form answers. You submit.
 
 ```
 config/profile.toml      your filters, targets, already-applied list
 config/companies.toml    ATS boards + [[watch]] companies checked by web search
-jobagent/                fetcher, filters, seen store (Python stdlib only)
+jobagent/                sources, filters, pipeline (score/merge/recall), tracker, job page (stdlib only)
+data/runs/DATE/          candidates, scoring batches + scores, matches, recall report (local only)
 seen_jobs.json           every job already reported (reruns show only new ones)
 shortlist/DATE.md        top 15 per run
 outreach/DATE.md         people + draft connection notes (you send them)
 cv/cv.tex                master CV (edited only on branch cv-edits, merged by you)
 cv/tailored/*.tex        per-role versions; cv/build/ holds PDFs
 cv/cv_feedback.md        CV review summary + questions for you
-.claude/commands/        /job-run, /cv-review, /outreach
+.claude/commands/        /job-run, /cv-review, /outreach, /linkedin-jobs, /apply
+applications/            drafted cover letters and answers per role
 scripts/                 build_cv.sh, run_scheduled.sh, launchd plist
 ```
 

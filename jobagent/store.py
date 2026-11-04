@@ -35,31 +35,47 @@ class SeenStore:
         return source_id in self.data["jobs"] or fuzzy_key(company, title) in self._fuzzy
 
     def add(self, source_id: str, company: str, title: str, url: str, status: str = "reported",
-            run: str | None = None) -> None:
+            run: str | None = None, extra: dict | None = None) -> None:
+        """extra: optional details kept for tracking (deadline, location, region, families, source, fit)."""
         fk = fuzzy_key(company, title)
+        old = self.data["jobs"].get(source_id, {})
         self.data["jobs"][source_id] = {
+            **old, **(extra or {}),
             "company": company, "title": title, "url": url, "fuzzy": fk,
-            "first_reported": run or date.today().isoformat(), "status": status,
+            "first_reported": old.get("first_reported") or run or date.today().isoformat(),
+            "status": old.get("status", status),
         }
         self._fuzzy.add(fk)
 
-    STATUSES = ("reported", "applied", "interested", "not_interested")
+    # reported = shown, no mark. The last four are application stages.
+    STATUSES = ("reported", "interested", "not_interested", "applied", "interviewing", "offer", "rejected")
+    APPLIED = ("applied", "interviewing", "offer", "rejected")
 
-    def set_status(self, source_id: str, status: str, company: str = "", title: str = "", url: str = "") -> None:
-        """Your own tracking from the browser page. 'reported' = no mark."""
+    def set_status(self, source_id: str, status: str, company: str = "", title: str = "", url: str = "",
+                   note: str | None = None, extra: dict | None = None) -> None:
+        """Your own tracking from the browser page. Keeps a dated history of every change."""
         if status not in self.STATUSES:
             raise ValueError(status)
         if source_id not in self.data["jobs"]:
-            self.add(source_id, company, title, url)
+            self.add(source_id, company, title, url, extra=extra)
         job = self.data["jobs"][source_id]
-        job["status"] = status
-        job["status_date"] = date.today().isoformat()
+        for k, v in (extra or {}).items():
+            job.setdefault(k, v)
+        today = date.today().isoformat()
+        if job.get("status") != status:
+            job.setdefault("history", []).append([today, status])
+            job["status"] = status
+            job["status_date"] = today
+            if status == "applied" and not job.get("applied_date"):
+                job["applied_date"] = today
+        if note is not None:
+            job["note"] = note[:2000]
 
     def statuses(self) -> dict:
         return {k: v.get("status", "reported") for k, v in self.data["jobs"].items()}
 
     def applied_companies(self) -> set[str]:
-        return {v["company"] for v in self.data["jobs"].values() if v.get("status") == "applied" and v.get("company")}
+        return {v["company"] for v in self.data["jobs"].values() if v.get("status") in self.APPLIED and v.get("company")}
 
     def save(self) -> None:
         self.path.write_text(json.dumps(self.data, indent=2, ensure_ascii=False) + "\n")

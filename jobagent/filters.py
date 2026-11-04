@@ -46,7 +46,9 @@ def _any_word(words, text: str) -> bool:
     return any(re.search(rf"(?<![a-zà-ÿ]){re.escape(w)}(?![a-zà-ÿ])", text) for w in words)
 
 
-NON_EU = r"\b(us|usa|united states|canada|apac|asia|india|brazil|mexico|san francisco|new york|seattle|nyc|sf|toronto|ca|ny|wa)\b"
+NON_EU = (r"\b(us|usa|united states|canada|apac|asia|india|brazil|mexico|san francisco|new york|seattle|nyc|sf|"
+          r"toronto|ca|ny|wa)\b|,\s*(va|ma|tx|il|nj|ga|nc|md|fl|pa|oh|mi|mn|az|ut|dc|ct|wi|tn|mo|ok|la|nv|ia|ks|"
+          r"ne|sc|al|ar|ky|or|id|nm|ri|nh|vt|me|ms|ne|wv|wy|mt|sd|nd|hi|ak)\b")
 
 
 def region_of(location: str, cfg: dict) -> str:

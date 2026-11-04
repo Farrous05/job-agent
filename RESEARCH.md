@@ -71,6 +71,12 @@ Reddit blocks this server, so I couldn't read the thread you linked. GitHub had 
   Common Crawl's index wasn't reachable reliably from here; freehire covers the same need.
 - [job-scraper](https://github.com/chrisdothtml/job-scraper): resolves a company name to its ATS board (15k companies mapped).
 
+## Recall check (4 Nov 2026)
+Benchmark: 15 real graduate postings found by web search that morning. Feeds alone (boards + freehire keyword
+queries) found 6 (40%). Adding freehire's per-company search for the watch-list firms raised it to 11 (73%).
+Still missing from every feed: Revolut, Jane Street new-grad, Tower graduate programme, Mistral new grad, so
+`/job-run` keeps a web-search step for them, and each run re-measures recall in `recall_report.md`.
+
 ## Sources
 - Greenhouse API: [Medium guide](https://medium.com/@sevicdev/integration-with-greenhouse-public-jobs-api-b548b23ad867), [Apify actor](https://apify.com/schnellscrapers/greenhouse-jobs-scraper)
 - Lever/Ashby APIs: [DEV guide](https://dev.to/fecklesspleb/reading-greenhouse-lever-and-ashby-job-boards-from-their-public-json-endpoints-1651), [Ashby guide](https://dev.to/zsevic/integration-with-ashby-public-jobs-api-34n6), [cavuno overview](https://cavuno.com/blog/ats-platforms-public-job-posting-apis)

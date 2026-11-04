@@ -77,10 +77,10 @@ tier2 = ["Revolut", "Monzo", "Wise", "Bloomberg", "Cohere", "Synthesia", "PolyAI
          "ARM", "Ericsson", "UBS", "Techwolf"]
 
 [freehire]
-# Aggregator search across ~185k companies (startups included). Set enabled = false to switch off.
+# Aggregator search across ~185k companies (startups included). Free: 120 requests/min, 2,000/day.
 enabled = true
 open_within_days = 30      # only postings first seen in the last N days
-pages = 2                  # 50 results per page per query
+pages = 6                  # 50 results per page per query (6 pages x 7 queries = max 42 requests)
 countries = ["gb", "fr", "nl", "de", "ie", "ch", "es", "pt", "it", "be", "lu", "at", "dk", "se", "fi",
              "no", "pl", "cz"]
 # max 5 OR alternatives per query (API limit)
@@ -88,8 +88,29 @@ queries = [
   { q = '"machine learning" OR "ML engineer" OR "AI engineer" OR "LLM"', seniority = ["junior", "intern"] },
   { q = '"data scientist" OR "research engineer" OR "applied scientist"', seniority = ["junior", "intern"] },
   { q = 'quantitative OR quant OR "software engineer" OR "software developer"', seniority = ["junior"] },
+  { q = '"deep learning" OR NLP OR "computer vision" OR "AI researcher"', seniority = ["junior", "intern"] },
+  { q = '"python developer" OR "backend engineer" OR "data engineer"', seniority = ["junior"] },
   { q = 'graduate OR "new grad" OR "early careers" OR "2027"' },
+  { q = '"graduate programme" OR "graduate scheme" OR "university graduate"' },
 ]
+# Every role at these companies (they have no public job board we can read directly). freehire slugs.
+company_slugs = ["jane-street", "squarepoint-capital", "qube-research-technologies", "tower-research-capital",
+                 "mistral-ai", "deepmind", "g-research", "revolut", "bloomberg", "pwc", "hugging-face",
+                 "booking-com", "zalando", "criteo", "asml", "sap", "man-group", "xtx-markets"]
+company_pages = 6
+
+[scoring]
+# Claude scores EVERY role that passes the filters (fit 1-5 against your CV), in batches.
+# Scores are cached in data/score_cache.json, so a role is only scored once.
+batch_size = 25
+min_fit_shortlist = 3      # shortlist = best roles with fit >= this
+
+[linkedin]
+# Read-only LinkedIn JOB search in your Chrome during /job-run (never applies, never messages).
+# LinkedIn's terms forbid automated scraping, so this stays small and supervised.
+jobs_search = true
+max_searches = 3
+max_results = 60
 
 [output]
 shortlist_size = 15

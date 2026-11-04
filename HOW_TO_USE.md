@@ -1,53 +1,67 @@
 # How to use it (simple version)
 
-## Where are my jobs?
-- Run `python3 -m jobagent view`. Your browser opens the job page: one card per job with title, company,
-  city, deadline, sponsorship, fit score, why it fits, a short description and an **Apply** button.
-- Under each job, click **✓ Applied**, **★ Interested** or **✕ Not for me**. Click again to undo.
-  Your clicks are saved in `seen_jobs.json`. Tick "hide not for me" to hide those.
-- **My applications** (link at the top) lists everything you marked Applied or Interested, with dates.
-- Leave the Terminal window open while you use the page. Press Ctrl+C there when you're done.
-- Then save your marks to GitHub: `git add -A && git commit -m "Applications" && git push`.
-- Quick look without buttons: double-click `shortlist/LATEST.html`.
+Your folder is `~/code/job-agent`. Every command below starts there: `cd ~/code/job-agent`.
 
-## Where are my CVs?
-- Tailored CVs (one per top job): `cv/build/<company>-<role>.pdf`.
-- Your main CV: `cv/build/cv.pdf`.
-- If the PDFs aren't there, run `scripts/build_cv.sh`.
+## 1. Get new jobs (about 20–40 minutes)
+1. Open Terminal and type `cd ~/code/job-agent && git pull && claude --chrome`.
+2. Type `/job-run` and press Enter. Say yes to permission questions.
+3. What it does:
+   - Fetches ~9,000 jobs from 42 company boards and freehire, plus web search and LinkedIn (read-only).
+   - Removes the ones that don't fit your rules (senior, 3+ years, PhD-only, wrong country…).
+   - **Claude reads and scores every remaining role (1–5) against your CV**, not just the top few.
+     Scores are saved, so next time only new roles are read (much faster).
+   - Picks the best 15, checks what it might have missed (recall check), suggests CV changes,
+     drafts LinkedIn notes.
+4. Quick versions: `/job-run skip-outreach`, `/job-run skip-cv`, `/job-run skip-linkedin`.
 
-## Where are the LinkedIn messages?
-- `outreach/<date>.md`: who to contact, their profile link, and a message ready to copy.
-  Nothing is sent. You send them yourself.
+## 2. Look at the jobs
+Type `python3 -m jobagent view`. Your browser opens the job page with 4 tabs:
+- **Top picks:** the best 15. Each card has an **Apply** button, fit score, deadline countdown,
+  sponsorship and why it fits.
+- **All matches:** every role Claude scored. Filter by fit (3+, 4+, 5), search, sort by deadline.
+- **My applications:** everything you marked. Change the stage (Applied → Interviewing → Offer / Rejected)
+  and write notes (who you spoke to, next step).
+- **Stats:** how many applications, replies and interviews, and which kinds of roles reply.
 
-## Every time you want new jobs
-1. Open Terminal.
-2. Type `cd ~/job-agent && git pull && claude --chrome` and press Enter. (If your folder is elsewhere,
-   e.g. `~/code/job-agent`, use that path instead.)
-3. Type `/job-run` and press Enter.
-4. Say yes when it asks for permission. Wait 15–25 minutes.
-5. Your browser opens the job page. Read it and click **Apply** on the jobs you like.
-6. Use the matching tailored CV from `cv/build/` when you apply.
-7. When you're done, save everything to GitHub:
-   ```bash
-   git add -A && git commit -m "Job run" && git push
-   ```
+On any job, click **✓ Applied**, **★ Interested** or **✕ Not for me**. A yellow box at the top reminds
+you of deadlines closing soon and applications with no reply for 2 weeks.
+Keep that Terminal window open while you use the page; press Ctrl+C when done.
 
-## If it suggests changes to your main CV
-1. See them: `scripts/cv_diff.sh`. A PDF opens with removed text in red and new text in blue.
-   (`scripts/cv_diff.sh --text` shows the same in the terminal.)
-2. If you like them: `git merge cv-edits && git push`.
-3. If not: do nothing. Your CV stays as it is.
+## 3. Apply to a job
+1. In Claude, type `/apply <company>` (e.g. `/apply techwolf`).
+2. It writes `applications/<company>-<role>/`:
+   - `cover_letter.md`
+   - `answers.md` (answers to the form questions)
+   - `checklist.md` (which CV to attach, the deadline)
+   It never invents anything: where it needs a fact from you it writes `[ASK FARES: …]`.
+3. Read and edit the drafts, attach the CV from `cv/build/`, and submit on the company's site yourself.
+4. Mark the job **✓ Applied** on the job page.
 
-## Rebuild the CV PDFs
-`scripts/build_cv.sh` compiles `cv/cv.tex` and every tailored CV into `cv/build/` and checks each is one page.
+## 4. Your CV
+- Tailored CVs (one per top job): `cv/build/<company>-<role>.pdf`. Main CV: `cv/build/cv.pdf`.
+  If they're missing (e.g. on a new computer), run `scripts/build_cv.sh`.
+- Suggested changes to your main CV: run `scripts/cv_diff.sh` (a PDF opens: red = removed, blue = added).
+  To accept: `git merge cv-edits && git push`. To reject: do nothing.
 
-## Only want one part?
-In Claude, type one of these instead of `/job-run`:
-- `/job-run skip-outreach` = jobs and CVs, no LinkedIn.
-- `/outreach` = only LinkedIn messages.
-- `/cv-review` = only CV work.
+## 5. LinkedIn messages
+`outreach/<date>.md`: who to contact, their profile link, a message ready to copy. You send them yourself.
+
+## 6. Save everything
+`git add -A && git commit -m "Job run" && git push`
+
+## Handy commands
+- `python3 -m jobagent reminders`: deadlines closing soon and follow-ups due.
+- `python3 -m jobagent stats`: your application numbers in the terminal.
+- `python3 -m jobagent status`: did any job source fail last time?
+
+## How good is it? (recall check)
+Each `/job-run` checks itself against real postings from other job boards and writes
+`data/runs/<date>/recall_report.md`: what it found, what a filter removed, and what no source returned.
+On 4 Nov 2026 the feeds alone found 11 of 15 known graduate postings (73%). The rest (e.g. Revolut,
+Jane Street's new-grad page) come from the web-search step.
 
 ## Something went wrong?
 - "No shortlist yet" → run `/job-run` first.
-- Chrome not connected → in Claude type `/chrome` and follow the steps (Claude extension installed and signed in).
-- LinkedIn shows a warning or CAPTCHA → the agent stops by itself. Wait a day before running outreach again.
+- `ModuleNotFoundError: tomllib` → you need Python 3.11+: `brew install python`, then open a new Terminal.
+- Chrome not connected → in Claude type `/chrome` and follow the steps.
+- LinkedIn shows a warning or CAPTCHA → the agent stops by itself. Wait a day before LinkedIn steps again.

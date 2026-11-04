@@ -6,6 +6,7 @@ records them in data/source_status.json and carries on with the other boards.
 from __future__ import annotations
 
 import html
+import http.client
 import json
 import os
 import re
@@ -58,7 +59,7 @@ def _request(url: str, data: dict | None = None, headers: dict | None = None, re
             if e.code in (404, 401, 403, 400):
                 raise SourceError(f"HTTP {e.code} for {url}") from e
             last = e
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, http.client.HTTPException, OSError) as e:
             last = e
         time.sleep(2 * (attempt + 1))
     raise SourceError(f"{type(last).__name__}: {last} for {url}")
@@ -219,8 +220,35 @@ def freehire(cfg: dict) -> list[Job]:
         params += [("seniority", s) for s in q.get("seniority", [])]
         for page in range(fh.get("pages", 2)):
             qs = urllib.parse.urlencode(params + [("offset", str(page * 50))])
-            data = _request(f"https://freehire.me/api/v1/agent/jobs/search?{qs}")
-            rows = data.get("data", [])
+            try:
+                rows = _request(f"https://freehire.me/api/v1/agent/jobs/search?{qs}").get("data", [])
+            except SourceError:
+                break        # keep what we have; one failed query mustn't lose the rest
+            for j in rows:
+                slug = j.get("public_slug")
+                if not slug or slug in seen or not (j.get("company") or "").strip():
+                    continue
+                seen.add(slug)
+                url = re.sub(r"[?&]utm_source=freehire\.me$", "", j.get("url", ""))
+                out.append(Job(source="freehire", source_id=f"fh:{slug}", company=j["company"].strip(),
+                               title=(j.get("title") or "").strip(), location=j.get("location") or "",
+                               url=url, description=j.get("description") or "",
+                               posted=j.get("posted_at") or "", extra={"via": j.get("source", "")}))
+            if len(rows) < 50:
+                break
+    # every role at named companies (watch-list firms with no public board); our filters decide fit
+    slugs = fh.get("company_slugs", [])
+    countries = fh.get("countries") or []
+    for i in range(0, len(slugs), 6):
+        # no date limit: freehire only lists postings that are still open, and graduate roles stay open for months
+        base = [("description_format", "text"), ("limit", "50")]
+        base += [("company_slug", c) for c in slugs[i:i + 6]] + [("countries", c) for c in countries]
+        for page in range(fh.get("company_pages", 6)):
+            qs = urllib.parse.urlencode(base + [("offset", str(page * 50))])
+            try:
+                rows = _request(f"https://freehire.me/api/v1/agent/jobs/search?{qs}").get("data", [])
+            except SourceError:
+                break
             for j in rows:
                 slug = j.get("public_slug")
                 if not slug or slug in seen or not (j.get("company") or "").strip():

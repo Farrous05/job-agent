@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-from jobagent import filters, report, sources
+from jobagent import filters, pipeline, report, sources, tracker
 from jobagent.__main__ import load_cfg
 from jobagent.sources import Job
 from jobagent.store import SeenStore, fuzzy_key
@@ -98,9 +98,11 @@ class FilterTests(unittest.TestCase):
         self.assertIn("not labelled entry-level: check experience bar", v.flags)
 
     def test_europe_locations(self):
-        for loc in ["Hamburg", "Lyon", "Eindhoven", "Bucharest", "Zug", "Aarhus, Denmark", "Remote, Europe"]:
+        for loc in ["Hamburg", "Lyon", "Eindhoven", "Bucharest", "Zug", "Aarhus, Denmark", "Remote, Europe",
+                    "Berlin, DE", "Lisbon, PT", "Madrid, ES"]:
             self.assertEqual(filters.region_of(loc, CFG), "eu", loc)
-        for loc in ["Kyiv, Ukraine", "Porto Alegre, Brazil", "Belgrade, Serbia", "Toronto"]:
+        for loc in ["Kyiv, Ukraine", "Porto Alegre, Brazil", "Belgrade, Serbia", "Toronto", "Vienna, VA",
+                    "Paris, TX"]:
             self.assertEqual(filters.region_of(loc, CFG), "other", loc)
         self.assertEqual(filters.region_of("London, United Kingdom", CFG), "uk")
 
@@ -240,7 +242,7 @@ class StoreTests(unittest.TestCase):
             self.assertEqual(st2.statuses()["gh:a:1"], "applied")
             self.assertEqual(st2.applied_companies(), {"Acme"})
             page = report.applications_html(st2.data["jobs"])
-            self.assertIn("Applied (1)", page)
+            self.assertIn("Applied, waiting (1)", page)
             self.assertIn("Interested, not applied yet (1)", page)
             with self.assertRaises(ValueError):
                 st2.set_status("gh:a:1", "hacked")
@@ -265,3 +267,109 @@ class ConfigTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PipelineTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.d = Path(self.tmp.name)
+        self.data = self.d / "data"
+        self.short = self.d / "shortlist"
+        self.short.mkdir()
+        self.store = SeenStore(self.d / "seen.json")
+        self.rd = pipeline.run_dir(self.data, "2026-11-03")
+        jobs = [job("Graduate ML Engineer", "PyTorch LLM python " * 5, "London", company=f"Co{i}") for i in range(30)]
+        for i, j in enumerate(jobs):
+            j.source_id = f"t:{i}"
+        jobs.append(job("Senior ML Engineer", "", "London", company="Old"))
+        kept, rows, excl = pipeline.evaluate_all(jobs, CFG, self.store, set())
+        pipeline.save_run(self.rd, kept, rows, excl, [])
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _score_all(self, fit_of=lambda i: 4):
+        files = pipeline.make_batches(self.rd, pipeline.load_cache(self.data), size=12)
+        for f in files:
+            ids = [l[len("## id: "):] for l in f.read_text().splitlines() if l.startswith("## id: ")]
+            out = self.rd / "scores" / (f.stem + ".jsonl")
+            out.write_text("\n".join(json.dumps({"id": i, "fit": fit_of(int(i.split(":")[1])), "reason": "r"})
+                                      for i in ids))
+        return files
+
+    def test_all_kept_roles_are_candidates(self):
+        self.assertEqual(len(pipeline.load_candidates(self.rd)), 30)          # not capped at a top N
+        rows = (self.rd / "all.jsonl").read_text().splitlines()
+        self.assertEqual(len(rows), 31)
+        self.assertIn("senior", json.loads(rows[-1])["reason"])
+
+    def test_batches_merge_and_cache(self):
+        files = self._score_all(lambda i: 5 if i < 3 else 2 if i > 20 else 3)
+        self.assertEqual(len(files), 3)                                       # 30 roles / 12 per batch
+        res = pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)
+        self.assertEqual(res["matches"], 30)
+        self.assertEqual(res["unscored"], [])
+        self.assertEqual(res["shortlisted"], 15)                               # fit>=3: 21 roles, cap 15
+        m = json.loads((self.rd / "matches.json").read_text())["matches"]
+        self.assertEqual([x["fit"] for x in m[:3]], [5, 5, 5])
+        self.assertTrue(self.store.seen("t:0", "Co0", "Graduate ML Engineer"))
+        # cached: a second batches call has nothing left to score
+        self.assertEqual(pipeline.make_batches(self.rd, pipeline.load_cache(self.data), 12), [])
+
+    def test_bad_score_lines_reported(self):
+        (self.rd / "scores").mkdir(exist_ok=True)
+        (self.rd / "scores" / "x.jsonl").write_text('{"id": "t:0", "fit": 9}\nnot json\n{"id": "t:1", "fit": 4}')
+        scores, problems = pipeline.read_scores(self.rd)
+        self.assertEqual(list(scores), ["t:1"])
+        self.assertEqual(len(problems), 2)
+
+    def test_import_filters_and_dedupes(self):
+        items = [{"company": "Webco", "title": "Graduate Data Scientist", "location": "Paris", "url": "https://w/1"},
+                 {"company": "Webco", "title": "Senior Data Scientist", "location": "Paris", "url": "https://w/2"},
+                 {"company": "Co1", "title": "Graduate ML Engineer", "location": "London", "url": "https://dup"},
+                 {"company": "NoLoc", "title": "Junior ML Engineer", "location": "", "url": "https://w/3"}]
+        res = pipeline.import_jobs(items, CFG, self.store, set(), self.rd)
+        self.assertEqual(res["added"], 2)                                      # dup + senior dropped
+        c = {x["company"]: x for x in pipeline.load_candidates(self.rd)}
+        self.assertIn("location not stated: check", c["NoLoc"]["flags"])
+        again = pipeline.import_jobs(items, CFG, self.store, set(), self.rd)
+        self.assertEqual(again["added"], 0)
+
+    def test_recall(self):
+        self._score_all()
+        pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)
+        res = pipeline.recall(self.rd, [
+            {"company": "Co5 Ltd", "title": "Graduate Machine Learning Engineer"},   # wording differs
+            {"company": "Co6", "title": "Graduate ML Engineer"},
+            {"company": "Old", "title": "Senior ML Engineer"},
+            {"company": "Nowhere", "title": "Graduate ML Engineer"}])
+        self.assertEqual(len(res["missing"]), 1)          # only Nowhere
+        self.assertEqual(len(res["excluded"]), 1)         # Old: filtered (senior)
+        self.assertEqual(len(res["found"]), 2)            # Co5 matched despite "Ltd" and "Machine Learning" wording
+        self.assertTrue((self.rd / "recall_report.md").exists())
+
+
+class TrackerTests(unittest.TestCase):
+    def test_reminders_and_stats(self):
+        with tempfile.TemporaryDirectory() as d:
+            st = SeenStore(Path(d) / "seen.json")
+            from datetime import date, timedelta
+            soon = (date.today() + timedelta(days=4)).strftime("%d %b %Y")
+            st.add("a", "Acme", "ML Eng", "u", extra={"deadline": soon, "families": ["ml"], "region": "uk"})
+            st.set_status("a", "interested")
+            st.add("b", "Beta", "SWE", "u", extra={"families": ["software"], "region": "eu", "source": "freehire"})
+            st.set_status("b", "applied")
+            st.data["jobs"]["b"]["status_date"] = (date.today() - timedelta(days=20)).isoformat()
+            st.add("c", "Gamma", "DS", "u", extra={"families": ["data_science"], "region": "uk"})
+            st.set_status("c", "applied")
+            st.set_status("c", "interviewing", note="call Tue")
+            rem = tracker.reminders(st)
+            self.assertTrue(any(r.startswith("Closes in 4 days: Acme") for r in rem), rem)
+            self.assertTrue(any("No reply for 20 days: Beta" in r for r in rem), rem)
+            s = tracker.stats(st)
+            self.assertEqual(s["applied_total"], 2)
+            self.assertEqual(s["interview_total"], 1)
+            self.assertEqual(s["by"]["family"]["data_science"]["interviews"], 1)
+            self.assertEqual(st.data["jobs"]["c"]["note"], "call Tue")
+            self.assertEqual([h[1] for h in st.data["jobs"]["c"]["history"]], ["applied", "interviewing"])
+            self.assertIn("Stats", report.stats_html(s))

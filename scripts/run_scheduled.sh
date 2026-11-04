@@ -12,13 +12,15 @@ log="data/logs/$(date +%F).log"
   echo "=== $(date) mode=${JOBAGENT_MODE:-script}"
   if [ "${JOBAGENT_MODE:-script}" = "claude" ]; then
     prompt="$(sed '1,/^---$/{/^---$/!d}; 1,/^---$/d' .claude/commands/job-run.md)"
-    claude -p "Arguments: skip-outreach skip-cv
+    claude -p "Arguments: skip-outreach skip-cv skip-linkedin
 $prompt" \
-      --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "WebSearch" "WebFetch" "Read" "Write(shortlist/**)" \
+      --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "WebSearch" "WebFetch" "Read" "Task" \
+        "Write(shortlist/**)" "Write(data/**)" \
       --permission-mode acceptEdits
   else
     python3 -m jobagent run
   fi
 } >>"$log" 2>&1
-# macOS notification (ignored elsewhere)
-command -v osascript >/dev/null && osascript -e "display notification \"New shortlist in job-agent/shortlist\" with title \"Job agent\"" || true
+# macOS notification with reminders (deadlines closing soon, follow-ups due); ignored elsewhere
+rem="$(python3 -m jobagent reminders 2>/dev/null | head -3 | tr '\n' ' ' | tr -d '"')"
+command -v osascript >/dev/null && osascript -e "display notification \"New jobs ready. ${rem}\" with title \"Job agent\"" || true

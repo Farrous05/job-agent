@@ -1,58 +1,68 @@
 ---
-description: Full job-search run. Fetch, rank, write the shortlist, then CV review, tailored CVs and outreach drafts.
-argument-hint: "[skip-cv] [skip-outreach]"
+description: Full job-search run. Fetch everything, Claude scores every matching role, shortlist, recall check, CV work, outreach.
+argument-hint: "[skip-cv] [skip-outreach] [skip-linkedin] [skip-recall]"
 ---
 
-You are my job-search agent. Today is the run date (use `date +%F`). Read `config/profile.toml` first.
-It holds my targets, filters and the companies I've already applied to. My CV is `cv/cv.tex`.
+You are my job-search agent. Today is the run date (use `date +%F`). Read `config/profile.toml` first:
+targets, filters, work rights, languages, city tiers, and the companies I've already applied to.
+My CV is `cv/cv.tex`. Arguments: $ARGUMENTS (each "skip-…" skips that step).
 
-Arguments: $ARGUMENTS. "skip-cv" skips steps 3–4 and "skip-outreach" skips step 5.
+Everything goes through ONE pipeline in `data/runs/<today>/` so nothing is judged twice or missed:
+fetch → import extra finds → Claude scores every role → merge into shortlist + All matches.
 
-## 1. Collect
-1. Run `python3 -m jobagent run --dry-run`. It writes `data/candidates/<date>.json` (new roles only, already
-   filtered and heuristically scored) and `data/source_status.json`. Tell me in one line about any failed sources.
-2. For every `[[watch]]` entry in `config/companies.toml`, use WebSearch (and WebFetch for the URL) to find
-   current graduate/new-grad/entry roles that are open now. Use only real postings with a working link.
-   Never make up a role, deadline or sponsorship status. If a field is unknown, write "not stated".
-3. Discovery (companies NOT in the config): the fetcher already includes freehire.me (an aggregator of
-   ~185k companies, startups included). In candidates.json those rows have `"new_company": true`. Also run
-   3–4 WebSearch queries for startup/graduate boards (TARGETjobs, Bright Network, Gradcracker, Welcome to the
-   Jungle, YC Work at a Startup), e.g. "graduate machine learning engineer 2027 London startup".
-   If a good company keeps appearing and has a Greenhouse/Lever/Ashby URL, suggest adding it to
-   `config/companies.toml` in your final report (don't edit the config without asking).
-4. For roles found by web search (not from the fetcher), WebFetch the posting to confirm it's still open.
-   Drop it if it's closed or the page is gone.
-5. Drop anything already in `seen_jobs.json` (same company + same role title). Jobs I marked "applied" in
-   the job page (`"status": "applied"`) mean that company counts as already applied; jobs I marked
-   "not_interested" tell you what I don't want, so rank similar roles lower.
+## 1. Fetch (2–3 min)
+Run `python3 -m jobagent run --dry-run`. It fetches all company boards + freehire (+ Reed), applies my
+filters, drops roles I've already been shown, and writes ALL remaining roles to
+`data/runs/<today>/candidates.json`. Tell me in one line: jobs fetched, roles kept, failed sources.
 
-## 2. Rank and write the shortlist
-Apply these rules strictly:
-- Exclude: 3+ years' experience, senior/lead/staff/principal titles, PhD required, closed deadlines,
-  summer-2027 internships, and UK roles whose DESCRIPTION explicitly says there is no visa sponsorship.
-- Sponsorship not stated, mixed, or only "must have right to work in the UK": KEEP the role, don't rank it
-  lower, and write the status as stated ("Not stated", "Mixed: check", "asks for UK right to work: check").
-- Internships only if off-cycle/term-time and they fit student-visa hours. Otherwise flag or drop them.
-- Flag UK programmes longer than 18 months when sponsorship isn't stated (that's the Graduate visa length).
-- Rank by: fit to my CV and target families (ML eng, AI eng, data science, quant research/dev, SWE) >
-  start-date fit (autumn 2027) > sponsorship explicitly offered > company quality.
-- Keep roles at companies in `already_applied`, but label them "already applied".
+## 2. Add what the feeds miss
+1. **Watch list:** for every `[[watch]]` company in `config/companies.toml`, WebSearch (and WebFetch the URL)
+   for roles at my level that are open now. **Boards:** 3–4 WebSearch queries for job boards that suit me
+   (TARGETjobs, Bright Network, Gradcracker, Welcome to the Jungle, YC Work at a Startup), built from my
+   role families, start date and cities. Only real postings with a working link; WebFetch each one to
+   confirm it's still open and copy ~1,500 characters of its description and any deadline.
+   Never invent a role, deadline or sponsorship status.
+   Save them as a JSON list to `data/runs/<today>/imported/web.json`
+   (`[{"source": "web", "company", "title", "location", "url", "description", "deadline"}]`), then run
+   `python3 -m jobagent import data/runs/<today>/imported/web.json`.
+2. **LinkedIn jobs** (unless skip-linkedin, and only if Chrome is connected): follow `/linkedin-jobs`.
+   If Chrome isn't connected, say so in one line and continue.
 
-Write `shortlist/<date>.md` in the same format as earlier shortlist files: a table with title, company,
-location, link, deadline, sponsorship status and a one-line reason it fits. Start that reason with a fit score
-like "4/5:", and mark companies not in our config with "(new)". Add one `<!-- id: ... -->` line
-per role. Top 15. Then run `python3 -m jobagent mark shortlist/<date>.md`.
+## 3. Score every role (the important part)
+1. Run `python3 -m jobagent batches`. It writes `data/runs/<today>/batches/batch-NNN.md` for every role that
+   has no score yet (scores are cached, so later runs only score new roles).
+2. Score EVERY batch. Each file says exactly what to write: one JSON line per role to
+   `data/runs/<today>/scores/batch-NNN.jsonl` with `fit` 1–5, a concrete one-line `reason`, `deadline`,
+   `start`, `concerns`. Read `cv/cv.tex` and `config/profile.toml` once first.
+   To go faster, use the Task tool to score up to 4 batches in parallel (give each subagent the batch path,
+   `cv/cv.tex` and `config/profile.toml`, and the instruction to write only the JSONL file).
+   How to judge: my CV and target roles first; then level (graduate/junior, no 3+ years), start date vs
+   my graduation (Sept 2027) and student-visa limits on internships; language of the job; city size;
+   company quality. Roles I marked "not_interested" in `seen_jobs.json` show what I don't want: score similar
+   roles lower. Companies I've applied to (`status` applied/interviewing/offer/rejected) count as already applied.
+3. Run `python3 -m jobagent merge-scores`. It writes `data/runs/<today>/matches.json` (all scored roles, the
+   job page's "All matches" tab) and `shortlist/<today>[-runN].md` (top 15 with fit ≥ 3), and marks those as
+   shown. If it reports unscored roles or problems in score files, fix them and run it again.
 
-## 3. CV review → run `/cv-review` steps (unless skip-cv)
-## 4. Tailored CVs → part of `/cv-review`
-## 5. Outreach → run `/outreach` steps (unless skip-outreach)
+## 4. Recall check (unless skip-recall)
+Find 10–20 real, currently open postings that SHOULD match me, from sources other than our feeds
+(Gradcracker, Bright Network, TARGETjobs, LinkedIn if connected), for my target roles and cities.
+Save them to `data/runs/<today>/recall.json` (`[{"company", "title", "url", "location"}]`) and run
+`python3 -m jobagent recall data/runs/<today>/recall.json`. Read `recall_report.md`:
+- "filtered out": check the reason. If a filter is wrong, say which setting to change.
+- "missing": if the company has a Greenhouse/Lever/Ashby/Workday board, propose adding it to
+  `config/companies.toml` (don't edit the config without asking).
+Recall postings that fit me can be imported (step 2) and scored too.
 
-## 6. Open the results page
-Tell me to run `python3 -m jobagent view` in my own terminal: it opens the job page with Apply buttons and
-Applied / Interested / Not for me buttons (it keeps running until Ctrl+C, so don't start it yourself;
-run `python3 -m jobagent view --static` instead to just refresh `shortlist/LATEST.html`).
+## 5. CV → follow `/cv-review` (unless skip-cv)
+## 6. Outreach → follow `/outreach` (unless skip-outreach)
 
 ## 7. Report back (keep it short)
-Show the shortlist table, the outreach drafts, the CV changes (`scripts/cv_diff.sh --text`) and the
-list of tailored files. End with: what to tune in `config/`, and the top 3 CV changes.
-Ask me for any missing metrics; don't guess them.
+- Counts: fetched, kept, scored (new vs cached), shortlisted; recall % and the misses that matter.
+- The shortlist table (title, company, city, deadline, fit, one-line reason).
+- Output of `python3 -m jobagent reminders` (deadlines closing soon, follow-ups due).
+- CV changes (`scripts/cv_diff.sh --text`), tailored files, outreach file.
+- Tell me to open the job page in my own terminal: `python3 -m jobagent view` (don't start it yourself: it
+  runs until Ctrl+C; use `python3 -m jobagent view --static` to just refresh the HTML files).
+- For the top 3 roles, suggest `/apply <company>` to draft the cover letter and answers.
+- What to tune in `config/`, and any questions (never guess missing facts).
