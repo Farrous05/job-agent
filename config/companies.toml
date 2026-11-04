@@ -374,3 +374,24 @@ query = "Criteo junior OR graduate machine learning engineer Paris 2027"
 company = "ASML"
 url = "https://www.asml.com/en/careers"
 query = "ASML graduate machine learning OR software engineer Eindhoven 2027"
+
+# ---------------------------------------------------------------------------
+# Name fixes for aggregator data, and recruiter / job-board names (their ads are flagged,
+# because the real employer is often hidden).
+# ---------------------------------------------------------------------------
+[aliases]
+wehrtyou = "Hudson River Trading"
+"hudson river trading llc" = "Hudson River Trading"
+optiverus = "Optiver"
+drweng = "DRW"
+drwuniversityjobs = "DRW"
+xtxmarketstechnologies = "XTX Markets"
+"graphcore early careers" = "Graphcore"
+"imc trading" = "IMC"
+pwc = "PwC"
+"pwc, pricewaterhousecoopers" = "PwC"
+
+[recruiters]
+names = ["efinancialcareers", "harnham", "oakwell hampton", "hays", "michael page", "robert walters",
+              "robert half", "jobgether", "whatjobs", "huntress", "hirewell", "randstad", "adecco",
+              "reed specialist", "recruitment", "talent solutions", "staffing", "headhunt"]

@@ -6,6 +6,9 @@ argument-hint: "[skip-cv] [skip-outreach] [skip-linkedin] [skip-recall]"
 You are my job-search agent. Today is the run date (use `date +%F`). Read `config/profile.toml` first:
 targets, filters, work rights, languages, city tiers, and the companies I've already applied to.
 My CV is `cv/cv.tex`. Arguments: $ARGUMENTS (each "skip-…" skips that step).
+Do ALL steps in one go, in order, without stopping to ask me (ask only if something blocks you). Roles added
+late (LinkedIn, recall) just need one more `batches` → score → `merge-scores` pass: do it, it's cheap
+because existing scores are cached.
 
 Everything goes through ONE pipeline in `data/runs/<today>/` so nothing is judged twice or missed:
 fetch → import extra finds → Claude scores every role → merge into shortlist + All matches.
@@ -29,7 +32,7 @@ filters, drops roles I've already been shown, and writes ALL remaining roles to
    If Chrome isn't connected, say so in one line and continue.
 
 ## 3. Score every role (the important part)
-1. Run `python3 -m jobagent batches`. It writes `data/runs/<today>/batches/batch-NNN.md` for every role that
+1. Run `python3 -m jobagent batches` (add `--rescore` only if I ask to redo old scores). It writes `data/runs/<today>/batches/batch-NNN.md` for every role that
    has no score yet (scores are cached, so later runs only score new roles).
 2. Score EVERY batch. Each file says exactly what to write: one JSON line per role to
    `data/runs/<today>/scores/batch-NNN.jsonl` with `fit` 1–5, a concrete one-line `reason`, `deadline`,

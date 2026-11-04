@@ -46,6 +46,9 @@ def is_new_company(company: str, known: set[str]) -> bool:
 
 
 def candidate(v: filters.Verdict, j: Job, cfg: dict, store: SeenStore, known: set[str]) -> dict:
+    if j.extra.get("recruiter"):
+        v.flags.append("recruiter/job-board ad: real employer may not be named")
+        v.score -= 2
     return {**j.to_dict(), "description": j.description[:4000], "score": v.score, "region": v.region,
             "sponsorship": v.sponsorship, "why": v.why, "flags": v.flags, "internship": v.internship,
             "families": v.families,
@@ -111,7 +114,8 @@ def _slug(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:60]
 
 
-def import_jobs(items: list[dict], cfg: dict, store: SeenStore, known: set[str], rd: Path) -> dict:
+def import_jobs(items: list[dict], cfg: dict, store: SeenStore, known: set[str], rd: Path,
+                companies: dict | None = None) -> dict:
     """items: [{company, title, location, url, description?, deadline?, source?}] found by Claude.
     They go through the same filters, dedupe and scoring as fetched roles."""
     jobs = []
@@ -125,6 +129,8 @@ def import_jobs(items: list[dict], cfg: dict, store: SeenStore, known: set[str],
         jobs.append(Job(source=src, source_id=jid, company=it["company"].strip(), title=it["title"].strip(),
                         location=(it.get("location") or "").strip(), url=url,
                         description=it.get("description") or "", deadline=it.get("deadline") or ""))
+    for j in jobs:
+        normalize_company(j, companies or {})
     existing = {c["source_id"] for c in load_candidates(rd)} if (rd / "candidates.json").exists() else set()
     jobs = [j for j in jobs if j.source_id not in existing]
     kept, rows, excluded = evaluate_all(jobs, cfg, store, known, allow_unknown_location=True)
@@ -154,11 +160,40 @@ Write one JSON object per line to `{out}` (no other text), using each role's exa
 {{"id": "<id>", "fit": 1-5, "reason": "<one line: why it fits or not, concrete>", "deadline": "<date or ''>",
  "start": "<start date if stated or ''>", "concerns": "<visa/experience/language/timing issues or ''>"}}
 
-Fit scale: 5 = excellent match for the CV and goals, apply now; 4 = strong; 3 = worth a look;
-2 = weak (wrong level, field or timing); 1 = not suitable. Judge from the description, not just the title.
-Use only facts from the posting and the CV. Never invent a deadline: '' if not stated.
+Fit scale (be strict; across a batch most roles should be 2 or 3):
+5 = rare: the role, level, location and timing all fit my CV and goals, I should apply this week.
+4 = strong: core work matches my CV (ML/AI/LLM, data science, quant, SWE) and level is graduate/junior,
+    with at most one minor doubt.
+3 = worth a look: relevant but with a real doubt (adjacent field such as SRE/infra/data platform,
+    unclear level, smaller company or city, recruiter ad with the employer not named).
+2 = weak: wrong level, mostly unrelated work, internship timing clash, language I don't speak.
+1 = not suitable (wrong country, senior, unrelated).
+Judge from the description, not just the title. If the description is boilerplate only, say so in
+`concerns` and don't go above 3. Use only facts from the posting and the CV. Never invent a deadline.
 
 """
+
+
+def role_text(text: str, n: int = 2000) -> str:
+    """The part of a description about the role: skips the opening company boilerplate when a
+    'The role' / 'What you'll do' / 'Responsibilities' heading appears later on."""
+    from .report import ROLE_START
+    t = re.sub(r"\s+", " ", text or "").strip()
+    m = ROLE_START.search(t[:5000])
+    if m and m.start() > 150:
+        t = t[m.start():]
+    return t[:n]
+
+
+def normalize_company(job: Job, companies: dict) -> None:
+    """Fixes aggregator company names (e.g. a board slug like 'wehrtyou') and flags recruiter ads."""
+    aliases = {k.lower(): v for k, v in companies.get("aliases", {}).items()}
+    name = job.company.strip()
+    if name.lower() in aliases:
+        job.company = aliases[name.lower()]
+    recruiters = [r.lower() for r in companies.get("recruiters", {}).get("names", [])]
+    if any(r in name.lower() for r in recruiters):
+        job.extra["recruiter"] = True
 
 
 def make_batches(rd: Path, cache: dict, size: int = 25) -> list[Path]:
@@ -174,7 +209,7 @@ def make_batches(rd: Path, cache: dict, size: int = 25) -> list[Path]:
         out = sdir / f"batch-{n:03d}.jsonl"
         lines = [BATCH_HEADER.format(n=n, total=len(chunks), count=len(chunk), out=out)]
         for c in chunk:
-            desc = re.sub(r"\s+", " ", c.get("description") or "").strip()[:1200] or "(no description: judge from title)"
+            desc = role_text(c.get("description") or "", 2000) or "(no description: judge from title)"
             lines.append(f"## id: {c['source_id']}\n**{c['title']}** · {c['company']} · {c['location']} "
                          f"· source {c['source']}\nSponsorship: {c['sponsorship']} · Flags: "
                          f"{'; '.join(c.get('flags') or []) or 'none'}\n{desc}\n")

@@ -91,6 +91,8 @@ def cmd_run(args) -> int:
     bad = [k for k, s in status.items() if not s["ok"]]
     print(f"  {len(jobs)} jobs fetched; {len(bad)} sources failed (see data/source_status.json)")
 
+    for j in jobs:
+        pipeline.normalize_company(j, companies)
     # same role from two sources (company board + aggregator): keep the first, boards come first
     uniq, keys = [], set()
     for j in jobs:
@@ -140,7 +142,7 @@ def cmd_import(args) -> int:
     if isinstance(items, dict):
         items = items.get("jobs", [])
     store = SeenStore(ROOT / "seen_jobs.json")
-    res = pipeline.import_jobs(items, cfg, store, pipeline.known_companies(companies), rd)
+    res = pipeline.import_jobs(items, cfg, store, pipeline.known_companies(companies), rd, companies)
     print(f"Imported {res['added']} of {res['received']} roles into {rd.relative_to(ROOT)}/candidates.json")
     if res["excluded"]:
         print("  excluded: " + ", ".join(f"{k}: {v}" for k, v in res["excluded"].items()))
@@ -151,7 +153,7 @@ def cmd_batches(args) -> int:
     cfg, _ = load_cfg()
     rd = _rd(args)
     size = args.size or cfg.get("scoring", {}).get("batch_size", 25)
-    cache = pipeline.load_cache(ROOT / "data")
+    cache = {} if args.rescore else pipeline.load_cache(ROOT / "data")
     cands = pipeline.load_candidates(rd)
     files = pipeline.make_batches(rd, cache, size)
     todo = sum(1 for c in cands if c["source_id"] not in cache)
@@ -336,6 +338,7 @@ def main(argv=None) -> int:
     im.add_argument("--date")
     ba = sub.add_parser("batches", help="write scoring batches for Claude")
     ba.add_argument("--size", type=int)
+    ba.add_argument("--rescore", action="store_true", help="ignore cached scores and score every role again")
     ba.add_argument("--date")
     me = sub.add_parser("merge-scores", help="combine Claude's scores: matches + shortlist")
     me.add_argument("--date")

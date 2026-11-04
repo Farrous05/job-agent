@@ -373,3 +373,18 @@ class TrackerTests(unittest.TestCase):
             self.assertEqual(st.data["jobs"]["c"]["note"], "call Tue")
             self.assertEqual([h[1] for h in st.data["jobs"]["c"]["history"]], ["applied", "interviewing"])
             self.assertIn("Stats", report.stats_html(s))
+
+
+class CleanupTests(unittest.TestCase):
+    def test_aliases_and_recruiters(self):
+        j = job("Software Engineer - Python", company="Wehrtyou")
+        pipeline.normalize_company(j, COMPANIES)
+        self.assertEqual(j.company, "Hudson River Trading")
+        r = job("Junior Data Scientist", "python", company="Harnham - Data & Analytics Recruitment")
+        pipeline.normalize_company(r, COMPANIES)
+        c = pipeline.candidate(filters.evaluate(r, CFG), r, CFG, SeenStore(Path(tempfile.mkdtemp()) / "s.json"), set())
+        self.assertTrue(any("recruiter" in f for f in c["flags"]))
+
+    def test_role_text_skips_boilerplate(self):
+        t = "About Acme. " + "We are a great company with values. " * 10 + "What you'll do: train models."
+        self.assertTrue(pipeline.role_text(t).startswith("What you'll do"))
