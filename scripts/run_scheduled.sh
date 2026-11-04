@@ -11,10 +11,12 @@ log="data/logs/$(date +%F).log"
 {
   echo "=== $(date) mode=${JOBAGENT_MODE:-script}"
   if [ "${JOBAGENT_MODE:-script}" = "claude" ]; then
-    prompt="$(sed '1,/^---$/{/^---$/!d}; 1,/^---$/d' .claude/commands/job-run.md)"
+    # strip the --- front matter (awk: works the same on macOS and Linux)
+    prompt="$(awk 'n>=2 {print; next} /^---$/ {n++}' .claude/commands/job-run.md)"
     claude -p "Arguments: skip-outreach skip-cv skip-linkedin
 $prompt" \
-      --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "WebSearch" "WebFetch" "Read" "Task" \
+      --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "Bash(ls:*)" "Bash(cat:*)" "Bash(head:*)" \
+        "Bash(wc:*)" "Bash(mkdir:*)" "WebSearch" "WebFetch" "Read" "Glob" "Grep" "Task" "Agent" \
         "Write(shortlist/**)" "Write(data/**)" \
       --permission-mode acceptEdits
   else
