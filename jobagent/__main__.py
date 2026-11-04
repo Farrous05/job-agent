@@ -109,12 +109,14 @@ def cmd_run(args) -> int:
     rd = pipeline.run_dir(data, run_date)
     pipeline.save_run(rd, kept, rows_all, excluded, bad)
     cand = kept
-    print(f"  {len(kept)} new matching roles (all written to {rd.relative_to(ROOT)}/candidates.json)")
+    seen_n = sum(1 for c in kept if c.get("seen"))
+    print(f"  {len(kept) - seen_n} new matching roles + {seen_n} shown before (all written to "
+          f"{rd.relative_to(ROOT)}/candidates.json; only new ones can be shortlisted)")
     print("  excluded: " + ", ".join(f"{k}: {v}" for k, v in sorted(excluded.items(), key=lambda x: -x[1])))
 
     if args.dry_run:
         return 0
-    rows = cand[: cfg["output"]["shortlist_size"]]
+    rows = [c for c in cand if not c.get("seen")][: cfg["output"]["shortlist_size"]]
     notes = [f"Auto-ranked by keyword heuristic (no LLM). Run `/job-run` in Claude Code for a judged ranking."]
     if bad:
         notes.append(f"Failed sources: {', '.join(bad)}")

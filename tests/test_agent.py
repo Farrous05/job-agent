@@ -338,6 +338,22 @@ class PipelineTests(unittest.TestCase):
         c = pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)["shortlist"]
         self.assertNotEqual(a, c)
 
+    def test_seen_roles_stay_in_all_matches_not_shortlist(self):
+        self.store.add("t:0", "Co0", "Graduate ML Engineer", "u")      # shown in an earlier shortlist
+        jobs = [job("Graduate ML Engineer", "PyTorch LLM python " * 5, "London", company=f"Co{i}") for i in range(3)]
+        for i, j in enumerate(jobs):
+            j.source_id = f"t:{i}"
+        kept, rows, excl = pipeline.evaluate_all(jobs, CFG, self.store, set())
+        pipeline.save_run(self.rd, kept, rows, excl, [])
+        self.assertEqual(len(pipeline.load_candidates(self.rd)), 3)     # seen one still a candidate
+        self._score_all()
+        res = pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)
+        m = json.loads((self.rd / "matches.json").read_text())["matches"]
+        self.assertEqual(len(m), 3)                                     # All matches shows it
+        self.assertTrue(any(x.get("seen") for x in m))
+        ids = {r["id"] for r in report.parse_shortlist(res["shortlist"])}
+        self.assertNotIn("t:0", ids)                                    # Top picks doesn't
+
     def test_bad_score_lines_reported(self):
         (self.rd / "scores").mkdir(exist_ok=True)
         (self.rd / "scores" / "x.jsonl").write_text('{"id": "t:0", "fit": 9}\nnot json\n{"id": "t:1", "fit": 4}')

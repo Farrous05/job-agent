@@ -74,6 +74,13 @@ def evaluate_all(jobs: list[Job], cfg: dict, store: SeenStore, known: set[str], 
                      "score": v.score,
                      # a short role excerpt for the filter audit, only for removed roles in a target family
                      "snippet": role_text(j.description, 500) if (reason and v.families) else ""})
+        if reason.startswith("already shown"):
+            # still a valid, open match: keep it for the All matches tab, but never shortlist it again
+            c = candidate(v, j, cfg, store, known)
+            c["seen"] = True
+            kept.append(c)
+            excluded["already shown in an earlier shortlist"] = excluded.get("already shown in an earlier shortlist", 0) + 1
+            continue
         if reason:
             key = ("location outside UK/EU" if reason.startswith("location outside")
                    else "too much experience asked" if "years' experience" in reason
@@ -274,7 +281,7 @@ def merge_scores(rd: Path, data: Path, cfg: dict, store: SeenStore, shortlist_di
     # one row per role: the same company + title posted in several places is merged (locations joined)
     top, by_key = [], {}
     for m in matches:
-        if m["fit"] < min_fit:
+        if m["fit"] < min_fit or m.get("seen"):
             continue
         k = fuzzy_key(m["company"], m["title"])
         if k in by_key:

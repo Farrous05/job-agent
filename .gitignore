@@ -10,3 +10,4 @@ data/*
 shortlist/*.html
 shortlist/preview.png
 config/ntfy_topic
+applications/*/cover_letter.log

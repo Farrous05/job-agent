@@ -1,0 +1,45 @@
+% Cover letter template used by /apply. Same header and fonts as cv/cv.tex.
+% /apply copies this to applications/<company>-<role>/cover_letter.tex and replaces every placeholder line.
+% Build: scripts/build_letter.sh applications/<company>-<role>   (checks it fits on one page)
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.9in,right=0.9in,top=0.6in,bottom=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{FARES SHRETAH}} \\[3pt]
+    \small +44 7454 768453 $\bullet$ \href{mailto:faresshretah@gmail.com}{faresshretah@gmail.com} $\bullet$ London, UK \\
+    \small \href{https://github.com/Farrous05}{github.com/Farrous05} $\bullet$ \href{https://www.linkedin.com/in/fares-shretah/}{linkedin.com/in/fares-shretah}
+\end{center}
+
+\vspace{6pt}
+%% FILL: date in UK style, e.g. 4 November 2026 %%
+
+%% FILL: company name and team / hiring manager if known %%
+Hiring Team \\
+Company Name
+
+\textbf{Application: %% FILL: exact job title %%}
+
+Dear Hiring Team,
+
+%% FILL: paragraph 1: why this role and this company, specific to the posting (2-3 sentences) %%
+
+%% FILL: paragraph 2: evidence from the CV that matches their top requirement (concrete, with numbers from the CV) %%
+
+%% FILL: paragraph 3: second piece of evidence, or how you'd contribute in the first months %%
+
+%% FILL: paragraph 4: availability (graduation / start date) and a short close %%
+
+Kind regards,
+
+Fares Shretah
+
+\end{document}

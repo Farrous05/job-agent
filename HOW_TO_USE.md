@@ -39,11 +39,13 @@ then **saved and pushed to GitHub automatically**. (Open it any time with `pytho
 ## 3. Apply to a job
 1. In Claude, type `/apply <company>` (e.g. `/apply techwolf`).
 2. It writes `applications/<company>-<role>/`:
-   - `cover_letter.md`
-   - `answers.md` (answers to the form questions)
+   - `cover_letter.tex` and `cover_letter.pdf` (same style as your CV, checked to fit on one page)
+   - `answers.md` (answers to the form questions, including right to work)
    - `checklist.md` (which CV to attach, the deadline)
    It never invents anything: where it needs a fact from you it writes `[ASK FARES: …]`.
-3. Read and edit the drafts, attach the CV from `cv/build/`, and submit on the company's site yourself.
+3. Read and edit the drafts. If you edit `cover_letter.tex`, rebuild the PDF with
+   `scripts/build_letter.sh applications/<folder>`. Attach the CV from `cv/build/` and the cover letter PDF,
+   and submit on the company's site yourself.
 4. Mark the job **✓ Applied** on the job page.
 
 ## 4. Your CV

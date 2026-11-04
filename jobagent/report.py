@@ -245,7 +245,8 @@ def _job(r: dict, desc: dict) -> dict:
             "applied_prev": "already applied" in company_raw.lower() or bool(r.get("applied")),
             "location": r.get("location", ""), "url": r.get("url", ""), "deadline": r.get("deadline") or "",
             "sponsorship": r.get("sponsorship", ""), "fit": fit, "new": new, "reason": reason.strip(),
-            "flags": " · ".join(x.strip() for x in flags.split("⚠") if x.strip()), "description": d}
+            "flags": " · ".join(x.strip() for x in flags.split("⚠") if x.strip()), "description": d,
+            "seen": bool(r.get("seen"))}
 
 
 def _card(j: dict, st: str, interactive: bool) -> str:
@@ -267,6 +268,8 @@ def _card(j: dict, st: str, interactive: bool) -> str:
         tags.append('<span class="tag">New company</span>')
     if j["applied_prev"]:
         tags.append('<span class="tag good">Already applied</span>')
+    if j.get("seen"):
+        tags.append('<span class="tag">Shown before</span>')
     summ, more = _summary(j["description"]), _summary(j["description"], 2500)
     body = (f'<details><summary>Show description</summary><p>{esc(more)}</p></details>' if summ and len(more) > len(summ) + 40
             else f'<p class="lead">{esc(summ)}</p>' if summ else "")
