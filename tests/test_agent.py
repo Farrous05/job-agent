@@ -406,3 +406,18 @@ class CleanupTests(unittest.TestCase):
     def test_role_text_skips_boilerplate(self):
         t = "About Acme. " + "We are a great company with values. " * 10 + "What you'll do: train models."
         self.assertTrue(pipeline.role_text(t).startswith("What you'll do"))
+
+
+class GitSaveTests(unittest.TestCase):
+    def test_save_in_temp_repo(self):
+        import subprocess
+        from jobagent import gitsave
+        with tempfile.TemporaryDirectory() as d:
+            subprocess.run(["git", "init", "-q", d], check=True)
+            subprocess.run(["git", "-C", d, "config", "user.email", "t@t"], check=True)
+            subprocess.run(["git", "-C", d, "config", "user.name", "t"], check=True)
+            self.assertEqual(gitsave.save(Path(d), "x"), "nothing new to save")
+            (Path(d) / "a.txt").write_text("hi")
+            self.assertEqual(gitsave.save(Path(d), "x", push=False), "saved locally")
+            (Path(d) / "b.txt").write_text("hi")
+            self.assertIn("push failed", gitsave.save(Path(d), "x"))      # no remote: reported, not raised

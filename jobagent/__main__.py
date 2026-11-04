@@ -12,6 +12,7 @@
   python3 -m jobagent audit            removed-but-relevant roles, for Claude to check the filters
   python3 -m jobagent reminders        deadlines closing soon, follow-ups due
   python3 -m jobagent stats            applications by stage, reply rate by role type/region/source
+  python3 -m jobagent save             commit + push your results to GitHub
 """
 from __future__ import annotations
 
@@ -215,6 +216,12 @@ def cmd_reminders(_args) -> int:
     return 0
 
 
+def cmd_save(args) -> int:
+    from . import gitsave
+    print("GitHub: " + gitsave.save(ROOT, args.message))
+    return 0
+
+
 def cmd_stats(_args) -> int:
     store = SeenStore(ROOT / "seen_jobs.json")
     print(tracker.stats_text(tracker.stats(store)))
@@ -324,7 +331,10 @@ def cmd_view(args) -> int:
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
-        print("\nStopped. Your marks are saved in seen_jobs.json (commit and push to keep them on GitHub).")
+        print("\nStopped. Your marks are saved in seen_jobs.json.")
+    if not args.no_git:
+        from . import gitsave
+        print("GitHub: " + gitsave.save(ROOT, "Job page marks"))
     return 0
 
 
@@ -367,16 +377,19 @@ def main(argv=None) -> int:
     au.add_argument("--date")
     sub.add_parser("reminders")
     sub.add_parser("stats")
+    sv = sub.add_parser("save", help="commit and push your results to GitHub")
+    sv.add_argument("-m", "--message", default="Job agent results")
     vw = sub.add_parser("view")
     vw.add_argument("--no-open", action="store_true")
     vw.add_argument("--static", action="store_true", help="only write shortlist/*.html, no server")
     vw.add_argument("--port", type=int, default=8765)
+    vw.add_argument("--no-git", action="store_true", help="don't commit and push your marks when you close it")
     args = ap.parse_args(argv)
     if args.cmd is None:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))
     return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view, "import": cmd_import,
             "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "audit": cmd_audit, "reminders": cmd_reminders,
-            "stats": cmd_stats}[args.cmd](args)
+            "stats": cmd_stats, "save": cmd_save}[args.cmd](args)
 
 
 if __name__ == "__main__":

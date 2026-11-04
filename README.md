@@ -1,6 +1,6 @@
 # job-agent
 
-**New here? Read [HOW_TO_USE.md](HOW_TO_USE.md).** Your jobs are in `shortlist/LATEST.html` (open it in a browser).
+**New here? Read [HOW_TO_USE.md](HOW_TO_USE.md).** One command does a full run: `scripts/go.sh`. Your jobs are in `shortlist/LATEST.html` (open it in a browser).
 
 A local job-search agent for graduate ML/AI, data science, quant and SWE roles starting autumn 2027.
 Why it's built this way: see [RESEARCH.md](RESEARCH.md).

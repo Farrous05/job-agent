@@ -2,17 +2,22 @@
 
 Your folder is `~/code/job-agent`. Every command below starts there: `cd ~/code/job-agent`.
 
-## 1. Get new jobs (about 20–40 minutes)
-1. Open Terminal and type `cd ~/code/job-agent && git pull && claude --chrome`.
-2. Type `/job-run` and press Enter. Say yes to permission questions.
-3. What it does:
-   - Fetches ~9,000 jobs from 42 company boards and freehire, plus web search and LinkedIn (read-only).
-   - Removes the ones that don't fit your rules (senior, 3+ years, PhD-only, wrong country…).
-   - **Claude reads and scores every remaining role (1–5) against your CV**, not just the top few.
-     Scores are saved, so next time only new roles are read (much faster).
-   - Picks the best 15, checks what it might have missed (recall check), suggests CV changes,
-     drafts LinkedIn notes.
-4. Quick versions: `/job-run skip-outreach`, `/job-run skip-cv`, `/job-run skip-linkedin`.
+## 0. One-time shortcut (recommended)
+Add a `jobs` command to your Terminal:
+```bash
+echo 'alias jobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc
+```
+
+## 1. Get new jobs: type `jobs`
+That's it. It:
+1. gets the latest version of the agent,
+2. starts Claude with `/job-run` (approve the questions; it takes 20–40 minutes the first time, less later),
+3. when Claude has finished, type `/exit`: your results are **saved and pushed to GitHub automatically**,
+4. opens the job page.
+
+`/job-run` fetches ~9,000 jobs, removes the ones that don't fit your rules, has Claude score every remaining
+role against your CV, picks the best 15, checks what it might have missed, suggests CV changes and drafts
+LinkedIn notes. Variants: `jobs skip-outreach`, `jobs skip-cv skip-outreach`.
 
 ## 2. Look at the jobs
 Type `python3 -m jobagent view`. Your browser opens the job page with 4 tabs:
@@ -25,7 +30,8 @@ Type `python3 -m jobagent view`. Your browser opens the job page with 4 tabs:
 
 On any job, click **✓ Applied**, **★ Interested** or **✕ Not for me**. A yellow box at the top reminds
 you of deadlines closing soon and applications with no reply for 2 weeks.
-Keep that Terminal window open while you use the page; press Ctrl+C when done.
+Keep that Terminal window open while you use the page; press Ctrl+C when done. Your marks and notes are
+then **saved and pushed to GitHub automatically**. (Open it any time with `python3 -m jobagent view`.)
 
 ## 3. Apply to a job
 1. In Claude, type `/apply <company>` (e.g. `/apply techwolf`).
@@ -46,8 +52,9 @@ Keep that Terminal window open while you use the page; press Ctrl+C when done.
 ## 5. LinkedIn messages
 `outreach/<date>.md`: who to contact, their profile link, a message ready to copy. You send them yourself.
 
-## 6. Save everything
-`git add -A && git commit -m "Job run" && git push`
+## 6. Saving
+Automatic: after `jobs`, when you close the job page, and after the daily schedule. To save by hand at any
+time: `python3 -m jobagent save`.
 
 ## Handy commands
 - `python3 -m jobagent reminders`: deadlines closing soon and follow-ups due.
