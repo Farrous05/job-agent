@@ -524,3 +524,27 @@ class NotifyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             (Path(d) / "config").mkdir()
             self.assertIn("notify-setup", notify.send(Path(d), "t", "m"))
+
+
+class ResetTests(unittest.TestCase):
+    def test_reset_archives_and_keeps_marked(self):
+        import shutil, subprocess, sys
+        root = Path(__file__).resolve().parent.parent
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            for name in ("jobagent", "config"):
+                shutil.copytree(root / name, d / name, ignore=shutil.ignore_patterns("__pycache__", "ntfy_topic", "telegram.json"))
+            (d / "shortlist").mkdir()
+            (d / "shortlist" / "2026-11-04.md").write_text("# x\n")
+            (d / "data" / "runs" / "2026-11-04").mkdir(parents=True)
+            (d / "data" / "score_cache.json").write_text("{}")
+            st = SeenStore(d / "seen_jobs.json")
+            st.add("a", "A", "T", "u"); st.add("b", "B", "T", "u"); st.set_status("b", "applied"); st.save()
+            r = subprocess.run([sys.executable, "-m", "jobagent", "reset", "--yes"], cwd=d, capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            self.assertEqual(list(json.loads((d / "seen_jobs.json").read_text())["jobs"]), ["b"])
+            self.assertEqual(list((d / "shortlist").glob("*.md")), [])
+            self.assertFalse((d / "data" / "score_cache.json").exists())
+            arch = next((d / "archive").iterdir())
+            self.assertTrue((arch / "shortlist" / "2026-11-04.md").exists())
+            self.assertTrue((arch / "score_cache.json").exists())

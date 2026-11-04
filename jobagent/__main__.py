@@ -263,6 +263,46 @@ def cmd_notify(args) -> int:
     return 0
 
 
+def cmd_reset(args) -> int:
+    """Start fresh without losing anything: archive shortlists, seen jobs, scores and run files; keep the jobs
+    you've actually marked (applied / interviewing / offer / rejected / interested)."""
+    import shutil
+    stamp = datetime.now().strftime("%Y-%m-%d-%H%M")
+    arch = ROOT / "archive" / stamp
+    store = SeenStore(ROOT / "seen_jobs.json")
+    keep_st = set(SeenStore.APPLIED) | {"interested"}
+    keep = {k: v for k, v in store.data["jobs"].items() if v.get("status") in keep_st}
+    shortlists = sorted((ROOT / "shortlist").glob("*.md"))
+    runs = sorted((ROOT / "data" / "runs").glob("*")) if (ROOT / "data" / "runs").exists() else []
+    cache = ROOT / "data" / "score_cache.json"
+    print(f"This will archive to {arch.relative_to(ROOT)}/:\n"
+          f"  {len(shortlists)} shortlist files, {len(store.data['jobs'])} seen jobs, {len(runs)} run folders"
+          + ("" if args.keep_scores else ", the score cache") + "\n"
+          f"and keep {len(keep)} jobs you've marked (applied/interviewing/offer/rejected/interested).\n"
+          "Your CV, tailored CVs, applications and settings are not touched.")
+    if not args.yes and input("Go ahead? [y/N] ").strip().lower() != "y":
+        print("Nothing changed.")
+        return 1
+    (arch / "shortlist").mkdir(parents=True, exist_ok=True)
+    shutil.copy(ROOT / "seen_jobs.json", arch / "seen_jobs.json")
+    for f in shortlists + sorted((ROOT / "shortlist").glob("*.html")):
+        shutil.move(str(f), arch / "shortlist" / f.name)
+    local = ROOT / "data" / "archive" / stamp          # bulky run files stay out of git
+    if runs:
+        local.mkdir(parents=True, exist_ok=True)
+        for r in runs:
+            shutil.move(str(r), local / r.name)
+    if cache.exists():
+        shutil.copy(cache, arch / "score_cache.json")
+        if not args.keep_scores:
+            cache.unlink()
+    store.data["jobs"] = keep
+    store.save()
+    print(f"Done. Archived to {arch.relative_to(ROOT)}/ (run files: {local.relative_to(ROOT)}/).\n"
+          "Next: run `jobs` to watch a full run from scratch.")
+    return 0
+
+
 def cmd_stats(_args) -> int:
     store = SeenStore(ROOT / "seen_jobs.json")
     print(tracker.stats_text(tracker.stats(store)))
@@ -418,6 +458,9 @@ def main(argv=None) -> int:
     au.add_argument("--date")
     sub.add_parser("reminders")
     sub.add_parser("stats")
+    rs = sub.add_parser("reset", help="start fresh: archive shortlists, seen jobs and scores (keeps your marked jobs)")
+    rs.add_argument("--yes", action="store_true", help="don't ask for confirmation")
+    rs.add_argument("--keep-scores", action="store_true", help="keep Claude's cached scores (faster rerun)")
     ns = sub.add_parser("notify-setup", help="phone notifications: --telegram (recommended) or ntfy")
     ns.add_argument("--telegram", action="store_true")
     ns.add_argument("--token", help="Telegram bot token (otherwise you're asked for it)")
@@ -435,7 +478,8 @@ def main(argv=None) -> int:
         args = ap.parse_args(["run"] + (argv or sys.argv[1:]))
     return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view, "import": cmd_import,
             "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "audit": cmd_audit, "reminders": cmd_reminders,
-            "stats": cmd_stats, "save": cmd_save, "notify-setup": cmd_notify_setup, "notify": cmd_notify}[args.cmd](args)
+            "stats": cmd_stats, "save": cmd_save, "notify-setup": cmd_notify_setup, "notify": cmd_notify,
+            "reset": cmd_reset}[args.cmd](args)
 
 
 if __name__ == "__main__":
