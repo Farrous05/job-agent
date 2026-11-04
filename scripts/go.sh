@@ -15,5 +15,7 @@ echo "Starting Claude. When it has finished, type /exit (or press Ctrl+C twice) 
 claude --chrome "/job-run $args"
 echo "Saving your results..."
 python3 -m jobagent save -m "Job run $(date +%F)"
+echo "Sending the summary to your phone..."
+python3 -m jobagent notify || true
 echo "Opening the job page (press Ctrl+C here when you're done; your marks are saved and pushed automatically)."
 python3 -m jobagent view
