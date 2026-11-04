@@ -17,7 +17,7 @@ log="data/logs/$(date +%F).log"
 $prompt" \
       --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "Bash(ls:*)" "Bash(cat:*)" "Bash(head:*)" \
         "Bash(wc:*)" "Bash(mkdir:*)" "WebSearch" "WebFetch" "Read" "Glob" "Grep" "Task" "Agent" \
-        "Write(shortlist/**)" "Write(data/**)" \
+        "Edit(shortlist/**)" "Edit(data/**)" \
       --permission-mode acceptEdits
   else
     python3 -m jobagent run
