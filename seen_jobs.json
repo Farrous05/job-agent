@@ -247,6 +247,333 @@
       "fuzzy": "databricks::softwareengineeraarhus",
       "first_reported": "2026-11-03-live",
       "status": "reported"
+    },
+    "web:d6f1034142:jane-street": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "web",
+      "fit": 5,
+      "company": "Jane Street",
+      "title": "Machine Learning Researcher (New Grad)",
+      "url": "https://www.janestreet.com/join-jane-street/position/8576931002",
+      "fuzzy": "janestreet::machinelearningresearcher",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ai-ml-and-data-engineer-m-f-d-ericsson-dfakm3cu": {
+      "deadline": "",
+      "location": "Aachen,North Rhine Westphalia,Germany",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Ericsson",
+      "title": "Graduate AI/ML and Data Engineer (m/f/d)",
+      "url": "https://jobs.ericsson.com/careers/job/563121777546816-graduate-ai-ml-and-data-engineer-m-f-d--aachen-north-rhine-westphalia-germany?domain=ericsson.com",
+      "fuzzy": "ericsson::aimlanddataengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-techwolf-3imhv3ya": {
+      "deadline": "",
+      "location": "Ghent, Vlaams Gewest, Belgium",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "techwolf",
+      "title": "Junior AI Engineer",
+      "url": "https://careers.techwolf.ai/o/junior-ai-engineer",
+      "fuzzy": "techwolf::junioraiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-sre-squarepoint-capital-fi7ufabd": {
+      "deadline": "",
+      "location": "New York, London, Singapore",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Squarepoint Capital",
+      "title": "Junior SRE",
+      "url": "https://www.squarepoint-capital.com/open-opportunities?id=6380892&gh_jid=6380892",
+      "fuzzy": "squarepoint::juniorsre",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-machine-learning-engineer-central-technology-arm-6ceockkd": {
+      "deadline": "",
+      "location": "Lund, Sweden",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ARM",
+      "title": "Graduate Machine Learning Engineer - Central Technology",
+      "url": "https://careers.arm.com/job/lund/graduate-machine-learning-engineer-central-technology/33099/102539121824",
+      "fuzzy": "arm::machinelearningengineercentraltechnology",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-engineer-graduate-zurich-data-ai-ubs-55mjpy5j": {
+      "deadline": "",
+      "location": "Zürich, Switzerland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "UBS",
+      "title": "AI Engineer Graduate — Zurich, Data & AI",
+      "url": "https://de-ch.whatjobs.com/pub_api__cpl__44263115__7095?utm_campaign=publisher&utm_medium=api&geoID=26",
+      "fuzzy": "ubs::aiengineerzurichdataai",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-software-developer-squarepoint-capital-dbj4yppa": {
+      "deadline": "",
+      "location": "London, Montreal, Singapore, Warsaw",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Squarepoint Capital",
+      "title": "Graduate Software Developer",
+      "url": "https://www.squarepoint-capital.com/open-opportunities?id=6040910&gh_jid=6040910",
+      "fuzzy": "squarepoint::softwaredeveloper",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-backend-data-platform-ai-engineer-investment-firm-efinancialcareers-efinancialcareers-ep43gdhm": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "eFinancialCareers",
+      "title": "Junior Backend Data Platform & AI Engineer Investment Firm - eFinancialCareers",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__581764753__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "efinancialcareers::juniorbackenddataplatformaiengineerinvestmentfirmefinancialcareers",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-ia-generative-ingenierie-3d-f-h-dassault-systemes-xbucamkc": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "Data Scientist Junior – IA Générative & Ingénierie 3D (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/data-scientist-junior-ia-generative-ingenierie-3d-f-h-548770",
+      "fuzzy": "dassaultsystmes::datascientistjunioriagnrativeingnierie3d",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ml-engineer-deploy-scale-ai-pipelines-ambassador-of-africa-r7ktsyio": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Ambassador of Africa",
+      "title": "Graduate ML Engineer: Deploy & Scale AI Pipelines",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__581993145__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "ambassadorofafrica::mlengineerdeployscaleaipipelines",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:evaluation-engineer-applied-ai-mistral-ai-fewjaioy": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mistral AI",
+      "title": "Evaluation Engineer, Applied AI",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/5e6f3efd-36a5-48ab-8643-843edaeee578",
+      "fuzzy": "mistral::evaluationengineerappliedai",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "reed:57455378": {
+      "deadline": "24/11/2026",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "reed",
+      "fit": 4,
+      "company": "eFinancialCareers",
+      "title": "Junior Software Engineer - Generative AI Platforms - Citi",
+      "url": "https://www.reed.co.uk/jobs/junior-software-engineer-generative-ai-platforms-citi/57455378",
+      "fuzzy": "efinancialcareers::juniorsoftwareengineergenerativeaiplatformsciti",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:wehrtyou:8234195": {
+      "deadline": "",
+      "location": "London, United Kingdom; New York, NY, United States; Singapore",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Hudson River Trading",
+      "title": "Applied AI Engineer",
+      "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8234195",
+      "fuzzy": "hudsonriver::appliedaiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:software-engineer-python-wehrtyou-v3dsyizs": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Wehrtyou",
+      "title": "Software Engineer - Python",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__579233097__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "wehrtyou::softwareengineerpython",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:python-developer-junior-medior-oakwell-hampton-group-e5nt4szj": {
+      "deadline": "",
+      "location": "Netherlands",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Oakwell Hampton Group",
+      "title": "Python Developer (Junior/Medior)",
+      "url": "https://nl.whatjobs.com/pub_api__cpl__173729553__7137?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "oakwellhampton::pythondeveloper",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-london-mako-trading-gy2njvdd": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mako Trading",
+      "title": "Graduate Software Engineer, London",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__594121937__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "mako::softwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-london-mako-az2qq4m5": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mako",
+      "title": "Graduate Software Engineer, London",
+      "url": "https://www.mako.com/opportunities/job-listing/8921970002?gh_jid=8921970002",
+      "fuzzy": "mako::softwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-london-mako-trading-zq3q5rkr": {
+      "deadline": "",
+      "location": "London, England, GBR",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mako Trading",
+      "title": "Graduate Software Engineer, London",
+      "url": "https://builtin.com/job/graduate-software-engineer-london/11942901",
+      "fuzzy": "mako::softwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ai-engineer-computershare-n2egyexr": {
+      "deadline": "",
+      "location": "Edinburgh, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Computershare",
+      "title": "Graduate AI Engineer",
+      "url": "https://fa-evdq-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/job/13281",
+      "fuzzy": "computershare::aiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-ml-associate-engineer-jpmc-dev9-fa-oraclecloud-com-cx-3xa5qxhh": {
+      "deadline": "",
+      "location": "Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "jpmc-dev9.fa.oraclecloud.com/CX",
+      "title": "AI/ML Associate Engineer",
+      "url": "https://jpmc-dev9.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/210730765",
+      "fuzzy": "jpmcdev9faoraclecloudcomcx::aimlassociateengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
     }
   }
 }

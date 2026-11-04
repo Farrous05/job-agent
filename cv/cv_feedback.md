@@ -78,3 +78,14 @@ Tailored versions (top 5 not already applied; Reply may overlap Data Reply, whic
 | `hudson-river-trading-research-engineer.tex` | Profile → ML research engineering at scale; Python, C++ first; SLURM first |
 | `arm-graduate-machine-learning-engineer.tex` | Profile → ML engineering (PyTorch, vLLM) with C/C++; Python, C++, C first; PyTorch first |
 | `arm-graduate-ml-software-engineer.tex` | Profile → ML software engineering in Python/C++; Python, C++, C first; Docker/Git first |
+
+## 2026-11-04 run
+No new general edits: `cv/cv.tex` already contains the earlier edits, so there is nothing new on `cv-edits`.
+Still open: question 1 (a before/after number for the Max Planck result) is the single biggest CV win.
+
+Tailored (profile line + skills order only, nothing invented; all compile to 1 page):
+- `jane-street-machine-learning-researcher.tex`: research-led profile.
+- `techwolf-junior-ai-engineer.tex`: LLM agents, fine-tuning and evaluation in the profile.
+- `ubs-ai-engineer-graduate.tex`: Python/production framing, Languages first.
+- `squarepoint-graduate-software-developer.tex`: SWE framing, Languages and Infrastructure before ML.
+- Arm: existing `arm-graduate-machine-learning-engineer.tex` reused.
