@@ -533,6 +533,21 @@ class NotifyTests(unittest.TestCase):
             with mock.patch.object(notify, "_tg", side_effect=fake):
                 self.assertIn("send any message", notify.telegram_setup(Path(d), "x"))
 
+    def test_rich_summary(self):
+        from jobagent import notify
+        rows = [{"title": f"Role {i} & co", "company": "Acme", "location": "London", "url": f"https://x/{i}?a=1&b=2",
+                 "why": "4/5: fits <well>", "deadline": "Not stated"} for i in range(7)]
+        title, plain, rich, prio = notify.rich_summary(rows, ["Closes in 2 days: Acme: Role 0"],
+                                                       {"fetched": 9899, "scored": 1109, "fits": {5: 1, 4: 16},
+                                                        "cv_changes": 3, "tailored": 5})
+        self.assertEqual(title, "7 new jobs picked")
+        self.assertIn("9899 jobs fetched · 1109 scored · fit 5: 1, fit 4: 16", plain)
+        self.assertIn('<a href="https://x/0?a=1&amp;b=2"><b>Role 0 &amp; co</b></a>', rich)
+        self.assertIn("fits &lt;well&gt;", rich)                     # escaped for Telegram HTML
+        self.assertIn("…and 2 more", rich)
+        self.assertIn("3 suggested CV changes", rich)
+        self.assertEqual(prio, "high")
+
     def test_no_topic(self):
         from jobagent import notify
         with tempfile.TemporaryDirectory() as d:

@@ -77,20 +77,24 @@ def telegram_setup(root: Path, token: str) -> str:
     return f"Saved. Notifications will go to {chat.get('first_name', 'you')} via @{me['result'].get('username')}."
 
 
-def send_telegram(root: Path, title: str, message: str) -> str:
+def send_telegram(root: Path, title: str, message: str, html_text: str | None = None) -> str:
     tg = get_telegram(root)
-    text = f"{title}\n{message}" if message else title
+    params = {"chat_id": tg["chat_id"], "disable_web_page_preview": "true"}
+    if html_text:
+        params.update(text=html_text[:4000], parse_mode="HTML")
+    else:
+        params["text"] = (f"{title}\n{message}" if message else title)[:4000]
     try:
-        r = _tg(tg["token"], "sendMessage", {"chat_id": tg["chat_id"], "text": text[:4000],
-                                              "disable_web_page_preview": "true"})
+        r = _tg(tg["token"], "sendMessage", params)
         return "sent (Telegram)" if r.get("ok") else f"Telegram error: {r.get('description')}"
     except Exception as e:  # noqa: BLE001 - a failed notification must never break a run
         return f"couldn't send (Telegram): {e}"
 
 
-def send(root: Path, title: str, message: str, click: str = "", priority: str = "default") -> str:
+def send(root: Path, title: str, message: str, click: str = "", priority: str = "default",
+         html_text: str | None = None) -> str:
     if get_telegram(root):
-        return send_telegram(root, title, message)
+        return send_telegram(root, title, message, html_text)
     t = get_topic(root)
     if not t:
         return "notifications not set up: run `python3 -m jobagent notify-setup --telegram` first"
@@ -128,3 +132,43 @@ def run_summary(shortlist: Path | None, rows: list[dict], reminders: list[str]) 
     urgent = any(x.startswith("Closes") for x in reminders)
     msg = "\n".join(lines) or "Nothing new today."
     return title, msg, "high" if urgent else "default"
+
+
+def rich_summary(rows: list[dict], reminders: list[str], counts: dict) -> tuple[str, str, str, str]:
+    """(title, plain message, HTML message for Telegram, priority): numbers, top 5 with links, reminders, CV."""
+    import html as h
+    from .report import _deadline_days
+    title = f"{len(rows)} new job{'s' if len(rows) != 1 else ''} picked" if rows else "Job agent: no new picks"
+    fits = counts.get("fits", {})
+    nums = (f"{counts.get('fetched', '?')} jobs fetched · {counts.get('scored', 0)} scored"
+            + (f" · fit 5: {fits.get(5, 0)}, fit 4: {fits.get(4, 0)}" if fits else ""))
+    plain, rich = [nums, ""], [f"<b>{h.escape(title)}</b>", h.escape(nums), ""]
+    for i, r in enumerate(rows[:5], 1):
+        fit = r["why"][:3] if "/5" in r["why"][:4] else ""
+        company = r["company"].replace("**", "").replace("(already applied)", "").strip()
+        dl = r.get("deadline", "")
+        days = _deadline_days(dl) if dl else None
+        dl_txt = f" · closes {dl}" if days is not None and days >= 0 else ""
+        why = r["why"].split(":", 1)[-1].split("⚠")[0].replace("(new)", "").strip()
+        plain.append(f"{i}. {r['title']} · {company} · {r['location']} {fit}{dl_txt}")
+        rich.append(f"{i}. <a href=\"{h.escape(r['url'], quote=True)}\"><b>{h.escape(r['title'])}</b></a>\n"
+                    f"   {h.escape(company)} · {h.escape(r['location'][:40])} · <b>{h.escape(fit)}</b>{h.escape(dl_txt)}\n"
+                    f"   <i>{h.escape(why[:140])}</i>")
+    if len(rows) > 5:
+        plain.append(f"…and {len(rows) - 5} more on the job page")
+        rich.append(f"…and {len(rows) - 5} more on the job page")
+    if reminders:
+        plain += [""] + [f"⏰ {x}" for x in reminders[:5]]
+        rich += [""] + [f"⏰ {h.escape(x)}" for x in reminders[:5]]
+    cv = []
+    if counts.get("cv_changes"):
+        cv.append(f"{counts['cv_changes']} suggested CV changes waiting (run scripts/cv_diff.sh)")
+    if counts.get("tailored"):
+        cv.append(f"{counts['tailored']} tailored CVs in cv/build/")
+    if cv:
+        plain += [""] + cv
+        rich += [""] + [f"📄 {h.escape(c)}" for c in cv]
+    plain += ["", "Open the job page on your Mac: python3 -m jobagent view"]
+    rich += ["", "Job page on your Mac: <code>python3 -m jobagent view</code>"]
+    urgent = any(x.startswith("Closes") for x in reminders)
+    return title, "\n".join(plain), "\n".join(rich), "high" if urgent else "default"

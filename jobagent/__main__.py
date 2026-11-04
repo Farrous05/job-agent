@@ -258,8 +258,27 @@ def cmd_notify(args) -> int:
     newest = fs[-1] if fs else None
     today = date.today().isoformat()
     rows = report.parse_shortlist(newest) if newest and newest.stem.startswith(today) else []
-    title, msg, prio = notify.run_summary(newest, rows, tracker.reminders(store))
-    print(notify.send(ROOT, title, msg, priority=prio))
+    counts = {}
+    rd = pipeline.latest_run(ROOT / "data")
+    if rd is not None and rd.name == today:
+        try:
+            st = json.loads((ROOT / "data" / "source_status.json").read_text())["sources"]
+            counts["fetched"] = sum(v.get("jobs", 0) for v in st.values())
+        except (OSError, ValueError, KeyError):
+            pass
+        if (rd / "matches.json").exists():
+            ms = json.loads((rd / "matches.json").read_text()).get("matches", [])
+            counts["scored"] = len(ms)
+            counts["fits"] = {f: sum(1 for m in ms if m.get("fit") == f) for f in (5, 4, 3)}
+    import subprocess
+    diff = subprocess.run(["git", "-C", str(ROOT), "diff", "--numstat", "HEAD", "cv-edits", "--", "cv/cv.tex"],
+                          capture_output=True, text=True)
+    if diff.returncode == 0 and diff.stdout.strip():
+        counts["cv_changes"] = int(diff.stdout.split()[0] or 0)
+    counts["tailored"] = sum(1 for f in (ROOT / "cv" / "tailored").glob("*.tex")
+                             if date.fromtimestamp(f.stat().st_mtime).isoformat() == today)
+    title, msg, html_msg, prio = notify.rich_summary(rows, tracker.reminders(store), counts)
+    print(notify.send(ROOT, title, msg, priority=prio, html_text=html_msg))
     return 0
 
 
