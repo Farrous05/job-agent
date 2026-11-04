@@ -6,14 +6,17 @@ A local job-search agent for graduate ML/AI, data science, quant and SWE roles s
 Why it's built this way: see [RESEARCH.md](RESEARCH.md).
 
 **How it works**
-1. `python3 -m jobagent run --dry-run` fetches ~9,000 jobs: company boards (Greenhouse, Lever, Ashby, Workday),
-   freehire.me (search terms + every role at watch-list firms) and Reed. It applies your filters and writes
+1. `python3 -m jobagent run --dry-run` fetches ~16,000 jobs: company boards (Greenhouse, Lever, Ashby, Workday,
+   SmartRecruiters, Personio, Recruitee, Teamtailor, Workable), boards it found by itself in earlier runs
+   (`jobagent boards`), freehire.me (search terms + every role at watch-list firms) and Reed. It applies your filters and writes
    **every** remaining role to `data/runs/<date>/candidates.json`.
 2. `/job-run` in Claude Code adds web-search and LinkedIn finds (`jobagent import`), then **Claude scores every
    role 1–5 against your CV** (`jobagent batches` → score files → `jobagent merge-scores`; scores are cached).
    Then it writes the top 15, runs a recall check against known postings, does CV work and outreach drafts.
 3. `python3 -m jobagent view` is the job page: Top picks, All matches, My applications (stages and notes), Stats.
 4. `/apply <company>` drafts the cover letter and form answers. You submit.
+5. `/prep <company>` writes an interview prep pack (also automatic when you mark a job Interviewing).
+6. `python3 -m jobagent calendar`: closing dates as a calendar your phone can subscribe to.
 
 ```
 config/profile.toml      your filters, targets, already-applied list
@@ -26,7 +29,8 @@ outreach/DATE.md         people + draft connection notes (you send them)
 cv/cv.tex                master CV (edited only on branch cv-edits, merged by you)
 cv/tailored/*.tex        per-role versions; cv/build/ holds PDFs
 cv/cv_feedback.md        CV review summary + questions for you
-.claude/commands/        /job-run, /cv-review, /outreach, /linkedin-jobs, /apply
+.claude/commands/        /job-run, /cv-review, /outreach, /linkedin-jobs, /apply, /prep
+config/discovered_boards.json  company boards found automatically (fetched every run)
 applications/            drafted cover letters and answers per role
 scripts/                 build_cv.sh, run_scheduled.sh, launchd plist
 ```

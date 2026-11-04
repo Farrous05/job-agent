@@ -6,6 +6,10 @@
 #   ashby:      jobs.ashbyhq.com/<token>               (API: api.ashbyhq.com/posting-api/job-board/<token>)
 #   workday:    <tenant>.wd<N>.myworkdayjobs.com/<site> (API: POST .../wday/cxs/<tenant>/<site>/jobs)
 #   smartrecruiters: jobs.smartrecruiters.com/<token>
+#   personio:   <token>.jobs.personio.com              (XML feed: <token>.jobs.personio.com/xml)
+#   recruitee:  <token>.recruitee.com                  (API: <token>.recruitee.com/api/offers/)
+#   teamtailor: <token>.teamtailor.com                 (RSS: <token>.teamtailor.com/jobs.rss)
+#   workable:   apply.workable.com/<token>             (API: apply.workable.com/api/v1/widget/accounts/<token>)
 #
 # verified = true means the board returned jobs in a live fetch (3 Nov 2026).
 # Unverified tokens are best guesses. After each run, data/source_status.json lists the boards
@@ -281,6 +285,27 @@ verified = true
 # ---------------------------------------------------------------------------
 # No public ATS feed: checked by Claude in /job-run with WebSearch/WebFetch.
 # ---------------------------------------------------------------------------
+
+# EU boards on Personio / Recruitee / Teamtailor / Workable. More are found automatically each run
+# (config/discovered_boards.json).
+[[board]]
+company = "Hugging Face"
+ats = "workable"
+token = "huggingface"
+verified = false
+
+[[board]]
+company = "Merantix"
+ats = "personio"
+token = "merantix"
+verified = true
+
+[[board]]
+company = "Aignostics"
+ats = "personio"
+token = "aignostics"
+verified = true
+
 [[watch]]
 company = "Revolut"
 url = "https://www.revolut.com/careers/"
@@ -395,4 +420,10 @@ pwc = "PwC"
 [recruiters]
 names = ["efinancialcareers", "harnham", "oakwell hampton", "hays", "michael page", "robert walters",
               "robert half", "jobgether", "whatjobs", "huntress", "hirewell", "randstad", "adecco",
-              "reed specialist", "recruitment", "talent solutions", "staffing", "headhunt"]
+              "reed specialist", "recruitment", "talent solutions", "staffing", "headhunt",
+              "job wrapping", "welcome to the jungle", "jobteaser"]
+
+# Company boards found automatically (from roles that passed your filters) are kept in
+# config/discovered_boards.json and fetched every run. Board slugs listed here are never added.
+[discovery]
+skip = ["artefactjobs", "artefactlinkedin"]

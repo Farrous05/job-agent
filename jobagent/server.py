@@ -17,12 +17,12 @@ import threading
 import urllib.parse
 from pathlib import Path
 
-from . import cvtools, gitsave, pipeline, report, tracker
+from . import calendar_ics, cvtools, gitsave, pipeline, prep, report, tracker
 from .store import SeenStore
 
 # files the page may serve: CV PDFs and application drafts, nothing else on the disk
 ALLOWED = [re.compile(r"^cv/build/[\w.\-]+\.(pdf|png)$"),
-           re.compile(r"^applications/[\w.\-]+/(cover_letter\.pdf|answers\.md|checklist\.md)$")]
+           re.compile(r"^applications/[\w.\-]+/(cover_letter\.pdf|answers\.md|checklist\.md|interview_prep\.md)$")]
 
 
 def page_token(root: Path) -> str:
@@ -49,6 +49,10 @@ def phone_link(root: Path, port: int = 8765) -> str:
     return f"http://{lan_ip()}:{port}/?k={page_token(root)}"
 
 
+def calendar_link(root: Path, port: int = 8765) -> str:
+    return f"webcal://{lan_ip()}:{port}/calendar.ics?k={page_token(root)}"
+
+
 class _Saver:
     """Debounced git save: one commit + push a minute after the last change."""
     def __init__(self, root: Path, delay: float = 60.0):
@@ -61,6 +65,12 @@ class _Saver:
             self.timer = threading.Timer(self.delay, lambda: gitsave.save(self.root, "Job page marks"))
             self.timer.daemon = True
             self.timer.start()
+
+
+def prep_states(root: Path) -> dict:
+    st = {q["id"]: "queued" for q in prep.queued(root)}
+    st.update({k: "ready" for k in prep.packs(root)})
+    return st
 
 
 def make_handler(root: Path, token: str | None, saver: _Saver | None):
@@ -123,7 +133,19 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                 return self._send(200, report.all_matches_html(pipeline.latest_run(root / "data"), store.statuses(),
                                                                reminders=rem), headers=extra)
             if path == "/applied":
-                return self._send(200, report.applications_html(store.data["jobs"], reminders=rem), headers=extra)
+                cal = f"webcal://{self.headers.get('Host') or '127.0.0.1:8765'}/calendar.ics" + (f"?k={token}" if token else "")
+                return self._send(200, report.applications_html(store.data["jobs"], reminders=rem,
+                                                                preps=prep_states(root), calendar_url=cal),
+                                  headers=extra)
+            if path == "/calendar.ics":
+                return self._send(200, calendar_ics.ics(root), "text/calendar; charset=utf-8",
+                                  {**extra, "Content-Disposition": 'inline; filename="job-deadlines.ics"'})
+            if path == "/prep":
+                jid = qs.get("id", [""])[0]
+                f = prep.find(root, jid)
+                if not f:
+                    return self._send(404, "No interview prep for that job yet.", "text/plain")
+                return self._send(200, report.md_html(f.read_text(errors="replace"), "Interview prep"), headers=extra)
             if path == "/stats":
                 return self._send(200, report.stats_html(tracker.stats(store)), headers=extra)
             if path in ("/", "/index.html") or path.startswith("/s/"):
@@ -147,6 +169,14 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                       "/api/cv/build": cvtools.build_pdfs}[u.path]
                 with lock:
                     return self._send(200, fn(root), "text/plain; charset=utf-8")
+            if u.path == "/api/prep":
+                try:
+                    body = json.loads(self.rfile.read(min(int(self.headers.get("Content-Length", "0")), 10_000)) or b"{}")
+                    prep.enqueue(root, str(body["id"]), str(body.get("company", ""))[:200],
+                                 str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000])
+                except (KeyError, ValueError, json.JSONDecodeError):
+                    return self._send(400, "Bad request", "text/plain")
+                return self._send(200, '{"ok": true}', "application/json")
             if u.path != "/api/status":
                 return self._send(404, "Not found", "text/plain")
             try:
@@ -158,10 +188,14 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                     if str(body.get("fit", "")).isdigit() and int(body["fit"]) > 0:
                         extra["fit"] = int(body["fit"])
                     note = body.get("note")
+                    before = store.data["jobs"].get(str(body["id"]), {}).get("status")
                     store.set_status(str(body["id"]), body["status"], str(body.get("company", ""))[:200],
                                      str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000],
                                      note=str(note) if note is not None else None, extra=extra)
                     store.save()
+                    if body["status"] == "interviewing" and before != "interviewing":
+                        prep.enqueue(root, str(body["id"]), str(body.get("company", ""))[:200],
+                                     str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000])
             except (KeyError, ValueError, json.JSONDecodeError):
                 return self._send(400, "Bad request", "text/plain")
             if saver:

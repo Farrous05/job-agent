@@ -653,3 +653,144 @@ class BotTests(unittest.TestCase):
         self.assertTrue(self.sent[-2][1].endswith("cover_letter.pdf"))
         self.msg("/nonsense")
         self.assertIn("/help", self.sent[-1][1]["text"])
+
+
+class EuSourceTests(unittest.TestCase):
+    def test_personio_xml(self):
+        xml = """<?xml version="1.0"?><workzag-jobs><position><id>7</id><office>Berlin</office>
+<additionalOffices><office>Munich</office></additionalOffices><name>Junior ML Engineer</name>
+<seniority>entry-level</seniority><employmentType>permanent</employmentType><createdAt>2026-11-01</createdAt>
+<jobDescriptions><jobDescription><name>Your tasks</name><value>&lt;p&gt;Train models&lt;/p&gt;</value></jobDescription>
+</jobDescriptions></position></workzag-jobs>"""
+        with mock.patch.object(sources, "_request", return_value=xml):
+            js = sources.personio("Acme", "acme")
+        self.assertEqual(js[0].title, "Junior ML Engineer")
+        self.assertEqual(js[0].location, "Berlin; Munich")
+        self.assertIn("Train models", js[0].description)
+        self.assertEqual(js[0].url, "https://acme.jobs.personio.com/job/7")
+
+    def test_recruitee_and_teamtailor(self):
+        rc = {"offers": [{"id": 1, "title": "Data Scientist", "company_name": "ML Reply", "location": "Vienna, Austria",
+                          "careers_url": "https://x.recruitee.com/o/ds", "description": "<p>SQL</p>",
+                          "requirements": "<p>MSc</p>", "close_at": "2026-12-01T00:00:00Z", "experience_code": "entry_level"}]}
+        with mock.patch.object(sources, "_request", return_value=rc):
+            j = sources.recruitee("X", "x")[0]
+        self.assertEqual((j.company, j.deadline), ("ML Reply", "2026-12-01"))
+        self.assertIn("MSc", j.description)
+        rss = """<?xml version="1.0"?><rss version="2.0" xmlns:tt="https://teamtailor.com/locations"><channel>
+<item><title>AI Engineer</title><link>https://acme.teamtailor.com/jobs/1-ai</link><guid>g1</guid>
+<remoteStatus>hybrid</remoteStatus><description>&lt;p&gt;LLMs&lt;/p&gt;</description>
+<tt:locations><tt:location><tt:city>Stockholm</tt:city><tt:country>Sweden</tt:country></tt:location></tt:locations>
+</item></channel></rss>"""
+        with mock.patch.object(sources, "_request", return_value=rss):
+            j = sources.teamtailor("Acme", "acme")[0]
+        self.assertEqual((j.title, j.location, j.source_id), ("AI Engineer", "Stockholm, Sweden", "tt:acme:g1"))
+
+    def test_board_from_url(self):
+        self.assertEqual(sources.board_from_url("https://jobs.ashbyhq.com/mistral.ai/abc"), ("ashby", "mistral.ai"))
+        self.assertEqual(sources.board_from_url("https://merantix.jobs.personio.com/job/1"), ("personio", "merantix"))
+        self.assertEqual(sources.board_from_url("https://job-boards.greenhouse.io/mangroup/jobs/9"), ("greenhouse", "mangroup"))
+        self.assertIsNone(sources.board_from_url("https://apply.workable.com/j/ABC123"))
+        self.assertIsNone(sources.board_from_url("https://example.com/careers"))
+
+    def test_discover_and_drop_boards(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "config").mkdir()
+            comp = {"board": [{"company": "Man Group", "ats": "greenhouse", "token": "mangroup"}],
+                    "recruiters": {"names": ["jobgether"]}, "discovery": {"skip": ["badslug"]}}
+            rows = [{"url": "https://jobs.ashbyhq.com/mistral.ai/1", "company": "Mistral AI", "title": "ML Eng"},
+                    {"url": "https://job-boards.greenhouse.io/mangroup/jobs/2", "company": "Man Group"},  # known
+                    {"url": "https://jobs.lever.co/jobgether/3", "company": "Jobgether"},                 # recruiter
+                    {"url": "https://jobs.lever.co/badslug/4", "company": "Bad"},                          # skipped
+                    {"url": "https://afterdata.teamtailor.com/jobs/5", "company": "afterdata.teamtailor.com"}]
+            new = pipeline.discover_boards(root, rows, comp, "2026-11-04")
+            self.assertEqual(sorted(b["company"] for b in new), ["Afterdata", "Mistral AI"])
+            self.assertEqual(pipeline.discover_boards(root, rows, comp, "2026-11-05"), [])   # remembered
+            for _ in range(3):
+                dropped = pipeline.update_discovered(root, {"ashby:mistral.ai": {"ok": False}})
+            self.assertEqual(dropped, ["Mistral AI (ashby:mistral.ai)"])
+            self.assertEqual(list(pipeline.load_discovered(root)), ["teamtailor:afterdata"])
+
+
+class DeadlineCalendarTests(unittest.TestCase):
+    def test_deadline_formats(self):
+        from datetime import date
+        for t in ("24/11/2026", "24 Nov 2026", "November 24, 2026", "2026-11-24", "closes 24th November 2026"):
+            self.assertEqual(report.deadline_date(t), date(2026, 11, 24), t)
+        self.assertIsNone(report.deadline_date("rolling"))
+
+    def test_ics(self):
+        from datetime import date, timedelta
+        from jobagent import calendar_ics
+        soon = (date.today() + timedelta(days=9)).isoformat()
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            st = SeenStore(root / "seen_jobs.json")
+            st.set_status("a", "interested", "Mistral AI", "Applied Scientist, New Grad", "https://m/1",
+                          extra={"deadline": soon})
+            st.set_status("b", "applied", "Done Co", "SWE", "https://d/1", extra={"deadline": soon})
+            st.save()
+            rd = root / "data" / "runs" / "2026-11-04"
+            rd.mkdir(parents=True)
+            (rd / "candidates.json").write_text("{}")
+            (rd / "matches.json").write_text(json.dumps({"matches": [
+                {"source_id": "c", "company": "Qube", "title": "Quant Researcher", "url": "https://q/1", "fit": 5,
+                 "deadline": soon}, {"source_id": "e", "company": "Low", "title": "x", "fit": 3, "deadline": soon},
+                {"source_id": "f", "company": "Past", "title": "x", "fit": 5, "deadline": "2020-01-01"}]}))
+            ev = calendar_ics.events(root)
+            self.assertEqual([e["company"] for e in ev], ["Mistral AI", "Qube"])
+            text = calendar_ics.ics(root)
+            self.assertEqual(text.count("BEGIN:VEVENT"), 2)
+            self.assertIn("SUMMARY:Closes: Mistral AI – Applied Scientist\\, New Grad", text)
+            self.assertEqual(text.count("BEGIN:VALARM"), 4)
+            self.assertTrue(all(len(line.encode()) <= 75 for line in text.split("\r\n")))
+
+
+class PrepTests(unittest.TestCase):
+    def test_queue_and_find(self):
+        from jobagent import prep
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            self.assertTrue(prep.enqueue(root, "gh:1", "Mistral AI", "ML Eng"))
+            self.assertFalse(prep.enqueue(root, "gh:1", "Mistral AI", "ML Eng"))       # already queued
+            self.assertEqual(prep.pop(root)["id"], "gh:1")
+            self.assertIsNone(prep.pop(root))
+            f = root / "applications" / "mistral-ai-ml-eng" / "interview_prep.md"
+            f.parent.mkdir(parents=True)
+            f.write_text("<!-- job: gh:1 -->\n# Interview prep\n- **Point** https://x.y\n")
+            self.assertEqual(prep.find(root, "gh:1"), f)
+            self.assertEqual(prep.find(root, "", "Mistral AI"), f)
+            self.assertFalse(prep.enqueue(root, "gh:1", "Mistral AI", "ML Eng"))       # already has a pack
+            html_ = report.md_html(f.read_text(), "Interview prep")
+            self.assertIn("<b>Point</b>", html_)
+            self.assertNotIn("job: gh:1", html_)
+
+    def test_server_queues_prep_and_serves_calendar(self):
+        import http.client
+        import threading
+        from jobagent import server
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "config").mkdir()
+            (root / "shortlist").mkdir()
+            srv = server.http.server.ThreadingHTTPServer(("127.0.0.1", 0), server.make_handler(root, None, None))
+            threading.Thread(target=srv.serve_forever, daemon=True).start()
+            port = srv.server_address[1]
+            try:
+                c = http.client.HTTPConnection("127.0.0.1", port)
+                c.request("POST", "/api/status", json.dumps({"id": "j1", "status": "interviewing", "company": "Qube",
+                                                             "title": "QR"}), {"Content-Type": "application/json"})
+                self.assertEqual(c.getresponse().read(), b'{"ok": true}')
+                from jobagent import prep
+                self.assertEqual([q["id"] for q in prep.queued(root)], ["j1"])
+                c.request("GET", "/applied")
+                body = c.getresponse().read().decode()
+                self.assertIn("prep being written", body)
+                self.assertIn("webcal://", body)
+                c.request("GET", "/calendar.ics")
+                r = c.getresponse()
+                self.assertEqual(r.getheader("Content-Type"), "text/calendar; charset=utf-8")
+                self.assertIn(b"BEGIN:VCALENDAR", r.read())
+            finally:
+                srv.shutdown()

@@ -1,7 +1,10 @@
 """Telegram bot: your phone remote for the job agent. Runs on your Mac (python3 -m jobagent bot, or always-on
 via scripts/install_mac.sh). It only answers YOUR chat (the one saved by notify-setup --telegram).
 
-Commands: /jobs /all /cv /tailored /changes /letter <company> /apply <company> /run /page /reminders /stats /help
+Commands: /jobs /all /cv /tailored /changes /letter <company> /apply <company> /interview <company> /prep <company>
+          /calendar /run /page /reminders /stats /help
+Interview prep: jobs marked Interviewing (here or on the job page) are queued in data/prep_queue.json; the bot
+runs Claude's /prep for each one and sends you the pack.
 Buttons: ✓ ★ ✕ under each job (Applied / Interested / Not for me), Accept / Reject under CV changes.
 """
 from __future__ import annotations
@@ -17,7 +20,7 @@ import uuid
 from datetime import date
 from pathlib import Path
 
-from . import cvtools, notify, pipeline, report, tracker
+from . import calendar_ics, cvtools, notify, pipeline, prep, report, tracker
 from .store import SeenStore
 
 HELP = """<b>Job agent</b>, your commands:
@@ -27,6 +30,9 @@ HELP = """<b>Job agent</b>, your commands:
 /changes: suggested CV changes (PDF) with Accept / Reject
 /letter &lt;company&gt;: cover letter + answers you drafted
 /apply &lt;company&gt;: Claude drafts the application, then sends you the cover letter
+/interview &lt;company&gt;: mark it Interviewing + get an interview prep pack
+/prep &lt;company&gt;: interview prep pack only
+/calendar: closing dates in your phone's calendar
 /run: start a full job search now (about 20 min), summary when done
 /page: private link to the job page (home Wi-Fi)
 /reminders · /stats"""
@@ -198,6 +204,35 @@ class Bot:
                 return self.text("Which role? e.g. <code>/apply resonance</code>")
             return self.start_bg("apply", lambda: self.run_apply(arg), f"Drafting the application for <b>{arg}</b>… "
                                  "I'll send the cover letter in a few minutes.")
+        if cmd in ("/prep", "/interview"):
+            if not arg:
+                return self.text(f"Which role? e.g. <code>{cmd} resonance</code>")
+            job = self.find_tracked(arg)
+            if not job:
+                return self.text("I can't find that role among your jobs or the latest run. Try the company name.")
+            if cmd == "/interview":
+                st = SeenStore(self.root / "seen_jobs.json")
+                st.set_status(job["id"], "interviewing", job["company"], job["title"], job["url"])
+                st.save()
+                self._schedule_save()
+            have = prep.find(self.root, job["id"], job["company"])
+            if have:
+                return self.document(have, f"🎤 Interview prep: <b>{_html(job['company'])}</b> (already written)")
+            prep.enqueue(self.root, job["id"], job["company"], job["title"], job["url"])
+            if "interview prep" in self.busy:
+                self.text("Queued: I'll start it when the current prep is done.")
+            if cmd == "/interview":
+                self.text(f"💬 Marked <b>{_html(job['company'])}</b> as Interviewing. Good luck!")
+            return None                                     # the queue check right after sends "Writing…"
+        if cmd == "/calendar":
+            from .server import calendar_link
+            f = calendar_ics.write(self.root)
+            n = len(calendar_ics.events(self.root))
+            self.text(f"📅 <b>{n} closing dates</b> (Interested jobs + unmarked fit 4+), alerts 3 days and 1 day before.\n"
+                      f"<b>Best:</b> subscribe once, it updates by itself (on home Wi-Fi):\n{calendar_link(self.root)}\n"
+                      "iPhone: Settings → Calendar → Accounts → Add Account → Other → Add Subscribed Calendar, "
+                      "paste that link.\nOr open the file below to add them once.")
+            return self.document(f, "Job deadlines")
         if cmd == "/run":
             return self.start_bg("run", self.run_search, "Starting a full job search (about 20 min). "
                                  "You'll get the summary here when it's done.")
@@ -210,6 +245,28 @@ class Bot:
         if cmd == "/stats":
             return self.text(f"<pre>{tracker.stats_text(tracker.stats(SeenStore(self.root / 'seen_jobs.json')))}</pre>")
         return self.text("I didn't get that. /help lists what I can do.")
+
+    def find_tracked(self, query: str) -> dict | None:
+        """A job you've marked (interviewing/applied first), else the best match in the latest run."""
+        q = query.lower()
+        jobs = SeenStore(self.root / "seen_jobs.json").data["jobs"]
+        rank = {"interviewing": 0, "applied": 1, "offer": 2, "interested": 3}
+        hits = sorted(((rank.get(j.get("status"), 9), jid, j) for jid, j in jobs.items()
+                       if q in f"{j.get('company', '')} {j.get('title', '')}".lower() or q == jid.lower()),
+                      key=lambda x: x[0])
+        if hits and hits[0][0] < 9:
+            _, jid, j = hits[0]
+            return {"id": jid, "company": j.get("company", ""), "title": j.get("title", ""), "url": j.get("url", "")}
+        rd = pipeline.latest_run(self.root / "data")
+        if rd and (rd / "matches.json").exists():
+            for m in json.loads((rd / "matches.json").read_text()).get("matches", []):
+                if q in f"{m.get('company', '')} {m.get('title', '')}".lower():
+                    return {"id": m["source_id"], "company": m.get("company", ""), "title": m.get("title", ""),
+                            "url": m.get("url", "")}
+        if hits:
+            _, jid, j = hits[0]
+            return {"id": jid, "company": j.get("company", ""), "title": j.get("title", ""), "url": j.get("url", "")}
+        return None
 
     def on_button(self, q: dict) -> None:
         if q.get("message", {}).get("chat", {}).get("id") != self.chat:
@@ -293,6 +350,27 @@ class Bot:
             if f.exists():
                 self.document(f, fname)
 
+    def run_prep(self, job: dict) -> None:
+        out = self._claude(prep.prompt(self.root, job),
+                           ["Read", "Glob", "Grep", "WebFetch", "WebSearch", "Bash(mkdir:*)", "Bash(ls:*)",
+                            "Bash(cat:*)", "Edit(applications/**)", "Write(applications/**)"], timeout=1800)
+        f = prep.find(self.root, job["id"], job["company"])
+        if f:
+            self.document(f, f"🎤 Interview prep: <b>{_html(job['company'])}</b>. Also on the job page "
+                             "(My applications).")
+            from .gitsave import save
+            save(self.root, f"Interview prep: {f.parent.name}")
+        self.text("<b>Claude:</b>\n" + _html(out[-3000:] or "(no reply)"))
+
+    def check_prep_queue(self) -> None:
+        if "interview prep" in self.busy or not prep.queued(self.root):
+            return
+        job = prep.pop(self.root)
+        if job:
+            self.start_bg("interview prep", lambda: self.run_prep(job),
+                          f"🎤 Writing the interview prep for <b>{_html(job['company'])}: {_html(job['title'])}</b> "
+                          "(about 10 min).")
+
     def run_search(self) -> None:
         env = {**os.environ, "JOBAGENT_MODE": "claude"}
         subprocess.run(["bash", "scripts/run_scheduled.sh"], cwd=self.root, env=env, timeout=7200)
@@ -311,6 +389,7 @@ class Bot:
                     offset_file.parent.mkdir(exist_ok=True)
                     offset_file.write_text(str(offset))
                     self.handle(u)
+                self.check_prep_queue()
             except KeyboardInterrupt:
                 raise
             except Exception as e:  # noqa: BLE001 - network blips: wait and retry

@@ -1,0 +1,458 @@
+{
+ "ashby:abound": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Abound",
+  "fails": 0,
+  "first_role": "Junior Software Engineer",
+  "token": "abound"
+ },
+ "ashby:almedia": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Almedia",
+  "fails": 0,
+  "first_role": "Junior Data Scientist",
+  "token": "almedia"
+ },
+ "ashby:edited": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "EDITED",
+  "fails": 0,
+  "first_role": "Junior Data Scientist",
+  "token": "edited"
+ },
+ "ashby:lyceum": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Lyceum",
+  "fails": 0,
+  "first_role": "Forward Deployed Engineer \u2013 AI Inference (Intern)",
+  "token": "lyceum"
+ },
+ "ashby:marshmallow": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Marshmallow",
+  "fails": 0,
+  "first_role": "Junior Pricing Data Scientist",
+  "token": "marshmallow"
+ },
+ "ashby:meetdavis": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Davis AI",
+  "fails": 0,
+  "first_role": "AI Engineer Intern",
+  "token": "meetdavis"
+ },
+ "ashby:mistral.ai": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Mistral AI",
+  "fails": 0,
+  "first_role": "Applied AI, Forward Deployed Machine Learning Engineer - (Internship)",
+  "token": "mistral.ai"
+ },
+ "ashby:perplexity": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Perplexity AI",
+  "fails": 0,
+  "first_role": "Machine Learning Research Engineer Internship",
+  "token": "perplexity"
+ },
+ "ashby:pinely": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "pinely",
+  "fails": 0,
+  "first_role": "Machine Learning Researcher (Intern)",
+  "token": "pinely"
+ },
+ "ashby:revelrobotics": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Revel Robotics",
+  "fails": 0,
+  "first_role": "Computer Vision Engineer",
+  "token": "revelrobotics"
+ },
+ "ashby:snowflake": {
+  "added": "2026-11-04",
+  "ats": "ashby",
+  "company": "Snowflake",
+  "fails": 0,
+  "first_role": "Software Engineer Intern AI/ML - Warsaw (2027)",
+  "token": "snowflake"
+ },
+ "greenhouse:aircallioinc": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Aircall.io, Inc.",
+  "fails": 0,
+  "first_role": "Software Engineer \u2013 Professional Practice Contract",
+  "token": "aircallioinc"
+ },
+ "greenhouse:andurilindustries": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Anduril Industries",
+  "fails": 0,
+  "first_role": "2027 Early Career Software Engineer",
+  "token": "andurilindustries"
+ },
+ "greenhouse:artefact": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Artefact",
+  "fails": 0,
+  "first_role": "R&D Intern - Fairness in Deep Learning - Paris",
+  "token": "artefact"
+ },
+ "greenhouse:buynomics": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Buynomics",
+  "fails": 0,
+  "first_role": "Junior Data Scientist - Commercial Excellence (m/f/d)",
+  "token": "buynomics"
+ },
+ "greenhouse:deliveroo": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Deliveroo",
+  "fails": 0,
+  "first_role": "Software Engineer, New Grad",
+  "token": "deliveroo"
+ },
+ "greenhouse:dvtrading": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "DV Trading",
+  "fails": 0,
+  "first_role": "Graduate Software Engineer (DV Commodities)",
+  "token": "dvtrading"
+ },
+ "greenhouse:fanaticsfbg": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Fanatics Betting & Gaming",
+  "fails": 0,
+  "first_role": "Data Scientist I",
+  "token": "fanaticsfbg"
+ },
+ "greenhouse:globalizationpartners": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Globalization Partners",
+  "fails": 0,
+  "first_role": "AI Engineer I",
+  "token": "globalizationpartners"
+ },
+ "greenhouse:knowbe4": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "KnowBe4",
+  "fails": 0,
+  "first_role": "Graduate Cybersecurity Threat Researcher (Position located in Cheltenham, United Kingdom)",
+  "token": "knowbe4"
+ },
+ "greenhouse:mangroup": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Man Group",
+  "fails": 0,
+  "first_role": "Quantitative Developer - Systematic",
+  "token": "mangroup"
+ },
+ "greenhouse:quberesearchandtechnologies": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Qube Research & Technologies",
+  "fails": 0,
+  "first_role": "2027 - Internship, Business Data Analytics",
+  "token": "quberesearchandtechnologies"
+ },
+ "greenhouse:shifttechnology": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Shift Technology",
+  "fails": 0,
+  "first_role": "Data scientist Internship (6 months)",
+  "token": "shifttechnology"
+ },
+ "greenhouse:skdse": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "STARK",
+  "fails": 0,
+  "first_role": "Junior Software Engineer \u2013 Robotics Swarming (All Genders)",
+  "token": "skdse"
+ },
+ "greenhouse:veeamsoftware": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "Veeam",
+  "fails": 0,
+  "first_role": "Junior Software Developer InTest  (JavaScript)",
+  "token": "veeamsoftware"
+ },
+ "greenhouse:vml-the-cocktail": {
+  "added": "2026-11-04",
+  "ats": "greenhouse",
+  "company": "VML The Cocktail",
+  "fails": 0,
+  "first_role": "AI Engineer Internship | November 2026",
+  "token": "vml-the-cocktail"
+ },
+ "lever:cartrawler": {
+  "added": "2026-11-04",
+  "ats": "lever",
+  "company": "CarTrawler",
+  "fails": 0,
+  "first_role": "Machine Learning Engineer",
+  "token": "cartrawler"
+ },
+ "lever:pigment": {
+  "added": "2026-11-04",
+  "ats": "lever",
+  "company": "Pigment",
+  "fails": 0,
+  "first_role": "Data Scientist Internship",
+  "token": "pigment"
+ },
+ "lever:sonarsource": {
+  "added": "2026-11-04",
+  "ats": "lever",
+  "company": "Sonar Source",
+  "fails": 0,
+  "first_role": "Junior Software Engineer (Java)",
+  "token": "sonarsource"
+ },
+ "lever:theodo": {
+  "added": "2026-11-04",
+  "ats": "lever",
+  "company": "Theodo Data & AI",
+  "fails": 0,
+  "first_role": "Data & AI Engineer - stage de fin d'\u00e9tudes - Paris - Theodo Data & IA",
+  "token": "theodo"
+ },
+ "personio:cleopatra-enterprise": {
+  "added": "2026-11-04",
+  "ats": "personio",
+  "company": "Cleopatra Enterprise",
+  "fails": 0,
+  "first_role": "Junior Software Engineer",
+  "token": "cleopatra-enterprise"
+ },
+ "personio:htgf": {
+  "added": "2026-11-04",
+  "ats": "personio",
+  "company": "High-Tech Gr\u00fcnderfonds",
+  "fails": 0,
+  "first_role": "Junior AI Engineer (m/w/d)",
+  "token": "htgf"
+ },
+ "personio:reeeliance": {
+  "added": "2026-11-04",
+  "ats": "personio",
+  "company": "reeeliance",
+  "fails": 0,
+  "first_role": "Junior Data Engineer",
+  "token": "reeeliance"
+ },
+ "personio:schickler": {
+  "added": "2026-11-04",
+  "ats": "personio",
+  "company": "Highberg",
+  "fails": 0,
+  "first_role": "Werkstudent:in (m/w/d) im AI & Data Engineering",
+  "token": "schickler"
+ },
+ "recruitee:avisia": {
+  "added": "2026-11-04",
+  "ats": "recruitee",
+  "company": "Avisia",
+  "fails": 0,
+  "first_role": "Stage de fin d'\u00e9tudes - Data Analyst / Scientist H/F - Paris",
+  "token": "avisia"
+ },
+ "recruitee:cityscience": {
+  "added": "2026-11-04",
+  "ats": "recruitee",
+  "company": "City Science",
+  "fails": 0,
+  "first_role": "Graduate Software Developer",
+  "token": "cityscience"
+ },
+ "recruitee:machinelearningreply": {
+  "added": "2026-11-04",
+  "ats": "recruitee",
+  "company": "Machine Learning Reply",
+  "fails": 0,
+  "first_role": "Junior AI Application Engineer \u2013 AI Products (LLM & RAG) (m/f/d)",
+  "token": "machinelearningreply"
+ },
+ "recruitee:veneficusbv": {
+  "added": "2026-11-04",
+  "ats": "recruitee",
+  "company": "Veneficus B.V.",
+  "fails": 0,
+  "first_role": "Junior Data Scientist",
+  "token": "veneficusbv"
+ },
+ "smartrecruiters:360work": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "360WORK",
+  "fails": 0,
+  "first_role": "Graduate Software Developer",
+  "token": "360WORK"
+ },
+ "smartrecruiters:alten": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "ALTEN",
+  "fails": 0,
+  "first_role": "Stage Innovation : Ing\u00e9nieur Computer Vision / Deep Learning",
+  "token": "ALTEN"
+ },
+ "smartrecruiters:aristanetworks": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Arista",
+  "fails": 0,
+  "first_role": "Software Engineer Graduate 2026/2027",
+  "token": "AristaNetworks"
+ },
+ "smartrecruiters:asos": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "asos",
+  "fails": 0,
+  "first_role": "Associate Data Engineer",
+  "token": "ASOS"
+ },
+ "smartrecruiters:bet3651": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Bet3651",
+  "fails": 0,
+  "first_role": "Software Engineer, SRE",
+  "token": "Bet3651"
+ },
+ "smartrecruiters:cordicltd": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Cordic Ltd",
+  "fails": 0,
+  "first_role": "Junior Software Engineer",
+  "token": "CordicLtd"
+ },
+ "smartrecruiters:deltaelectronics": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Delta Electronics",
+  "fails": 0,
+  "first_role": "Junior Software Developer for C# (m/w/d)",
+  "token": "DeltaElectronics"
+ },
+ "smartrecruiters:iliad-free": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "iliad-free",
+  "fails": 0,
+  "first_role": "Stage - AI Engineer LLM - Paris -  H/F",
+  "token": "Iliad-Free"
+ },
+ "smartrecruiters:labelium": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "M13h",
+  "fails": 0,
+  "first_role": "Stage FE - Data Scientist / Analytics Engineer (H-F)",
+  "token": "Labelium"
+ },
+ "smartrecruiters:sapitbusinesssysteme": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "SAPITBusinessSysteme",
+  "fails": 0,
+  "first_role": "(Junior) Data Engineer - Integration & AI",
+  "token": "SAPITBusinessSysteme"
+ },
+ "smartrecruiters:sia": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Sia",
+  "fails": 0,
+  "first_role": "Junior Software Engineer",
+  "token": "Sia"
+ },
+ "smartrecruiters:sigmasoftware2": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Sigma Software",
+  "fails": 0,
+  "first_role": "Data Engineer (DATABRICKS / PYSPARK)",
+  "token": "SigmaSoftware2"
+ },
+ "smartrecruiters:soprasteria1": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "SopraSteria1",
+  "fails": 0,
+  "first_role": "Data Engineer for Live Intelligence (m/w/d)",
+  "token": "SopraSteria1"
+ },
+ "smartrecruiters:tieto2": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "tieto2",
+  "fails": 0,
+  "first_role": "Junior Software Engineer - Tieto Tech Consulting (m/f/d)",
+  "token": "Tieto2"
+ },
+ "smartrecruiters:ubisoft2": {
+  "added": "2026-11-04",
+  "ats": "smartrecruiters",
+  "company": "Ubisoft",
+  "fails": 0,
+  "first_role": "Data Scientist Assistant - Stage (6 mois) Mars 2027 (F/H/NB)",
+  "token": "Ubisoft2"
+ },
+ "teamtailor:afterdata": {
+  "added": "2026-11-04",
+  "ats": "teamtailor",
+  "company": "Afterdata",
+  "fails": 0,
+  "first_role": "Stage / Alternance - Data scientist - D\u00e9veloppeur(se) Python | Fintech",
+  "token": "afterdata"
+ },
+ "teamtailor:axiansenterprise": {
+  "added": "2026-11-04",
+  "ats": "teamtailor",
+  "company": "Axians Portugal Group",
+  "fails": 0,
+  "first_role": "Junior Software &amp; AI Engineer",
+  "token": "axiansenterprise"
+ },
+ "teamtailor:indefi": {
+  "added": "2026-11-04",
+  "ats": "teamtailor",
+  "company": "Indefi",
+  "fails": 0,
+  "first_role": "Data Scientist Intern - Corporate Strategy - Paris F/H",
+  "token": "indefi"
+ },
+ "teamtailor:manomotion": {
+  "added": "2026-11-04",
+  "ats": "teamtailor",
+  "company": "ManoMotion",
+  "fails": 0,
+  "first_role": "Internship/Master thesis project in Computer Vision/Machine Learning",
+  "token": "manomotion"
+ }
+}

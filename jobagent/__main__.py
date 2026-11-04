@@ -44,12 +44,15 @@ def load_cfg(root: Path = ROOT) -> tuple[dict, dict]:
 
 
 def fetch_all(companies: dict, cfg: dict) -> tuple[list[sources.Job], dict]:
-    boards = companies.get("board", [])
+    boards = list(companies.get("board", []))
+    have = {(b["ats"], b["token"].lower()) for b in boards}
+    boards += [dict(company=d["company"], ats=d["ats"], token=d["token"], discovered=True)
+               for d in pipeline.load_discovered(ROOT).values() if (d["ats"], d["token"].lower()) not in have]
     status = {}
 
     def one(b):
         fn = sources.FETCHERS[b["ats"]]
-        kw = {k: v for k, v in b.items() if k not in ("company", "ats", "verified")}
+        kw = {k: v for k, v in b.items() if k not in ("company", "ats", "verified", "discovered")}
         if b["ats"] == "workday":
             kw["title_prefilter"] = filters.title_prefilter(cfg)
         try:
@@ -61,8 +64,10 @@ def fetch_all(companies: dict, cfg: dict) -> tuple[list[sources.Job], dict]:
     jobs: list[sources.Job] = []
     with ThreadPoolExecutor(max_workers=8) as ex:
         for b, js, err in ex.map(one, boards):
-            key = f"{b['ats']}:{b['token']}"
+            key = f"{b['ats']}:{b['token'].lower()}" if b.get("discovered") else f"{b['ats']}:{b['token']}"
             status[key] = {"company": b["company"], "ok": err is None, "jobs": len(js), "error": err}
+            if b.get("discovered"):
+                status[key]["discovered"] = True
             jobs.extend(js)
     try:
         fh = sources.freehire(cfg)
@@ -87,8 +92,11 @@ def cmd_run(args) -> int:
     data.mkdir(exist_ok=True)
     store = SeenStore(ROOT / "seen_jobs.json")
 
-    print(f"Fetching {len(companies.get('board', []))} boards...")
+    n_disc = len(pipeline.load_discovered(ROOT))
+    print(f"Fetching {len(companies.get('board', []))} boards + {n_disc} found automatically...")
     jobs, status = fetch_all(companies, cfg)
+    for d in pipeline.update_discovered(ROOT, status):
+        print(f"  dropped auto-found board after 3 failed runs: {d}")
     (data / "source_status.json").write_text(json.dumps(
         {"run": datetime.now().isoformat(timespec="seconds"), "sources": status}, indent=2) + "\n")
     bad = [k for k, s in status.items() if not s["ok"]]
@@ -113,6 +121,10 @@ def cmd_run(args) -> int:
     print(f"  {len(kept) - seen_n} new matching roles + {seen_n} shown before (all written to "
           f"{rd.relative_to(ROOT)}/candidates.json; only new ones can be shortlisted)")
     print("  excluded: " + ", ".join(f"{k}: {v}" for k, v in sorted(excluded.items(), key=lambda x: -x[1])))
+    new_boards = pipeline.discover_boards(ROOT, kept, companies, run_date)
+    if new_boards:
+        print(f"  {len(new_boards)} new company boards found; the next run fetches all their roles: "
+              + ", ".join(b["company"] for b in new_boards[:12]) + (" ..." if len(new_boards) > 12 else ""))
 
     if args.dry_run:
         return 0
@@ -394,6 +406,33 @@ def cmd_status(_args) -> int:
     return 0
 
 
+def cmd_calendar(_args) -> int:
+    from . import calendar_ics
+    from .server import calendar_link
+    f = calendar_ics.write(ROOT)
+    ev = calendar_ics.events(ROOT)
+    print(f"{len(ev)} closing dates written to {f.relative_to(ROOT)}:")
+    for e in ev[:20]:
+        print(f"  {e['date']:%a %d %b}  {e['company']}: {e['title']}  ({e['why']})")
+    print(f"Subscribe on your phone (updates by itself on home Wi-Fi; needs the always-on job page):\n  {calendar_link(ROOT)}\n"
+          "On the Mac: open the file (double-click) to add them to Calendar once.")
+    return 0
+
+
+def cmd_boards(_args) -> int:
+    found = pipeline.load_discovered(ROOT)
+    st = {}
+    if (ROOT / "data/source_status.json").exists():
+        st = json.loads((ROOT / "data/source_status.json").read_text())["sources"]
+    print(f"{len(found)} company boards found automatically (config/discovered_boards.json), fetched every run:")
+    for k, b in sorted(found.items(), key=lambda x: x[1]["company"].lower()):
+        s = st.get(k, {})
+        print(f"  {b['company'][:34]:34} {k[:44]:44} {str(s.get('jobs', '-')):>5} jobs  since {b['added']}"
+              + (f"  (failed {b['fails']}x)" if b.get("fails") else ""))
+    print("To stop fetching one: add its slug to [discovery] skip in config/companies.toml.")
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="jobagent")
     sub = ap.add_subparsers(dest="cmd")
@@ -430,6 +469,8 @@ def main(argv=None) -> int:
     nt = sub.add_parser("notify", help="send today's summary to your phone (or a custom message)")
     nt.add_argument("message", nargs="*")
     sub.add_parser("bot", help="run the Telegram bot (your phone remote)")
+    sub.add_parser("calendar", help="closing dates as a calendar file + phone subscription link")
+    sub.add_parser("boards", help="company boards found automatically from roles that passed your filters")
     sv = sub.add_parser("save", help="commit and push your results to GitHub")
     sv.add_argument("-m", "--message", default="Job agent results")
     vw = sub.add_parser("view")
@@ -445,7 +486,7 @@ def main(argv=None) -> int:
     return {"run": cmd_run, "mark": cmd_mark, "status": cmd_status, "view": cmd_view, "import": cmd_import,
             "batches": cmd_batches, "merge-scores": cmd_merge, "recall": cmd_recall, "audit": cmd_audit, "reminders": cmd_reminders,
             "stats": cmd_stats, "save": cmd_save, "notify-setup": cmd_notify_setup, "notify": cmd_notify,
-            "reset": cmd_reset, "bot": cmd_bot}[args.cmd](args)
+            "reset": cmd_reset, "bot": cmd_bot, "calendar": cmd_calendar, "boards": cmd_boards}[args.cmd](args)
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import urllib.parse
 import json
 import re
 from pathlib import Path
@@ -116,22 +117,33 @@ MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", 
                                        "nov", "dec"], 1)}
 
 
-def _deadline_days(text: str) -> int | None:
-    """Days until a deadline like '22 Nov 2026' or '2026-11-22'; None if there's no date."""
+def deadline_date(text: str):
+    """A deadline like '22 Nov 2026', 'November 22, 2026', '2026-11-22' or '22/11/2026' (UK order) as a date."""
     from datetime import date
-    t = text.lower()
-    m = re.search(r"(\d{4})-(\d{2})-(\d{2})", t)
+    t = (text or "").lower()
     try:
+        m = re.search(r"(\d{4})-(\d{2})-(\d{2})", t)
         if m:
-            d = date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        else:
-            m = re.search(r"(\d{1,2})(?:st|nd|rd|th)?\s+([a-z]{3})[a-z]*\.?,?\s+(\d{4})", t)
-            if not m or m.group(2) not in MONTHS:
-                return None
-            d = date(int(m.group(3)), MONTHS[m.group(2)], int(m.group(1)))
+            return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        m = re.search(r"\b(\d{1,2})[/.](\d{1,2})[/.](\d{4})\b", t)
+        if m:
+            return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+        m = re.search(r"(\d{1,2})(?:st|nd|rd|th)?\s+([a-z]{3})[a-z]*\.?,?\s+(\d{4})", t)
+        if m and m.group(2) in MONTHS:
+            return date(int(m.group(3)), MONTHS[m.group(2)], int(m.group(1)))
+        m = re.search(r"\b([a-z]{3})[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})", t)
+        if m and m.group(1) in MONTHS:
+            return date(int(m.group(3)), MONTHS[m.group(1)], int(m.group(2)))
     except ValueError:
         return None
-    return (d - date.today()).days
+    return None
+
+
+def _deadline_days(text: str) -> int | None:
+    """Days until a deadline; None if there's no date."""
+    from datetime import date
+    d = deadline_date(text)
+    return None if d is None else (d - date.today()).days
 
 
 def _sponsor_class(text: str) -> str:
@@ -446,7 +458,16 @@ document.querySelectorAll('.card').forEach(card => card.querySelectorAll('.st[da
 }));
 document.querySelectorAll('.card select.stage').forEach(sel => sel.addEventListener('change', async () => {
   const card = sel.closest('.card');
-  if (await save(card, sel.value)) { card.className = 'card s-' + sel.value; flash(card); }
+  if (await save(card, sel.value)) { card.className = 'card s-' + sel.value; flash(card);
+    if (sel.value === 'interviewing') setTimeout(() => location.reload(), 600); }
+}));
+document.querySelectorAll('.card button.prep').forEach(b => b.addEventListener('click', async () => {
+  const card = b.closest('.card');
+  let r; try { r = await fetch('/api/prep', {method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({id: card.dataset.id, company: card.dataset.company, title: card.dataset.title,
+                          url: card.dataset.url})}); } catch (e) { r = null; }
+  if (r && r.ok) { b.textContent = 'Prep queued: it arrives on Telegram in ~10 min'; b.disabled = true; }
+  else alert('Could not queue it. Is the job page still running?');
 }));
 document.querySelectorAll('.card button.savenote').forEach(b => b.addEventListener('click', async () => {
   const card = b.closest('.card');
@@ -460,9 +481,12 @@ STAGE_LABELS = (("interested", "★ Interested (not applied)"), ("applied", "✓
                 ("reported", "Remove from tracker"))
 
 
-def applications_html(jobs: dict, reminders: list[str] | None = None) -> str:
-    """'My applications': every job you've marked, grouped by stage, with a stage picker and notes."""
+def applications_html(jobs: dict, reminders: list[str] | None = None, preps: dict | None = None,
+                      calendar_url: str = "") -> str:
+    """'My applications': every job you've marked, grouped by stage, with a stage picker and notes.
+    preps: job id -> "ready" or "queued" (interview prep packs)."""
     esc = html.escape
+    preps = preps or {}
     order = ("interviewing", "offer", "applied", "interested", "rejected")
     labels = {"interviewing": "Interviewing", "offer": "Offers", "applied": "Applied, waiting",
               "interested": "Interested, not applied yet", "rejected": "Rejected"}
@@ -487,13 +511,63 @@ def applications_html(jobs: dict, reminders: list[str] | None = None) -> str:
     <div class="head"><h2>{esc(j.get('title', ''))}</h2>
       <div class="meta">{esc(j.get('company', ''))} · {esc(dates)}{dl}</div></div>
     <a class="apply" href="{esc(j.get('url', ''))}" target="_blank" rel="noopener">Posting ↗</a></div>
-  <div class="actions"><select class="stage">{opts}</select></div>
+  <div class="actions"><select class="stage">{opts}</select>{_prep_bit(jid, key, preps)}</div>
   <div class="actions" style="display:block"><textarea class="note" placeholder="Notes: who you spoke to, next step, dates…">{esc(j.get('note', ''))}</textarea>
   <button class="st savenote">Save note</button><span class="saved" hidden>Saved ✓</span></div>
 </article>""")
         parts.append(f"<h3>{labels[key]} ({len(items)})</h3>" + ("".join(cards) or '<p class="empty">None yet.</p>'))
+    if calendar_url:
+        parts.insert(0, f'<p class="sub">📅 Closing dates in your phone’s calendar: <a href="{esc(calendar_url)}">'
+                        f'subscribe to the deadlines calendar</a> (or send /calendar to the bot).</p>')
     return _page("My applications", "change the stage as things happen", "/applied", "".join(parts), True,
                  reminders=reminders, script=STATUS_SCRIPT)
+
+
+def _prep_bit(jid: str, stage: str, preps: dict) -> str:
+    esc = html.escape
+    st = preps.get(jid)
+    if st == "ready":
+        return f' <a class="st" href="/prep?id={urllib.parse.quote(jid)}">🎤 Interview prep</a>'
+    if st == "queued":
+        return ' <span class="sub">🎤 prep being written…</span>'
+    if stage in ("interviewing", "applied"):
+        return ' <button class="st prep">🎤 Write interview prep</button>'
+    return ""
+
+
+def md_html(md: str, title: str) -> str:
+    """Tiny Markdown → HTML for prep packs (headings, bullets, bold, links, paragraphs)."""
+    esc = html.escape
+    out, in_list = [], False
+
+    def inline(t: str) -> str:
+        t = esc(t)
+        t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+        t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+        t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
+        return re.sub(r'(?<!href=")(https?://[^\s<]+)', r'<a href="\1" target="_blank" rel="noopener">\1</a>', t)
+    for line in md.splitlines():
+        if line.strip().startswith("<!--"):
+            continue
+        m = re.match(r"^\s*(?:[-*]|\d+\.)\s+(.*)", line)
+        if m:
+            if not in_list:
+                out.append("<ul>")
+                in_list = True
+            out.append(f"<li>{inline(m.group(1))}</li>")
+            continue
+        if in_list:
+            out.append("</ul>")
+            in_list = False
+        h = re.match(r"^(#{1,4})\s+(.*)", line)
+        if h:
+            n = min(len(h.group(1)) + 1, 4)
+            out.append(f"<h{n}>{inline(h.group(2))}</h{n}>")
+        elif line.strip():
+            out.append(f"<p>{inline(line)}</p>")
+    if in_list:
+        out.append("</ul>")
+    return _page(title, "interview prep", "/applied", '<div class="card prepdoc">' + "".join(out) + "</div>", True)
 
 
 def stats_html(s: dict) -> str:

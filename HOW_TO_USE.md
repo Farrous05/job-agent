@@ -99,6 +99,11 @@ tomorrow at about 08:45 a summary should arrive.
 - **Each morning:** Telegram shows the new jobs. Tap **✓** (applied), **★** (interested) or **✕** (not for me).
 - **To apply:** send the bot `/apply <company>`. A few minutes later you get the cover letter PDF and the
   form answers. Read them, apply on the company's site, then tap ✓.
+- **Got an interview:** send `/interview <company>` (or set the stage to Interviewing on the job page). About
+  10 minutes later you get an **interview prep pack**: the company in 60 seconds, what they want vs your CV,
+  the likely process, questions to practise, your stories (from your CV only), questions to ask, a 5-day plan.
+- **Closing dates in your calendar:** send `/calendar` once and subscribe (steps below). Deadlines of jobs you
+  marked Interested, and unmarked fit-4+ roles, appear with alerts 3 days and 1 day before.
 - **CV changes:** send `/changes` to get the red/blue PDF with **Accept** and **Reject** buttons (also on the job
   page's **CV** tab).
 - **Anything else:** `/jobs` top picks · `/all` best unmarked roles · `/cv` your CV · `/tailored` tailored CVs ·
@@ -111,6 +116,9 @@ tomorrow at about 08:45 a summary should arrive.
 | `/jobs` | today's top picks with ✓ ★ ✕ buttons |
 | `/all` | best unmarked roles from All matches (fit 4+) |
 | `/apply resonance` | Claude drafts the application; you receive the cover letter PDF, answers and checklist |
+| `/interview mistral` | marks it Interviewing and sends you an interview prep pack |
+| `/prep mistral` | the interview prep pack only |
+| `/calendar` | the deadlines calendar: subscribe link + file |
 | `/changes` | suggested CV changes (PDF) with Accept / Reject buttons |
 | `/cv`, `/tailored`, `/letter <company>` | the PDFs |
 | `/run` | a full job search now (about 20 min), then the summary |
@@ -132,7 +140,7 @@ That's it. It:
 3. when Claude has finished, type `/exit`: your results are **saved and pushed to GitHub automatically**,
 4. opens the job page.
 
-`/job-run` fetches ~9,000 jobs, removes the ones that don't fit your rules, has Claude score every remaining
+`/job-run` fetches ~16,000 jobs, removes the ones that don't fit your rules, has Claude score every remaining
 role against your CV, picks the best 15, checks what it might have missed, suggests CV changes and drafts
 LinkedIn notes. By default `findjobs` skips the LinkedIn **job search** (outreach still runs). Variants:
 - `findjobs full`: everything, including the LinkedIn job search.
@@ -165,6 +173,23 @@ then **saved and pushed to GitHub automatically**. (Open it any time with `pytho
    and submit on the company's site yourself.
 4. Mark the job **✓ Applied** on the job page.
 
+## 3b. Interview prep
+- Phone: `/interview <company>` or `/prep <company>`. Job page: set the stage to **Interviewing** (or tap
+  **🎤 Write interview prep** on an Applied job). The bot writes it and sends it; it's also on the job page
+  under My applications (**🎤 Interview prep**).
+- On the Mac in Claude: `/prep <company>`.
+- Saved as `applications/<company>-<role>/interview_prep.md`. Facts about you come only from your CV; anything
+  it needs from you is marked `[ASK FARES: …]`.
+
+## 3c. Closing dates in your calendar
+- **iPhone (updates by itself):** send `/calendar` to the bot and copy the `webcal://` link. Then Settings →
+  Calendar → Accounts → Add Account → Other → **Add Subscribed Calendar**, paste, Save. It refreshes when your
+  phone is on home Wi-Fi and keeps the last copy when you're out.
+- **Once only:** open the `.ics` file the bot sends (or `python3 -m jobagent calendar` on the Mac, then open
+  `data/deadlines.ics`) and add the events.
+- Included: jobs you marked Interested, and unmarked roles with Claude fit 4+, that have a closing date.
+  Applied or "Not for me" jobs drop out at the next refresh.
+
 ## 4. Your CV
 - Tailored CVs (one per top job): `cv/build/<company>-<role>.pdf`. Main CV: `cv/build/cv.pdf`.
   If they're missing (e.g. on a new computer), run `scripts/build_cv.sh`.
@@ -189,6 +214,15 @@ time: `python3 -m jobagent save`.
 - `python3 -m jobagent reminders`: deadlines closing soon and follow-ups due.
 - `python3 -m jobagent stats`: your application numbers in the terminal.
 - `python3 -m jobagent status`: did any job source fail last time?
+- `python3 -m jobagent boards`: company boards the agent found by itself (see below).
+- `python3 -m jobagent calendar`: closing dates + the calendar subscription link.
+
+## Where the jobs come from
+- ~50 company boards in `config/companies.toml` (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, and the
+  EU systems Personio, Recruitee, Teamtailor, Workable), plus freehire.me and Reed.
+- **Boards found automatically:** when a role from freehire or Reed passes your filters, the agent notes that
+  company's board and fetches **all** its roles from the next run on (`config/discovered_boards.json`). Boards
+  that fail 3 runs in a row are dropped. To stop one, add its slug to `[discovery] skip` in `config/companies.toml`.
 
 ## How good is it? (recall check)
 Each `/job-run` checks itself against real postings from other job boards and writes

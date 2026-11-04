@@ -196,6 +196,66 @@ def role_text(text: str, n: int = 2000) -> str:
     return t[:n]
 
 
+# ---------------------------------------------------------------------------- board discovery
+def discovered_path(root: Path) -> Path:
+    return root / "config" / "discovered_boards.json"
+
+
+def load_discovered(root: Path) -> dict:
+    f = discovered_path(root)
+    try:
+        return json.loads(f.read_text()) if f.exists() else {}
+    except json.JSONDecodeError:
+        return {}
+
+
+def discover_boards(root: Path, rows: list[dict], companies: dict, run_date: str) -> list[dict]:
+    """Roles that passed your filters but came from an aggregator (freehire, Reed, imports) often sit on a
+    company board we don't fetch yet. Remember that board so the next run fetches ALL its roles."""
+    from .sources import FETCHERS, board_from_url
+    known = {(b["ats"], b["token"].lower()) for b in companies.get("board", [])}
+    known_names = {b["company"].lower() for b in companies.get("board", [])}
+    recruiters = [r.lower() for r in companies.get("recruiters", {}).get("names", [])]
+    skip = {t.lower() for t in companies.get("discovery", {}).get("skip", [])}
+    found = load_discovered(root)
+    new = []
+    for r in rows:
+        b = board_from_url(r.get("url", ""))
+        if not b or b[0] not in FETCHERS:
+            continue
+        ats, token = b
+        key = f"{ats}:{token.lower()}"
+        name = (r.get("company") or token).strip()
+        if "." in name and " " not in name:          # e.g. "afterdata.teamtailor.com"
+            name = name.split(".")[0].replace("-", " ").title()
+        if ((ats, token.lower()) in known or key in found or token.lower() in skip or name.lower() in known_names
+                or (r.get("extra") or {}).get("recruiter") or any(x in name.lower() for x in recruiters)):
+            continue
+        found[key] = {"company": name, "ats": ats, "token": token, "added": run_date, "fails": 0,
+                      "first_role": r.get("title", "")[:120]}
+        new.append(found[key])
+    if new:
+        discovered_path(root).write_text(json.dumps(found, indent=1, sort_keys=True) + "\n")
+    return new
+
+
+def update_discovered(root: Path, status: dict) -> list[str]:
+    """After a fetch: reset fails on success; drop boards that failed 3 runs in a row."""
+    found = load_discovered(root)
+    dropped = []
+    for key, b in list(found.items()):
+        s = status.get(key)
+        if s is None:
+            continue
+        b["fails"] = 0 if s["ok"] else b.get("fails", 0) + 1
+        if b["fails"] >= 3:
+            dropped.append(f"{b['company']} ({key})")
+            del found[key]
+    if found or dropped:
+        discovered_path(root).write_text(json.dumps(found, indent=1, sort_keys=True) + "\n")
+    return dropped
+
+
 def normalize_company(job: Job, companies: dict) -> None:
     """Fixes aggregator company names (e.g. a board slug like 'wehrtyou') and flags recruiter ads."""
     aliases = {k.lower(): v for k, v in companies.get("aliases", {}).items()}

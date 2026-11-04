@@ -42,7 +42,7 @@ class Job:
         return asdict(self)
 
 
-def _request(url: str, data: dict | None = None, headers: dict | None = None, retries: int = 2):
+def _request(url: str, data: dict | None = None, headers: dict | None = None, retries: int = 2, raw: bool = False):
     hdrs = {"User-Agent": UA, "Accept": "application/json"}
     hdrs.update(headers or {})
     body = None
@@ -54,7 +54,8 @@ def _request(url: str, data: dict | None = None, headers: dict | None = None, re
         try:
             req = urllib.request.Request(url, data=body, headers=hdrs)
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                return json.loads(r.read().decode("utf-8", "replace"))
+                text = r.read().decode("utf-8", "replace")
+                return text if raw else json.loads(text)
         except urllib.error.HTTPError as e:
             if e.code in (404, 401, 403, 400):
                 raise SourceError(f"HTTP {e.code} for {url}") from e
@@ -167,9 +168,16 @@ def workday(company: str, token: str, host: str, site: str, search: str = "", ma
 
 # --------------------------------------------------------------------------- smartrecruiters
 def smartrecruiters(company: str, token: str, **_) -> list[Job]:
-    data = _request(f"https://api.smartrecruiters.com/v1/companies/{token}/postings?limit=100")
+    posts, offset = [], 0
+    while offset < 1000:                       # the API returns 100 at a time
+        data = _request(f"https://api.smartrecruiters.com/v1/companies/{token}/postings?limit=100&offset={offset}")
+        page = data.get("content", [])
+        posts += page
+        offset += 100
+        if len(page) < 100 or offset >= data.get("totalFound", 0):
+            break
     out = []
-    for j in data.get("content", []):
+    for j in posts:
         loc = j.get("location") or {}
         out.append(Job(
             source="smartrecruiters", source_id=f"sr:{token}:{j.get('id')}", company=company,
@@ -291,5 +299,99 @@ def janestreet(company: str = "Jane Street", token: str = "janestreet", **_) -> 
     return out
 
 
+# --------------------------------------------------------------------------- EU ATSes
+def _xml(url: str):
+    import xml.etree.ElementTree as ET
+    try:
+        return ET.fromstring(_request(url, headers={"Accept": "application/xml, text/xml, */*"}, raw=True))
+    except ET.ParseError as e:
+        raise SourceError(f"bad XML from {url}: {e}") from e
+
+
+def personio(company: str, token: str, **_) -> list[Job]:
+    """<token>.jobs.personio.com/xml: German/Austrian startups and Mittelstand."""
+    root = _xml(f"https://{token}.jobs.personio.com/xml?language=en")
+    out = []
+    for p in root.iter("position"):
+        g = lambda k: (p.findtext(k) or "").strip()  # noqa: E731
+        offices = [g("office")] + [(o.text or "").strip() for o in p.findall("additionalOffices/office")]
+        desc = "\n".join(f"{(d.findtext('name') or '').strip()}\n{html_to_text(d.findtext('value') or '')}"
+                         for d in p.iter("jobDescription"))
+        desc = f"Seniority: {g('seniority')}. Type: {g('employmentType')}. " + desc
+        out.append(Job(source="personio", source_id=f"pe:{token}:{g('id')}", company=company, title=g("name"),
+                       location="; ".join(o for o in offices if o), description=desc,
+                       url=f"https://{token}.jobs.personio.com/job/{g('id')}", posted=g("createdAt")))
+    return out
+
+
+def recruitee(company: str, token: str, **_) -> list[Job]:
+    """<token>.recruitee.com/api/offers/: Dutch/Benelux and Central-European companies."""
+    data = _request(f"https://{token}.recruitee.com/api/offers/")
+    out = []
+    for o in data.get("offers", []):
+        desc = html_to_text((o.get("description") or "") + "\n" + (o.get("requirements") or ""))
+        lvl = o.get("experience_code") or ""
+        out.append(Job(source="recruitee", source_id=f"rc:{token}:{o.get('id')}",
+                       company=o.get("company_name") or company, title=o.get("title", ""),
+                       location=o.get("location") or ", ".join(filter(None, [o.get("city"), o.get("country")])),
+                       url=o.get("careers_url", ""), description=(f"Level: {lvl}. " if lvl else "") + desc,
+                       posted=o.get("published_at") or "", deadline=(o.get("close_at") or "")[:10]))
+    return out
+
+
+def teamtailor(company: str, token: str, **_) -> list[Job]:
+    """<token>.teamtailor.com/jobs.rss: Nordic and French companies."""
+    root = _xml(f"https://{token}.teamtailor.com/jobs.rss")
+    ns = "{https://teamtailor.com/locations}"
+    out = []
+    for it in root.iter("item"):
+        locs = []
+        for loc in it.iter(f"{ns}location"):
+            c = ", ".join(filter(None, [(loc.findtext(f"{ns}city") or "").strip(),
+                                        (loc.findtext(f"{ns}country") or "").strip()]))
+            if c:
+                locs.append(c)
+        remote = (it.findtext("remoteStatus") or "").strip()
+        if remote in ("fully", "remote"):
+            locs.append("Remote")
+        link = (it.findtext("link") or "").strip()
+        out.append(Job(source="teamtailor", source_id=f"tt:{token}:{(it.findtext('guid') or link).strip()}",
+                       company=company, title=(it.findtext("title") or "").strip(), location="; ".join(locs),
+                       url=link, description=html_to_text(it.findtext("description") or ""),
+                       posted=(it.findtext("pubDate") or "").strip()))
+    return out
+
+
+def workable(company: str, token: str, **_) -> list[Job]:
+    """apply.workable.com/<token>: many EU scale-ups (Greece, Spain, UK, Netherlands...)."""
+    data = _request(f"https://apply.workable.com/api/v1/widget/accounts/{token}?details=true")
+    out = []
+    for j in data.get("jobs", []):
+        loc = ", ".join(filter(None, [j.get("city"), j.get("country")]))
+        if j.get("telecommuting"):
+            loc = (loc + "; " if loc else "") + "Remote"
+        out.append(Job(source="workable", source_id=f"wk:{token}:{j.get('shortcode')}", company=company,
+                       title=j.get("title", ""), location=loc,
+                       url=j.get("url") or f"https://apply.workable.com/{token}/j/{j.get('shortcode')}/",
+                       description=html_to_text(j.get("description") or ""), posted=j.get("published_on") or ""))
+    return out
+
+
 FETCHERS = {"janestreet": janestreet, "greenhouse": greenhouse, "lever": lever, "ashby": ashby, "workday": workday,
-            "smartrecruiters": smartrecruiters}
+            "smartrecruiters": smartrecruiters, "personio": personio, "recruitee": recruitee,
+            "teamtailor": teamtailor, "workable": workable}
+
+# job URL -> (ats, token): used to find new company boards in roles that passed your filters
+BOARD_URL = [("greenhouse", r"greenhouse\.io/(?:embed/job_app\?for=)?([\w-]+)"), ("lever", r"jobs\.lever\.co/([\w-]+)"),
+             ("ashby", r"jobs\.ashbyhq\.com/([\w%.-]+)"), ("personio", r"([\w-]+)\.jobs\.personio\.(?:de|com)"),
+             ("recruitee", r"([\w-]+)\.recruitee\.com"), ("teamtailor", r"([\w-]+)\.teamtailor\.com"),
+             ("workable", r"apply\.workable\.com/(?!j/|api/)([\w-]+)"),
+             ("smartrecruiters", r"(?:jobs|careers)\.smartrecruiters\.com/([\w-]+)")]
+
+
+def board_from_url(url: str) -> tuple[str, str] | None:
+    for ats, rx in BOARD_URL:
+        m = re.search(rx, url or "")
+        if m and m.group(1).lower() not in ("embed", "jobs", "o", "j", "p"):
+            return ats, m.group(1)
+    return None
