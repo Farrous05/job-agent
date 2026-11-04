@@ -3,7 +3,7 @@
 Your folder is `~/code/job-agent`. Every command below starts there: `cd ~/code/job-agent`.
 
 ## 0. One-time shortcut (recommended)
-Add a `findjobs` command to your Terminal (not `findjobs`: that name is taken by zsh):
+Add a `findjobs` command to your Terminal (not `jobs`: that name is taken by zsh):
 ```bash
 echo 'alias findjobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc
 ```
