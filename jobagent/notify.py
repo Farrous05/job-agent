@@ -1,10 +1,13 @@
-"""Phone notifications through ntfy (https://ntfy.sh): free, no account. Install the ntfy app on your phone
-and subscribe to your private topic. The topic name lives in config/ntfy_topic (git-ignored): anyone who
-knows it can read your messages, so it's a long random name."""
+"""Phone notifications. Two options (both git-ignored, set up with `python3 -m jobagent notify-setup`):
+- Telegram (recommended, reliable on iPhone): your own private bot. Token + chat id in config/telegram.json.
+- ntfy (https://ntfy.sh): no account; private random topic in config/ntfy_topic.
+If Telegram is set up it's used; otherwise ntfy."""
 from __future__ import annotations
 
+import json
 import secrets
 import time
+import urllib.parse
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -30,10 +33,67 @@ def setup(root: Path) -> str:
     return t
 
 
+# --------------------------------------------------------------------------- Telegram
+def telegram_file(root: Path) -> Path:
+    return root / "config" / "telegram.json"
+
+
+def get_telegram(root: Path) -> dict | None:
+    f = telegram_file(root)
+    try:
+        d = json.loads(f.read_text()) if f.exists() else None
+    except json.JSONDecodeError:
+        return None
+    return d if d and d.get("token") and d.get("chat_id") else None
+
+
+def _tg(token: str, method: str, params: dict) -> dict:
+    data = urllib.parse.urlencode(params).encode()
+    with urllib.request.urlopen(f"https://api.telegram.org/bot{token}/{method}", data=data, timeout=20) as r:
+        return json.loads(r.read().decode())
+
+
+def telegram_setup(root: Path, token: str) -> str:
+    """Finds your chat id from the last message you sent the bot, then saves token + chat id."""
+    token = token.strip()
+    try:
+        me = _tg(token, "getMe", {})
+        if not me.get("ok"):
+            return "That token didn't work. Copy it again from @BotFather."
+        ups = _tg(token, "getUpdates", {}).get("result", [])
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 404):
+            return "That token didn't work. Copy it again from @BotFather (the whole line, like 123456:ABC-def...)."
+        return f"Couldn't reach Telegram: {e}"
+    except Exception as e:  # noqa: BLE001
+        return f"Couldn't reach Telegram: {e}"
+    chats = [u.get("message", {}).get("chat", {}) for u in ups if u.get("message")]
+    chats = [c for c in chats if c.get("type") == "private"]
+    if not chats:
+        return (f"Bot @{me['result'].get('username')} found, but it has no message from you yet. Open Telegram, "
+                f"send any message (e.g. 'hi') to @{me['result'].get('username')}, then run this again.")
+    chat = chats[-1]
+    telegram_file(root).write_text(json.dumps({"token": token, "chat_id": chat["id"]}) + "\n")
+    return f"Saved. Notifications will go to {chat.get('first_name', 'you')} via @{me['result'].get('username')}."
+
+
+def send_telegram(root: Path, title: str, message: str) -> str:
+    tg = get_telegram(root)
+    text = f"{title}\n{message}" if message else title
+    try:
+        r = _tg(tg["token"], "sendMessage", {"chat_id": tg["chat_id"], "text": text[:4000],
+                                              "disable_web_page_preview": "true"})
+        return "sent (Telegram)" if r.get("ok") else f"Telegram error: {r.get('description')}"
+    except Exception as e:  # noqa: BLE001 - a failed notification must never break a run
+        return f"couldn't send (Telegram): {e}"
+
+
 def send(root: Path, title: str, message: str, click: str = "", priority: str = "default") -> str:
+    if get_telegram(root):
+        return send_telegram(root, title, message)
     t = get_topic(root)
     if not t:
-        return "no topic set: run `python3 -m jobagent notify-setup` first"
+        return "notifications not set up: run `python3 -m jobagent notify-setup --telegram` first"
     req = urllib.request.Request(f"{SERVER}/{t}", data=message.encode("utf-8"), method="POST")
     req.add_header("Title", title.encode("ascii", "ignore").decode() or "Job agent")
     req.add_header("Tags", "briefcase")

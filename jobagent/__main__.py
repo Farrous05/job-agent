@@ -225,15 +225,26 @@ def cmd_save(args) -> int:
     return 0
 
 
-def cmd_notify_setup(_args) -> int:
+def cmd_notify_setup(args) -> int:
     from . import notify
+    if args.telegram:
+        print("""Telegram setup (2 minutes):
+1. In Telegram, open a chat with @BotFather, send /newbot, pick any name and a username ending in 'bot'.
+2. BotFather replies with a token like 123456:ABC-def... Copy it.
+3. Open the chat with YOUR new bot (BotFather gives a t.me link) and send it any message, e.g. "hi".""")
+        token = args.token or input("4. Paste the token here and press Enter: ")
+        print(notify.telegram_setup(ROOT, token))
+        if notify.get_telegram(ROOT):
+            print(notify.send(ROOT, "Job agent", "Notifications are set up. You'll get a summary after each run."))
+        return 0
     t = notify.setup(ROOT)
     print(f"""Your private notification channel: {t}
 1. Install the free "ntfy" app on your phone (App Store / Google Play).
 2. In the app: tap +, Subscribe to topic, enter:  {t}
    (keep the default server ntfy.sh). Anyone who knows this name can read the messages, so don't share it.
 3. Test it:  python3 -m jobagent notify "Hello from your job agent"
-The name is saved in config/ntfy_topic (never pushed to GitHub).""")
+The name is saved in config/ntfy_topic (never pushed to GitHub).
+(On iPhone, Telegram is more reliable: python3 -m jobagent notify-setup --telegram)""")
     return 0
 
 
@@ -407,7 +418,9 @@ def main(argv=None) -> int:
     au.add_argument("--date")
     sub.add_parser("reminders")
     sub.add_parser("stats")
-    sub.add_parser("notify-setup", help="create your private phone-notification channel (ntfy)")
+    ns = sub.add_parser("notify-setup", help="phone notifications: --telegram (recommended) or ntfy")
+    ns.add_argument("--telegram", action="store_true")
+    ns.add_argument("--token", help="Telegram bot token (otherwise you're asked for it)")
     nt = sub.add_parser("notify", help="send today's summary to your phone (or a custom message)")
     nt.add_argument("message", nargs="*")
     sv = sub.add_parser("save", help="commit and push your results to GitHub")

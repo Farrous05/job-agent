@@ -58,10 +58,11 @@ then **saved and pushed to GitHub automatically**. (Open it any time with `pytho
 `outreach/<date>.md`: who to contact, their profile link, a message ready to copy. You send them yourself.
 
 ## 5b. Phone notifications (once)
-1. Run `python3 -m jobagent notify-setup` and follow the 3 steps it prints (install the free **ntfy** app,
-   subscribe to your private channel name, send a test).
-2. After every scheduled run your phone gets "N new jobs picked" with the top 3 and any deadline reminders
-   (high priority when something closes soon). Send one any time: `python3 -m jobagent notify`.
+**Telegram (recommended, reliable on iPhone):** run `python3 -m jobagent notify-setup --telegram` and follow
+the steps: create a bot with @BotFather, send your bot "hi", paste the token. You get a test message straight away.
+After every scheduled run you get "N new jobs picked" with the top 3 and any deadline reminders.
+Send one any time: `python3 -m jobagent notify`. (Alternative: `notify-setup` without `--telegram` uses the
+ntfy app, but its iPhone notifications can be unreliable.)
 
 ## 6. Saving
 Automatic: after `jobs`, when you close the job page, and after the daily schedule. To save by hand at any

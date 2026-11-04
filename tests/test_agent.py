@@ -491,6 +491,34 @@ class NotifyTests(unittest.TestCase):
                  mock.patch.object(notify.time, "sleep"):
                 self.assertEqual(notify.send(Path(d), "T", "m"), "sent")
 
+    def test_telegram_setup_and_send(self):
+        from jobagent import notify
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "config").mkdir()
+            calls = []
+            def fake(token, method, params):
+                calls.append((method, params))
+                if method == "getMe":
+                    return {"ok": True, "result": {"username": "fares_jobs_bot"}}
+                if method == "getUpdates":
+                    return {"ok": True, "result": [{"message": {"chat": {"id": 42, "type": "private",
+                                                                          "first_name": "Fares"}}}]}
+                return {"ok": True}
+            with mock.patch.object(notify, "_tg", side_effect=fake):
+                self.assertIn("Saved", notify.telegram_setup(Path(d), " 123:abc "))
+                self.assertEqual(notify.send(Path(d), "3 new jobs picked", "• A"), "sent (Telegram)")
+            self.assertEqual(calls[-1], ("sendMessage", {"chat_id": 42, "text": "3 new jobs picked\n• A",
+                                                         "disable_web_page_preview": "true"}))
+            self.assertEqual(json.loads((Path(d) / "config" / "telegram.json").read_text())["chat_id"], 42)
+
+    def test_telegram_no_message_yet(self):
+        from jobagent import notify
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "config").mkdir()
+            fake = lambda t, m, p: {"ok": True, "result": {"username": "b"}} if m == "getMe" else {"ok": True, "result": []}
+            with mock.patch.object(notify, "_tg", side_effect=fake):
+                self.assertIn("send any message", notify.telegram_setup(Path(d), "x"))
+
     def test_no_topic(self):
         from jobagent import notify
         with tempfile.TemporaryDirectory() as d:
