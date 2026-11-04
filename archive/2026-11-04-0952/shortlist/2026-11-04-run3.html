@@ -1,0 +1,334 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Your job shortlist</title><style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1b2130;--mute:#606a7b;--line:#e2e5ea;--soft:#eef1f5;--accent:#2f5bd3;
+--accent-ink:#fff;--good:#1d7a45;--good-bg:#e6f4ec;--warn:#8a5a00;--warn-bg:#fbf1dc;--bad:#a23a3a;--bad-bg:#f9e5e5;
+--shadow:0 1px 2px rgba(20,30,50,.06),0 4px 14px rgba(20,30,50,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#101318;--card:#181c24;--ink:#e7eaf0;--mute:#9aa3b3;--line:#2a303b;
+--soft:#212733;--accent:#7f9fff;--accent-ink:#0d1220;--good:#62d394;--good-bg:#173126;--warn:#eac46a;--warn-bg:#33291a;
+--bad:#f29191;--bad-bg:#3a1f22;--shadow:none}}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)} main{max-width:920px;margin:0 auto;padding:0 16px 64px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -16px 18px;padding:14px 16px 12px}
+.row1{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap} h1{font-size:20px;margin:0;letter-spacing:-.01em}
+.date{color:var(--mute);font-size:14px} nav{margin-left:auto;font-size:14px} nav a{margin-left:14px;text-decoration:none}
+nav a.cur{font-weight:650;color:var(--ink)}
+.stats{display:flex;gap:8px;margin:10px 0 10px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:13px;color:var(--mute)}
+.stat b{color:var(--ink);font-size:16px;margin-right:4px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tools input[type=search]{flex:1;min-width:180px;font:inherit;padding:7px 12px;border-radius:9px;border:1px solid var(--line);
+background:var(--card);color:var(--ink)}
+.chip{font:inherit;font-size:13px;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);
+color:var(--ink);cursor:pointer} .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+select{font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 12px;box-shadow:var(--shadow)}
+.card.s-applied{border-color:var(--good);box-shadow:inset 4px 0 0 var(--good),var(--shadow)}
+.card.s-interested{box-shadow:inset 4px 0 0 var(--warn),var(--shadow)} .card.s-not_interested{opacity:.55}
+.top-line{display:flex;gap:14px;align-items:flex-start}
+.logo{flex:none;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:15px;color:#fff}
+.head{flex:1;min-width:0} h2{font-size:17px;margin:0;line-height:1.3}
+.meta{color:var(--mute);margin-top:3px;font-size:14px} .rank{color:var(--mute);font-weight:600;margin-right:6px}
+.apply{flex:none;background:var(--accent);color:var(--accent-ink);text-decoration:none;padding:8px 16px;border-radius:9px;
+font-weight:650;font-size:14px;white-space:nowrap} .apply:hover{filter:brightness(1.08)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0 56px}
+.tag{font-size:12.5px;padding:3px 9px;border-radius:7px;background:var(--soft);color:var(--mute)}
+.tag.good{background:var(--good-bg);color:var(--good)} .tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.bad{background:var(--bad-bg);color:var(--bad)} .tag.fit{font-weight:700}
+.why{margin:10px 0 0 56px} .flags{margin:6px 0 0 56px;color:var(--warn);font-size:13.5px}
+details{margin:8px 0 0 56px;color:var(--mute);font-size:14px} summary{cursor:pointer;color:var(--accent);font-size:13.5px}
+details p{margin:6px 0 0} .lead{margin:8px 0 0 56px;color:var(--mute);font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0 56px}
+.st{font:inherit;font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:transparent;
+color:var(--ink);cursor:pointer} .st:hover{background:var(--soft)}
+.st.applied.on{background:var(--good);border-color:var(--good);color:var(--card)}
+.st.interested.on{background:var(--warn);border-color:var(--warn);color:var(--card)}
+.st.not_interested.on{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.hint{background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;color:var(--mute);font-size:14px;margin:0 0 14px}
+.empty{color:var(--mute);text-align:center;padding:30px} h3{font-size:15px;color:var(--mute);margin:28px 0 6px}
+ul.older{color:var(--mute);padding-left:18px}
+nav.tabs{display:flex;gap:4px;margin:10px 0 0;flex-wrap:wrap} nav.tabs a{padding:6px 12px;border-radius:9px;
+text-decoration:none;color:var(--mute);font-size:14px;font-weight:600} nav.tabs a.cur{background:var(--ink);color:var(--bg)}
+.remind{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:14px}
+.remind b{display:block;margin-bottom:4px} .remind ul{margin:0;padding-left:18px}
+.stage{font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+textarea.note{width:100%;min-height:54px;font:inherit;font-size:14px;padding:8px 10px;border-radius:9px;
+border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:8px}
+.saved{color:var(--good);font-size:13px;margin-left:8px} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.big{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px} .big b{font-size:24px;display:block}
+.big span{color:var(--mute);font-size:13px} table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+border-radius:12px;overflow:hidden;font-size:14px} th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:600} .card.s-interviewing,.card.s-offer{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent),var(--shadow)}
+.card.s-rejected{opacity:.6}
+@media (max-width:600px){header.top{position:static}.top-line{flex-wrap:wrap}.head{flex-basis:calc(100% - 60px)}
+.apply{margin-left:56px}nav{margin-left:0;width:100%}nav a{margin:0 14px 0 0}.stats .stat{padding:4px 10px}
+.tags,.why,.flags,details,.lead,.actions{margin-left:0}}
+</style></head>
+<body><main>
+<header class="top">
+  <div class="row1"><h1>Your job shortlist</h1><span class="date">2026-11-04-run3</span></div>
+  
+  <div class="stats"><div class="stat"><b>15</b>jobs</div><div class="stat"><b>0</b>applied</div><div class="stat"><b>0</b>interested</div><div class="stat"><b>2</b>strong fits (4–5/5)</div></div>
+  <div class="tools"><input type="search" id="q" placeholder="Search jobs…"><button class="chip on" data-f="all">All</button><select id="sort"><option value="rank">Sort: best match</option><option value="fit">Sort: fit score</option><option value="days">Sort: deadline soonest</option></select></div>
+</header>
+<p class="hint">To mark jobs as Applied / Interested / Not for me, run <code>python3 -m jobagent view</code>
+in Terminal (this file on its own can't save your clicks).</p>
+<div id="list">
+<article class="card s-reported" data-id="fh:software-engineer-new-grad-deliveroo-ltwvubwb" data-company="Deliveroo" data-title="Software Engineer, New Grad"
+ data-url="https://job-boards.greenhouse.io/deliveroo/jobs/8202627" data-deadline="Not stated" data-location="London, United Kingdom - Deliveroo"
+ data-rank="1" data-fit="4" data-days="9999"
+ data-text="software engineer, new grad deliveroo london, united kingdom - deliveroo">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(215 45% 45%)">D</div>
+    <div class="head"><h2><span class="rank">1.</span>Software Engineer, New Grad</h2><div class="meta">Deliveroo · London, United Kingdom - Deliveroo</div></div>
+    <a class="apply" href="https://job-boards.greenhouse.io/deliveroo/jobs/8202627" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag neutral">Not stated</span><span class="tag">New company</span></div>
+  <p class="why">Deliveroo (DoorDash) new-grad SWE in London; solid company, Python among stack, graduate level.</p>
+  <div class="flags">⚠ Not ML-focused; sponsorship not stated; start date not given</div>
+  <details><summary>Show description</summary><p>your role, you may collaborate with teammates, systems, and leaders across DoorDash and Wolt. Together, we’re unlocking new possibilities as one global team. --------------------------- Software Engineer, New Grad --------------------------- Join us in our mission to transform the way people shop and eat, where impact, innovation and growth drive everything we do. Our Engineering teams tackle complex technical challenges across a global, three-sided marketplace, building and scaling systems that serve millions of customers, riders and partners every day. From real-time logistics to resilient infrastructure and marketplace optimisation, we design, build and operate technology that powers Deliveroo’s growth at scale. We’re looking for a *Software Engineer* to join our *London* team. In this role, you’ll help us build the future of on-demand delivery, contributing to the services that power our global marketplace. Get to know our Engineering team — what drives us, how we work, and what you can expect. What You’ll Be Doing -------------------- You’ll be joining a high-impact engineering team at our London headquarters. As a New Grad, you will work on production systems that impact millions of users, supported by a world-class team of engineers. *Here’s what your day-to-day might look like:* ---------------------------------------------- * *Ship high-quality code:* Improve code structure and contribute to the architecture of services using languages like Go, Ruby, Python, or Scala. * *Own your features:* Take ownership of specific pieces of work, assisting with design, technical implementation, and influencing your team&#x27;s roadmap. * *Operational excellence:* Aim to simplify the maintenance and health of production systems, ensuring operational readiness and visibility. * *Collaborate cross-functionally:* Build relationships with other engineering teams to identify collaboration opportunities and solve complex marketplace problems. * *Grow through mentorship:* Benefit from the support of senior colleagues while eventually supporting the growth of your peers through code reviews and knowledge sharing. What You’ll Need to Thrive -------------------------- Our ideal candidate will bring strong expertise in some of these areas and curiosity to grow in others: * *Foundational Knowledge:* A degree in Computer Science or a related technical field (graduated within the last year).</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:software-engineer-jane-street-jkvdg5bp" data-company="Jane Street" data-title="Software Engineer"
+ data-url="https://www.janestreet.com/join-jane-street/apply/4274814002?gh_jid=4274814002" data-deadline="Not stated" data-location="London, England, United Kingdom"
+ data-rank="2" data-fit="4" data-days="9999"
+ data-text="software engineer jane street london, england, united kingdom">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(99 45% 45%)">JS</div>
+    <div class="head"><h2><span class="rank">2.</span>Software Engineer</h2><div class="meta">Jane Street · London, England, United Kingdom</div></div>
+    <a class="apply" href="https://www.janestreet.com/join-jane-street/apply/4274814002?gh_jid=4274814002" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag neutral">Not stated</span></div>
+  <p class="why">Jane Street London SWE, always hiring, OCaml is on the CV.</p>
+  <div class="flags">⚠ not labelled entry-level: check experience bar; Level not stated; very competitive</div>
+  <details><summary>Show description</summary><p>About the Position ------------------ We&#x27;re always hiring software engineers for all of our offices. Technology is at the core of how we approach our work, and engineers are intimately involved in every area of the business. We are big believers in functional programming and use OCaml, a statically typed functional programming language, as our primary tool. More recently, Python has become a vital part of Jane Street’s research and trading work, acting as the go-to language for data analysis, visualization, and machine learning. We also believe in the value of open source software, using it in our daily work and releasing over a million lines of our own code as open source. About You --------- * Top-notch programming skills * Deep experience with—and love for—technology. There&#x27;s no specific checklist; we use software to approach a variety of problems, so we&#x27;re interested in everything from machine learning to systems administration to programming language design * Strong interpersonal skills. Software engineering at Jane Street is highly collaborative, and we are looking for people who can work effectively in small, close-knit teams * We don’t expect you to have experience with functional programming, OCaml, Python, or finance; we’re happy to hire talented engineers and teach them what they need to know. * Fluency in English required If you&#x27;d like to get an idea of what we cover in our software engineering interview process, you can visit our interview prep page. If you&#x27;re a recruiting agency and want to partner with us, please reach out to agency-partnerships@janestreet.com.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="gh:wehrtyou:7583922" data-company="Hudson River Trading" data-title="Research Engineer"
+ data-url="https://www.hudsonrivertrading.com/careers/job/?gh_jid=7583922" data-deadline="Not stated" data-location="London, United Kingdom; New York, NY, United States"
+ data-rank="3" data-fit="3" data-days="9999"
+ data-text="research engineer hudson river trading london, united kingdom; new york, ny, united states">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(199 45% 45%)">HR</div>
+    <div class="head"><h2><span class="rank">3.</span>Research Engineer</h2><div class="meta">Hudson River Trading · London, United Kingdom; New York, NY, United States</div></div>
+    <a class="apply" href="https://www.hudsonrivertrading.com/careers/job/?gh_jid=7583922" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag neutral">Not stated</span></div>
+  <p class="why">HRT research engineer in London, top-tier firm and strong SWE/systems fit, but level unclear and it is infrastructure rather than ML.</p>
+  <div class="flags">⚠ Level not stated; sponsorship not stated</div>
+  <details><summary>Show description</summary><p>Responsibilities Design, develop, and maintain robust, performant, and scalable software systems. Optimize existing codebases for performance, reliability, and efficiency. Debug complex issues across distributed systems in a time-sensitive environment. Optimize both the mechanics and ergonomics of Algo Developer research workflows; this requires developing a deep intuition for research methodologies. Balance the short term goals of individual trading teams with the longer term goals of HRT’s generalized trading platforms across trading teams. Because we don’t work in a pod environment, REs on different trading teams are expected to share technology and ideas. Qualifications Completed a Bachelor&#x27;s or Master&#x27;s degree in Computer Science, Engineering, or a related technical field. If you are currently pursuing your Bachelor&#x27;s degree, please apply to our Campus/New Grad opportunities. Previous experience at a top-tier finance or technology company with an excellent track record of rapid advancement and superlative reviews. Experience with supporting internal users is preferred; bonus if you have real hands-on experience with quant research and/or ML/Deep Learning platforms. Experience with python numerical, ML and data-oriented libraries is a big plus (e.g. pandas, scikit, pytorch, etc.) Candidates should be prepared for technical interviews in either Python or C++. While there is no hard language requirement for RE roles, proficiency in one of these languages will be assessed during the interview process. Kindness and empathy is a real requirement. No “smart jerks” at HRT. Strong understanding of data structures, algorithms, and design principles. Excellent communication skills, both written and verbal. HRT ships every day. The ability to thoughtfully, methodically, and reliably deploy new software and features is a critical skill. If you have management experience, that’s always a bonus – but even so, expect to code! The estimated</p></details>
+  
+</article>
+<article class="card s-reported" data-id="gh:stripe:8130927" data-company="Stripe" data-title="Software Engineer, New Grad - Frontend"
+ data-url="https://stripe.com/jobs/search?gh_jid=8130927" data-deadline="Not stated" data-location="Barcelona"
+ data-rank="4" data-fit="3" data-days="9999"
+ data-text="software engineer, new grad - frontend stripe barcelona">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(83 45% 45%)">S</div>
+    <div class="head"><h2><span class="rank">4.</span>Software Engineer, New Grad - Frontend</h2><div class="meta">Stripe · Barcelona</div></div>
+    <a class="apply" href="https://stripe.com/jobs/search?gh_jid=8130927" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span></div>
+  <p class="why">Stripe new grad SWE in Barcelona, tier-1 company and level fits, but frontend focus is off my ML target.</p>
+  <div class="flags">⚠ Frontend; no ML content</div>
+  <details><summary>Show description</summary><p>Your role Stripe is large enough that individual products and projects can be rapidly deployed to a meaningful fraction of the world’s businesses, but small enough that individual agency still has outsized impact. Small teams can impact how millions of businesses grow. Right now the global economy is replatforming around AI, creating new opportunities for growth. We’re at the center of this, and we think the best work is still in front of us. To meet this moment, we’re looking for people who move with urgency, like hard problems, and want their work to matter at a time of great change. If that’s you, there’s no better place to build your career. Who you are Ambitious builder: You’re energized by building solutions without clear precedent and solving problems with far-reaching consequences. Successful Stripes are deeply curious, and prefer the joy of discovery to the comfort of certainty. Rigorous thinker: You appreciate that things worth doing are rarely simple. You enjoy working on problems that have never been tackled before. Adaptable problem solver: You adapt quickly and treat obstacles as opportunities. At Stripe we embrace kindness while encouraging Stripes to take measured risks and act boldly, even in the absence of consensus. Minimum requirements A Bachelor’s or Master’s degree in computer science or a directly related field, obtained by summer 2027, or equivalent work experience; New grad candidates should have no more than 18 months of professional experience (excluding internship experience). Experience and familiarity with programming, either through side projects or classwork. We work mostly in Java, Ruby, JavaScript, Scala, and Go. We believe new programming languages can be learned if the fundamentals and general knowledge are present. Experience from either previous internships or working collaboratively on multi-person coding projects (in a university or professional setting). Ability to learn unf</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:junior-ai-engineer-wtw-b524b3rl" data-company="WTW" data-title="Junior AI Engineer"
+ data-url="https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/202607008" data-deadline="Not stated" data-location="Lisboa, Lisboa, Portugal"
+ data-rank="5" data-fit="3" data-days="9999"
+ data-text="junior ai engineer wtw lisboa, lisboa, portugal">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(156 45% 45%)">W</div>
+    <div class="head"><h2><span class="rank">5.</span>Junior AI Engineer</h2><div class="meta">WTW · Lisboa, Lisboa, Portugal</div></div>
+    <a class="apply" href="https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/202607008" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior AI engineer building GenAI solutions at WTW Lisbon, level fits but consulting-style business work.</p>
+  <div class="flags">⚠ Lisbon is a mid-size hub; insurance broker</div>
+  <details><summary>Show description</summary><p>About the role* We are looking for a Junior AI Engineer to help design, build and implement AI-powered solutions that address real business needs. Working alongside e xperienced AI Engineers and the Tech Lead, you will contribute to solutions from early experimentation and prototyping through testing and production. You will also take part in conversations with business users to understand what they need. This is a hands-on role with a strong learning component. Whether you come from software engineering, data or low-code automation and are now building with AI, you will gain practical experience in Generative AI, cloud technologies and enterprise delivery. *What you will do* * Help build, test, maintain and document AI-enabled applications, agents, skills, workflows and reusable components; * Develop prototypes and proofs of concept using Generative AI, LLMs, RAG, APIs and automation technologies; * Write and maintain code (mainly Python) and build low-code automations (e.g. Power Automate, Copilot Studio) with support from experienced colleagues; * Support the integration of AI solutions with APIs, applications, databases and data platforms such as Microsoft Fabric; * Test and evaluate AI solutions for quality, reliability and performance; * Troubleshoot technical issues, document findings and help resolve them; * Help move successful prototypes from experimentation into production; * Follow established architecture, development, testing, security and Responsible AI standards; * Join requirements discussions with business users and Business Analysts, asking questions to understand the real need; * Take part in solution design sessions, sprint planning, code reviews and retrospectives; * Contribute to technical documentation, prompt libraries, evaluation assets and knowledge sharing; * Keep developing your knowledge of Generative AI, software engineering, cloud and enterprise delivery.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:data-scientist-junior-h-f-h-f-groupe-vyv-xhm3gn44" data-company="GROUPE VYV" data-title="Data Scientist Junior H/F (H/F)"
+ data-url="https://candidat.francetravail.fr/offres/recherche/detail/215PRDY" data-deadline="Not stated" data-location="PARIS"
+ data-rank="6" data-fit="3" data-days="9999"
+ data-text="data scientist junior h/f (h/f) groupe vyv paris">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(239 45% 45%)">GV</div>
+    <div class="head"><h2><span class="rank">6.</span>Data Scientist Junior H/F (H/F)</h2><div class="meta">GROUPE VYV · PARIS</div></div>
+    <a class="apply" href="https://candidat.francetravail.fr/offres/recherche/detail/215PRDY" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior data scientist in Paris at an insurer, level and language fit but generic predictive analytics.</p>
+  <div class="flags">⚠ French posting; insurance</div>
+  <details><summary>Show description</summary><p>Nous recherchons un Data Scientist Junior F/H pour rejoindre notre équipe au sein d&#x27;une organisation leader dans le secteur de l&#x27;assurance et du soin. Au sein d&#x27;une équipe de data scientists expérimentés, vous contribuerez au développement de modèles d&#x27;analyse et de prédiction permettant de valoriser les données et d&#x27;accompagner les métiers dans leurs prises de décision. Vous participerez à des projets innovants mêlant data science, intelligence artificielle et analyse de données. Description de la mission Ainsi, vos principales missions seront de : * Participer à la collecte, la préparation et l&#x27;analyse de données issues de différentes sources. * Contribuer au développement, aux tests et à l&#x27;amélioration de modèles statistiques et de machine learning. * Réaliser des analyses exploratoires afin d&#x27;identifier des tendances et de produire des recommandations. * Collaborer avec les équipes métiers afin de comprendre leurs besoins et proposer des solutions adaptées. * Participer à l&#x27;industrialisation et au suivi des modèles développés. * Assurer une veille sur les nouvelles méthodes et technologies en data science afin de contribuer à l&#x27;amélioration continue des pratiques de l&#x27;équipe. Pourquoi nous rejoindre ? Des projets variés et stimulants autour de la data, de l&#x27;intelligence artificielle et de l&#x27;innovation. Un environnement bienveillant favorisant la montée en compétences grâce à l&#x27;accompagnement d&#x27;experts. Une culture collaborative qui encourage le partage de connaissances, l&#x27;apprentissage continu et l&#x27;expérimentation. Profil De formation Bac+5 (école d&#x27;ingénieur, Master en Data Science, Statistiques, Mathématiques appliquées ou Informatique), vous justifiez d&#x27;une première expérience (stage, alternance ou premier emploi) en data science, idéalement acquise dans le secteur de l&#x27;assurance, de la banque ou des services financiers. Les compétences techniques attendues sont : * Bonne maîtrise de Python et SQL. * Connaissances en statistiques, machine learning et analyse de données. * Première expérience avec des bibliothèques de data science (Pandas, Scikit-learn, NumPy.). * Connaissances des outils de visualisation de données (Power BI, Tableau ou équivalent).Une première exposition aux environnements Big Data (Spark, Databricks.) constitue un plus. Les compétences comportementales attendues sont : * Curiosité et envie d&#x27;apprendre. * Esprit d&#x27;analyse et rigueur. * Capacité à travailler en équipe et à collaborer avec des interlocuteurs variés.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:junior-ai-platform-engineer-abc-fitness-mnsfuu2i" data-company="ABC Fitness" data-title="Junior AI Platform Engineer"
+ data-url="https://abcfinancial.wd5.myworkdayjobs.com/ABCFinancialServices/job/Poland/Junior-AI-Platform-Engineer_REQ-1613" data-deadline="Not stated" data-location="Poland"
+ data-rank="7" data-fit="3" data-days="9999"
+ data-text="junior ai platform engineer abc fitness poland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(42 45% 45%)">AF</div>
+    <div class="head"><h2><span class="rank">7.</span>Junior AI Platform Engineer</h2><div class="meta">ABC Fitness · Poland</div></div>
+    <a class="apply" href="https://abcfinancial.wd5.myworkdayjobs.com/ABCFinancialServices/job/Poland/Junior-AI-Platform-Engineer_REQ-1613" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior AI platform engineer (LLM gateways, retrieval, agents, evals) fits my agent work, but a non-hub Poland location and platform focus.</p>
+  <div class="flags">⚠ Poland, unspecified city; platform not research</div>
+  <details><summary>Show description</summary><p>WHAT YOU&#x27;LL DO* ** * Own an AI platform deliverable from problem definition through production launch, adoption, and ongoing operation. * Design, build, and operate platform capabilities such as LLM gateways, retrieval systems, agents, developer tooling, evaluation frameworks, and inline guardrails. * Define success criteria and measurable outcomes before building, then use production data and baseline metrics to guide future improvements. * Design systems with clear SLOs , strong observability, predictable failure handling, and reliable operational processes. * Develop and maintain clean interfaces, migration paths, documentation, and paved paths that make platform adoption simple for engineering teams. * Build retrieval and agent systems with a clear separation between retrieval quality and answer quality, supported by meaningful evaluation</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:graduate-ai-engineer-scrumconnect-zohorecruit-eu-fxbhqcii" data-company="Scrumconnect Limited" data-title="Graduate AI Engineer"
+ data-url="https://scrumconnect.zohorecruit.eu/jobs/Careers/52781000021204118" data-deadline="Not stated" data-location="Staines, United Kingdom"
+ data-rank="8" data-fit="3" data-days="9999"
+ data-text="graduate ai engineer scrumconnect limited staines, united kingdom">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(79 45% 45%)">SL</div>
+    <div class="head"><h2><span class="rank">8.</span>Graduate AI Engineer</h2><div class="meta">Scrumconnect Limited · Staines, United Kingdom</div></div>
+    <a class="apply" href="https://scrumconnect.zohorecruit.eu/jobs/Careers/52781000021204118" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag neutral">Not stated</span><span class="tag">New company</span></div>
+  <p class="why">Graduate AI engineer covering ML, data processing and model deployment, level fits, but small gov-IT consultancy in Staines.</p>
+  <div class="flags">⚠ Staines is not a hub; sponsorship not stated</div>
+  <details><summary>Show description</summary><p>About the Role -------------- As an AI Grad, you will have the unique opportunity to learn directly from our team of AI researchers, engineers, and data scientists. This role is designed to provide structured, real-world experience in machine learning, data processing, and model deployment while working on exciting projects. You&#x27;ll gain practical experience in various stages of AI development, from data preprocessing and algorithm implementation to testing and optimising AI models. This is an ideal role for someone looking to start their career in AI or further develop their technical skills in a professional setting. -------------------- Key Responsibilities -------------------- * Assist with data collection, preprocessing, and cleaning tasks. * Support the development and training of machine learning models. * Collaborate on AI research projects under the guidance of senior AI engineers. * Perform exploratory data analysis to identify patterns and trends. * Document project milestones, coding progress, and learnings. * Work with cutting-edge AI technologies like neural networks, natural language processing, and computer vision. * Participate in regular team meetings and brainstorming sessions. ---------------------- Learning Opportunities ---------------------- * Gain experience with popular AI/ML tools and frameworks such as Python, TensorFlow, PyTorch, and Scikit-learn. * Learn about data pipelines, from data ingestion to model deployment. * Deepen your understanding of algorithms, AI ethics, and the latest trends in AI. * Gain hands-on experience with real-world AI projects that impact our business and customers. * Receive mentorship and guidance from experienced professionals in the AI field. ------------ Requirements ------------ * *Passion for AI/ML:* Demonstrated interest in artificial intelligence and machine learning. * *Education:* Currently pursuing or recently completed a degree in Computer Science, Mathematics, Data Science, or a related field. * *Programming Skills:* Basic proficiency in Python and familiarity with machine learning libraries. * *Analytical Thinking:* Ability to break down complex problems and communicate solutions. * *Willingness to Learn:* Strong desire to learn new technologies and methodologies. * *Teamwork:* Ability to collaborate with others and contribute to team success.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:junior-backend-software-engineer-navan-2grsusu3" data-company="Navan" data-title="Junior Backend Software Engineer"
+ data-url="https://navan.com/careers/openings?gh_jid=8336673" data-deadline="Not stated" data-location="London, UK"
+ data-rank="9" data-fit="3" data-days="9999"
+ data-text="junior backend software engineer navan london, uk">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(124 45% 45%)">N</div>
+    <div class="head"><h2><span class="rank">9.</span>Junior Backend Software Engineer</h2><div class="meta">Navan · London, UK</div></div>
+    <a class="apply" href="https://navan.com/careers/openings?gh_jid=8336673" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag neutral">Not stated</span><span class="tag">New company</span></div>
+  <p class="why">Junior backend engineer in London building LLM agents and evals, matches my agent work, but core stack is Java/Spring and sponsorship is not stated.</p>
+  <div class="flags">⚠ Java/Spring backend; sponsorship not stated</div>
+  <details><summary>Show description</summary><p>What You&#x27;ll Do:* * Design and ship features in backend services (Java and Spring Boot) and/or web (TypeScript), with AI services in Python or TypeScript where that is the right fit * Own APIs and event-driven flows that move money, receipts, and policy decisions at company scale * Build or extend LLM-backed agents: tool use, grounding, streaming, session memory, retrieval, and evals — not one-off prompt demos * Improve document extraction and auto-itemization: quality, tax fields, latency, cost, and provider failover * Instrument production: observability, quality dashboards, chat satisfaction, extraction accuracy vs. human correction * Partner with Product and Design on employee, admin, and mobile AI surfaces (including unified travel-and-expense chat) * Review for correctness in financial systems: idempotency, auditability, permissions, no silent partial writes * Mentor others and write designs t</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:junior-ai-engineer-skim-biskttdl" data-company="SKIM" data-title="Junior AI Engineer"
+ data-url="https://skim.careers.hibob.com/jobs/8d8ddfdf-22da-44d8-b9d9-f756a2a77095" data-deadline="Not stated" data-location="Rotterdam, Netherlands"
+ data-rank="10" data-fit="3" data-days="9999"
+ data-text="junior ai engineer skim rotterdam, netherlands">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(40 45% 45%)">S</div>
+    <div class="head"><h2><span class="rank">10.</span>Junior AI Engineer</h2><div class="meta">SKIM · Rotterdam, Netherlands</div></div>
+    <a class="apply" href="https://skim.careers.hibob.com/jobs/8d8ddfdf-22da-44d8-b9d9-f756a2a77095" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior AI engineer building SKIM&#x27;s Nexus platform in Rotterdam, level fits, but market-research company.</p>
+  <div class="flags">⚠ Market research domain</div>
+  <details><summary>Show description</summary><p>the opportunity to develop quickly? At SKIM, we don’t just follow trends, we help shape them. We are looking for a Junior AI Engineer in Rotterdam to help build the next generation of our Nexus platform. For over 45 years, we’ve been trusted partners to the world’s largest CPG, technology, and healthcare companies. We specialize in understanding decision-making in Revenue Management, Innovation, and Brand Communications. Our approach combines methodological rigor, marketing expertise, and deep client understanding to build lasting strategic partnerships. With 13 offices across the US, Europe, Asia, and Latin America, we collaborate closely with clients to navigate the right strategies. Ranked #3 in GRIT’s most innovative research agencies, we continuously enhance our solutions. Above all, we foster a culture where smart, genuine people support each other, pursue their dreams, and thrive together. *Job description* This is a unique opportunity to work on Nexus, SKIM’s AI-powered platform for making complex data analysis faster, easier and more accessible. Nexus reduces the time consultants spend manipulating and transforming data, allowing them to focus sooner on insights, shaping business decisions and building the client narrative. For clients, it makes scenario analysis faster and easier, helping them to accelerate decision-making. As a Junior AI Engineer, you will contribute directly to the applications and automated pipelines that make this possible. This is a hands-on development role where you will learn by building. You will work closely with experienced colleagues, starting with clearly scoped technical problems and growing towards broader ownership as your skills develop. The role is a great fit for someone who enjoys understanding a problem, creating a structured plan, building a solution with AI-assisted development tools and then critically validating whether the result is genuinely robust. Specifically, you will be expected to: * Identifying the problem: understand the user need, available data and intended outcome before starting to build. * Planning the solution: break the problem into clear technical steps, choices and dependencies. * Building and executing: use AI-assisted coding and core engineering skills to develop applications, pipelines and platform functionality.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:graduate-ml-software-engineer-arm-dyrd3as6" data-company="ARM" data-title="Graduate ML Software Engineer"
+ data-url="https://careers.arm.com/job/lund/graduate-ml-software-engineer/33099/102539110752" data-deadline="Not stated" data-location="Lund, Sweden"
+ data-rank="11" data-fit="3" data-days="9999"
+ data-text="graduate ml software engineer arm lund, sweden">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(100 45% 45%)">A</div>
+    <div class="head"><h2><span class="rank">11.</span>Graduate ML Software Engineer</h2><div class="meta">ARM · Lund, Sweden</div></div>
+    <a class="apply" href="https://careers.arm.com/job/lund/graduate-ml-software-engineer/33099/102539110752" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Arm graduate ML software engineer, work is ML compilers, runtimes and drivers in C/C++, more systems than modelling.</p>
+  <div class="flags">⚠ Systems/embedded focus; Lund is small</div>
+  <details><summary>Show description</summary><p>the opportunity to lead, challenge the status quo and ultimately change the world of ML and AI! ------------------------------------------ *What* *you could be doing as a Graduate?* ------------------------------------------ You will work/develop/design/architect new features and evaluate their performance. The features are mainly in the field of ML compilation, ML framework integration, runtimes and drivers, performance analysis, embedded software or test automation. You will collaborate closely with ML software and hardware engineers to understand how models execute and where performance and efficiency can be improved. We are looking for someone who has strong analytical skills, is eager to find innovative solutions to sophisticated problems, and is comfortable working in a fast-paced and dynamic environment. You have excellent interpersonal skills and enjoy cooperating closely in diverse teams, striving together to fulfil common goals. ------------------------------------- *We are looking for individuals who:* ------------------------------------- * Hold (or are on track to hold) a Master’s or PhD degree in Machine learning, Electrical Engineering, Engineering Physics, Computer Science, or similar technical field by the programme start date. * Good programming skills (C, C++, Python) ------------------------------------------------------ *Qualities that will help your application stand out:* ------------------------------------------------------ * Source control skills (Git, Gerrit, Repo) * Worked and developed using methods like agile Software development, continuous integration and Test driven development. * Experience with Machine Learning applications, frameworks and compilers * Open Source software development * Awareness of hardware architecture principles ------------------------- *Additional Information:* ------------------------- We encourage early applications as we review them on a first come/first served basis. *Please provide an academic transcript as part of your application.* Please note that relocation support is available for this role for domestic moves within the country and regional moves within Europe. Visa sponsorship support is also available for candidates who require it. ------------ *In Return:* ------------ You’ll receive a starting salary of SEK 555,000 (Master level), alongside a comprehensive rewards package. As you develop in role, you’ll have clear opportunities to progress within the salary range at Arm.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:2027-early-career-software-engineer-anduril-industries-d6eoigdr" data-company="Anduril Industries" data-title="2027 Early Career Software Engineer"
+ data-url="https://boards.greenhouse.io/andurilindustries/jobs/5272481007?gh_jid=5272481007" data-deadline="Not stated" data-location="Dublin, Dublin, Ireland"
+ data-rank="12" data-fit="3" data-days="9999"
+ data-text="2027 early career software engineer anduril industries dublin, dublin, ireland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(182 45% 45%)">AI</div>
+    <div class="head"><h2><span class="rank">12.</span>2027 Early Career Software Engineer</h2><div class="meta">Anduril Industries · Dublin, Dublin, Ireland</div></div>
+    <a class="apply" href="https://boards.greenhouse.io/andurilindustries/jobs/5272481007?gh_jid=5272481007" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Anduril 2027 early career SWE in Dublin, graduate level, but networking and edge hardware focus is not ML.</p>
+  <div class="flags">⚠ Defence networking; not ML</div>
+  <details><summary>Show description</summary><p>About The Team* The Voyager team at Anduril Industries is an engineering and design division with vast experience in developing innovative computing and communications solutions for the network edge. We specialise in integrating enterprise networking capabilities from global IT leaders with purpose-built hardware and software platforms designed to meet the most stringent environmental requirements. We are looking for Software Engineers to join our rapidly growing team! We hire self-motivated people, those who hold a higher bar for themselves than anyone else could hold for them. If you are eager to solve tough problems, then this role might be for you! *WHAT YOU’LL DO* * Support the software solutions that are deployed to customers and key stakeholders. * Write code to improve products and scale the mission capability to more customers. * Collaborate across multiple teams to plan, build, and test complex functionality. * Create and analyse metrics that are leveraged for debugging and monitoring. * Triage issues, root cause failures, and coordinate next-steps. * Work on real, meaningful projects and learn from experienced professionals along the way. *REQUIRED QUALIFICATIONS* * Completion of a bachelor’s or master’s degree in Computer Science, Computer/Software Engineering, Mathematics, Physics, or a related field. * Must be available to work full time in our Dublin office * Must be available to start full time in July 2027 *PREFERRED QUALIFICATIONS* ** * Previous internship experience within the software engineering space. * Familiarity with algorithms, data structures, storage systems, cloud infrastructure, front-end frameworks, and other technical tools. * Proficiency in a variety of programming languages such as C++, Go, Rust, Java, and Python. * A desire to work on software and applications that have real-world impact. * Have a bias for action. If you see a problem, you want to solve and fix it. * Be naturally curious about the technologies and tools you use. * Be able to clearly articulate complex technical concepts to non-technical stakeholders The salary range for this role is an estimate based on a wide range of compensation factors, inclusive of base salary only. Actual salary offer may vary based on (but not limited to) work experience, education and/or training, critical skills, and/or business considerations.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:graduate-software-engineer-mentored-in-c-c-python-susquehanna-international-group-r7za4tld" data-company="Susquehanna International Group" data-title="Graduate Software Engineer — Mentored in C/C++/Python"
+ data-url="https://ie.whatjobs.com/pub_api__cpl__5641143__7127?utm_campaign=publisher&amp;utm_medium=api&amp;geoID=253" data-deadline="Not stated" data-location="Dublin, Ireland"
+ data-rank="13" data-fit="3" data-days="9999"
+ data-text="graduate software engineer — mentored in c/c++/python susquehanna international group dublin, ireland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(303 45% 45%)">SI</div>
+    <div class="head"><h2><span class="rank">13.</span>Graduate Software Engineer — Mentored in C/C++/Python</h2><div class="meta">Susquehanna International Group · Dublin, Ireland</div></div>
+    <a class="apply" href="https://ie.whatjobs.com/pub_api__cpl__5641143__7127?utm_campaign=publisher&amp;utm_medium=api&amp;geoID=253" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Susquehanna graduate SWE in Dublin with C/C++/Python mentoring on trading software, strong firm and hub city, but not ML.</p>
+  <div class="flags">⚠ Trading SWE, not ML</div>
+  <p class="lead">The role offers exposure to trading-focused software, collaboration with analysts, developers, infrastructure engineers, and support</p>
+  
+</article>
+<article class="card s-reported" data-id="gh:jumptrading:8008306" data-company="Jump Trading" data-title="Campus Systems Engineer (Full-Time)"
+ data-url="https://www.jumptrading.com/hr/job?gh_jid=8008306" data-deadline="Not stated" data-location="Amsterdam / London"
+ data-rank="14" data-fit="3" data-days="9999"
+ data-text="campus systems engineer (full-time) jump trading amsterdam / london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(157 45% 45%)">JT</div>
+    <div class="head"><h2><span class="rank">14.</span>Campus Systems Engineer (Full-Time)</h2><div class="meta">Jump Trading · Amsterdam / London</div></div>
+    <a class="apply" href="https://www.jumptrading.com/hr/job?gh_jid=8008306" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span></div>
+  <p class="why">Jump Trading campus systems engineer in Amsterdam, top firm and graduate level, but systems/infra rather than ML.</p>
+  <div class="flags">⚠ Infra/systems role, not ML</div>
+  <details><summary>Show description</summary><p>Jump Trading Group is committed to world class research. We empower exceptional talents in Mathematics, Physics, and Computer Science to seek scientific boundaries, push through them, and apply cutting edge research to global financial markets. Our culture is unique. Constant innovation requires fearlessness, creativity, intellectual honesty, and a relentless competitive streak. We believe in winning together and unlocking unique individual talent by incenting collaboration and mutual respect. At Jump, research outcomes drive more than superior risk adjusted returns. We design, develop, and deploy technologies that change our world, fund start-ups across industries, and partner with leading global research organizations and universities to solve problems. Trading Infrastructure is a global organization of Engineers who architect, build and maintain our world-class infrastructure. From colo design/implementation, to optimizing our exchange connectivity, to building world class low latent Wide Area Networks, we leverage research and automation to consistently adapt and innovate our infrastructure to scale and drive our trading and evolving business. WHAT YOU’LL DO: The Systems Engineer will work with traders, operations, exchanges, and developers to optimize the trading environment and investigate and solve system issues.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="fh:ai-data-platform-engineer-graduate-programme-td-wp36l65g" data-company="TD" data-title="AI Data Platform Engineer - Graduate Programme"
+ data-url="https://ie.whatjobs.com/pub_api__cpl__6205806__7127?utm_campaign=publisher&amp;utm_medium=api&amp;geoID=253" data-deadline="Not stated" data-location="Dublin, Ireland"
+ data-rank="15" data-fit="3" data-days="9999"
+ data-text="ai data platform engineer - graduate programme td dublin, ireland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(220 45% 45%)">T</div>
+    <div class="head"><h2><span class="rank">15.</span>AI Data Platform Engineer - Graduate Programme</h2><div class="meta">TD · Dublin, Ireland</div></div>
+    <a class="apply" href="https://ie.whatjobs.com/pub_api__cpl__6205806__7127?utm_campaign=publisher&amp;utm_medium=api&amp;geoID=253" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">TD 12-month graduate programme on AI-ready data platforms and LLMs in Dublin, graduate level but data platform focus; start date not given.</p>
+  <div class="flags">⚠ Start date not stated; may clash with Sept 2027 graduation</div>
+  <p class="lead">TD seeks a recent graduate for its 12-month Technology Graduate Programme in AI-Native Data Platform Engineering, based in Dublin. You will work on AI-ready data platforms, large language models, and data products within a global team. The internship offers structured training, meaningful projects, and the chance to build skills for a career in financial markets. You will contribute to API development, data engineering, and governance while collaborating with domain owners and platform engineers</p>
+  
+</article></div><p class="empty" id="none" hidden>No jobs match these filters.</p><h3>Earlier shortlists</h3><ul class="older"><li><a href="2026-11-04-run6.html">2026-11-04-run6</a></li><li><a href="2026-11-04-run5.html">2026-11-04-run5</a></li><li><a href="2026-11-04-run4.html">2026-11-04-run4</a></li><li><a href="2026-11-04-run2.html">2026-11-04-run2</a></li><li><a href="2026-11-04.html">2026-11-04</a></li><li><a href="2026-11-03-run3.html">2026-11-03-run3</a></li><li><a href="2026-11-03-live.html">2026-11-03-live</a></li><li><a href="2026-11-03.html">2026-11-03</a></li></ul>
+</main><script>
+const list = document.getElementById('list'), q = document.getElementById('q'), sortSel = document.getElementById('sort');
+const minFit = document.getElementById('minfit'), hideBox = document.getElementById('hide');
+let filter = 'all';
+function apply() {
+  if (!list) return;
+  const term = q ? q.value.trim().toLowerCase() : ''; let shown = 0;
+  const cards = [...list.querySelectorAll('.card')];
+  const key = sortSel ? sortSel.value : 'rank';
+  cards.sort((a, b) => key === 'rank' ? a.dataset.rank - b.dataset.rank
+    : key === 'fit' ? (b.dataset.fit - a.dataset.fit) || (a.dataset.rank - b.dataset.rank)
+    : (a.dataset.days - b.dataset.days) || (a.dataset.rank - b.dataset.rank));
+  cards.forEach(c => list.appendChild(c));
+  const mf = minFit ? +minFit.value : 0;
+  cards.forEach(c => {
+    const st = (c.className.match(/s-(\w+)/) || [, 'reported'])[1];
+    const ok = (!term || c.dataset.text.includes(term)) && (filter === 'all' || st === filter)
+      && (+c.dataset.fit >= mf || !mf) && !(hideBox && hideBox.checked && st === 'not_interested');
+    c.style.display = ok ? '' : 'none'; if (ok) shown++;
+  });
+  const none = document.getElementById('none'); if (none) none.hidden = shown > 0 || !cards.length;
+}
+document.querySelectorAll('.chip[data-f]').forEach(ch => ch.addEventListener('click', () => {
+  filter = ch.dataset.f; document.querySelectorAll('.chip[data-f]').forEach(x => x.classList.toggle('on', x === ch)); apply();
+}));
+if (q) q.addEventListener('input', apply);
+if (sortSel) sortSel.addEventListener('change', apply);
+if (minFit) minFit.addEventListener('change', apply);
+if (hideBox) { try { hideBox.checked = localStorage.getItem('hideNI') === '1'; } catch (e) {}
+  hideBox.addEventListener('change', () => { try { localStorage.setItem('hideNI', hideBox.checked ? '1' : '0'); } catch (e) {} apply(); }); }
+apply();
+</script></body></html>

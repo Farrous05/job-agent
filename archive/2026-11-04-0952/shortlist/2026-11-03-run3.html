@@ -1,0 +1,334 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Your job shortlist</title><style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1b2130;--mute:#606a7b;--line:#e2e5ea;--soft:#eef1f5;--accent:#2f5bd3;
+--accent-ink:#fff;--good:#1d7a45;--good-bg:#e6f4ec;--warn:#8a5a00;--warn-bg:#fbf1dc;--bad:#a23a3a;--bad-bg:#f9e5e5;
+--shadow:0 1px 2px rgba(20,30,50,.06),0 4px 14px rgba(20,30,50,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#101318;--card:#181c24;--ink:#e7eaf0;--mute:#9aa3b3;--line:#2a303b;
+--soft:#212733;--accent:#7f9fff;--accent-ink:#0d1220;--good:#62d394;--good-bg:#173126;--warn:#eac46a;--warn-bg:#33291a;
+--bad:#f29191;--bad-bg:#3a1f22;--shadow:none}}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)} main{max-width:920px;margin:0 auto;padding:0 16px 64px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -16px 18px;padding:14px 16px 12px}
+.row1{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap} h1{font-size:20px;margin:0;letter-spacing:-.01em}
+.date{color:var(--mute);font-size:14px} nav{margin-left:auto;font-size:14px} nav a{margin-left:14px;text-decoration:none}
+nav a.cur{font-weight:650;color:var(--ink)}
+.stats{display:flex;gap:8px;margin:10px 0 10px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:13px;color:var(--mute)}
+.stat b{color:var(--ink);font-size:16px;margin-right:4px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tools input[type=search]{flex:1;min-width:180px;font:inherit;padding:7px 12px;border-radius:9px;border:1px solid var(--line);
+background:var(--card);color:var(--ink)}
+.chip{font:inherit;font-size:13px;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);
+color:var(--ink);cursor:pointer} .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+select{font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 12px;box-shadow:var(--shadow)}
+.card.s-applied{border-color:var(--good);box-shadow:inset 4px 0 0 var(--good),var(--shadow)}
+.card.s-interested{box-shadow:inset 4px 0 0 var(--warn),var(--shadow)} .card.s-not_interested{opacity:.55}
+.top-line{display:flex;gap:14px;align-items:flex-start}
+.logo{flex:none;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:15px;color:#fff}
+.head{flex:1;min-width:0} h2{font-size:17px;margin:0;line-height:1.3}
+.meta{color:var(--mute);margin-top:3px;font-size:14px} .rank{color:var(--mute);font-weight:600;margin-right:6px}
+.apply{flex:none;background:var(--accent);color:var(--accent-ink);text-decoration:none;padding:8px 16px;border-radius:9px;
+font-weight:650;font-size:14px;white-space:nowrap} .apply:hover{filter:brightness(1.08)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0 56px}
+.tag{font-size:12.5px;padding:3px 9px;border-radius:7px;background:var(--soft);color:var(--mute)}
+.tag.good{background:var(--good-bg);color:var(--good)} .tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.bad{background:var(--bad-bg);color:var(--bad)} .tag.fit{font-weight:700}
+.why{margin:10px 0 0 56px} .flags{margin:6px 0 0 56px;color:var(--warn);font-size:13.5px}
+details{margin:8px 0 0 56px;color:var(--mute);font-size:14px} summary{cursor:pointer;color:var(--accent);font-size:13.5px}
+details p{margin:6px 0 0} .lead{margin:8px 0 0 56px;color:var(--mute);font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0 56px}
+.st{font:inherit;font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:transparent;
+color:var(--ink);cursor:pointer} .st:hover{background:var(--soft)}
+.st.applied.on{background:var(--good);border-color:var(--good);color:var(--card)}
+.st.interested.on{background:var(--warn);border-color:var(--warn);color:var(--card)}
+.st.not_interested.on{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.hint{background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;color:var(--mute);font-size:14px;margin:0 0 14px}
+.empty{color:var(--mute);text-align:center;padding:30px} h3{font-size:15px;color:var(--mute);margin:28px 0 6px}
+ul.older{color:var(--mute);padding-left:18px}
+nav.tabs{display:flex;gap:4px;margin:10px 0 0;flex-wrap:wrap} nav.tabs a{padding:6px 12px;border-radius:9px;
+text-decoration:none;color:var(--mute);font-size:14px;font-weight:600} nav.tabs a.cur{background:var(--ink);color:var(--bg)}
+.remind{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:14px}
+.remind b{display:block;margin-bottom:4px} .remind ul{margin:0;padding-left:18px}
+.stage{font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+textarea.note{width:100%;min-height:54px;font:inherit;font-size:14px;padding:8px 10px;border-radius:9px;
+border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:8px}
+.saved{color:var(--good);font-size:13px;margin-left:8px} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.big{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px} .big b{font-size:24px;display:block}
+.big span{color:var(--mute);font-size:13px} table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+border-radius:12px;overflow:hidden;font-size:14px} th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:600} .card.s-interviewing,.card.s-offer{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent),var(--shadow)}
+.card.s-rejected{opacity:.6}
+@media (max-width:600px){header.top{position:static}.top-line{flex-wrap:wrap}.head{flex-basis:calc(100% - 60px)}
+.apply{margin-left:56px}nav{margin-left:0;width:100%}nav a{margin:0 14px 0 0}.stats .stat{padding:4px 10px}
+.tags,.why,.flags,details,.lead,.actions{margin-left:0}}
+</style></head>
+<body><main>
+<header class="top">
+  <div class="row1"><h1>Your job shortlist</h1><span class="date">2026-11-03-run3</span></div>
+  
+  <div class="stats"><div class="stat"><b>15</b>jobs</div><div class="stat"><b>0</b>applied</div><div class="stat"><b>0</b>interested</div><div class="stat"><b>5</b>strong fits (4–5/5)</div></div>
+  <div class="tools"><input type="search" id="q" placeholder="Search jobs…"><button class="chip on" data-f="all">All</button><select id="sort"><option value="rank">Sort: best match</option><option value="fit">Sort: fit score</option><option value="days">Sort: deadline soonest</option></select></div>
+</header>
+<p class="hint">To mark jobs as Applied / Interested / Not for me, run <code>python3 -m jobagent view</code>
+in Terminal (this file on its own can't save your clicks).</p>
+<div id="list">
+<article class="card s-reported" data-id="web:reply-london-grad-ai-ml-2027" data-company="Reply" data-title="Graduate AI &amp; Machine Learning Engineer"
+ data-url="https://www.efinancialcareers.co.uk/jobs-UK-London-Graduate_AI__Machine_Learning_Engineer.id24852615" data-deadline="Not stated" data-location="London"
+ data-rank="1" data-fit="4" data-days="9999"
+ data-text="graduate ai &amp; machine learning engineer reply london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(217 45% 45%)">R</div>
+    <div class="head"><h2><span class="rank">1.</span>Graduate AI &amp; Machine Learning Engineer</h2><div class="meta">Reply · London</div></div>
+    <a class="apply" href="https://www.efinancialcareers.co.uk/jobs-UK-London-Graduate_AI__Machine_Learning_Engineer.id24852615" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag warn">Not stated: check</span></div>
+  <p class="why">Summer/Autumn 2027 intake in London; PyTorch, LangChain/RAG and AWS match your CV; Master&#x27;s in AI preferred. Same Reply group as Data Reply (already applied), so check overlap. † aggregator link.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="greenhouse:gh:anthropic:5439169008" data-company="Anthropic" data-title="Anthropic Research Resident"
+ data-url="https://job-boards.greenhouse.io/anthropic/jobs/5439169008" data-deadline="22 Nov 2026 (23:59 PT)" data-location="London, UK"
+ data-rank="2" data-fit="4" data-days="18"
+ data-text="anthropic research resident anthropic london, uk">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(120 45% 45%)">A</div>
+    <div class="head"><h2><span class="rank">2.</span>Anthropic Research Resident</h2><div class="meta">Anthropic · London, UK</div></div>
+    <a class="apply" href="https://job-boards.greenhouse.io/anthropic/jobs/5439169008" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag warn">Deadline 22 Nov 2026 (23:59 PT) · 18 days left</span><span class="tag good">Sponsorship offered</span></div>
+  <p class="why">Residency on LLM alignment/interpretability research; offers Jan 2027; your LLM fine-tuning + LLM-judge eval work fits. Check start date and 12-month length against your Sept 2027 finish.</p>
+  
+  <details><summary>Show description</summary><p>About the role The Anthropic Residency is our paid, fixed-term research program, with placements lasting between six weeks and six months. We are looking for people who have led ambitious work in a variety of technical fields and want to transition to full-time work focused on making sure AI systems are safe and beneficial for all of humanity. If you are a professor in a quantitative discipline, a technical founder or a staff-level engineer and want to transition to work on transformative AI, we want to hear from you. Background in machine learning is not required. What to expect A concrete, scoped project matched to your background, with direct mentorship from Anthropic researchers Access to Claude models and GPU compute Connection to the broader AI safety and security research community Interview process The interview process will include an initial application, recruiter screen, technical assessment, research discussion and a reference check. Applications for this round close on November 22, 2026 (11:59 PM PT). We expect to make offers in January 2027.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="greenhouse:gh:wehrtyou:7583922" data-company="Hudson River Trading" data-title="Research Engineer"
+ data-url="https://www.hudsonrivertrading.com/careers/job/?gh_jid=7583922" data-deadline="Not stated" data-location="London, United Kingdom"
+ data-rank="3" data-fit="4" data-days="9999"
+ data-text="research engineer hudson river trading london, united kingdom">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(199 45% 45%)">HR</div>
+    <div class="head"><h2><span class="rank">3.</span>Research Engineer</h2><div class="meta">Hudson River Trading · London, United Kingdom</div></div>
+    <a class="apply" href="https://www.hudsonrivertrading.com/careers/job/?gh_jid=7583922" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag neutral">Not stated</span></div>
+  <p class="why">Research engineering (PyTorch, Python, C++, distributed, deep learning); Bachelor&#x27;s or Master&#x27;s accepted. Not a labelled grad scheme, so check start date.</p>
+  
+  <details><summary>Show description</summary><p>Responsibilities Design, develop, and maintain robust, performant, and scalable software systems. Optimize existing codebases for performance, reliability, and efficiency. Debug complex issues across distributed systems in a time-sensitive environment. Optimize both the mechanics and ergonomics of Algo Developer research workflows; this requires developing a deep intuition for research methodologies. Balance the short term goals of individual trading teams with the longer term goals of HRT’s generalized trading platforms across trading teams. Because we don’t work in a pod environment, REs on different trading teams are expected to share technology and ideas. Qualifications Completed a Bachelor&#x27;s or Master&#x27;s degree in Computer Science, Engineering, or a related technical field. If you are currently pursuing your Bachelor&#x27;s degree, please apply to our Campus/New Grad opportunities. Previous experience at a top-tier finance or technology company with an excellent track record of rapid advancement and superlative reviews. Experience with supporting internal users is preferred; bonus if you have real hands-on experience with quant research and/or ML/Deep Learning platforms. Experience with python numerical, ML and data-oriented libraries is a big plus (e.g. pandas, scikit, pytorch, etc.) Candidates should be prepared for technical interviews in either Python or C++. While there is no hard language requirement for RE roles, proficiency in one of these languages will be assessed during the interview process. Kindness and empathy is a real requirement. No “smart jerks” at HRT. Strong understanding of data structures, algorithms, and design principles. Excellent communication skills, both written and verbal. HRT ships every day. The ability to thoughtfully, methodically, and reliably deploy new software and features is a critical skill. If you have management experience, that’s always a bonus – but even so, expect to code! The estimated</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:graduate-machine-learning-engineer-central-technology-arm-6ceockkd" data-company="ARM" data-title="Graduate Machine Learning Engineer - Central Technology"
+ data-url="https://careers.arm.com/job/lund/graduate-machine-learning-engineer-central-technology/33099/102539121824" data-deadline="Not stated" data-location="Lund, Sweden"
+ data-rank="4" data-fit="4" data-days="9999"
+ data-text="graduate machine learning engineer - central technology arm lund, sweden">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(100 45% 45%)">A</div>
+    <div class="head"><h2><span class="rank">4.</span>Graduate Machine Learning Engineer - Central Technology</h2><div class="meta">ARM · Lund, Sweden</div></div>
+    <a class="apply" href="https://careers.arm.com/job/lund/graduate-machine-learning-engineer-central-technology/33099/102539121824" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag good">EU: none needed (visa help also offered)</span><span class="tag">New company</span></div>
+  <p class="why">Graduate ML engineer on model deployment/tooling for Arm platforms; Master&#x27;s in CS/ML on track by start; PyTorch matches.</p>
+  
+  <details><summary>Show description</summary><p>The mission of the Central Technology Machine Learning (CTML) team is to pioneer and implement the technology roadmap that paves the way for the future of AI computing on Arm architecture. We believe that innovative AI technology necessitates joint development across hardware, software, and ML algorithms. We will collaborate on finding the best way to balance among all these constraints. The CTML Content and Algorithm team plays a key role within the Centre of Excellence for Machine Learning. We actively support this joint development initiative, conducting in-depth analyses of complex AI models on Arm computing platforms and devising algorithms that will make AI run better on Arm. ------------------------------------------ *What* *you could be doing as a Graduate?* ------------------------------------------ Develop in depth understanding of current and future ML/AI workload on Arm compute platforms with a focus on their PPA (performance, power, and area). * Understand and follow the latest technology trends in ML/AI, collecting and analysing these use cases to drive the direction of ML/AI workload support in all phases of Arm IP development. * Develop hardware aware optimization algorithm that can make state-of-the AI models run on Arm platforms including CPU/GPU/NPUs. * Develop internal tooling capabilities to support algorithmic and architecture exploration. ------------------------------------- *We are looking for individuals who:* ------------------------------------- * Hold (or are on track to hold by the programme start date) a Master’s or PhD in Computer Engineering, Electrical Engineering, Computer Science or other related technical fields. * Developing and working with software systems in programming languages like Python, good knowledge of Hardware and Software design. * Experience in training and deploying ML/AI models using deep learning libraries such as Pytorch or Tensorflow. * Strong technical communication skills. ------------------------------------------------------ *Qualities that will help your application stand out:* ------------------------------------------------------ * Demonstrated ML/AI projects experience in industry or academia. * Experience with optimizing compute kernels (e.g. CUDA, Triton). * Hardware-aware performance optimization of ML/AI models. * Passion and adaptability to the fast-moving AI industry and willing to learn new technology in a very dynamic environment.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:graduate-ml-software-engineer-arm-dyrd3as6" data-company="ARM" data-title="Graduate ML Software Engineer"
+ data-url="https://careers.arm.com/job/lund/graduate-ml-software-engineer/33099/102539110752" data-deadline="Not stated" data-location="Lund, Sweden"
+ data-rank="5" data-fit="4" data-days="9999"
+ data-text="graduate ml software engineer arm lund, sweden">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(100 45% 45%)">A</div>
+    <div class="head"><h2><span class="rank">5.</span>Graduate ML Software Engineer</h2><div class="meta">ARM · Lund, Sweden</div></div>
+    <a class="apply" href="https://careers.arm.com/job/lund/graduate-ml-software-engineer/33099/102539110752" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit good">4/5 fit</span><span class="tag good">EU: none needed (visa help also offered)</span><span class="tag">New company</span></div>
+  <p class="why">Graduate ML software engineer (Python/C++), Master&#x27;s in ML/CS on track by start; ML plus systems fit.</p>
+  
+  <details><summary>Show description</summary><p>the opportunity to lead, challenge the status quo and ultimately change the world of ML and AI! ------------------------------------------ *What* *you could be doing as a Graduate?* ------------------------------------------ You will work/develop/design/architect new features and evaluate their performance. The features are mainly in the field of ML compilation, ML framework integration, runtimes and drivers, performance analysis, embedded software or test automation. You will collaborate closely with ML software and hardware engineers to understand how models execute and where performance and efficiency can be improved. We are looking for someone who has strong analytical skills, is eager to find innovative solutions to sophisticated problems, and is comfortable working in a fast-paced and dynamic environment. You have excellent interpersonal skills and enjoy cooperating closely in diverse teams, striving together to fulfil common goals. ------------------------------------- *We are looking for individuals who:* ------------------------------------- * Hold (or are on track to hold) a Master’s or PhD degree in Machine learning, Electrical Engineering, Engineering Physics, Computer Science, or similar technical field by the programme start date. * Good programming skills (C, C++, Python) ------------------------------------------------------ *Qualities that will help your application stand out:* ------------------------------------------------------ * Source control skills (Git, Gerrit, Repo) * Worked and developed using methods like agile Software development, continuous integration and Test driven development. * Experience with Machine Learning applications, frameworks and compilers * Open Source software development * Awareness of hardware architecture principles ------------------------- *Additional Information:* ------------------------- We encourage early applications as we review them on a first come/first served basis. *Please provide an academic transcript as part of your application.* Please note that relocation support is available for this role for domestic moves within the country and regional moves within Europe. Visa sponsorship support is also available for candidates who require it. ------------ *In Return:* ------------ You’ll receive a starting salary of SEK 555,000 (Master level), alongside a comprehensive rewards package. As you develop in role, you’ll have clear opportunities to progress within the salary range at Arm.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:graduate-ai-ml-and-data-engineer-m-f-d-ericsson-dfakm3cu" data-company="Ericsson" data-title="Graduate AI/ML and Data Engineer (m/f/d)"
+ data-url="https://jobs.ericsson.com/careers/job/563121777546816-graduate-ai-ml-and-data-engineer-m-f-d--aachen-north-rhine-westphalia-germany?domain=ericsson.com" data-deadline="Not stated" data-location="Aachen,North Rhine Westphalia,Germany"
+ data-rank="6" data-fit="3" data-days="9999"
+ data-text="graduate ai/ml and data engineer (m/f/d) ericsson aachen,north rhine westphalia,germany">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(330 45% 45%)">E</div>
+    <div class="head"><h2><span class="rank">6.</span>Graduate AI/ML and Data Engineer (m/f/d)</h2><div class="meta">Ericsson · Aachen,North Rhine Westphalia,Germany</div></div>
+    <a class="apply" href="https://jobs.ericsson.com/careers/job/563121777546816-graduate-ai-ml-and-data-engineer-m-f-d--aachen-north-rhine-westphalia-germany?domain=ericsson.com" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Graduate AI/ML + data engineering on 5G networks; Python/PyTorch/SQL; telecom domain is less aligned.</p>
+  
+  <details><summary>Show description</summary><p>the role you must have* * Bachelor&#x27;s degree in Computer Science, Engineering, Mathematics, Physics, or related field * Strong Python, Java and C++ programming skills and passion for learning * Basic understanding of machine learning concepts and algorithms * Familiarity with databases and SQL basics * Good problem-solving skills and logical thinking * Ability to learn quickly and take on new technical challenges * Good communication skills in English * Willingness to work in a team and receive feedback * We also hope to see the following characteristics in you* * Passionate about learning AI and machine learning * Enjoy working with data and solving data-driven problems * Curious and eager to explore new technologies * Willing to learn and tackle technical challenges * Enjoy collaborating with teammates and asking questions * Interested in distributed systems and scalability * Growth mindset and want to develop your skills * Interested in telecom or networking technologies * Additional beneficial experience* * Experience with Python libraries like pandas, numpy, or scikit-learn * Familiarity with machine learning frameworks (PyTorch or TensorFlow) * Basic knowledge of Git and version control * Understanding of REST APIs or microservices concepts * Any personal projects involving data analysis or machine learning * Exposure to Docker or containerization concepts * Knowledge of SQL and relational databases * Hackathon or internship experience * What&#x27;s in it for you?* * * Launch your career at a global technology leader building next-generation 5G networks. You will learn from experienced engineers, work on real production systems, and develop expertise across the full AI and data engineering stack. Our team is committed to helping you grow and succeed. You will have mentorship, opportunities to learn new technologies, and access to hackathons and innovation initiatives. You will be part of a diverse, international team working on problems that impact people worldwide. *Why join Ericsson?* At Ericsson, you´ll have an outstanding opportunity. The chance to use your skills and imagination to push the boundaries of what´s possible. To build solutions never seen before to some of the world’s toughest problems. You´ll be challenged, but you won’t be alone. You´ll be joining a team of diverse innovators, all driven to go beyond the status quo to craft what comes next.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:ai-engineer-graduate-zurich-data-ai-ubs-55mjpy5j" data-company="UBS" data-title="AI Engineer Graduate — Zurich, Data &amp; AI"
+ data-url="https://de-ch.whatjobs.com/pub_api__cpl__44263115__7095?utm_campaign=publisher&amp;utm_medium=api&amp;geoID=26" data-deadline="Not stated" data-location="Zürich, Switzerland"
+ data-rank="7" data-fit="3" data-days="9999"
+ data-text="ai engineer graduate — zurich, data &amp; ai ubs zürich, switzerland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(106 45% 45%)">U</div>
+    <div class="head"><h2><span class="rank">7.</span>AI Engineer Graduate — Zurich, Data &amp; AI</h2><div class="meta">UBS · Zürich, Switzerland</div></div>
+    <a class="apply" href="https://de-ch.whatjobs.com/pub_api__cpl__44263115__7095?utm_campaign=publisher&amp;utm_medium=api&amp;geoID=26" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">Switzerland: EU citizen, free movement</span><span class="tag">New company</span></div>
+  <p class="why">18-month Technology Graduate Talent Program, building AI components; start date not stated. † aggregator link.</p>
+  
+  <p class="lead">UBS, a leading global wealth manager headquartered in Zurich, invites recent graduates to join its 18-month Technology Graduate Talent Program. You’ll design and implement AI components in Python, build PoCs for diverse business challenges, and collaborate with data and software engineers to deliver production-ready AI applications. The program emphasizes hands-on training, rotations, and exposure to core engineering, data and AI teams, with a focus on innovative, responsible AI use.</p>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:junior-ai-application-engineer-ai-products-llm-rag-m-f-d-machine-learning-reply-3cece5op" data-company="Machine Learning Reply" data-title="Junior AI Application Engineer – AI Products (LLM &amp; RAG) (m/f/d)"
+ data-url="https://machinelearningreply.recruitee.com/o/junior-ai-application-engineer-ai-products-llm-rag-mfd-3" data-deadline="Not stated" data-location="Munich, Bayern, Germany"
+ data-rank="8" data-fit="3" data-days="9999"
+ data-text="junior ai application engineer – ai products (llm &amp; rag) (m/f/d) machine learning reply munich, bayern, germany">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(88 45% 45%)">ML</div>
+    <div class="head"><h2><span class="rank">8.</span>Junior AI Application Engineer – AI Products (LLM &amp; RAG) (m/f/d)</h2><div class="meta">Machine Learning Reply · Munich, Bayern, Germany</div></div>
+    <a class="apply" href="https://machinelearningreply.recruitee.com/o/junior-ai-application-engineer-ai-products-llm-rag-mfd-3" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior LLM + RAG application engineer; matches your LangGraph agents and LLM work; German language may be needed.</p>
+  
+  <details><summary>Show description</summary><p>Bei Machine Learning Reply unterstützen wir Unternehmen dabei, modernste AI-Technologien in reale Anwendungen und skalierbare digitale Produkte zu verwandeln. Zur Verstärkung unseres Teams suchen wir einen Junior AI Application Engineer, der Freude daran hat, AI-powered solutions und intelligente Produkt-Features mit Hilfe von modernen Machine Learning und Generative AI Technologien zu entwickeln. Während sich unsere GenAI Engineers auf die Modellentwicklung und AI-Architekturen konzentrieren, liegt der Fokus der AI Application Engineers auf der Entwicklung nutzerzentrierter AI-Applications und der Überführung von AI-Capabilities in skalierbare Produkte. In dieser Rolle arbeitest du an der Schnittstelle von AI Engineering, Backend Development, Produktentwicklung und Cloud Deployment, um produktionsreife AI-Systeme zu bauen, die echten geschäftlichen Mehrwert schaffen. *Aufgaben* Als Junior AI Application Engineer (m/w/d) entwirfst und entwickelst du KI-gestützte Anwendungen und Produktfunktionen für Unternehmenskunden. Zu deinen Aufgaben gehören: * *Konzeption und Entwicklung* von *KI-Anwendungen* wie Enterprise-Assistenten, Copiloten, semantischen Suchplattformen und Automatisierungssystemen * Unterstützung bei der *Entwicklung von LLM-basierten Lösungen* (inkl.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:junior-ai-engineer-techwolf-3imhv3ya" data-company="techwolf" data-title="Junior AI Engineer"
+ data-url="https://careers.techwolf.ai/o/junior-ai-engineer" data-deadline="Not stated" data-location="Ghent, Vlaams Gewest, Belgium"
+ data-rank="9" data-fit="3" data-days="9999"
+ data-text="junior ai engineer techwolf ghent, vlaams gewest, belgium">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(264 45% 45%)">T</div>
+    <div class="head"><h2><span class="rank">9.</span>Junior AI Engineer</h2><div class="meta">techwolf · Ghent, Vlaams Gewest, Belgium</div></div>
+    <a class="apply" href="https://careers.techwolf.ai/o/junior-ai-engineer" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior AI engineer, up to 2 years of experience, LLM/ML thesis or side project welcome; startup.</p>
+  
+  <details><summary>Show description</summary><p>What you&#x27;ll do* ---------------- * *Model Development:* Help improve the models and pipelines that infer skills from the work people actually do, using Transformers, PyTorch and LLMs, and measure whether each change makes our inference more accurate. * *Agent Engineering:* Help build agentic features with LLMs (AWS Bedrock) and modern agent SDKs, from first prototype to production. * *Evaluation:* Build eval sets and offline evaluations that show whether a change actually makes a feature better, and learn to read the signals from production. * *Experimentation:* Try new models, prompts and approaches, and share what you learn, including what didn&#x27;t work. * *Productization:* Ship your work as tested, observable Python services (FastAPI, Docker, Kubernetes) in AWS. * *Product &amp; Customer Focus:* Work with Product and customer-facing colleagues to understand the problem before building the solution. ------------- *Who you are* ------------- * You&#x27;re a (soon-to-be) graduate, preferably in Computer Science or Engineering, or you have up to 2 years of experience. * You&#x27;ve built something with LLMs or ML, such as a thesis, internship, side project or hackathon, and you can tell us what worked and what didn&#x27;t. * You write solid Python and are comfortable with git and writing tests. * You care about the people who use what you build, and you ask &quot;why&quot; before &quot;how&quot;. * You&#x27;re curious, you enjoy experimenting, and you learn fast. * You exhibit excellent communication and teamwork. * You&#x27;re passionate about impactful AI, fairness and transparency. * You already work AI-first: coding agents and AI assistants are a natural part of how you build, learn and solve problems. * You&#x27;re based in Belgium and excited to work together with the TechWolf team in our Ghent office at least three days per week. ----------------------- *What&#x27;s in it for you?* ----------------------- 📊 Fair &amp; competitive salaries – we benchmark our salaries yearly and pay above the market median in every role and location.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:data-scientist-junior-ia-generative-ingenierie-3d-f-h-dassault-systemes-xbucamkc" data-company="Dassault Systèmes" data-title="Data Scientist Junior – IA Générative &amp; Ingénierie 3D (F/H)"
+ data-url="https://www.3ds.com/careers/jobs/data-scientist-junior-ia-generative-ingenierie-3d-f-h-548770" data-deadline="Not stated" data-location="Vélizy-Villacoublay, France"
+ data-rank="10" data-fit="3" data-days="9999"
+ data-text="data scientist junior – ia générative &amp; ingénierie 3d (f/h) dassault systèmes vélizy-villacoublay, france">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(89 45% 45%)">DS</div>
+    <div class="head"><h2><span class="rank">10.</span>Data Scientist Junior – IA Générative &amp; Ingénierie 3D (F/H)</h2><div class="meta">Dassault Systèmes · Vélizy-Villacoublay, France</div></div>
+    <a class="apply" href="https://www.3ds.com/careers/jobs/data-scientist-junior-ia-generative-ingenierie-3d-f-h-548770" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior data scientist on generative AI for 3D engineering; French language likely needed.</p>
+  
+  <details><summary>Show description</summary><p>Vos missions* * Participer à la conception, au développement et à l’évaluation de modèles de Machine Learning et Deep Learning appliqués aux données 3D et aux problématiques d’ingénierie. * Contribuer aux travaux autour de l’IA générative, des Large Language Models (LLM) et des assistants conversationnels pour les environnements de conception. * Préparer, explorer et exploiter des jeux de données industriels pour entraîner et améliorer les performances des modèles. * Participer à la mise en place de méthodologies d’évaluation (benchmarks, métriques, datasets de validation). * Collaborer avec les équipes Data Science, Software Engineering et Produit afin d’intégrer les modèles dans les solutions CATIA. * Réaliser des prototypes et démonstrateurs permettant de valider de nouveaux cas d’usage IA. * Effectuer une veille technologique sur les avancées en IA générative, Machine Learning et conception assistée par ordinateur. *Vos qualifications* *Compétences techniques* * Diplôme d’ingénieur ou Master (Bac+5) en Intelligence Artificielle, Machine Learning, Data Science, Informatique ou domaine connexe. * Première expérience (stage, alternance, projet académique ou premier emploi) en Machine Learning ou Deep Learning. * Bonne maîtrise de Python et connaissance d’au moins un framework ML/DL (PyTorch, TensorFlow ou équivalent). * Connaissance des concepts fondamentaux en Data Science : entraînement de modèles, évaluation, traitement de données. * Une exposition aux modèles génératifs, aux LLMs ou aux outils d’IA moderne est un plus. * Intérêt pour les problématiques d’ingénierie, de conception 3D ou de simulation numérique. *Savoir-être* * Curiosité intellectuelle et intérêt pour les technologies émergentes. * Esprit d’analyse et approche rigoureuse dans la résolution de problèmes. * Capacité à apprendre rapidement et à évoluer dans un environnement technique exigeant. * Goût pour le travail collaboratif dans un contexte multidisciplinaire et international. * Force de proposition et envie de contribuer à des sujets innovants.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="greenhouse:gh:anthropic:5183051008" data-company="Anthropic" data-title="Anthropic Fellows Program, ML Systems &amp; Reinforcement Learning"
+ data-url="https://job-boards.greenhouse.io/anthropic/jobs/5183051008" data-deadline="Rolling; cohort starts Jan 2027" data-location="London, UK"
+ data-rank="11" data-fit="3" data-days="9999"
+ data-text="anthropic fellows program, ml systems &amp; reinforcement learning anthropic london, uk">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(120 45% 45%)">A</div>
+    <div class="head"><h2><span class="rank">11.</span>Anthropic Fellows Program, ML Systems &amp; Reinforcement Learning</h2><div class="meta">Anthropic · London, UK</div></div>
+    <a class="apply" href="https://job-boards.greenhouse.io/anthropic/jobs/5183051008" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit warn">3/5 fit</span><span class="tag">Deadline: Rolling; cohort starts Jan 2027</span><span class="tag good">Sponsorship offered</span></div>
+  <p class="why">4-month ML systems and RL fellowship in London; strong CV signal but the Jan 2027 cohort falls during your MSc, so ask about visa and study-hours before applying.</p>
+  
+  <details><summary>Show description</summary><p>About Anthropic Anthropic’s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems. Anthropic Fellows Program overview The Anthropic Fellows Program is designed to foster AI research and engineering talent. We provide funding and mentorship to promising technical talent - regardless of previous experience. Fellows will primarily use external infrastructure (e.g. open-source models, public APIs) to work on an empirical project aligned with our research priorities, with the goal of producing a public output (e.g. a paper submission). In one of our earlier cohorts, over 80% of fellows produced papers. We run multiple cohorts of Fellows each year and review applications on a rolling basis. Apply at the bottom of this page. We are accepting applications on a rolling basis for the next cohort expected to start in January 2027. In some circumstances, we can accommodate fellows starting outside the usual cohort timelines — please note in your application if the January 2027 start date doesn&#x27;t work for you. What to expect 4 months of full-time research Direct mentorship from Anthropic researchers Access to a shared workspace Connection to the broader AI safety and security research community Weekly stipend of 3,850 USD / 2,310 GBP / 4,300 CAD + benefits (these vary by country) Funding for compute (~$15k/month) and other research expenses Interview process The interview process will include an initial application, assessments, and interviews. We may ask for references later in the process as well. We encourage you to apply even if you do not believe you meet every single qualification. Not all strong candidates will meet every single qualification as listed. Research shows that people who identify as being from underrepresented groups are more prone to experiencing imposter syndrome and doubting the strength of their candidacy, so we urge you not to exclude yourself prematurely and to submit an application if you&#x27;re interested in this work. We think AI systems like the ones we&#x27;re building have enormous social and ethical implications. We think this makes representation even more important, and we strive to include a range of diverse perspectives on our team.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:junior-ai-engineer-wtw-b524b3rl" data-company="WTW" data-title="Junior AI Engineer"
+ data-url="https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/202607008" data-deadline="Not stated" data-location="Lisboa, Lisboa, Portugal"
+ data-rank="12" data-fit="2" data-days="9999"
+ data-text="junior ai engineer wtw lisboa, lisboa, portugal">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(156 45% 45%)">W</div>
+    <div class="head"><h2><span class="rank">12.</span>Junior AI Engineer</h2><div class="meta">WTW · Lisboa, Lisboa, Portugal</div></div>
+    <a class="apply" href="https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/202607008" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit bad">2/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Junior AI engineer in Lisbon, no visa friction; start date not stated. † aggregator link.</p>
+  
+  <details><summary>Show description</summary><p>About the role* We are looking for a Junior AI Engineer to help design, build and implement AI-powered solutions that address real business needs. Working alongside e xperienced AI Engineers and the Tech Lead, you will contribute to solutions from early experimentation and prototyping through testing and production. You will also take part in conversations with business users to understand what they need. This is a hands-on role with a strong learning component. Whether you come from software engineering, data or low-code automation and are now building with AI, you will gain practical experience in Generative AI, cloud technologies and enterprise delivery. *What you will do* * Help build, test, maintain and document AI-enabled applications, agents, skills, workflows and reusable components; * Develop prototypes and proofs of concept using Generative AI, LLMs, RAG, APIs and automation technologies; * Write and maintain code (mainly Python) and build low-code automations (e.g. Power Automate, Copilot Studio) with support from experienced colleagues; * Support the integration of AI solutions with APIs, applications, databases and data platforms such as Microsoft Fabric; * Test and evaluate AI solutions for quality, reliability and performance; * Troubleshoot technical issues, document findings and help resolve them; * Help move successful prototypes from experimentation into production; * Follow established architecture, development, testing, security and Responsible AI standards; * Join requirements discussions with business users and Business Analysts, asking questions to understand the real need; * Take part in solution design sessions, sprint planning, code reviews and retrospectives; * Contribute to technical documentation, prompt libraries, evaluation assets and knowledge sharing; * Keep developing your knowledge of Generative AI, software engineering, cloud and enterprise delivery.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:software-engineer-graduate-2026-2027-arista-sgcd56kw" data-company="Arista" data-title="Software Engineer Graduate 2026/2027"
+ data-url="https://jobs.smartrecruiters.com/AristaNetworks/744000152521250-software-engineer-graduate-2026-2027" data-deadline="Not stated" data-location="Dublin, Ireland"
+ data-rank="13" data-fit="2" data-days="9999"
+ data-text="software engineer graduate 2026/2027 arista dublin, ireland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(70 45% 45%)">A</div>
+    <div class="head"><h2><span class="rank">13.</span>Software Engineer Graduate 2026/2027</h2><div class="meta">Arista · Dublin, Ireland</div></div>
+    <a class="apply" href="https://jobs.smartrecruiters.com/AristaNetworks/744000152521250-software-engineer-graduate-2026-2027" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit bad">2/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span><span class="tag">New company</span></div>
+  <p class="why">Graduate SWE 2026/2027 in C/C++/Go/Java, networking; weaker ML fit.</p>
+  
+  <details><summary>Show description</summary><p>* Arista Networks is looking for Graduate Engineers interested in learning world leading product development in C/C++, Go, Java, and other languages. Join us at Arista Networks advancing the Software Defined Networking (SDN) revolution * Writing Linux user space and kernel code to allow 32-bit drivers to DMA 64-bit virtual memory spaces using both Intel and AMD IOMMU controller * Working on the hardware/software boundary for chips and the kernel. Where an x86 chip might have tens of registers, you will routinely work on ASICs with thousands of registers, tables, and special TCAM memories. You will program networking chips to provide latency analysis and keep accurate counts of events happening billions of times per second. You will write Python to bootstrap new hardware. You will build software agents that mediate and translate between the requirements of switching ASICs, high capacity custom FPGAs, media adapters, and PCIe bridges. You might tune lasers and measure and correct error rates measured in parts per billion * Implementing communications protocols between routers and switches at layer 2 (such as LLDP, 802.1x, BFD, etc), and layer 3 (such as BGP, OSPF, ISIS) * Updating the forwarding state of the hardware, using platform-independent abstractions * Reconciling the linux kernel routing model with the switch’s forwarding state * Implementing a policy language used for filtering and manipulating routing data received and advertised to peers * Accessing ASIC registers over SPI bus, SMbus, PCIe and I2C, to implement high resolution timers (sub-100ns accuracy) and read ASIC hardware specifications to gather near-real-time information on large numbers of packet flows and to generate network congestion statistics * Developing configuration management services using Go and Python to support YANG, OpenConfig, NETCONF and RESTCONF over gRPC, ssh and ssl for standardised switch configuration, combined with tools such as git, gerrit, Jenkins, Slack and Trello * Developing routing protocol agents (for BGP, OSPF, ISIS) in C/C++ within a Fedora Linux embedded environment. Coding of fault-tolerant, concurrent agents capable of handling the demands of future data centres where high performance and high availability are basic requirements.</p></details>
+  
+</article>
+<article class="card s-reported" data-id="greenhouse:gh:stripe:8130927" data-company="Stripe" data-title="Software Engineer, New Grad - Frontend"
+ data-url="https://stripe.com/jobs/search?gh_jid=8130927" data-deadline="Not stated" data-location="Barcelona"
+ data-rank="14" data-fit="2" data-days="9999"
+ data-text="software engineer, new grad - frontend stripe barcelona">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(83 45% 45%)">S</div>
+    <div class="head"><h2><span class="rank">14.</span>Software Engineer, New Grad - Frontend</h2><div class="meta">Stripe · Barcelona</div></div>
+    <a class="apply" href="https://stripe.com/jobs/search?gh_jid=8130927" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit bad">2/5 fit</span><span class="tag good">EU role: no sponsorship needed (French passport)</span></div>
+  <p class="why">Stripe new-grad frontend; weaker ML fit but tier-1 company.</p>
+  
+  <details><summary>Show description</summary><p>Your role Stripe is large enough that individual products and projects can be rapidly deployed to a meaningful fraction of the world’s businesses, but small enough that individual agency still has outsized impact. Small teams can impact how millions of businesses grow. Right now the global economy is replatforming around AI, creating new opportunities for growth. We’re at the center of this, and we think the best work is still in front of us. To meet this moment, we’re looking for people who move with urgency, like hard problems, and want their work to matter at a time of great change. If that’s you, there’s no better place to build your career. Who you are Ambitious builder: You’re energized by building solutions without clear precedent and solving problems with far-reaching consequences. Successful Stripes are deeply curious, and prefer the joy of discovery to the comfort of certainty. Rigorous thinker: You appreciate that things worth doing are rarely simple. You enjoy working on problems that have never been tackled before. Adaptable problem solver: You adapt quickly and treat obstacles as opportunities. At Stripe we embrace kindness while encouraging Stripes to take measured risks and act boldly, even in the absence of consensus. Minimum requirements A Bachelor’s or Master’s degree in computer science or a directly related field, obtained by summer 2027, or equivalent work experience; New grad candidates should have no more than 18 months of professional experience (excluding internship experience). Experience and familiarity with programming, either through side projects or classwork. We work mostly in Java, Ruby, JavaScript, Scala, and Go. We believe new programming languages can be learned if the fundamentals and general knowledge are present. Experience from either previous internships or working collaboratively on multi-person coding projects (in a university or professional setting). Ability to learn unf</p></details>
+  
+</article>
+<article class="card s-reported" data-id="freehire:fh:junior-data-scientist-harnham-data-amp-analytics-recruitment-vf6cd2o3" data-company="Harnham - Data &amp;amp; Analytics Recruitment" data-title="Junior Data Scientist"
+ data-url="https://www.reed.co.uk/jobs/junior-data-scientist/57498382" data-deadline="Not stated" data-location="London"
+ data-rank="15" data-fit="2" data-days="9999"
+ data-text="junior data scientist harnham - data &amp;amp; analytics recruitment london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(321 45% 45%)">HD</div>
+    <div class="head"><h2><span class="rank">15.</span>Junior Data Scientist</h2><div class="meta">Harnham - Data &amp;amp; Analytics Recruitment · London</div></div>
+    <a class="apply" href="https://www.reed.co.uk/jobs/junior-data-scientist/57498382" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag fit bad">2/5 fit</span><span class="tag neutral">Not stated</span><span class="tag">New company</span></div>
+  <p class="why">Junior DS at a funded startup via recruiter (Harnham); LLM + Python + SQL; start date unclear . † recruiter ad.</p>
+  
+  <details><summary>Show description</summary><p>The Role* As a Junior Data Scientist, you will work closely with the founders and gain exposure to a wide range of data and AI projects. Responsibilities include: * Analysing large and complex datasets to uncover insights and business value * Supporting the development of data pipelines and data engineering processes * Working with proprietary client data to improve analytics and AI-driven outputs * Contributing to Generative AI projects using modern LLM technologies * Assisting with data labelling, model training, and experimentation * Building reporting, visibility, and decision-support solutions * Collaborating with stakeholders to understand business challenges and translate them into data-driven outcomes * Learning how AI can be applied across operational, compliance, and sustainability-focused use cases *Your Skills &amp; Experience* * Strong academic background in a STEM subject such as Computer Science, Mathematics, Physics, Engineering, or a related discipline * Commercial experience working with data in a professional environment * Strong Python and SQL skills * Experience using machine learning libraries through professional work, research, or personal projects * Exposure to Generative AI technologies and Large Language Models * Understanding of software engineering fundamentals and development best practices *How to Apply* If you&#x27;re a data-driven problem solver with strong Python and SQL skills and want to build your career in Data Science and AI within a growing startup, apply today to learn more about this opportunity.</p></details>
+  
+</article></div><p class="empty" id="none" hidden>No jobs match these filters.</p><h3>Earlier shortlists</h3><ul class="older"><li><a href="2026-11-04-run6.html">2026-11-04-run6</a></li><li><a href="2026-11-04-run5.html">2026-11-04-run5</a></li><li><a href="2026-11-04-run4.html">2026-11-04-run4</a></li><li><a href="2026-11-04-run3.html">2026-11-04-run3</a></li><li><a href="2026-11-04-run2.html">2026-11-04-run2</a></li><li><a href="2026-11-04.html">2026-11-04</a></li><li><a href="2026-11-03-live.html">2026-11-03-live</a></li><li><a href="2026-11-03.html">2026-11-03</a></li></ul>
+</main><script>
+const list = document.getElementById('list'), q = document.getElementById('q'), sortSel = document.getElementById('sort');
+const minFit = document.getElementById('minfit'), hideBox = document.getElementById('hide');
+let filter = 'all';
+function apply() {
+  if (!list) return;
+  const term = q ? q.value.trim().toLowerCase() : ''; let shown = 0;
+  const cards = [...list.querySelectorAll('.card')];
+  const key = sortSel ? sortSel.value : 'rank';
+  cards.sort((a, b) => key === 'rank' ? a.dataset.rank - b.dataset.rank
+    : key === 'fit' ? (b.dataset.fit - a.dataset.fit) || (a.dataset.rank - b.dataset.rank)
+    : (a.dataset.days - b.dataset.days) || (a.dataset.rank - b.dataset.rank));
+  cards.forEach(c => list.appendChild(c));
+  const mf = minFit ? +minFit.value : 0;
+  cards.forEach(c => {
+    const st = (c.className.match(/s-(\w+)/) || [, 'reported'])[1];
+    const ok = (!term || c.dataset.text.includes(term)) && (filter === 'all' || st === filter)
+      && (+c.dataset.fit >= mf || !mf) && !(hideBox && hideBox.checked && st === 'not_interested');
+    c.style.display = ok ? '' : 'none'; if (ok) shown++;
+  });
+  const none = document.getElementById('none'); if (none) none.hidden = shown > 0 || !cards.length;
+}
+document.querySelectorAll('.chip[data-f]').forEach(ch => ch.addEventListener('click', () => {
+  filter = ch.dataset.f; document.querySelectorAll('.chip[data-f]').forEach(x => x.classList.toggle('on', x === ch)); apply();
+}));
+if (q) q.addEventListener('input', apply);
+if (sortSel) sortSel.addEventListener('change', apply);
+if (minFit) minFit.addEventListener('change', apply);
+if (hideBox) { try { hideBox.checked = localStorage.getItem('hideNI') === '1'; } catch (e) {}
+  hideBox.addEventListener('change', () => { try { localStorage.setItem('hideNI', hideBox.checked ? '1' : '0'); } catch (e) {} apply(); }); }
+apply();
+</script></body></html>

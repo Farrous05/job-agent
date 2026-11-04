@@ -1,0 +1,266 @@
+{
+  "jobs": {
+    "fh:graduate-applied-ai-engineer-resonance-dlofceyu": {
+      "deadline": "",
+      "location": "London / Berlin",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 5,
+      "company": "Resonance",
+      "title": "Graduate Applied AI Engineer",
+      "url": "https://www.arbeitnow.co.uk/jobs/companies/resonance/graduate-applied-ai-engineer-london-59295",
+      "fuzzy": "resonance::appliedaiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-applied-ai-engineer-resonance-4zaycxpl": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Resonance",
+      "title": "Graduate Applied AI Engineer",
+      "url": "https://www.arbeitnow.com/jobs/companies/resonance/graduate-applied-ai-engineer-berlin-107801",
+      "fuzzy": "resonance::appliedaiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:imc:4914883101": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "IMC",
+      "title": "Graduate Deep Learning Researcher  - London",
+      "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4914883101",
+      "fuzzy": "imc::deeplearningresearcher",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:jumptrading:7977132": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Jump Trading",
+      "title": "Campus ML Research Engineer (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=7977132",
+      "fuzzy": "jump::campusmlresearchengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-techwolf-3imhv3ya": {
+      "deadline": "",
+      "location": "Ghent, Vlaams Gewest, Belgium",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "techwolf",
+      "title": "Junior AI Engineer",
+      "url": "https://careers.techwolf.ai/o/junior-ai-engineer",
+      "fuzzy": "techwolf::junioraiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-machine-learning-engineer-g-research-mv6wytpf": {
+      "deadline": "",
+      "location": "London, UK",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "G-Research",
+      "title": "Graduate Machine Learning Engineer",
+      "url": "https://gresearch.wd103.myworkdayjobs.com/G-Research/job/London-UK/Graduate-Machine-Learning-Engineer_R3760",
+      "fuzzy": "g::machinelearningengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-engineer-faktion-bv-2ihnr3cs": {
+      "deadline": "",
+      "location": "Antwerp, Vlaams Gewest, Belgium",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Faktion BV",
+      "title": "Junior AI Engineer",
+      "url": "https://talent.faktion.com/o/junior-ai-engineer",
+      "fuzzy": "faktionbv::junioraiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:wehrtyou:8052050": {
+      "deadline": "",
+      "location": "London, United Kingdom; New York, NY, United States; Singapore",
+      "region": "uk",
+      "families": [
+        "quant",
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Hudson River Trading",
+      "title": "Algorithm Developer (Quant Research & Trading) – 2027 Grads",
+      "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8052050",
+      "fuzzy": "hudsonriver::algorithmdeveloper",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:jumptrading:8050796": {
+      "deadline": "",
+      "location": "London; Amsterdam",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Jump Trading",
+      "title": "Campus Quantitative Researcher (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=8050796",
+      "fuzzy": "jump::campusquantitativeresearcher",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-engineer-graduate-zurich-data-ai-ubs-55mjpy5j": {
+      "deadline": "",
+      "location": "Zürich, Switzerland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "UBS",
+      "title": "AI Engineer Graduate — Zurich, Data & AI",
+      "url": "https://de-ch.whatjobs.com/pub_api__cpl__44263115__7095?utm_campaign=publisher&utm_medium=api&geoID=26",
+      "fuzzy": "ubs::aiengineerzurichdataai",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "lv:palantir:2aa14e4f-d406-486e-9aa8-6ff3358d70a0": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Palantir",
+      "title": "Forward Deployed Software Engineer, New Grad - Commercial",
+      "url": "https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0",
+      "fuzzy": "palantir::forwarddeployedsoftwareengineercommercial",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-ia-generative-ingenierie-3d-f-h-dassault-systemes-xbucamkc": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "Data Scientist Junior – IA Générative & Ingénierie 3D (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/data-scientist-junior-ia-generative-ingenierie-3d-f-h-548770",
+      "fuzzy": "dassaultsystmes::datascientistjunioriagnrativeingnierie3d",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:2027-data-scientist-graduate-programme-insurance-consulting-london-reigate-in-london-energy-jobline-zr-mfqexels": {
+      "deadline": "",
+      "location": "London, GB",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Energy Jobline ZR",
+      "title": "2027 Data Scientist Graduate Programme - Insurance Consulting - London/Reigate in London",
+      "url": "https://www.energyjobline.com/job/2027-data-scientist-graduate-programme-insurance-consulting-london-reigate-london-31859293",
+      "fuzzy": "energyjoblinezr::datascientistinsuranceconsultingreigatein",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:llm-agent-research-intern-tencent-moz634vq": {
+      "deadline": "",
+      "location": "United Kingdom-London",
+      "region": "uk",
+      "families": [
+        "ai",
+        "quant"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Tencent",
+      "title": "LLM Agent Research Intern",
+      "url": "https://tencent.wd1.myworkdayjobs.com/Tencent_Careers/job/United-Kingdom-London/LLM-Agent-Research-Intern_R108250-1",
+      "fuzzy": "tencent::llmagentresearchintern",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ml-engineer-deploy-scale-ai-pipelines-ambassador-of-africa-r7ktsyio": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Ambassador of Africa",
+      "title": "Graduate ML Engineer: Deploy & Scale AI Pipelines",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__581993145__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "ambassadorofafrica::mlengineerdeployscaleaipipelines",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-ml-associate-engineer-jpmc-dev9-fa-oraclecloud-com-cx-3xa5qxhh": {
+      "deadline": "",
+      "location": "Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "jpmc-dev9.fa.oraclecloud.com/CX",
+      "title": "AI/ML Associate Engineer",
+      "url": "https://jpmc-dev9.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/210730765",
+      "fuzzy": "jpmcdev9faoraclecloudcomcx::aimlassociateengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    }
+  }
+}

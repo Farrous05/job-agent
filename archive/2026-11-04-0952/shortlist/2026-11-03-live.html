@@ -1,0 +1,319 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Your job shortlist</title><style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1b2130;--mute:#606a7b;--line:#e2e5ea;--soft:#eef1f5;--accent:#2f5bd3;
+--accent-ink:#fff;--good:#1d7a45;--good-bg:#e6f4ec;--warn:#8a5a00;--warn-bg:#fbf1dc;--bad:#a23a3a;--bad-bg:#f9e5e5;
+--shadow:0 1px 2px rgba(20,30,50,.06),0 4px 14px rgba(20,30,50,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#101318;--card:#181c24;--ink:#e7eaf0;--mute:#9aa3b3;--line:#2a303b;
+--soft:#212733;--accent:#7f9fff;--accent-ink:#0d1220;--good:#62d394;--good-bg:#173126;--warn:#eac46a;--warn-bg:#33291a;
+--bad:#f29191;--bad-bg:#3a1f22;--shadow:none}}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)} main{max-width:920px;margin:0 auto;padding:0 16px 64px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -16px 18px;padding:14px 16px 12px}
+.row1{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap} h1{font-size:20px;margin:0;letter-spacing:-.01em}
+.date{color:var(--mute);font-size:14px} nav{margin-left:auto;font-size:14px} nav a{margin-left:14px;text-decoration:none}
+nav a.cur{font-weight:650;color:var(--ink)}
+.stats{display:flex;gap:8px;margin:10px 0 10px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:13px;color:var(--mute)}
+.stat b{color:var(--ink);font-size:16px;margin-right:4px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tools input[type=search]{flex:1;min-width:180px;font:inherit;padding:7px 12px;border-radius:9px;border:1px solid var(--line);
+background:var(--card);color:var(--ink)}
+.chip{font:inherit;font-size:13px;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);
+color:var(--ink);cursor:pointer} .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+select{font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 12px;box-shadow:var(--shadow)}
+.card.s-applied{border-color:var(--good);box-shadow:inset 4px 0 0 var(--good),var(--shadow)}
+.card.s-interested{box-shadow:inset 4px 0 0 var(--warn),var(--shadow)} .card.s-not_interested{opacity:.55}
+.top-line{display:flex;gap:14px;align-items:flex-start}
+.logo{flex:none;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:15px;color:#fff}
+.head{flex:1;min-width:0} h2{font-size:17px;margin:0;line-height:1.3}
+.meta{color:var(--mute);margin-top:3px;font-size:14px} .rank{color:var(--mute);font-weight:600;margin-right:6px}
+.apply{flex:none;background:var(--accent);color:var(--accent-ink);text-decoration:none;padding:8px 16px;border-radius:9px;
+font-weight:650;font-size:14px;white-space:nowrap} .apply:hover{filter:brightness(1.08)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0 56px}
+.tag{font-size:12.5px;padding:3px 9px;border-radius:7px;background:var(--soft);color:var(--mute)}
+.tag.good{background:var(--good-bg);color:var(--good)} .tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.bad{background:var(--bad-bg);color:var(--bad)} .tag.fit{font-weight:700}
+.why{margin:10px 0 0 56px} .flags{margin:6px 0 0 56px;color:var(--warn);font-size:13.5px}
+details{margin:8px 0 0 56px;color:var(--mute);font-size:14px} summary{cursor:pointer;color:var(--accent);font-size:13.5px}
+details p{margin:6px 0 0} .lead{margin:8px 0 0 56px;color:var(--mute);font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0 56px}
+.st{font:inherit;font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:transparent;
+color:var(--ink);cursor:pointer} .st:hover{background:var(--soft)}
+.st.applied.on{background:var(--good);border-color:var(--good);color:var(--card)}
+.st.interested.on{background:var(--warn);border-color:var(--warn);color:var(--card)}
+.st.not_interested.on{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.hint{background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;color:var(--mute);font-size:14px;margin:0 0 14px}
+.empty{color:var(--mute);text-align:center;padding:30px} h3{font-size:15px;color:var(--mute);margin:28px 0 6px}
+ul.older{color:var(--mute);padding-left:18px}
+nav.tabs{display:flex;gap:4px;margin:10px 0 0;flex-wrap:wrap} nav.tabs a{padding:6px 12px;border-radius:9px;
+text-decoration:none;color:var(--mute);font-size:14px;font-weight:600} nav.tabs a.cur{background:var(--ink);color:var(--bg)}
+.remind{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:14px}
+.remind b{display:block;margin-bottom:4px} .remind ul{margin:0;padding-left:18px}
+.stage{font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+textarea.note{width:100%;min-height:54px;font:inherit;font-size:14px;padding:8px 10px;border-radius:9px;
+border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:8px}
+.saved{color:var(--good);font-size:13px;margin-left:8px} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.big{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px} .big b{font-size:24px;display:block}
+.big span{color:var(--mute);font-size:13px} table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+border-radius:12px;overflow:hidden;font-size:14px} th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:600} .card.s-interviewing,.card.s-offer{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent),var(--shadow)}
+.card.s-rejected{opacity:.6}
+@media (max-width:600px){header.top{position:static}.top-line{flex-wrap:wrap}.head{flex-basis:calc(100% - 60px)}
+.apply{margin-left:56px}nav{margin-left:0;width:100%}nav a{margin:0 14px 0 0}.stats .stat{padding:4px 10px}
+.tags,.why,.flags,details,.lead,.actions{margin-left:0}}
+</style></head>
+<body><main>
+<header class="top">
+  <div class="row1"><h1>Your job shortlist</h1><span class="date">2026-11-03-live</span></div>
+  
+  <div class="stats"><div class="stat"><b>14</b>jobs</div><div class="stat"><b>0</b>applied</div><div class="stat"><b>0</b>interested</div><div class="stat"><b>0</b>strong fits (4–5/5)</div></div>
+  <div class="tools"><input type="search" id="q" placeholder="Search jobs…"><button class="chip on" data-f="all">All</button><select id="sort"><option value="rank">Sort: best match</option><option value="fit">Sort: fit score</option><option value="days">Sort: deadline soonest</option></select></div>
+</header>
+<p class="hint">To mark jobs as Applied / Interested / Not for me, run <code>python3 -m jobagent view</code>
+in Terminal (this file on its own can't save your clicks).</p>
+<div id="list">
+<article class="card s-reported" data-id="gh:imc:4914883101" data-company="IMC" data-title="Graduate Deep Learning Researcher  - London"
+ data-url="https://job-boards.eu.greenhouse.io/imc/jobs/4914883101" data-deadline="Not stated" data-location="London"
+ data-rank="1" data-fit="0" data-days="9999"
+ data-text="graduate deep learning researcher  - london imc london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(68 45% 45%)">I</div>
+    <div class="head"><h2><span class="rank">1.</span>Graduate Deep Learning Researcher  - London</h2><div class="meta">IMC · London</div></div>
+    <a class="apply" href="https://job-boards.eu.greenhouse.io/imc/jobs/4914883101" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">Deep-learning research for 2027 grads; MSc minimum. Your LLM fine-tuning research is exactly this.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:jumptrading:7977132" data-company="Jump Trading" data-title="Campus ML Research Engineer (Full-Time)"
+ data-url="https://www.jumptrading.com/hr/job?gh_jid=7977132" data-deadline="Not stated" data-location="London"
+ data-rank="2" data-fit="0" data-days="9999"
+ data-text="campus ml research engineer (full-time) jump trading london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(157 45% 45%)">JT</div>
+    <div class="head"><h2><span class="rank">2.</span>Campus ML Research Engineer (Full-Time)</h2><div class="meta">Jump Trading · London</div></div>
+    <a class="apply" href="https://www.jumptrading.com/hr/job?gh_jid=7977132" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag good">Sponsorship offered (&quot;We sponsor work visas for full-time positions&quot;)</span></div>
+  <p class="why">ML research engineering campus hire; PyTorch, HPC/SLURM and eval pipelines match.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:databricks:8847747002" data-company="Databricks" data-title="Software Engineer - New Grad (2027 Start) - London"
+ data-url="https://databricks.com/company/careers/open-positions/job?gh_jid=8847747002" data-deadline="Not stated" data-location="London"
+ data-rank="3" data-fit="0" data-days="9999"
+ data-text="software engineer - new grad (2027 start) - london databricks london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(52 45% 45%)">D</div>
+    <div class="head"><h2><span class="rank">3.</span>Software Engineer - New Grad (2027 Start) - London</h2><div class="meta">Databricks · London</div></div>
+    <a class="apply" href="https://databricks.com/company/careers/open-positions/job?gh_jid=8847747002" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">2027-start new grad; distributed systems + your AWS/queue work.</p>
+  <div class="flags">⚠ posting says &#x27;graduate between autumn 2026 and summer 2027&#x27;; Sept 2027 is borderline, so ask</div>
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:jumptrading:8050796" data-company="Jump Trading" data-title="Campus Quantitative Researcher (Full-Time)"
+ data-url="https://www.jumptrading.com/hr/job?gh_jid=8050796" data-deadline="Not stated" data-location="London / Amsterdam"
+ data-rank="4" data-fit="0" data-days="9999"
+ data-text="campus quantitative researcher (full-time) jump trading london / amsterdam">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(157 45% 45%)">JT</div>
+    <div class="head"><h2><span class="rank">4.</span>Campus Quantitative Researcher (Full-Time)</h2><div class="meta">Jump Trading · London / Amsterdam</div></div>
+    <a class="apply" href="https://www.jumptrading.com/hr/job?gh_jid=8050796" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag good">Not stated; company on UK sponsor register; Amsterdam: none needed</span></div>
+  <p class="why">Campus quant research; ML + statistics background.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:drweng:7276024" data-company="DRW" data-title="Quantitative Researcher - Machine Learning"
+ data-url="https://job-boards.greenhouse.io/drweng/jobs/7276024" data-deadline="Not stated" data-location="London"
+ data-rank="5" data-fit="0" data-days="9999"
+ data-text="quantitative researcher - machine learning drw london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(133 45% 45%)">D</div>
+    <div class="head"><h2><span class="rank">5.</span>Quantitative Researcher - Machine Learning</h2><div class="meta">DRW · London</div></div>
+    <a class="apply" href="https://job-boards.greenhouse.io/drweng/jobs/7276024" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">ML quant research; LLM/deep-learning research is the strongest angle.</p>
+  <div class="flags">⚠ asks for PhD or exceptional MSc</div>
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:stripe:8130930" data-company="Stripe" data-title="Software Engineer, New Grad"
+ data-url="https://stripe.com/jobs/search?gh_jid=8130930" data-deadline="Not stated" data-location="London"
+ data-rank="6" data-fit="0" data-days="9999"
+ data-text="software engineer, new grad stripe london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(83 45% 45%)">S</div>
+    <div class="head"><h2><span class="rank">6.</span>Software Engineer, New Grad</h2><div class="meta">Stripe · London</div></div>
+    <a class="apply" href="https://stripe.com/jobs/search?gh_jid=8130930" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">New-grad SWE; production backend work at To Ai/Velora.</p>
+  <div class="flags">⚠ degree &#x27;obtained by summer 2027&#x27;; Sept 2027 is borderline</div>
+  
+  
+</article>
+<article class="card s-reported" data-id="lv:palantir:2aa14e4f-d406-486e-9aa8-6ff3358d70a0" data-company="Palantir" data-title="Forward Deployed Software Engineer, New Grad - Commercial"
+ data-url="https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0" data-deadline="Not stated" data-location="London"
+ data-rank="7" data-fit="0" data-days="9999"
+ data-text="forward deployed software engineer, new grad - commercial palantir london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(279 45% 45%)">P</div>
+    <div class="head"><h2><span class="rank">7.</span>Forward Deployed Software Engineer, New Grad - Commercial</h2><div class="meta">Palantir · London</div></div>
+    <a class="apply" href="https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">Client-facing engineering; Velora client delivery + LLM agents fit.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="lv:palantir:9265acce-12cd-4179-8c50-55d15963532b" data-company="Palantir" data-title="Software Engineer, New Grad - Infrastructure"
+ data-url="https://jobs.lever.co/palantir/9265acce-12cd-4179-8c50-55d15963532b" data-deadline="Not stated" data-location="London"
+ data-rank="8" data-fit="0" data-days="9999"
+ data-text="software engineer, new grad - infrastructure palantir london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(279 45% 45%)">P</div>
+    <div class="head"><h2><span class="rank">8.</span>Software Engineer, New Grad - Infrastructure</h2><div class="meta">Palantir · London</div></div>
+    <a class="apply" href="https://jobs.lever.co/palantir/9265acce-12cd-4179-8c50-55d15963532b" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">Infra new grad; SQS/RabbitMQ, Docker, SLURM.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:databricks:6866549002" data-company="Databricks" data-title="Software Engineer - New Grad (2027 Start) - Amsterdam"
+ data-url="https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002" data-deadline="Not stated" data-location="Amsterdam (also Berlin, Aarhus)"
+ data-rank="9" data-fit="0" data-days="9999"
+ data-text="software engineer - new grad (2027 start) - amsterdam databricks amsterdam (also berlin, aarhus)">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(52 45% 45%)">D</div>
+    <div class="head"><h2><span class="rank">9.</span>Software Engineer - New Grad (2027 Start) - Amsterdam</h2><div class="meta">Databricks · Amsterdam (also Berlin, Aarhus)</div></div>
+    <a class="apply" href="https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag good">EU: none needed</span></div>
+  <p class="why">Same 2027 new-grad role in the EU, no visa friction.</p>
+  <div class="flags">⚠ same grad-date window as London</div>
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:stripe:8130881" data-company="Stripe" data-title="Software Engineer, New Grad"
+ data-url="https://stripe.com/jobs/search?gh_jid=8130881" data-deadline="Not stated" data-location="Dublin"
+ data-rank="10" data-fit="0" data-days="9999"
+ data-text="software engineer, new grad stripe dublin">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(83 45% 45%)">S</div>
+    <div class="head"><h2><span class="rank">10.</span>Software Engineer, New Grad</h2><div class="meta">Stripe · Dublin</div></div>
+    <a class="apply" href="https://stripe.com/jobs/search?gh_jid=8130881" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag good">EU: none needed</span></div>
+  <p class="why">New-grad SWE in the EU.</p>
+  <div class="flags">⚠ degree by summer 2027</div>
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:imc:4892687101" data-company="IMC" data-title="Graduate Quant Researcher - Digital Assets"
+ data-url="https://job-boards.eu.greenhouse.io/imc/jobs/4892687101" data-deadline="Not stated" data-location="Zug, Switzerland"
+ data-rank="11" data-fit="0" data-days="9999"
+ data-text="graduate quant researcher - digital assets imc zug, switzerland">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(68 45% 45%)">I</div>
+    <div class="head"><h2><span class="rank">11.</span>Graduate Quant Researcher - Digital Assets</h2><div class="meta">IMC · Zug, Switzerland</div></div>
+    <a class="apply" href="https://job-boards.eu.greenhouse.io/imc/jobs/4892687101" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag good">Switzerland: EU citizens work under free movement (permit is a formality)</span></div>
+  <p class="why">Graduate quant research; ML + Python.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:drweng:8007851" data-company="DRW" data-title="Software Developer"
+ data-url="https://job-boards.greenhouse.io/drweng/jobs/8007851" data-deadline="Not stated" data-location="London"
+ data-rank="12" data-fit="0" data-days="9999"
+ data-text="software developer drw london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(133 45% 45%)">D</div>
+    <div class="head"><h2><span class="rank">12.</span>Software Developer</h2><div class="meta">DRW · London</div></div>
+    <a class="apply" href="https://job-boards.greenhouse.io/drweng/jobs/8007851" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">Grad SWE (C++/Java/Python).</p>
+  <div class="flags">⚠ for grads Dec 2026–Aug 2027; Sept 2027 is borderline</div>
+  
+  
+</article>
+<article class="card s-reported" data-id="gh:jumptrading:7217856" data-company="Jump Trading" data-title="Campus Crypto Researcher (Full-Time)"
+ data-url="https://www.jumptrading.com/hr/job?gh_jid=7217856" data-deadline="Not stated" data-location="London"
+ data-rank="13" data-fit="0" data-days="9999"
+ data-text="campus crypto researcher (full-time) jump trading london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(157 45% 45%)">JT</div>
+    <div class="head"><h2><span class="rank">13.</span>Campus Crypto Researcher (Full-Time)</h2><div class="meta">Jump Trading · London</div></div>
+    <a class="apply" href="https://www.jumptrading.com/hr/job?gh_jid=7217856" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">Campus research seat; quant/ML modelling.</p>
+  
+  
+  
+</article>
+<article class="card s-reported" data-id="lv:palantir:b4aa51a2-bc43-4d67-bf55-12db7feefb3a" data-company="Palantir" data-title="Forward Deployed Software Engineer, New Grad - UK Government"
+ data-url="https://jobs.lever.co/palantir/b4aa51a2-bc43-4d67-bf55-12db7feefb3a" data-deadline="Not stated" data-location="London"
+ data-rank="14" data-fit="0" data-days="9999"
+ data-text="forward deployed software engineer, new grad - uk government palantir london">
+  <div class="top-line">
+    <div class="logo" style="background:hsl(279 45% 45%)">P</div>
+    <div class="head"><h2><span class="rank">14.</span>Forward Deployed Software Engineer, New Grad - UK Government</h2><div class="meta">Palantir · London</div></div>
+    <a class="apply" href="https://jobs.lever.co/palantir/b4aa51a2-bc43-4d67-bf55-12db7feefb3a" target="_blank" rel="noopener">Apply ↗</a>
+  </div>
+  <div class="tags"><span class="tag neutral">Not stated; company on UK sponsor register</span></div>
+  <p class="why">Same FDSE track, government clients.</p>
+  <div class="flags">⚠ UK government work usually needs security clearance; check eligibility</div>
+  
+  
+</article></div><p class="empty" id="none" hidden>No jobs match these filters.</p><h3>Earlier shortlists</h3><ul class="older"><li><a href="2026-11-04-run6.html">2026-11-04-run6</a></li><li><a href="2026-11-04-run5.html">2026-11-04-run5</a></li><li><a href="2026-11-04-run4.html">2026-11-04-run4</a></li><li><a href="2026-11-04-run3.html">2026-11-04-run3</a></li><li><a href="2026-11-04-run2.html">2026-11-04-run2</a></li><li><a href="2026-11-04.html">2026-11-04</a></li><li><a href="2026-11-03-run3.html">2026-11-03-run3</a></li><li><a href="2026-11-03.html">2026-11-03</a></li></ul>
+</main><script>
+const list = document.getElementById('list'), q = document.getElementById('q'), sortSel = document.getElementById('sort');
+const minFit = document.getElementById('minfit'), hideBox = document.getElementById('hide');
+let filter = 'all';
+function apply() {
+  if (!list) return;
+  const term = q ? q.value.trim().toLowerCase() : ''; let shown = 0;
+  const cards = [...list.querySelectorAll('.card')];
+  const key = sortSel ? sortSel.value : 'rank';
+  cards.sort((a, b) => key === 'rank' ? a.dataset.rank - b.dataset.rank
+    : key === 'fit' ? (b.dataset.fit - a.dataset.fit) || (a.dataset.rank - b.dataset.rank)
+    : (a.dataset.days - b.dataset.days) || (a.dataset.rank - b.dataset.rank));
+  cards.forEach(c => list.appendChild(c));
+  const mf = minFit ? +minFit.value : 0;
+  cards.forEach(c => {
+    const st = (c.className.match(/s-(\w+)/) || [, 'reported'])[1];
+    const ok = (!term || c.dataset.text.includes(term)) && (filter === 'all' || st === filter)
+      && (+c.dataset.fit >= mf || !mf) && !(hideBox && hideBox.checked && st === 'not_interested');
+    c.style.display = ok ? '' : 'none'; if (ok) shown++;
+  });
+  const none = document.getElementById('none'); if (none) none.hidden = shown > 0 || !cards.length;
+}
+document.querySelectorAll('.chip[data-f]').forEach(ch => ch.addEventListener('click', () => {
+  filter = ch.dataset.f; document.querySelectorAll('.chip[data-f]').forEach(x => x.classList.toggle('on', x === ch)); apply();
+}));
+if (q) q.addEventListener('input', apply);
+if (sortSel) sortSel.addEventListener('change', apply);
+if (minFit) minFit.addEventListener('change', apply);
+if (hideBox) { try { hideBox.checked = localStorage.getItem('hideNI') === '1'; } catch (e) {}
+  hideBox.addEventListener('change', () => { try { localStorage.setItem('hideNI', hideBox.checked ? '1' : '0'); } catch (e) {} apply(); }); }
+apply();
+</script></body></html>
