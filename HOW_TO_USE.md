@@ -151,7 +151,11 @@ LinkedIn notes. By default `findjobs` skips the LinkedIn **job search** (outreac
 Type `python3 -m jobagent view`. Your browser opens the job page with 4 tabs:
 - **Top picks:** the best 15. Each card has an **Apply** button, fit score, deadline countdown,
   sponsorship and why it fits.
-- **All matches:** every role Claude scored. Filter by fit (3+, 4+, 5), search, sort by deadline.
+- **All matches:** every role Claude scored, in a compact list (tap **Detailed view** for descriptions).
+  **Filters** (each option shows how many jobs it leaves): fit, role type (ML/AI, data science, quant,
+  software), UK/EU and country, big hubs only, your status, closing within 14 days, posted in the last
+  7/30 days, new companies only, hide companies you've applied to. Search matches title, company, city and
+  Claude's reason. Sort by best match, fit, deadline, newest or company. Your filters are remembered.
 - **My applications:** everything you marked. Change the stage (Applied → Interviewing → Offer / Rejected)
   and write notes (who you spoke to, next step).
 - **Stats:** how many applications, replies and interviews, and which kinds of roles reply.

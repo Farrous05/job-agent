@@ -794,3 +794,22 @@ class PrepTests(unittest.TestCase):
                 self.assertIn(b"BEGIN:VCALENDAR", r.read())
             finally:
                 srv.shutdown()
+
+
+class AllMatchesPageTests(unittest.TestCase):
+    def test_countries(self):
+        self.assertEqual(report.countries_of("Paris, Île-de-France, France; London, UK"), ["United Kingdom", "France"])
+        self.assertEqual(report.countries_of("Remote"), ["Remote"])
+        self.assertEqual(report.countries_of("Ghent, Vlaams Gewest, Belgium"), ["Belgium"])
+
+    def test_filter_attributes(self):
+        with tempfile.TemporaryDirectory() as d:
+            rd = Path(d)
+            (rd / "matches.json").write_text(json.dumps({"matches": [
+                {"source_id": "a", "company": "Mistral AI", "title": "ML Eng", "location": "Paris, France; Lyon; Nice",
+                 "url": "u", "fit": 5, "llm_reason": "r", "families": ["ml"], "region": "eu",
+                 "posted": "2026-11-01", "sponsorship": "EU role: no sponsorship needed (French passport)"}]}))
+            h = report.all_matches_html(rd, {}, applied_companies={"mistral ai"})
+        for want in ('data-fam="mlai"', 'data-countries="France"', 'data-region="eu"', 'data-appco="1"',
+                     'data-hub="1"', "EU: no visa needed", "+1 more", 'data-group="country"', "Clear filters"):
+            self.assertIn(want, h)

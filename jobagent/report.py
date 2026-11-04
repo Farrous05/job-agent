@@ -226,9 +226,33 @@ border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:8p
 border-radius:12px;overflow:hidden;font-size:14px} th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
 th{color:var(--mute);font-weight:600} .card.s-interviewing,.card.s-offer{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent),var(--shadow)}
 .card.s-rejected{opacity:.6}
+.fpanel{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:4px;
+max-height:46vh;overflow:auto} .fsec{display:grid;grid-template-columns:70px 1fr;gap:6px 10px;align-items:start;
+padding:6px 0;border-bottom:1px solid var(--line)} .fsec:last-child{border-bottom:0}
+.fsec>b{grid-column:1;grid-row:1/span 3;font-size:13px;color:var(--mute);padding-top:4px}
+.fsec>.fchips{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;min-width:0} .fc{font:inherit;font-size:12.5px;padding:4px 10px;border-radius:99px;
+border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.fc .n{color:var(--mute);font-size:11.5px} .fc.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.fc.on .n{color:inherit;opacity:.8} .fc.zero{opacity:.4} .resline{width:100%;font-size:13px;color:var(--mute)}
+button.link{font:inherit;font-size:13px;background:none;border:0;color:var(--accent);cursor:pointer;padding:0 4px}
+.more-wrap{text-align:center;margin:10px 0} .tag.fam{background:var(--soft);color:var(--ink);font-weight:600}
+#list.compact .card{padding:11px 14px;margin-bottom:8px} #list.compact .logo{width:34px;height:34px;font-size:13px}
+#list.compact h2{font-size:15.5px} #list.compact .meta{font-size:13px}
+#list.compact .tags,#list.compact .why,#list.compact .flags,#list.compact .actions{margin-left:48px}
+#list.compact .tags{margin-top:7px} #list.compact .why{margin-top:6px;font-size:14px;display:-webkit-box;
+-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden} #list.compact details,#list.compact .lead{display:none}
+#list.compact .actions{margin-top:8px} #list.compact .st{padding:4px 10px;font-size:12.5px}
+#list.compact .apply{padding:6px 12px;font-size:13px}
 @media (max-width:600px){header.top{position:static}.top-line{flex-wrap:wrap}.head{flex-basis:calc(100% - 60px)}
 .apply{margin-left:56px}nav{margin-left:0;width:100%}nav a{margin:0 14px 0 0}.stats .stat{padding:4px 10px}
-.tags,.why,.flags,details,.lead,.actions{margin-left:0}}
+.tags,.why,.flags,details,.lead,.actions{margin-left:0}
+#list.compact .tags,#list.compact .why,#list.compact .flags,#list.compact .actions{margin-left:0}
+#list.compact .apply{margin-left:48px} .fsec{grid-template-columns:1fr} .fsec>b{grid-row:auto;padding:0}
+.fsec>.fchips{grid-column:1} .fpanel{max-height:none} .tools input[type=search]{min-width:100%}
+#list.compact .top-line{flex-wrap:nowrap;gap:10px} #list.compact .head{flex-basis:auto}
+#list.compact .apply{margin-left:0;padding:5px 10px} #list.compact .logo{display:none}
+#list.compact .tags{gap:4px} #list.compact .tag{font-size:12px;padding:2px 7px}
+.stats{flex-wrap:nowrap;overflow-x:auto} .stats .stat{white-space:nowrap}}
 """
 
 
@@ -261,7 +285,21 @@ def _job(r: dict, desc: dict) -> dict:
             "seen": bool(r.get("seen"))}
 
 
-def _card(j: dict, st: str, interactive: bool) -> str:
+def _short_loc(loc: str) -> str:
+    parts = [x.strip() for x in re.split(r";|\s\|\s", loc or "") if x.strip()]
+    return loc if len(parts) <= 2 else f"{'; '.join(parts[:2])} +{len(parts) - 2} more"
+
+
+def _short_sponsor(t: str) -> str:
+    low = (t or "").lower()
+    if low.startswith("eu role: no sponsorship needed"):
+        return "EU: no visa needed"
+    if low == "not stated":
+        return "Visa: not stated"
+    return t
+
+
+def _card(j: dict, st: str, interactive: bool, compact: bool = False) -> str:
     esc = html.escape
     days = _deadline_days(j["deadline"])
     tags = []
@@ -275,7 +313,8 @@ def _card(j: dict, st: str, interactive: bool) -> str:
     elif j["deadline"] and j["deadline"] not in ("—", "Not stated"):
         tags.append(f'<span class="tag">Deadline: {esc(j["deadline"])}</span>')
     if j["sponsorship"]:
-        tags.append(f'<span class="tag {_sponsor_class(j["sponsorship"])}">{esc(j["sponsorship"])}</span>')
+        sp = _short_sponsor(j["sponsorship"]) if compact else j["sponsorship"]
+        tags.append(f'<span class="tag {_sponsor_class(j["sponsorship"])}" title="{esc(j["sponsorship"])}">{esc(sp)}</span>')
     if j["new"]:
         tags.append('<span class="tag">New company</span>')
     if j["applied_prev"]:
@@ -296,7 +335,7 @@ def _card(j: dict, st: str, interactive: bool) -> str:
  data-text="{esc((j['title'] + ' ' + j['company'] + ' ' + j['location']).lower())}">
   <div class="top-line">
     <div class="logo" style="background:hsl({_hue(j['company'])} 45% 45%)">{esc(_initials(j['company']))}</div>
-    <div class="head"><h2>{rank}{esc(j['title'])}</h2><div class="meta">{esc(j['company'])} · {esc(j['location'])}</div></div>
+    <div class="head"><h2>{rank}{esc(j['title'])}</h2><div class="meta" title="{esc(j['location'])}">{esc(j['company'])} · {esc(_short_loc(j['location']) if compact else j['location'])}</div></div>
     <a class="apply" href="{esc(j['url'])}" target="_blank" rel="noopener">Apply ↗</a>
   </div>
   <div class="tags">{''.join(tags)}</div>
@@ -376,24 +415,212 @@ def write_html(md_path: Path, data_dir: Path, out: Path | None, others: list[Pat
     return len(jobs)
 
 
+COUNTRIES = {
+    "United Kingdom": ["united kingdom", "uk", "england", "scotland", "wales", "london", "cambridge", "oxford",
+                       "edinburgh", "manchester", "bristol", "belfast", "glasgow", "leeds", "birmingham", "reading"],
+    "France": ["france", "fr", "paris", "île-de-france", "ile-de-france", "lyon", "toulouse", "grenoble", "nice",
+               "sophia antipolis", "lille", "bordeaux", "nantes", "montpellier", "marseille", "rennes"],
+    "Germany": ["germany", "deutschland", "de", "berlin", "munich", "münchen", "hamburg", "frankfurt", "cologne",
+                "köln", "stuttgart", "düsseldorf", "leipzig", "heidelberg", "karlsruhe", "tübingen", "darmstadt"],
+    "Netherlands": ["netherlands", "nederland", "nl", "amsterdam", "rotterdam", "eindhoven", "utrecht", "the hague",
+                    "delft", "veldhoven"],
+    "Switzerland": ["switzerland", "ch", "zurich", "zürich", "geneva", "lausanne", "basel", "zug", "bern"],
+    "Ireland": ["ireland", "ie", "dublin", "cork", "galway"],
+    "Spain": ["spain", "españa", "es", "madrid", "barcelona", "valencia", "seville", "malaga", "málaga"],
+    "Italy": ["italy", "italia", "it", "milan", "milano", "rome", "roma", "turin", "torino", "bologna"],
+    "Portugal": ["portugal", "pt", "lisbon", "lisboa", "porto"],
+    "Belgium": ["belgium", "be", "brussels", "antwerp", "ghent", "leuven"],
+    "Sweden": ["sweden", "se", "stockholm", "gothenburg", "malmö"],
+    "Denmark": ["denmark", "dk", "copenhagen", "aarhus"],
+    "Norway": ["norway", "no", "oslo", "bergen", "trondheim"],
+    "Finland": ["finland", "fi", "helsinki", "espoo"],
+    "Poland": ["poland", "pl", "warsaw", "krakow", "kraków", "wroclaw", "wrocław", "gdansk", "gdańsk"],
+    "Austria": ["austria", "at", "vienna", "wien"],
+    "Czechia": ["czechia", "czech republic", "cz", "prague", "brno"],
+    "Other EU": ["luxembourg", "romania", "bucharest", "cluj", "hungary", "budapest", "bulgaria", "sofia", "greece",
+                 "athens", "croatia", "zagreb", "slovenia", "ljubljana", "slovakia", "bratislava", "estonia", "tallinn",
+                 "latvia", "riga", "lithuania", "vilnius", "cyprus", "limassol", "malta", "iceland"],
+}
+_COUNTRY_RX = [(c, re.compile(r"(?<![a-zà-ÿ])(" + "|".join(re.escape(w) for w in sorted(ws, key=len, reverse=True)
+                                                          if len(w) > 2) + r")(?![a-zà-ÿ])"),
+                {w for w in ws if len(w) <= 2}) for c, ws in COUNTRIES.items()]
+FAMILY_LABELS = (("mlai", "ML / AI"), ("data_science", "Data science"), ("quant", "Quant"), ("software", "Software"))
+HUBS = ("london", "paris", "amsterdam", "berlin", "munich", "münchen", "zurich", "zürich", "dublin")
+
+
+def countries_of(location: str) -> list[str]:
+    t = (location or "").lower()
+    segs = {x.strip() for x in re.split(r"[;,|/]", t)}          # 2-letter codes ("fr", "de") only as a whole part
+    out = [c for c, rx, codes in _COUNTRY_RX if rx.search(t) or segs & codes]
+    if not out and "remote" in t:
+        out = ["Remote"]
+    return out or ["Other"]
+
+
+def _age_days(posted: str) -> int:
+    from datetime import date
+    m = re.search(r"(\d{4})-(\d{2})-(\d{2})", posted or "")
+    if not m:
+        return 9999
+    try:
+        return (date.today() - date(int(m.group(1)), int(m.group(2)), int(m.group(3)))).days
+    except ValueError:
+        return 9999
+
+
 def all_matches_html(run: Path | None, statuses: dict, interactive: bool = True,
-                     reminders: list[str] | None = None) -> str:
-    """Every role Claude scored in the latest run (not just the top picks), best first."""
+                     reminders: list[str] | None = None, applied_companies: set | None = None) -> str:
+    """Every role Claude scored in the latest run, with a filter panel (fit, role type, country, status,
+    deadline, posted date, extras), live counts, a compact/detailed view and 'show more' paging."""
+    esc = html.escape
     matches = []
     if run is not None and (run / "matches.json").exists():
         matches = json.loads((run / "matches.json").read_text()).get("matches", [])
-    jobs = [_job(m, {}) for m in matches]
-    for i, j in enumerate(jobs, 1):
+    applied_co = {c.lower() for c in (applied_companies or set())}
+    cards, sts, country_n = [], [], {}
+    for i, m in enumerate(matches, 1):
+        j = _job(m, {})
         j["rank"] = i
-    sts = [statuses.get(j["id"], "reported") for j in jobs]
-    cards = [_card(j, st, interactive) for j, st in zip(jobs, sts)]
-    empty = ("<p class=empty>No scored roles yet. Run /job-run in Claude Code (it scores every role that passes "
-             "your filters).</p>")
-    inner = (f'<div id="list">{"".join(cards) or empty}</div><p class="empty" id="none" hidden>No jobs match these '
-             f'filters.</p>')
-    return _page("All matches", f"{run.name if run else ''} · {len(jobs)} scored roles", "/all", inner, interactive,
-                 _tools(interactive, fit_filter=True), _stat_boxes(len(jobs), cards, sts), reminders,
-                 SCRIPT + (STATUS_SCRIPT if interactive else ""))
+        st = statuses.get(j["id"], "reported")
+        fams = set(m.get("families") or [])
+        fam = " ".join(sorted({"mlai" if f in ("ml", "ai") else f for f in fams})) or "software"
+        cs = countries_of(j["location"])
+        for c in cs:
+            country_n[c] = country_n.get(c, 0) + 1
+        days = _deadline_days(j["deadline"])
+        extra = {"fam": fam, "countries": "|".join(cs), "region": m.get("region", ""),
+                 "age": _age_days(m.get("posted", "")), "new": "1" if j["new"] else "",
+                 "appco": "1" if (j["applied_prev"] or j["company"].lower() in applied_co) else "",
+                 "hub": "1" if any(h in j["location"].lower() for h in HUBS) else "",
+                 "seen": "1" if j.get("seen") else "", "dl": "" if days is None else str(days)}
+        attrs = " ".join(f'data-{k}="{esc(str(v))}"' for k, v in extra.items())
+        card = _card(j, st, interactive, compact=True).replace("<article ", f"<article {attrs} ", 1)
+        fam_tags = "".join(f'<span class="tag fam">{lab}</span>' for k, lab in FAMILY_LABELS if k in fam.split())
+        age = extra["age"]
+        if age < 9999:
+            fam_tags += f'<span class="tag">{"today" if age <= 0 else f"posted {age}d ago"}</span>'
+        cards.append(card.replace('<div class="tags">', f'<div class="tags">{fam_tags}', 1))
+        sts.append(st)
+    empty = ("<p class=empty>No scored roles yet. Run a job search first (findjobs, or /run in Telegram): Claude "
+             "scores every role that passes your filters.</p>")
+    top_c = sorted(country_n.items(), key=lambda x: -x[1])
+
+    def chips(group: str, opts, multi: bool = True) -> str:
+        return f'<div class="fchips" data-group="{group}" data-multi="{1 if multi else 0}">' + "".join(
+            f'<button class="fc" data-v="{esc(v)}">{esc(lab)}<span class="n"></span></button>' for v, lab in opts) + "</div>"
+    panel = f"""
+<div id="fpanel" class="fpanel">
+  <div class="fsec"><b>Fit</b>{chips("fit", (("5", "5/5"), ("4", "4+"), ("3", "3+"), ("0", "Any")), False)}</div>
+  <div class="fsec"><b>Role</b>{chips("fam", FAMILY_LABELS)}</div>
+  <div class="fsec"><b>Where</b>{chips("region", (("uk", "UK"), ("eu", "EU")))}
+    {chips("country", [(c, c) for c, _ in top_c])}
+    {chips("hub", (("1", "Big hubs only: London, Paris, Amsterdam, Berlin, Munich, Zurich, Dublin"),))}</div>
+  <div class="fsec"><b>Status</b>{chips("status", (("reported", "Not marked"), ("interested", "★ Interested"),
+                                                    ("applied", "✓ Applied"), ("not_interested", "✕ Not for me")))}</div>
+  <div class="fsec"><b>Deadline</b>{chips("dl", (("14", "Closes within 14 days"), ("any", "Has a deadline"),
+                                                  ("open", "Not closed")), False)}</div>
+  <div class="fsec"><b>Posted</b>{chips("age", (("7", "Last 7 days"), ("30", "Last 30 days")), False)}</div>
+  <div class="fsec"><b>More</b>{chips("more", (("new", "New companies only"), ("noappco", "Hide companies I applied to"),
+                                              ("noseen", "Hide shown before")))}</div>
+</div>"""
+    tools = f"""<input type="search" id="q" placeholder="Search title, company, city, reason…">
+<button class="chip" id="ftoggle">Filters <span id="fcount"></span></button>
+<select id="sort"><option value="rank">Best match</option><option value="fit">Fit score</option>
+<option value="days">Deadline soonest</option><option value="age">Newest posted</option>
+<option value="company">Company A–Z</option></select>
+<button class="chip" id="view">Detailed view</button>{panel}
+<div class="resline"><span id="shown"></span> <button class="link" id="clear">Clear filters</button></div>"""
+    inner = (f'<div id="list" class="compact">{"".join(cards) or empty}</div>'
+             f'<p class="empty" id="none" hidden>No jobs match these filters. <button class="link" id="clear2">'
+             f'Clear filters</button></p><div class="more-wrap"><button class="chip" id="more" hidden>Show more</button></div>')
+    return _page("All matches", f"{run.name if run else ''} · {len(cards)} scored roles", "/all", inner, interactive,
+                 tools, _stat_boxes(len(cards), cards, sts), reminders,
+                 ALL_SCRIPT + (STATUS_SCRIPT if interactive else ""))
+
+
+ALL_SCRIPT = """
+const list = document.getElementById('list'), q = document.getElementById('q'), sortSel = document.getElementById('sort');
+const PAGE = 40; let limit = PAGE;
+const DEF = {fit: ['4'], status: ['reported', 'interested', 'applied']};
+let F = {};
+try { F = JSON.parse(localStorage.getItem('allFilters') || 'null') || {}; } catch (e) {}
+if (!Object.keys(F).length) F = JSON.parse(JSON.stringify(DEF));
+const cards = list ? [...list.querySelectorAll('.card')] : [];
+cards.forEach(c => { c.dataset.text = (c.dataset.text + ' ' + (c.querySelector('.why') || {textContent: ''}).textContent).toLowerCase(); });
+const stOf = c => (c.className.match(/s-(\\w+)/) || [, 'reported'])[1];
+const TESTS = {
+  fit: (c, v) => v.some(x => +c.dataset.fit >= +x),
+  fam: (c, v) => v.some(x => c.dataset.fam.split(' ').includes(x)),
+  region: (c, v) => v.includes(c.dataset.region),
+  country: (c, v) => v.some(x => c.dataset.countries.split('|').includes(x)),
+  hub: (c, v) => c.dataset.hub === '1',
+  status: (c, v) => v.includes(stOf(c)),
+  dl: (c, v) => v[0] === '14' ? (c.dataset.dl !== '' && +c.dataset.dl >= 0 && +c.dataset.dl <= 14)
+              : v[0] === 'any' ? c.dataset.dl !== '' : (c.dataset.dl === '' || +c.dataset.dl >= 0),
+  age: (c, v) => +c.dataset.age <= +v[0],
+  more: (c, v) => (!v.includes('new') || c.dataset.new === '1') && (!v.includes('noappco') || c.dataset.appco !== '1')
+                  && (!v.includes('noseen') || c.dataset.seen !== '1'),
+};
+function passes(c, skip) {
+  const term = q ? q.value.trim().toLowerCase() : '';
+  if (term && !term.split(/\\s+/).every(t => c.dataset.text.includes(t))) return false;
+  for (const g in F) { if (g === skip || !F[g] || !F[g].length) continue; if (!TESTS[g](c, F[g])) return false; }
+  return true;
+}
+function saveFilters() { try { localStorage.setItem('allFilters', JSON.stringify(F)); } catch (e) {} }
+function apply(resetLimit) {
+  if (!list) return; if (resetLimit) limit = PAGE;
+  const key = sortSel ? sortSel.value : 'rank';
+  const by = {rank: (a, b) => a.dataset.rank - b.dataset.rank,
+    fit: (a, b) => (b.dataset.fit - a.dataset.fit) || (a.dataset.rank - b.dataset.rank),
+    days: (a, b) => ((a.dataset.dl === '' ? 9999 : +a.dataset.dl) - (b.dataset.dl === '' ? 9999 : +b.dataset.dl)) || (a.dataset.rank - b.dataset.rank),
+    age: (a, b) => (a.dataset.age - b.dataset.age) || (a.dataset.rank - b.dataset.rank),
+    company: (a, b) => a.dataset.company.localeCompare(b.dataset.company) || (a.dataset.rank - b.dataset.rank)}[key];
+  cards.sort(by).forEach(c => list.appendChild(c));
+  let match = 0;
+  cards.forEach(c => { const ok = passes(c); if (ok) match++; c.style.display = ok && match <= limit ? '' : 'none'; });
+  document.querySelectorAll('.fchips').forEach(box => {
+    const g = box.dataset.group;
+    box.querySelectorAll('.fc').forEach(b => {
+      const v = b.dataset.v, on = (F[g] || []).includes(v); b.classList.toggle('on', on);
+      const n = cards.filter(c => passes(c, g) && TESTS[g](c, [v])).length;
+      b.querySelector('.n').textContent = g === 'more' ? '' : ' ' + n; b.classList.toggle('zero', !n && !on);
+    });
+  });
+  const active = Object.values(F).filter(v => v && v.length).length;
+  document.getElementById('fcount').textContent = active ? '(' + active + ')' : '';
+  document.getElementById('shown').textContent = 'Showing ' + Math.min(match, limit) + ' of ' + match + ' matching · ' + cards.length + ' scored';
+  const more = document.getElementById('more'); more.hidden = match <= limit; more.textContent = 'Show more (' + (match - limit) + ' left)';
+  const none = document.getElementById('none'); if (none) none.hidden = match > 0 || !cards.length;
+  saveFilters();
+}
+document.querySelectorAll('.fchips').forEach(box => box.addEventListener('click', e => {
+  const b = e.target.closest('.fc'); if (!b) return;
+  const g = box.dataset.group, v = b.dataset.v, cur = F[g] || [];
+  if (box.dataset.multi === '1') F[g] = cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v];
+  else F[g] = cur.includes(v) ? [] : [v];
+  if (g === 'fit' && F.fit[0] === '0') F.fit = [];
+  apply(true);
+}));
+function clearAll() { F = {}; if (q) q.value = ''; apply(true); }
+document.getElementById('clear').onclick = clearAll;
+const c2 = document.getElementById('clear2'); if (c2) c2.onclick = clearAll;
+document.getElementById('more').onclick = () => { limit += PAGE * 2; apply(false); };
+const panel = document.getElementById('fpanel'), tog = document.getElementById('ftoggle');
+let open = window.innerWidth > 700; try { const o = localStorage.getItem('fpanel'); if (o !== null) open = o === '1'; } catch (e) {}
+function showPanel() { panel.hidden = !open; tog.classList.toggle('on', open); }
+tog.onclick = () => { open = !open; try { localStorage.setItem('fpanel', open ? '1' : '0'); } catch (e) {} showPanel(); };
+showPanel();
+const view = document.getElementById('view');
+let detailed = false; try { detailed = localStorage.getItem('detailed') === '1'; } catch (e) {}
+function showView() { list && list.classList.toggle('compact', !detailed); view.textContent = detailed ? 'Compact view' : 'Detailed view'; }
+view.onclick = () => { detailed = !detailed; try { localStorage.setItem('detailed', detailed ? '1' : '0'); } catch (e) {} showView(); };
+showView();
+let t; if (q) q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => apply(true), 120); });
+if (sortSel) { try { sortSel.value = localStorage.getItem('allSort') || 'rank'; } catch (e) {}
+  sortSel.addEventListener('change', () => { try { localStorage.setItem('allSort', sortSel.value); } catch (e) {} apply(true); }); }
+apply(true);
+"""
 
 
 HINT = """<p class="hint">To mark jobs as Applied / Interested / Not for me, run <code>python3 -m jobagent view</code>

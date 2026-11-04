@@ -131,7 +131,8 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                 return self._send(200, cvtools.changes_text(root) or "No changes.", "text/plain; charset=utf-8", extra)
             if path == "/all":
                 return self._send(200, report.all_matches_html(pipeline.latest_run(root / "data"), store.statuses(),
-                                                               reminders=rem), headers=extra)
+                                                               reminders=rem,
+                                                               applied_companies=store.applied_companies()), headers=extra)
             if path == "/applied":
                 cal = f"webcal://{self.headers.get('Host') or '127.0.0.1:8765'}/calendar.ics" + (f"?k={token}" if token else "")
                 return self._send(200, report.applications_html(store.data["jobs"], reminders=rem,
