@@ -574,6 +574,396 @@
       "fuzzy": "jpmcdev9faoraclecloudcomcx::aimlassociateengineer",
       "first_reported": "2026-11-04",
       "status": "reported"
+    },
+    "fh:software-engineer-new-grad-deliveroo-ltwvubwb": {
+      "deadline": "",
+      "location": "London, United Kingdom - Deliveroo",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Deliveroo",
+      "title": "Software Engineer, New Grad",
+      "url": "https://job-boards.greenhouse.io/deliveroo/jobs/8202627",
+      "fuzzy": "deliveroo::softwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:software-engineer-jane-street-jkvdg5bp": {
+      "deadline": "",
+      "location": "London, England, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Jane Street",
+      "title": "Software Engineer",
+      "url": "https://www.janestreet.com/join-jane-street/apply/4274814002?gh_jid=4274814002",
+      "fuzzy": "janestreet::softwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:wehrtyou:7583922": {
+      "deadline": "",
+      "location": "London, United Kingdom; New York, NY, United States",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Hudson River Trading",
+      "title": "Research Engineer",
+      "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=7583922",
+      "fuzzy": "hudsonriver::researchengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:stripe:8130927": {
+      "deadline": "",
+      "location": "Barcelona",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad - Frontend",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130927",
+      "fuzzy": "stripe::softwareengineerfrontend",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-wtw-b524b3rl": {
+      "deadline": "",
+      "location": "Lisboa, Lisboa, Portugal",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "WTW",
+      "title": "Junior AI Engineer",
+      "url": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/202607008",
+      "fuzzy": "wtw::junioraiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-h-f-h-f-groupe-vyv-xhm3gn44": {
+      "deadline": "",
+      "location": "PARIS",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "GROUPE VYV",
+      "title": "Data Scientist Junior H/F (H/F)",
+      "url": "https://candidat.francetravail.fr/offres/recherche/detail/215PRDY",
+      "fuzzy": "groupevyv::datascientistjuniorhf",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-ai-platform-engineer-abc-fitness-mnsfuu2i": {
+      "deadline": "",
+      "location": "Poland",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ABC Fitness",
+      "title": "Junior AI Platform Engineer",
+      "url": "https://abcfinancial.wd5.myworkdayjobs.com/ABCFinancialServices/job/Poland/Junior-AI-Platform-Engineer_REQ-1613",
+      "fuzzy": "abcfitness::junioraiplatformengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ai-engineer-scrumconnect-zohorecruit-eu-fxbhqcii": {
+      "deadline": "",
+      "location": "Staines, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Scrumconnect Limited",
+      "title": "Graduate AI Engineer",
+      "url": "https://scrumconnect.zohorecruit.eu/jobs/Careers/52781000021204118",
+      "fuzzy": "scrumconnect::aiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-backend-software-engineer-navan-2grsusu3": {
+      "deadline": "",
+      "location": "London, UK",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Navan",
+      "title": "Junior Backend Software Engineer",
+      "url": "https://navan.com/careers/openings?gh_jid=8336673",
+      "fuzzy": "navan::juniorbackendsoftwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-skim-biskttdl": {
+      "deadline": "",
+      "location": "Rotterdam, Netherlands",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "SKIM",
+      "title": "Junior AI Engineer",
+      "url": "https://skim.careers.hibob.com/jobs/8d8ddfdf-22da-44d8-b9d9-f756a2a77095",
+      "fuzzy": "skim::junioraiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ml-software-engineer-arm-dyrd3as6": {
+      "deadline": "",
+      "location": "Lund, Sweden",
+      "region": "eu",
+      "families": [
+        "ml",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ARM",
+      "title": "Graduate ML Software Engineer",
+      "url": "https://careers.arm.com/job/lund/graduate-ml-software-engineer/33099/102539110752",
+      "fuzzy": "arm::mlsoftwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:2027-early-career-software-engineer-anduril-industries-d6eoigdr": {
+      "deadline": "",
+      "location": "Dublin, Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Anduril Industries",
+      "title": "2027 Early Career Software Engineer",
+      "url": "https://boards.greenhouse.io/andurilindustries/jobs/5272481007?gh_jid=5272481007",
+      "fuzzy": "andurilindustries::earlycareersoftwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-mentored-in-c-c-python-susquehanna-international-group-r7za4tld": {
+      "deadline": "",
+      "location": "Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Susquehanna International Group",
+      "title": "Graduate Software Engineer — Mentored in C/C++/Python",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__5641143__7127?utm_campaign=publisher&utm_medium=api&geoID=253",
+      "fuzzy": "susquehannainternational::softwareengineermentoredinccpython",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:jumptrading:8008306": {
+      "deadline": "",
+      "location": "Amsterdam / London",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Jump Trading",
+      "title": "Campus Systems Engineer (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=8008306",
+      "fuzzy": "jump::campussystemsengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "gh:jumptrading:7215943": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Jump Trading",
+      "title": "Campus Systems Engineer (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=7215943",
+      "fuzzy": "jump::campussystemsengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-data-platform-engineer-graduate-programme-td-wp36l65g": {
+      "deadline": "",
+      "location": "Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "TD",
+      "title": "AI Data Platform Engineer - Graduate Programme",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__6205806__7127?utm_campaign=publisher&utm_medium=api&geoID=253",
+      "fuzzy": "td::aidataplatformengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-applied-ai-engineer-resonance-dlofceyu": {
+      "deadline": "",
+      "location": "London / Berlin",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Resonance",
+      "title": "Graduate Applied AI Engineer",
+      "url": "https://www.arbeitnow.co.uk/jobs/companies/resonance/graduate-applied-ai-engineer-london-59295",
+      "fuzzy": "resonance::appliedaiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-applied-ai-engineer-resonance-4zaycxpl": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Resonance",
+      "title": "Graduate Applied AI Engineer",
+      "url": "https://www.arbeitnow.com/jobs/companies/resonance/graduate-applied-ai-engineer-berlin-107801",
+      "fuzzy": "resonance::appliedaiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:ai-engineer-faktion-bv-2ihnr3cs": {
+      "deadline": "",
+      "location": "Antwerp, Vlaams Gewest, Belgium",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Faktion BV",
+      "title": "Junior AI Engineer",
+      "url": "https://talent.faktion.com/o/junior-ai-engineer",
+      "fuzzy": "faktionbv::junioraiengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:2027-data-scientist-graduate-programme-insurance-consulting-london-reigate-in-london-energy-jobline-zr-mfqexels": {
+      "deadline": "",
+      "location": "London, GB",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Energy Jobline ZR",
+      "title": "2027 Data Scientist Graduate Programme - Insurance Consulting - London/Reigate in London",
+      "url": "https://www.energyjobline.com/job/2027-data-scientist-graduate-programme-insurance-consulting-london-reigate-london-31859293",
+      "fuzzy": "energyjoblinezr::datascientistinsuranceconsultingreigatein",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:full-stack-software-engineer-i-ai-engineering-jpmc-mxbg3r7f": {
+      "deadline": "",
+      "location": "LONDON, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "JPMC",
+      "title": "Full-stack Software Engineer I - AI Engineering",
+      "url": "https://jpmc-dev7.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/210792897",
+      "fuzzy": "jpmc::fullstacksoftwareengineeriaiengineering",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-machine-learning-engineer-central-technology-arm-sweden-ab-s3byo7gy": {
+      "deadline": "",
+      "location": "Lund, Sweden",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ARM Sweden AB",
+      "title": "Graduate Machine Learning Engineer - Central Technology",
+      "url": "https://europa.eu/eures/portal/jv-se/jv-details/NjM3MjkyMiAxMjE?lang=en",
+      "fuzzy": "armswedenab::machinelearningengineercentraltechnology",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-ml-software-engineer-arm-sweden-ab-r5hndoph": {
+      "deadline": "",
+      "location": "Lund, Sweden",
+      "region": "eu",
+      "families": [
+        "ml",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ARM Sweden AB",
+      "title": "Graduate ML Software Engineer",
+      "url": "https://europa.eu/eures/portal/jv-se/jv-details/NjM3Mjg2NyAxMjE?lang=en",
+      "fuzzy": "armswedenab::mlsoftwareengineer",
+      "first_reported": "2026-11-04",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-trading-tech-c-c-python-amsterdam-quant-society-p3cdsrii": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Amsterdam Quant Society",
+      "title": "Graduate Software Engineer, Trading Tech (C#/C++/Python)",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__579502478__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "amsterdamquantsociety::softwareengineertradingtech",
+      "first_reported": "2026-11-04",
+      "status": "reported"
     }
   }
 }
