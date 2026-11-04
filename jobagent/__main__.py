@@ -345,7 +345,7 @@ def cmd_reset(args) -> int:
     store.data["jobs"] = keep
     store.save()
     print(f"Done. Archived to {arch.relative_to(ROOT)}/ (run files: {local.relative_to(ROOT)}/).\n"
-          "Next: run `jobs` to watch a full run from scratch.")
+          "Next: `findjobs` on the Mac (watch it run), or send /run to the Telegram bot.")
     return 0
 
 
