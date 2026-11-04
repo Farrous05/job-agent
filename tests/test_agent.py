@@ -462,6 +462,35 @@ class NotifyTests(unittest.TestCase):
         self.assertEqual(prio, "high")
         self.assertEqual(notify.run_summary(None, [], [])[1], "Nothing new today.")
 
+    def test_send_posts_to_ntfy(self):
+        from jobagent import notify
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "config").mkdir()
+            notify.setup(Path(d))
+            class Resp:
+                status = 200
+                def __enter__(self): return self
+                def __exit__(self, *a): return False
+            with mock.patch.object(notify.urllib.request, "urlopen", return_value=Resp()) as u:
+                self.assertEqual(notify.send(Path(d), "Title", "Body é"), "sent")
+            req = u.call_args[0][0]
+            self.assertTrue(req.full_url.startswith("https://ntfy.sh/jobagent-"))
+            self.assertEqual(req.data, "Body é".encode())
+
+    def test_send_retries_rate_limit(self):
+        from jobagent import notify
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "config").mkdir()
+            notify.setup(Path(d))
+            err = notify.urllib.error.HTTPError("u", 429, "Too Many", {}, None)
+            class Resp:
+                status = 200
+                def __enter__(self): return self
+                def __exit__(self, *a): return False
+            with mock.patch.object(notify.urllib.request, "urlopen", side_effect=[err, Resp()]), \
+                 mock.patch.object(notify.time, "sleep"):
+                self.assertEqual(notify.send(Path(d), "T", "m"), "sent")
+
     def test_no_topic(self):
         from jobagent import notify
         with tempfile.TemporaryDirectory() as d:

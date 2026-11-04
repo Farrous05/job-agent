@@ -4,6 +4,8 @@ knows it can read your messages, so it's a long random name."""
 from __future__ import annotations
 
 import secrets
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -38,8 +40,6 @@ def send(root: Path, title: str, message: str, click: str = "", priority: str = 
     req.add_header("Priority", priority)
     if click:
         req.add_header("Click", click)
-    import time
-    import urllib.error
     for attempt in range(3):
         try:
             with urllib.request.urlopen(req, timeout=20) as r:
