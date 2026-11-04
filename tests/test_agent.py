@@ -316,6 +316,17 @@ class PipelineTests(unittest.TestCase):
         # cached: a second batches call has nothing left to score
         self.assertEqual(pipeline.make_batches(self.rd, pipeline.load_cache(self.data), 12), [])
 
+    def test_shortlist_merges_duplicates(self):
+        c = pipeline.load_candidates(self.rd)
+        for x in c[:3]:                                   # same company + title in 3 places
+            x["company"], x["title"] = "Mako", "Graduate Software Engineer"
+        (self.rd / "candidates.json").write_text(json.dumps({"candidates": c, "excluded_counts": {}}))
+        self._score_all()
+        pipeline.merge_scores(self.rd, self.data, CFG, self.store, self.short)
+        rows = report.parse_shortlist(next(self.short.glob("*.md")))
+        self.assertEqual(sum(1 for r in rows if r["company"] == "Mako"), 1)
+        self.assertEqual(len(rows), 15)                   # still fills 15 distinct roles
+
     def test_bad_score_lines_reported(self):
         (self.rd / "scores").mkdir(exist_ok=True)
         (self.rd / "scores" / "x.jsonl").write_text('{"id": "t:0", "fit": 9}\nnot json\n{"id": "t:1", "fit": 4}')
@@ -334,6 +345,13 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("location not stated: check", c["NoLoc"]["flags"])
         again = pipeline.import_jobs(items, CFG, self.store, set(), self.rd)
         self.assertEqual(again["added"], 0)
+
+    def test_recall_prefers_kept_copy(self):
+        with (self.rd / "all.jsonl").open("a") as fh:
+            fh.write(json.dumps({"id": "x:syd", "company": "Co7", "title": "Graduate ML Engineer", "location": "Sydney",
+                                 "url": "", "source": "t", "kept": False, "reason": "location outside UK/EU"}) + "\n")
+        res = pipeline.recall(self.rd, [{"company": "Co7", "title": "Graduate ML Engineer"}])
+        self.assertEqual(len(res["found"]), 1)
 
     def test_recall(self):
         self._score_all()

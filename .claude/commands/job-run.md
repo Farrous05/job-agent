@@ -38,7 +38,10 @@ filters, drops roles I've already been shown, and writes ALL remaining roles to
    `data/runs/<today>/scores/batch-NNN.jsonl` with `fit` 1–5, a concrete one-line `reason`, `deadline`,
    `start`, `concerns`. Read `cv/cv.tex` and `config/profile.toml` once first.
    To go faster, use the Task tool to score up to 4 batches in parallel (give each subagent the batch path,
-   `cv/cv.tex` and `config/profile.toml`, and the instruction to write only the JSONL file).
+   `cv/cv.tex` and `config/profile.toml`, and the instruction to write only the JSONL file). Tell each
+   subagent: read each role's WHOLE excerpt (up to 2,000 characters), not just the first lines; read the batch
+   file in full (use several Read calls with offsets if needed); never score from the title alone when an
+   excerpt exists.
    How to judge: my CV and target roles first; then level (graduate/junior, no 3+ years), start date vs
    my graduation (Sept 2027) and student-visa limits on internships; language of the job; city size;
    company quality. Roles I marked "not_interested" in `seen_jobs.json` show what I don't want: score similar

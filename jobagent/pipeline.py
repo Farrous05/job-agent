@@ -270,7 +270,21 @@ def merge_scores(rd: Path, data: Path, cfg: dict, store: SeenStore, shortlist_di
                                                 indent=1, ensure_ascii=False) + "\n")
     min_fit = cfg.get("scoring", {}).get("min_fit_shortlist", 3)
     size = cfg["output"]["shortlist_size"]
-    top = [m for m in matches if m["fit"] >= min_fit][:size]
+    # one row per role: the same company + title posted in several places is merged (locations joined)
+    top, by_key = [], {}
+    for m in matches:
+        if m["fit"] < min_fit:
+            continue
+        k = fuzzy_key(m["company"], m["title"])
+        if k in by_key:
+            first = by_key[k]
+            if m["location"] and m["location"] not in first["location"]:
+                first["location"] = f"{first['location']} / {m['location']}"
+            first.setdefault("dupes", []).append(m)
+            continue
+        if len(top) < size:
+            by_key[k] = m
+            top.append(m)
     rows = []
     for m in top:
         why = f"{m['fit']}/5: {m['llm_reason']}" + (" (new)" if m.get("new_company") else "")
@@ -286,7 +300,7 @@ def merge_scores(rd: Path, data: Path, cfg: dict, store: SeenStore, shortlist_di
     if unscored:
         notes.append(f"{len(unscored)} roles not scored yet (run `python3 -m jobagent batches` again).")
     report.write_shortlist(out, f"{name} (scored)", rows, notes)
-    for m in top:
+    for m in [x for t in top for x in [t] + t.get("dupes", [])]:
         store.add(m["source_id"], m["company"], m["title"], m["url"], run=name,
                   extra={"deadline": m["deadline"], "location": m["location"], "region": m["region"],
                          "families": m.get("families", []), "source": m["source"], "fit": m["fit"]})
@@ -323,8 +337,12 @@ def recall(rd: Path, benchmark: list[dict]) -> dict:
                 continue
             rt = _title_tokens(r["title"])
             overlap = len(bt & rt) / max(1, min(len(bt), len(rt)))
-            if overlap >= 0.6 and (best is None or overlap > best[0] or (r["kept"] and not best[1]["kept"])):
-                best = (overlap, r)
+            # prefer a copy we kept (or showed earlier) over a same-title copy filtered out elsewhere,
+            # e.g. one firm posting the same role in Amsterdam and Sydney
+            good = r["kept"] or r["reason"].startswith("already shown")
+            rank = (overlap >= 0.6, good, overlap)
+            if overlap >= 0.6 and (best is None or rank > best[2]):
+                best = (overlap, r, rank)
         item = {**b}
         if best is None:
             res["missing"].append(item)
