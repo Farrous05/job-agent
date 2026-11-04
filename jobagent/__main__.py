@@ -304,14 +304,15 @@ def cmd_reset(args) -> int:
     arch = ROOT / "archive" / stamp
     store = SeenStore(ROOT / "seen_jobs.json")
     keep_st = set(SeenStore.APPLIED) | {"interested"}
-    keep = {k: v for k, v in store.data["jobs"].items() if v.get("status") in keep_st}
+    keep = {} if args.all else {k: v for k, v in store.data["jobs"].items() if v.get("status") in keep_st}
     shortlists = sorted((ROOT / "shortlist").glob("*.md"))
     runs = sorted((ROOT / "data" / "runs").glob("*")) if (ROOT / "data" / "runs").exists() else []
     cache = ROOT / "data" / "score_cache.json"
     print(f"This will archive to {arch.relative_to(ROOT)}/:\n"
           f"  {len(shortlists)} shortlist files, {len(store.data['jobs'])} seen jobs, {len(runs)} run folders"
           + ("" if args.keep_scores else ", the score cache") + "\n"
-          f"and keep {len(keep)} jobs you've marked (applied/interviewing/offer/rejected/interested).\n"
+          + ("and FORGET your marks too (--all; they stay in the archive).\n" if args.all else
+             f"and keep {len(keep)} jobs you've marked (applied/interviewing/offer/rejected/interested).\n") +
           "Your CV, tailored CVs, applications and settings are not touched.")
     if not args.yes and input("Go ahead? [y/N] ").strip().lower() != "y":
         print("Nothing changed.")
@@ -422,6 +423,7 @@ def main(argv=None) -> int:
     rs = sub.add_parser("reset", help="start fresh: archive shortlists, seen jobs and scores (keeps your marked jobs)")
     rs.add_argument("--yes", action="store_true", help="don't ask for confirmation")
     rs.add_argument("--keep-scores", action="store_true", help="keep Claude's cached scores (faster rerun)")
+    rs.add_argument("--all", action="store_true", help="also forget the jobs you've marked (they stay in the archive)")
     ns = sub.add_parser("notify-setup", help="phone notifications: --telegram (recommended) or ntfy")
     ns.add_argument("--telegram", action="store_true")
     ns.add_argument("--token", help="Telegram bot token (otherwise you're asked for it)")
