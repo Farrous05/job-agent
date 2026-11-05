@@ -215,6 +215,14 @@
   "first_role": "Machine Learning Engineer",
   "token": "cartrawler"
  },
+ "lever:dnb": {
+  "added": "2026-11-05",
+  "ats": "lever",
+  "company": "dun bradstreet",
+  "fails": 0,
+  "first_role": "AI Engineer (R-20123)",
+  "token": "dnb"
+ },
  "lever:pigment": {
   "added": "2026-11-04",
   "ats": "lever",
@@ -287,6 +295,14 @@
   "first_role": "Graduate Software Developer",
   "token": "cityscience"
  },
+ "recruitee:helloprint": {
+  "added": "2026-11-05",
+  "ats": "recruitee",
+  "company": "helloprint",
+  "fails": 0,
+  "first_role": "AI Engineer l Young Talent Program",
+  "token": "helloprint"
+ },
  "recruitee:machinelearningreply": {
   "added": "2026-11-04",
   "ats": "recruitee",
@@ -302,6 +318,14 @@
   "fails": 0,
   "first_role": "Junior Data Scientist",
   "token": "veneficusbv"
+ },
+ "recruitee:xebiacareers": {
+  "added": "2026-11-05",
+  "ats": "recruitee",
+  "company": "xebiacareers",
+  "fails": 0,
+  "first_role": "AI Engineer - Cross skilling program",
+  "token": "xebiacareers"
  },
  "smartrecruiters:360work": {
   "added": "2026-11-04",
