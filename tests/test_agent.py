@@ -813,3 +813,22 @@ class AllMatchesPageTests(unittest.TestCase):
         for want in ('data-fam="mlai"', 'data-countries="France"', 'data-region="eu"', 'data-appco="1"',
                      'data-hub="1"', "EU: no visa needed", "+1 more", 'data-group="country"', "Clear filters"):
             self.assertIn(want, h)
+
+
+class LocalAccessTests(unittest.TestCase):
+    def test_mac_itself_needs_no_code_in_lan_mode(self):
+        import http.client
+        import threading
+        from jobagent import server
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "config").mkdir()
+            (root / "shortlist").mkdir()
+            srv = server.http.server.ThreadingHTTPServer(("127.0.0.1", 0), server.make_handler(root, "secret", None))
+            threading.Thread(target=srv.serve_forever, daemon=True).start()
+            try:
+                c = http.client.HTTPConnection("127.0.0.1", srv.server_address[1])
+                c.request("GET", "/applied")
+                self.assertEqual(c.getresponse().status, 200)
+            finally:
+                srv.shutdown()

@@ -94,8 +94,8 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
 
         def _authorised(self, qs: dict) -> tuple[bool, dict]:
             """Local-only mode needs no code. LAN mode: ?k=<code> once, then a cookie."""
-            if token is None:
-                return True, {}
+            if token is None or self.client_address[0] in ("127.0.0.1", "::1"):
+                return True, {}                     # this Mac itself never needs the code
             if qs.get("k", [""])[0] == token:
                 return True, {"Set-Cookie": f"jobagent={token}; Path=/; Max-Age=31536000; SameSite=Strict; HttpOnly"}
             cookie = self.headers.get("Cookie", "")
@@ -106,7 +106,7 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
             qs = urllib.parse.parse_qs(u.query)
             ok, extra = self._authorised(qs)
             if not ok:
-                return self._send(403, "This page needs your private link (with ?k=…). Ask the bot: /page", "text/plain")
+                return self._send(403, "This page needs your private link (with ?k=…). Ask the bot: /page", "text/plain; charset=utf-8")
             fs = sorted(shortlist_dir.glob("*.md"), key=report.shortlist_key)
             store = SeenStore(store_path)
             rem = tracker.reminders(store)
@@ -114,10 +114,10 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
             if path == "/file":
                 rel = qs.get("p", [""])[0]
                 if not any(rx.match(rel) for rx in ALLOWED) or ".." in rel:
-                    return self._send(404, "Not found", "text/plain")
+                    return self._send(404, "Not found", "text/plain; charset=utf-8")
                 f = root / rel
                 if not f.exists():
-                    return self._send(404, "Not found", "text/plain")
+                    return self._send(404, "Not found", "text/plain; charset=utf-8")
                 ctype = {".pdf": "application/pdf", ".png": "image/png"}.get(f.suffix, "text/plain; charset=utf-8")
                 return self._send(200, f.read_bytes(), ctype, extra)
             if path == "/cv":
@@ -145,7 +145,7 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                 jid = qs.get("id", [""])[0]
                 f = prep.find(root, jid)
                 if not f:
-                    return self._send(404, "No interview prep for that job yet.", "text/plain")
+                    return self._send(404, "No interview prep for that job yet.", "text/plain; charset=utf-8")
                 return self._send(200, report.md_html(f.read_text(errors="replace"), "Interview prep"), headers=extra)
             if path == "/stats":
                 return self._send(200, report.stats_html(tracker.stats(store)), headers=extra)
@@ -164,7 +164,7 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
             u = urllib.parse.urlparse(self.path)
             ok, _ = self._authorised(urllib.parse.parse_qs(u.query))
             if not ok:
-                return self._send(403, "Forbidden", "text/plain")
+                return self._send(403, "Forbidden", "text/plain; charset=utf-8")
             if u.path in ("/api/cv/accept", "/api/cv/reject", "/api/cv/build"):
                 fn = {"/api/cv/accept": cvtools.accept, "/api/cv/reject": cvtools.reject,
                       "/api/cv/build": cvtools.build_pdfs}[u.path]
@@ -176,10 +176,10 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                     prep.enqueue(root, str(body["id"]), str(body.get("company", ""))[:200],
                                  str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000])
                 except (KeyError, ValueError, json.JSONDecodeError):
-                    return self._send(400, "Bad request", "text/plain")
+                    return self._send(400, "Bad request", "text/plain; charset=utf-8")
                 return self._send(200, '{"ok": true}', "application/json")
             if u.path != "/api/status":
-                return self._send(404, "Not found", "text/plain")
+                return self._send(404, "Not found", "text/plain; charset=utf-8")
             try:
                 n = int(self.headers.get("Content-Length", "0"))
                 body = json.loads(self.rfile.read(min(n, 10_000)) or b"{}")
@@ -198,7 +198,7 @@ def make_handler(root: Path, token: str | None, saver: _Saver | None):
                         prep.enqueue(root, str(body["id"]), str(body.get("company", ""))[:200],
                                      str(body.get("title", ""))[:300], str(body.get("url", ""))[:1000])
             except (KeyError, ValueError, json.JSONDecodeError):
-                return self._send(400, "Bad request", "text/plain")
+                return self._send(400, "Bad request", "text/plain; charset=utf-8")
             if saver:
                 saver.touch()
             self._send(200, '{"ok": true}', "application/json")
