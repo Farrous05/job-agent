@@ -35,8 +35,8 @@ tasks or monitors.
 $prompt" \
       --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "Bash(ls:*)" "Bash(cat:*)" "Bash(head:*)" \
         "Bash(wc:*)" "Bash(mkdir:*)" "WebSearch" "WebFetch" "Read" "Glob" "Grep" "Task" "Agent" \
-        "Edit(shortlist/**)" "Edit(data/**)" \
-      --permission-mode acceptEdits || echo "!!! claude exited with code $?"
+        "Edit(shortlist/**)" "Edit(data/**)" "Write(data/**)" \
+      --model sonnet --permission-mode acceptEdits || echo "!!! claude exited with code $?"
     fi
   else
     python3 -m jobagent run || echo "!!! jobagent run exited with code $?"

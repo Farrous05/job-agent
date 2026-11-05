@@ -171,6 +171,15 @@ def cmd_batches(args) -> int:
     rd = _rd(args)
     size = args.size or cfg.get("scoring", {}).get("batch_size", 25)
     cache = {} if args.rescore else pipeline.load_cache(ROOT / "data")
+    if not args.rescore:
+        # resume: scores already written in this run (e.g. a run stopped by the usage limit) count as done
+        done, _ = pipeline.read_scores(rd)
+        cands_ids = {c["source_id"] for c in pipeline.load_candidates(rd)}
+        done = {k: v for k, v in done.items() if k in cands_ids}
+        if done:
+            cache.update(done)
+            pipeline.save_cache(ROOT / "data", cache)
+            print(f"Resuming: {len(done)} roles already scored in this run were kept.")
     cands = pipeline.load_candidates(rd)
     files = pipeline.make_batches(rd, cache, size)
     todo = sum(1 for c in cands if c["source_id"] not in cache)
