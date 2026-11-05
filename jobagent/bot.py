@@ -372,7 +372,7 @@ class Bot:
                           "(about 10 min).")
 
     def run_search(self) -> None:
-        env = {**os.environ, "JOBAGENT_MODE": "claude"}
+        env = {**os.environ, "JOBAGENT_MODE": "claude", "JOBAGENT_TRIGGER": "Telegram /run"}
         subprocess.run(["bash", "scripts/run_scheduled.sh"], cwd=self.root, env=env, timeout=7200)
         # run_scheduled.sh sends the summary itself when it's done
 

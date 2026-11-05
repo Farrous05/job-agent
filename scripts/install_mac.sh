@@ -42,6 +42,7 @@ $args  </array>
   <dict>
     <key>PATH</key><string>$PATH_LINE</string>
     <key>JOBAGENT_MODE</key><string>claude</string>
+    <key>JOBAGENT_TRIGGER</key><string>$label</string>
   </dict>
   <key>StandardOutPath</key><string>$REPO/data/logs/$label.log</string>
   <key>StandardErrorPath</key><string>$REPO/data/logs/$label.log</string>
