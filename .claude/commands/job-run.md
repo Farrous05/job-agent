@@ -9,12 +9,16 @@ My CV is `cv/cv.tex`. Arguments: $ARGUMENTS (each "skip-…" skips that step).
 Do ALL steps in one go, in order, without stopping to ask me (ask only if something blocks you). Roles added
 late (LinkedIn, recall) just need one more `batches` → score → `merge-scores` pass: do it, it's cheap
 because existing scores are cached.
+**Run every command in the foreground and wait for it to finish.** Never start commands in the background
+and never use Monitor or "wait for" tasks: when you run unattended, background work is killed after your turn.
 
 Everything goes through ONE pipeline in `data/runs/<today>/` so nothing is judged twice or missed:
 fetch → import extra finds → Claude scores every role → merge into shortlist + All matches.
 
 ## 1. Fetch (2–3 min)
-Run `python3 -m jobagent run --dry-run`. It fetches all company boards + freehire (+ Reed), applies my
+If the arguments include `already-fetched`, the fetch has just run: don't run it again; read the numbers
+from `data/source_status.json` and `data/runs/<today>/candidates.json` and go to step 2.
+Otherwise run `python3 -m jobagent run --dry-run` (foreground; it takes 2–3 minutes). It fetches all company boards + freehire (+ Reed), applies my
 filters, drops roles I've already been shown, and writes ALL remaining roles to
 `data/runs/<today>/candidates.json`. Tell me in one line: jobs fetched, roles kept, failed sources.
 

@@ -22,12 +22,22 @@ log="data/logs/$(date +%F).log"
   if [ "${JOBAGENT_MODE:-script}" = "claude" ]; then
     # strip the --- front matter (awk: works the same on macOS and Linux)
     prompt="$(awk 'n>=2 {print; next} /^---$/ {n++}' .claude/commands/job-run.md)"
-    claude -p "Arguments: skip-outreach skip-cv skip-linkedin
+    # fetch here first (Claude in -p mode loses background work), then Claude does the rest
+    echo "--- fetch"
+    if ! python3 -m jobagent run --dry-run; then
+      echo "!!! fetch failed"
+    else
+    echo "--- claude"
+    export CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=0     # if it does start background work, wait for it
+    claude -p "Arguments: already-fetched skip-outreach skip-cv skip-linkedin
+You are running unattended: run every command in the foreground and wait for it; never use background
+tasks or monitors.
 $prompt" \
       --allowedTools "Bash(python3 -m jobagent:*)" "Bash(date:*)" "Bash(ls:*)" "Bash(cat:*)" "Bash(head:*)" \
         "Bash(wc:*)" "Bash(mkdir:*)" "WebSearch" "WebFetch" "Read" "Glob" "Grep" "Task" "Agent" \
         "Edit(shortlist/**)" "Edit(data/**)" \
       --permission-mode acceptEdits || echo "!!! claude exited with code $?"
+    fi
   else
     python3 -m jobagent run || echo "!!! jobagent run exited with code $?"
   fi

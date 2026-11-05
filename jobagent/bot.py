@@ -320,7 +320,9 @@ class Bot:
         threading.Thread(target=wrap, daemon=True).start()
 
     def _claude(self, prompt: str, tools: list[str], timeout: int) -> str:
-        env = {**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:/Library/TeX/texbin:" + os.environ.get("PATH", "")}
+        env = {**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:/Library/TeX/texbin:" + os.environ.get("PATH", ""),
+               "CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS": "0"}
+        prompt += "\n\nRun every command in the foreground and wait for it; never use background tasks or monitors."
         r = subprocess.run(["claude", "-p", prompt, "--allowedTools", *tools, "--permission-mode", "acceptEdits"],
                            cwd=self.root, capture_output=True, text=True, timeout=timeout, env=env)
         return (r.stdout or r.stderr or "").strip()
