@@ -133,6 +133,15 @@ Add a `findjobs` command to your Terminal (not `jobs`: that name is taken by zsh
 echo 'alias findjobs="~/code/job-agent/scripts/go.sh"' >> ~/.zshrc && source ~/.zshrc
 ```
 
+**The only command to remember: `findjobs`** (`findjobs help` lists the rest)
+| Type | It does |
+|---|---|
+| `findjobs page` | opens the job page: all jobs with filters, your applications, CV (or bookmark http://127.0.0.1:8765) |
+| `findjobs auto` | full search by itself, no questions (same as the daily run); summary on Telegram |
+| `findjobs` | full search with Claude on screen, then opens the job page |
+| `findjobs log` | follow today's run |
+| `findjobs apply <company>` / `findjobs prep <company>` | cover letter + answers / interview prep pack |
+
 ## 1. Get new jobs: type `findjobs`
 That's it. It:
 1. gets the latest version of the agent,
