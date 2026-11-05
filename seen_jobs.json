@@ -1,3 +1,249 @@
 {
-  "jobs": {}
+  "jobs": {
+    "gh:databricks:6866549002": {
+      "deadline": "",
+      "location": "Amsterdam, Netherlands",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - Amsterdam",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002",
+      "fuzzy": "databricks::softwareengineeramsterdam",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "gh:databricks:6886281002": {
+      "deadline": "",
+      "location": "Berlin, Germany",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - Berlin",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=6886281002",
+      "fuzzy": "databricks::softwareengineerberlin",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "fh:graduate-applied-ai-engineer-resonance-4zaycxpl": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Resonance",
+      "title": "Graduate Applied AI Engineer",
+      "url": "https://www.arbeitnow.com/jobs/companies/resonance/graduate-applied-ai-engineer-berlin-107801",
+      "fuzzy": "resonance::appliedaiengineer",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "ab:pinely:d824f4e7-4477-4332-84ab-fba2d619d343": {
+      "deadline": "",
+      "location": "Amsterdam",
+      "region": "eu",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "pinely",
+      "title": "Junior Deep Learning Researcher",
+      "url": "https://jobs.ashbyhq.com/pinely/d824f4e7-4477-4332-84ab-fba2d619d343",
+      "fuzzy": "pinely::juniordeeplearningresearcher",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "gh:databricks:8133691002": {
+      "deadline": "",
+      "location": "Aarhus, Denmark",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - Aarhus",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8133691002",
+      "fuzzy": "databricks::softwareengineeraarhus",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "gh:wehrtyou:8052050": {
+      "deadline": "",
+      "location": "London, United Kingdom; New York, NY, United States; Singapore",
+      "region": "uk",
+      "families": [
+        "quant",
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Hudson River Trading",
+      "title": "Algorithm Developer (Quant Research & Trading) – 2027 Grads",
+      "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8052050",
+      "fuzzy": "hudsonriver::algorithmdeveloper",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "gh:jumptrading:8050796": {
+      "deadline": "",
+      "location": "London; Amsterdam",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Jump Trading",
+      "title": "Campus Quantitative Researcher (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=8050796",
+      "fuzzy": "jump::campusquantitativeresearcher",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-h-f-h-f-groupe-vyv-xhm3gn44": {
+      "deadline": "",
+      "location": "PARIS",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "GROUPE VYV",
+      "title": "Data Scientist Junior H/F (H/F)",
+      "url": "https://candidat.francetravail.fr/offres/recherche/detail/215PRDY",
+      "fuzzy": "groupevyv::datascientistjuniorhf",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-ai-vision-computer-vision-vanderlande-industries-ql37w5zs": {
+      "deadline": "",
+      "location": "Barcelona, Spain",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Vanderlande Industries",
+      "title": "Junior Software Engineer – AI Vision / Computer Vision",
+      "url": "https://vanderlande.wd3.myworkdayjobs.com/careers/job/Barcelona-Spain/Junior-Software-Engineer---AI-Vision---Computer-Vision_JR37540-2",
+      "fuzzy": "vanderlandeindustries::juniorsoftwareengineeraivisioncomputervision",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "js:8600948002": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "janestreet",
+      "fit": 4,
+      "company": "Jane Street",
+      "title": "Quantitative Researcher (New Grad)",
+      "url": "https://www.janestreet.com/join-jane-street/position/8600948002/",
+      "fuzzy": "janestreet::quantitativeresearcher",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "lv:palantir:2aa14e4f-d406-486e-9aa8-6ff3358d70a0": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Palantir",
+      "title": "Forward Deployed Software Engineer, New Grad - Commercial",
+      "url": "https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0",
+      "fuzzy": "palantir::forwarddeployedsoftwareengineercommercial",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "fh:graduate-software-developer-squarepoint-capital-dbj4yppa": {
+      "deadline": "",
+      "location": "London, Montreal, Singapore, Warsaw",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Squarepoint Capital",
+      "title": "Graduate Software Developer",
+      "url": "https://www.squarepoint-capital.com/open-opportunities?id=6040910&gh_jid=6040910",
+      "fuzzy": "squarepoint::softwaredeveloper",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "rc:helloprint:2814700": {
+      "deadline": "",
+      "location": "Rotterdam, Zuid-Holland, Netherlands",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "recruitee",
+      "fit": 4,
+      "company": "Helloprint",
+      "title": "Junior or Medior AI Engineer",
+      "url": "https://helloprint.recruitee.com/o/junior-or-medior-ai-engineer",
+      "fuzzy": "helloprint::juniorormedioraiengineer",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "fh:graduate-ml-software-engineer-arm-gud4lvrn": {
+      "deadline": "2026-11-22",
+      "location": "Galway, Ireland",
+      "region": "eu",
+      "families": [
+        "ml",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ARM",
+      "title": "Graduate ML Software Engineer",
+      "url": "https://careers.arm.com/job/galway/graduate-ml-software-engineer/33099/102806620832",
+      "fuzzy": "arm::mlsoftwareengineer",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-data-ia-f-h-cdd-6-mois-natixis-apd2im6m": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Natixis",
+      "title": "Data Scientist junior - Data & IA (F/H) - CDD 6 mois",
+      "url": "https://www.aplitrak.com/?adid=ZnJhLjkwODQ0LjkzODBAbmF0aXhpcy5hcGxpdHJhay5jb20",
+      "fuzzy": "natixis::datascientistjuniordataiacdd6mois",
+      "first_reported": "2026-11-05",
+      "status": "reported"
+    }
+  }
 }
