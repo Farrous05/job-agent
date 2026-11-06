@@ -96,7 +96,15 @@
       "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8052050",
       "fuzzy": "hudsonriver::algorithmdeveloper",
       "first_reported": "2026-11-05",
-      "status": "reported"
+      "status": "applied",
+      "history": [
+        [
+          "2026-11-06",
+          "applied"
+        ]
+      ],
+      "status_date": "2026-11-06",
+      "applied_date": "2026-11-06"
     },
     "gh:jumptrading:8050796": {
       "deadline": "",
