@@ -15,6 +15,14 @@
   "first_role": "Junior Data Scientist",
   "token": "almedia"
  },
+ "ashby:alta-ares": {
+  "added": "2026-11-06",
+  "ats": "ashby",
+  "company": "Alta Ares",
+  "fails": 0,
+  "first_role": "ML Engineer - Internship",
+  "token": "alta-ares"
+ },
  "ashby:edited": {
   "added": "2026-11-04",
   "ats": "ashby",
@@ -231,6 +239,22 @@
   "first_role": "Data Scientist Internship",
   "token": "pigment"
  },
+ "lever:raidium": {
+  "added": "2026-11-06",
+  "ats": "lever",
+  "company": "Raidium",
+  "fails": 0,
+  "first_role": "Machine Learning Research Intern - Foundation Models for Radiology",
+  "token": "raidium"
+ },
+ "lever:safran-ai": {
+  "added": "2026-11-06",
+  "ats": "lever",
+  "company": "Safran.AI (ex-Preligens)",
+  "fails": 0,
+  "first_role": "Stage - Deep Learning Scientist (H/F)",
+  "token": "safran-ai"
+ },
  "lever:sonarsource": {
   "added": "2026-11-04",
   "ats": "lever",
@@ -398,6 +422,14 @@
   "fails": 0,
   "first_role": "Stage FE - Data Scientist / Analytics Engineer (H-F)",
   "token": "Labelium"
+ },
+ "smartrecruiters:rexel1": {
+  "added": "2026-11-06",
+  "ats": "smartrecruiters",
+  "company": "Rexel France",
+  "fails": 0,
+  "first_role": "Stage - Data Scientist (H/F)",
+  "token": "REXEL1"
  },
  "smartrecruiters:sapitbusinesssysteme": {
   "added": "2026-11-04",
