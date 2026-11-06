@@ -170,7 +170,15 @@
       "url": "https://www.janestreet.com/join-jane-street/position/8600948002/",
       "fuzzy": "janestreet::quantitativeresearcher",
       "first_reported": "2026-11-05",
-      "status": "reported"
+      "status": "applied",
+      "history": [
+        [
+          "2026-11-06",
+          "applied"
+        ]
+      ],
+      "status_date": "2026-11-06",
+      "applied_date": "2026-11-06"
     },
     "lv:palantir:2aa14e4f-d406-486e-9aa8-6ff3358d70a0": {
       "deadline": "",
