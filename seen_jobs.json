@@ -260,6 +260,280 @@
       "fuzzy": "natixis::datascientistjuniordataiacdd6mois",
       "first_reported": "2026-11-05",
       "status": "reported"
+    },
+    "web:89c01bc0f3:reply": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "web",
+      "fit": 4,
+      "company": "Reply",
+      "title": "Graduate AI & Machine Learning Engineer",
+      "url": "https://www.efinancialcareers.com/jobs-United_Kingdom-London-Graduate_AI__Machine_Learning_Engineer.id24852615",
+      "fuzzy": "reply::aimachinelearningengineer",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "ab:edited:0c669cd9-57fb-4021-bb86-628b04ab4da7": {
+      "deadline": "",
+      "location": "London Office",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "EDITED",
+      "title": "Junior Data Scientist",
+      "url": "https://jobs.ashbyhq.com/edited/0c669cd9-57fb-4021-bb86-628b04ab4da7",
+      "fuzzy": "edited::juniordatascientist",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:graduate-quant-developer-squarepoint-capital-pqnelumx": {
+      "deadline": "",
+      "location": "London, Montreal, Singapore",
+      "region": "uk",
+      "families": [
+        "quant",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Squarepoint Capital",
+      "title": "Graduate Quant Developer",
+      "url": "https://www.squarepoint-capital.com/open-opportunities?id=7918610&gh_jid=7918610",
+      "fuzzy": "squarepoint::quantdeveloper",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "ab:almedia:5c6dcc91-e246-4fb3-89d0-6b90a80d8740": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Almedia",
+      "title": "Junior Data Scientist",
+      "url": "https://jobs.ashbyhq.com/almedia/5c6dcc91-e246-4fb3-89d0-6b90a80d8740",
+      "fuzzy": "almedia::juniordatascientist",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-squad-intelligence-spinergie-4arql5ca": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Spinergie",
+      "title": "Data Scientist Junior - Squad Intelligence",
+      "url": "https://www.welcometothejungle.com/en/companies/spinergie/jobs/data-scientist-junior-squad-intelligence_paris",
+      "fuzzy": "spinergie::datascientistjuniorsquadintelligence",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-h-f-gamme-solutions-mbv43fpq": {
+      "deadline": "",
+      "location": "Lyon, Auvergne-Rhône-Alpes",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Gamme solutions",
+      "title": "Data Scientist Junior (H/F)",
+      "url": "https://www.free-work.com/fr/tech-it/job-mission/data-scientist/data-scientist-junior-h-f-8",
+      "fuzzy": "gammesolutions::datascientistjunior",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:2027-data-scientist-graduate-programme-insurance-consulting-london-reigate-in-london-energy-jobline-zr-mfqexels": {
+      "deadline": "",
+      "location": "London, GB",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Energy Jobline ZR",
+      "title": "2027 Data Scientist Graduate Programme - Insurance Consulting - London/Reigate in London",
+      "url": "https://www.energyjobline.com/job/2027-data-scientist-graduate-programme-insurance-consulting-london-reigate-london-31859293",
+      "fuzzy": "energyjoblinezr::datascientistinsuranceconsultingreigatein",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "js:8647260002": {
+      "deadline": "",
+      "location": "London, United Kingdom / London, England, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "janestreet",
+      "fit": 4,
+      "company": "Jane Street",
+      "title": "Software Engineer (New Grad)",
+      "url": "https://www.janestreet.com/join-jane-street/position/8647260002/",
+      "fuzzy": "janestreet::softwareengineer",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:software-engineer-jane-street-jkvdg5bp": {
+      "deadline": "",
+      "location": "London, England, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Jane Street",
+      "title": "Software Engineer",
+      "url": "https://www.janestreet.com/join-jane-street/apply/4274814002?gh_jid=4274814002",
+      "fuzzy": "janestreet::softwareengineer",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "gh:wehrtyou:8052122": {
+      "deadline": "",
+      "location": "Austin, TX, United States; Chicago, Illinois, United States; London, United Kingdom; New York, NY, United States; Singapore",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Hudson River Trading",
+      "title": "Software Engineer (C++ or Python) – 2027 Grads",
+      "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8052122",
+      "fuzzy": "hudsonriver::softwareengineer",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:data-scientist-junior-cas-d-usage-data-ia-f-h-cdd-6-mois-natixis-2hplrgt2": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Natixis",
+      "title": "Data Scientist junior - Cas d'usage Data & IA (F/H) CDD 6 mois",
+      "url": "https://www.aplitrak.com/?adid=ZnJhLjAxNTU4LjkzODBAbmF0aXhpcy5hcGxpdHJhay5jb20",
+      "fuzzy": "natixis::datascientistjuniorcasdusagedataiacdd6mois",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-ia-machine-learning-nlp-f-h-dassault-systemes-nqxxpq3u": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE - Ingénieur IA Machine Learning NLP (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-ingenieur-ia-machine-learning-nlp-f-h-550387",
+      "fuzzy": "dassaultsystmes::stageingnieuriamachinelearningnlp",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "tt:indefi:69c02bf7-c141-40ad-bf51-9d31d2abc740": {
+      "deadline": "",
+      "location": "Paris, France / Paris, FR",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "teamtailor",
+      "fit": 4,
+      "company": "Indefi",
+      "title": "Data Scientist Intern - Corporate Strategy - Paris F/H",
+      "url": "https://indefi.teamtailor.com/jobs/8650068-data-scientist-intern-corporate-strategy-paris-f-h",
+      "fuzzy": "indefi::datascientistinterncorporatestrategyparisfh",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:data-scientist-intern-corporate-strategy-paris-f-h-indefi-qznu5c2f": {
+      "deadline": "",
+      "location": "Paris, FR",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Indefi",
+      "title": "Data Scientist Intern - Corporate Strategy - Paris F/H",
+      "url": "https://indefi.teamtailor.com/jobs/8650068-data-scientist-intern-corporate-strategy-paris-f-h",
+      "fuzzy": "indefi::datascientistinterncorporatestrategyparisfh",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "ab:almedia:3835f505-4132-4db7-8288-43e1d1529b24": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Almedia",
+      "title": "Junior Software Engineer - Data",
+      "url": "https://jobs.ashbyhq.com/almedia/3835f505-4132-4db7-8288-43e1d1529b24",
+      "fuzzy": "almedia::juniorsoftwareengineerdata",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "gh:fanaticsfbg:4433935009": {
+      "deadline": "",
+      "location": "Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Fanatics Betting & Gaming",
+      "title": "Quantitative Analyst I",
+      "url": "https://job-boards.greenhouse.io/fanaticsfbg/jobs/4433935009",
+      "fuzzy": "fanaticsbettinggaming::quantitativeanalysti",
+      "first_reported": "2026-11-07",
+      "status": "reported"
+    },
+    "fh:junior-machine-learning-engineer-m-w-d-tegtmeier-internet-solutions-gmbh-sinnkontor-ineubhvh": {
+      "deadline": "",
+      "location": "Hamburg",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "SinnKontor",
+      "title": "Junior Machine Learning Engineer (m/w/d) - Tegtmeier Internet Solutions GmbH",
+      "url": "https://www.arbeitnow.com/jobs/companies/sinnkontor/junior-machine-learning-engineer-tegtmeier-internet-solutions-gmbh-hamburg-393966",
+      "fuzzy": "sinnkontor::juniormachinelearningengineertegtmeierinternetsolutionsgmbh",
+      "first_reported": "2026-11-07",
+      "status": "reported"
     }
   }
 }
