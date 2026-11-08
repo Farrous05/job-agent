@@ -534,6 +534,298 @@
       "fuzzy": "sinnkontor::juniormachinelearningengineertegtmeierinternetsolutionsgmbh",
       "first_reported": "2026-11-07",
       "status": "reported"
+    },
+    "fh:junior-data-scientist-m-f-d-search-ai-forge-data-scientist-check24-services-personal-gmbh-nb6zzkfk": {
+      "deadline": "",
+      "location": "München, Germany",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "CHECK24 Services Personal GmbH",
+      "title": "(Junior) Data Scientist (m/f/d) Search / AI Forge (Data Scientist)",
+      "url": "https://europa.eu/eures/portal/jv-se/jv-details/MjAyMDgtYmFlYTdiNDcwNGM1NGQyMWI3Yi1TIDE?lang=en",
+      "fuzzy": "check24servicespersonalgmbh::datascientistsearchaiforge",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-python-developer-axa-climate-3vanobde": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "AXA Climate",
+      "title": "Junior Python Developer",
+      "url": "https://fr.whatjobs.com/pub_api__cpl__162347722__7079?utm_campaign=publisher&utm_medium=api&geoID=4557",
+      "fuzzy": "axaclimate::juniorpythondeveloper",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-python-developer-h-f-axa-climate-2iwletpi": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "AXA Climate",
+      "title": "Junior Python Developer H/F",
+      "url": "https://fr.whatjobs.com/pub_api__cpl__162687208__7079?utm_campaign=publisher&utm_medium=api&geoID=4557",
+      "fuzzy": "axaclimate::juniorpythondeveloperhf",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-fullstack-engineer-ai-edtech-impact-medly-ai-f2gfl5y5": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Medly AI",
+      "title": "Junior Fullstack Engineer — AI EdTech Impact",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__582024249__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "medly::juniorfullstackengineeraiedtechimpact",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-python-sql-ai-london-cor7728-corriculo-ltd-r5wrm3js": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Corriculo Ltd",
+      "title": "Junior Software Engineer, Python, SQL, AI, London, COR7728",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__585015122__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "corriculo::juniorsoftwareengineerpythonsqlaicor7728",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-i-dsaas-marketcast-qb3x2xvi": {
+      "deadline": "",
+      "location": "READING, Reading, United Kingdom",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "MarketCast",
+      "title": "Junior Data Scientist I - DSaaS",
+      "url": "https://gusea1p01.rec.pro.ukg.net/mar1053mkcl/JobBoard/c806547d-78ef-4b93-bcae-4a4a835ab542/OpportunityDetail?opportunityId=bb016042-9ab5-43c1-8bc3-3b21237474e3",
+      "fuzzy": "marketcast::juniordatascientistidsaas",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:graduate-ml-engineer-deploy-scale-ai-pipelines-ambassador-of-africa-r7ktsyio": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Ambassador of Africa",
+      "title": "Graduate ML Engineer: Deploy & Scale AI Pipelines",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__581993145__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "ambassadorofafrica::mlengineerdeployscaleaipipelines",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-sia-hqagzqgk": {
+      "deadline": "",
+      "location": "Paris, IDF, fr / Paris, fr",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sia",
+      "title": "Junior Software Engineer",
+      "url": "https://jobs.smartrecruiters.com/Sia/744000158018397-junior-software-engineer",
+      "fuzzy": "sia::juniorsoftwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "sr:Sia:744000158018397": {
+      "deadline": "",
+      "location": "Paris, fr",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "smartrecruiters",
+      "fit": 3,
+      "company": "Sia",
+      "title": "Junior Software Engineer",
+      "url": "https://jobs.smartrecruiters.com/Sia/744000158018397",
+      "fuzzy": "sia::juniorsoftwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-python-backend-docker-ci-sia-partners-ikd6k3qz": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sia Partners",
+      "title": "Junior Software Engineer, Python Backend | Docker & CI",
+      "url": "https://fr.whatjobs.com/pub_api__cpl__144074552__7079?utm_campaign=publisher&utm_medium=api&geoID=4557",
+      "fuzzy": "siapartners::juniorsoftwareengineerpythonbackenddockerci",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "ab:abound:582538c4-9b6e-464f-932e-eb4a4337bc7b": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Abound",
+      "title": "Junior Software Engineer",
+      "url": "https://jobs.ashbyhq.com/Abound/582538c4-9b6e-464f-932e-eb4a4337bc7b",
+      "fuzzy": "abound::juniorsoftwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-london-mako-trading-gy2njvdd": {
+      "deadline": "",
+      "location": "London, United Kingdom / London, England, GBR",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mako Trading",
+      "title": "Graduate Software Engineer, London",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__594121937__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "mako::softwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-london-mako-az2qq4m5": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mako",
+      "title": "Graduate Software Engineer, London",
+      "url": "https://www.mako.com/opportunities/job-listing/8921970002?gh_jid=8921970002",
+      "fuzzy": "mako::softwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-london-mako-trading-zq3q5rkr": {
+      "deadline": "",
+      "location": "London, England, GBR",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mako Trading",
+      "title": "Graduate Software Engineer, London",
+      "url": "https://builtin.com/job/graduate-software-engineer-london/11942901",
+      "fuzzy": "mako::softwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-krm22-iu3pd3kw": {
+      "deadline": "",
+      "location": "Rohanské nábř. 693/10, Praha 8, Czech Republic",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "KRM22",
+      "title": "Junior Software Engineer",
+      "url": "https://krm22.bamboohr.com/careers/111",
+      "fuzzy": "krm22::juniorsoftwareengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-python-developer-albany-beck-az6yyzad": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Albany Beck",
+      "title": "Junior Python Developer",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__584289121__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "albanybeck::juniorpythondeveloper",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-betway-fdeu5bza": {
+      "deadline": "",
+      "location": "North London, UK, UK",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Betway",
+      "title": "Junior Data Scientist",
+      "url": "https://echojobs.io/job/betway-junior-data-scientist-60hld",
+      "fuzzy": "betway::juniordatascientist",
+      "first_reported": "2026-11-08",
+      "status": "reported"
+    },
+    "fh:graduate-ai-engineer-computershare-n2egyexr": {
+      "deadline": "",
+      "location": "Edinburgh, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Computershare",
+      "title": "Graduate AI Engineer",
+      "url": "https://fa-evdq-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/job/13281",
+      "fuzzy": "computershare::aiengineer",
+      "first_reported": "2026-11-08",
+      "status": "reported"
     }
   }
 }

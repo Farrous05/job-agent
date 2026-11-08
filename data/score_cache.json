@@ -10582,5 +10582,2029 @@
   "start": "",
   "concerns": "Level unclear (junior title vs. 'Data Engineer Senior / Architecte junior' in the mission text); data platform rather than ML; excerpt truncated before the requirements section, so the required experience is unknown; CDI full-time, hybrid, Ile-de-France (EU, no sponsorship needed).",
   "scored": "2026-11-07"
+ },
+ "fh:junior-data-scientist-m-f-d-search-ai-forge-data-scientist-check24-services-personal-gmbh-nb6zzkfk": {
+  "fit": 4,
+  "reason": "Search/ranking DS role with LLM, embeddings and PyTorch work; CV covers fine-tuning, LLM evaluation and PyTorch. Munich is a hub city.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Asks for at least 1 year hands-on ML experience and FastAPI/containers; CV has about 1.5 years of relevant work. Excerpt is cut off.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-engineer-react-native-damia-2yze5qeu": {
+  "fit": 2,
+  "reason": "Mainly React Native mobile app work; CV has no React Native (it has Next.js and TypeScript). AI features are a secondary part of the role.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Mobile-first stack not on CV; startup role. Lisbon is a major city tier.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-engineer-w-m-d-bei-flex-capital-krwhowak": {
+  "fit": 2,
+  "reason": "LLM, RAG and agentic work fits the CV, but the posting is in German and asks for C1-C2 German.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: requires German C1-C2, which I do not speak. Berlin is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-platform-engineer-abc-fitness-mnsfuu2i": {
+  "fit": 3,
+  "reason": "AI platform role (LLM gateways, retrieval, evals, SLOs) is adjacent to the CV, with more platform and ops work than ML modelling.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Level unclear; excerpt is cut off before requirements. Poland location only (no city stated).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-agentic-ai-software-engineer-m-w-d-anwendungsentwicklung-ingenieur-reply-deutschland-se-deo4fa7g": {
+  "fit": 2,
+  "reason": "Agentic AI and LLM orchestration match the CV well, but the posting is in German and leans to backend, cloud and client delivery.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in German; German requirement not visible in the excerpt. Munich is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-ai-driven-marketing-data-pipelines-cegedim-media-x26s5bd3": {
+  "fit": 3,
+  "reason": "Junior data engineering role using Python, Pandas and SQL, with interest in LLM/RAG. Adjacent to the ML focus, closer to data platform work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Adjacent data engineering rather than ML; French-language posting (French is fluent for me).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-amp-ai-engineer-axians-portugal-group-mzhara6d": {
+  "fit": 2,
+  "reason": "Software and AI agent work (LLM integration, dashboards, REST APIs) fits in part, but the posting is in Portuguese.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in Portuguese, which I do not speak. Lisbon is a major city tier.",
+  "scored": "2026-11-08"
+ },
+ "fh:machine-learning-researcher-neuphonic-6ffd6gbp": {
+  "fit": 1,
+  "reason": "Speech synthesis research role that explicitly asks for several years of experience and says it is not a graduate or entry-level role.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Senior level: several years of research experience required. London is a preferred city but level rules it out.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-forward-deployed-engineer-ai-experis-espana-tmecpg4g": {
+  "fit": 2,
+  "reason": "Client-facing generative AI and prompt engineering work; Python and OpenAI integration overlap with the CV, but the work is more consultancy-style than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires residency in Barcelona or surroundings and in-person office attendance; I live in London.",
+  "scored": "2026-11-08"
+ },
+ "fh:software-developer-junior-entry-level-backend-ai-exposure-tenvalleys-cpv5t2ed": {
+  "fit": 2,
+  "reason": "Junior backend role (REST APIs, SQL, Python or Java with Spring Boot) with some LLM API exposure; partly fits the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting asks for Polish. Mostly backend rather than ML.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-machine-learning-java-engineer-iaaras-fa-ocs-oraclecloud-com-cx-zadmqp5b": {
+  "fit": 2,
+  "reason": "ML models for claims checking in Python plus Java module work; ML side matches, but the role wants prior professional experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in German. Requires professional experience in ML development. Zurich is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-smadex-zb7ucpal": {
+  "fit": 3,
+  "reason": "Junior data engineering on ML data features in Python, SQL and Spark; adjacent to the CV, with a stack (Spark, Airflow, Redis) the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Asks 1-2 years of software or data engineering; Spark, Airflow and Redis are not on the CV. Barcelona is a major city tier.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-engineer-bip-5kf4mcmq": {
+  "fit": 2,
+  "reason": "Junior AI and ML engineering role (MLOps, Python, SQL) that fits the CV in part.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in Italian, which I do not speak. Bari is not a listed city tier.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-automation-engineer-ai-pipelines-academic-key-vhhxg532": {
+  "fit": 3,
+  "reason": "Data platform role building ingestion pipelines, dbt models and orchestration for internal teams; adjacent to the CV and at junior level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Adjacent data platform rather than ML; excerpt is short with no listed requirements. Paris is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ml-engineer-hybrid-data-model-building-amaris-group-sa-udguu36v": {
+  "fit": 2,
+  "reason": "Junior ML role (NLP, supervised and unsupervised models) that fits the CV in part; the description is mostly boilerplate.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: text is largely in Italian. Excerpt is mostly boilerplate, with few concrete requirements.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-cloud-ai-engineer-build-data-pipelines-datwave-r6kcgler": {
+  "fit": 2,
+  "reason": "Cloud data pipelines and AI architecture with Python, SQL and REST APIs; partly fits, with a Google Cloud and Terraform focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in Italian. Terraform and Google Cloud are not on the CV. Milan is a major city tier.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-axa-climate-3vanobde": {
+  "fit": 4,
+  "reason": "Junior Python role building data pipelines and scalable APIs for climate data; Python, AWS and Docker overlap with the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Mostly data engineering rather than ML; climate or geospatial background is a plus that the CV lacks. Paris is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-h-f-axa-climate-2iwletpi": {
+  "fit": 4,
+  "reason": "Same AXA Climate Altitude junior Python role as the other posting, with a fuller description; Python, AWS and Docker overlap with the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Same role posted twice; mostly data engineering rather than ML; climate background is a plus the CV lacks.",
+  "scored": "2026-11-08"
+ },
+ "fh:intern-junior-data-ai-engineer-taptap-peru-bgw3afpb": {
+  "fit": 2,
+  "reason": "Internship on data pipelines and RAG architectures, which fits the CV in part. Eligibility as a current student is fine.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Timing: 6-month internship with no start date stated; may clash with the MSc year to Sep 2027 and the summer-2027 exclusion. Madrid is a major city.",
+  "scored": "2026-11-08"
+ },
+ "fh:stelle-junior-ai-engineer-m-w-d-bei-high-tech-grunderfonds-management-gmbh-6z4kldpi": {
+  "fit": 2,
+  "reason": "Agentic AI, RAG, LangGraph and evals match the CV well, but the posting is in German and asks for at least 1 year of agentic software experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in German. Requires at least 1 year of agentic software experience. Bonn, Berlin or Munich locations.",
+  "scored": "2026-11-08"
+ },
+ "fh:stelle-junior-ai-engineer-m-w-d-informatiker-in-high-tech-grunderfonds-management-gmbh-pzepk5sp": {
+  "fit": 2,
+  "reason": "Same HTGF junior AI engineer role as the other posting, with agentic AI and RAG work that matches the CV well.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Language: posting is in German. Same role posted twice. Requires at least 1 year of agentic software experience.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-engineer-generative-ai-data-modeling-generali-italia-spa-7sotqo22": {
+  "fit": 3,
+  "reason": "Junior AI role on PoCs, data preparation and PyTorch models in a data management function; relevant to the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italy only, no city; posting mixes Italian and English; reads like an aggregator ad. Excerpt is cut off. Same role also posted as a Lombardia listing.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-engineer-data-analytics-analyst-crif-ws6entdg": {
+  "fit": 3,
+  "reason": "Junior AI engineer role with Python, ML/DL and LLM post-training knowledge, which overlaps with the CV's fine-tuning work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Smaller city (Rende, Calabria); 12-month fixed-term contract; mixed analyst and engineer title.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-fullstack-engineer-ai-edtech-impact-medly-ai-f2gfl5y5": {
+  "fit": 4,
+  "reason": "Junior fullstack role in London with Next.js, React Native, Python and AWS; matches CV stack and level (recent graduates, up to 1 year experience).",
+  "deadline": "",
+  "start": "",
+  "concerns": "Sponsorship not stated: check the UK Graduate visa is accepted. Software role rather than ML.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-engineer-generative-ai-data-modeling-generali-italia-spa-o6fpkqzh": {
+  "fit": 3,
+  "reason": "Same Generali AI specialist role as the other posting (PoCs, PyTorch, data infrastructure); relevant to the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Same role posted twice; Lombardia (Milan area) location; excerpt is cut off before requirements.",
+  "scored": "2026-11-08"
+ },
+ "fh:uvc-partners-data-ai-ai-engineer-internship-m-f-x-bei-unternehmertum-ggmbh-6qk7tzwl": {
+  "fit": 3,
+  "reason": "AI engineer internship in Munich on LLM systems, agents and evaluations in Python, which matches the CV's LangGraph and LLM work, but it is full-time and aimed at Master's students.",
+  "deadline": "",
+  "start": "November 2026, at least six months full-time",
+  "concerns": "Full-time 6+ months from Nov 2026 clashes with the UCL MSc (Sep 2026 to Sep 2027); the student-visa 20h/week flag does not apply to a French passport holder; excerpt ends mid-profile.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-python-sql-ai-tools-london-corriculo-ltd-q4t7oqzd": {
+  "fit": 3,
+  "reason": "Junior Python and SQL developer role in London that is close to the CV's software work, but the description is a short generic blurb with no concrete tasks.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate-only description; sponsorship not stated, so UK sponsorship or Graduate visa is unknown (flag per profile).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-python-sql-ai-london-cor7728-corriculo-ltd-r5wrm3js": {
+  "fit": 4,
+  "reason": "Junior software engineer in London building Python and SQL features, integrations and automations for an in-house AI platform, which matches the CV's Python, SQL and AI work at junior level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Sponsorship not stated, so UK sponsorship or Graduate visa is unknown (flag per profile).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-climate-data-pipelines-axa-climate-g2e7vljf": {
+  "fit": 3,
+  "reason": "Junior Python role in Paris operationalising climate data pipelines; Python and pipeline work fit the CV, but it is production data engineering with Terraform and GitLab that the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Adjacent to ML (data engineering rather than modelling); years of experience not stated; excerpt is a short summary.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-real-time-pipelines-for-ml-flexible-smadex-wvzf6fxi": {
+  "fit": 3,
+  "reason": "Junior data engineer in Barcelona building real-time pipelines that feed ML models; relevant to the CV's ML side, but mostly data engineering rather than model work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Short description; years of experience and start date not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-advosync-polska-sp-z-o-o-mdr7lrcc": {
+  "fit": 2,
+  "reason": "Junior Next.js, React and TypeScript role with AI tools; part of the stack matches the CV's Velora-Dev work, but it requires living in or near Wroclaw with weekly office days.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Must live in or near Wroclaw (candidate is in London); asks for 6-12 months of web experience; contract is a paid part-time style (umowa zlecenie); English B2 is fine.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-2026-graduate-lightspeed-studios-h7g6mjff": {
+  "fit": 3,
+  "reason": "Graduate data engineer role in the Netherlands on Python, SQL and pipelines; the degree window fits a 2026 graduate, but it is mostly data platform work rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Chinese-language skill preferred; Spark, Flink or Kafka expected; gaming domain; posting is partly in Dutch intro text.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-agent-engineer-azure-devops-digital360-gov-tv7ybc3p": {
+  "fit": 2,
+  "reason": "Junior AI agent role in Rome on Azure OpenAI and AI Foundry, which relates to the CV's agent work, but the emphasis is cloud DevOps and the posting is in Italian.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language posting (language the candidate does not speak); DevOps and security focus; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:vehicle-noise-testing-machine-learning-engineer-trainee-alliance-aymschdh": {
+  "fit": 3,
+  "reason": "ML trainee in Barcelona building predictive models of tyre noise and extending a RAG tool; Python, ML and data analysis match the CV, but it is an automotive NVH internship.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Needs current enrolment and a university internship agreement; duration and start not stated; same posting is listed again under Nissan (duplicate).",
+  "scored": "2026-11-08"
+ },
+ "fh:vehicle-noise-testing-machine-learning-engineer-trainee-nissan-lan7jbql": {
+  "fit": 3,
+  "reason": "Same ML trainee role in Barcelona on tyre-noise prediction and RAG tooling; Python and ML match the CV, but it is an automotive NVH internship.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Duplicate of the alliance listing for the same posting (text names Nissan); needs enrolment and a university internship agreement; duration and start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-ai-engineer-pipelines-generative-ai-strategicpeople-srl-alfi4c2s": {
+  "fit": 2,
+  "reason": "Junior Data and AI engineer in Bologna or Modena on pipelines and integrating generative AI, which matches the CV's direction, but the posting is in Italian.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language posting (language the candidate does not speak); salary from EUR 20,000; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-full-stack-engineer-ai-driven-food-tech-hybrid-hr-duo-ltd-gq2pbp7y": {
+  "fit": 3,
+  "reason": "Junior full-stack role on a B2B food platform in London with interest in AI tools; matches the CV's web work, but the description is generic.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate-only description; sponsorship not stated (UK visa flag); posted through an HR agency (HR Duo Ltd); Japanese-named employer.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-software-engineer-cobham-ultra-owngmzyx": {
+  "fit": 2,
+  "reason": "Graduate embedded C, C++ and Rust role in Maidenhead; C and C++ are on the CV, but the work is embedded and hardware-focused and needs security clearance.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires willingness to obtain SC or DV clearance, which normally needs years of UK residency; 2-year programme exceeds the 18-month Graduate visa (posting flag).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-sia-hqagzqgk": {
+  "fit": 4,
+  "reason": "Junior Python backend, Docker and CI role in Paris for a data science practice; matches the CV's Python, Docker and Git skills, and the ad asks for a first experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Consulting firm with client missions; excerpt cut off in the qualifications list; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-python-backend-docker-ci-sia-partners-ikd6k3qz": {
+  "fit": 4,
+  "reason": "Junior Python backend, Docker and CI role in Paris for a data science practice; matches the CV's Python, Docker and Git skills, and the ad asks for a first experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Same role as the Sia listing above (duplicate posting under Sia Partners); consulting firm; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-careers-justeattakeaway-com-g36booyv": {
+  "fit": 3,
+  "reason": "Junior data engineer in Amsterdam building pipelines on BigQuery, dbt and Airflow for customer data; EU role with a solid stack match, but it is data platform work rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Three days a week in the Amsterdam office; reports to a Senior Manager; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:development-expert-f-m-d-for-apeirora-softwareentwickler-in-sap-2a7f6nbz": {
+  "fit": 1,
+  "reason": "Development Expert role in Berlin on Kubernetes operators, Go and network automation; it is senior and unrelated to the CV's ML and LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Title says Expert, so senior level; the 'Date: 09/22/2026' line is not labelled as a deadline, so it is not used; posting flag mentions UK security clearance.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-tieto-tech-consulting-m-f-d-tieto2-ijt4jzek": {
+  "fit": 2,
+  "reason": "Junior software engineer role in Jyvaskyla, Finland on Java, Node or TypeScript and React; part of the stack fits the CV, but the level is above the profile limit.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Asks for 2-4 years of experience (profile excludes 2-3 year roles); posting is in Finnish.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-krm22-iu3pd3kw": {
+  "fit": 4,
+  "reason": "Junior software engineer in Prague on C++ trading risk applications and C# microservices; C++ and object-oriented programming match the CV at the foundational level asked.",
+  "deadline": "",
+  "start": "",
+  "concerns": "C# and AWS are not on the CV; financial services domain; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-data-engineer-for-investigative-journalism-digital-skills-ltd-cnka3fg5": {
+  "fit": 3,
+  "reason": "Junior AI and data engineer in London doing hands-on coding and data processing for journalists; fits the CV's data and AI work, but the description is a short generic blurb.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate-only description; sponsorship not stated (UK visa flag).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-trainee-ai-data-engineer-newto-training-limited-5xxgcxh6": {
+  "fit": 1,
+  "reason": "Paid training programme advert in Bath, not a job offer; the AI data engineer title is the goal of a course that the candidate would pay for.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Course sales ad with job guarantee and fee refund terms; no employer role described; not a job with the candidate's CV use.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-data-ai-innovator-accenture-italia-l5m2cmbw": {
+  "fit": 2,
+  "reason": "Junior data engineer role in Italy on data models, pipelines and data lakes with Data and AI; relevant to the CV, but the posting is in Italian.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language posting (language the candidate does not speak); location given only as Italy; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-technology-data-engineer-ai-automation-xcede-q7a6tysh": {
+  "fit": 3,
+  "reason": "Junior technology and data engineer in London on an internal platform with a major AI initiative; the title fits the CV, but the excerpt is one cut-off sentence.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Excerpt truncated after one sentence, so little to judge; boilerplate-level description; sponsorship not stated (UK visa flag).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-gtm-products-wingtra-ag-7hawvyaf": {
+  "fit": 2,
+  "reason": "Junior-titled software engineer in Zurich owning production GTM apps, but the ad asks for 3+ years of full-stack production experience and security ownership beyond the CV's level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires 3+ years of experience (profile excludes this); Switzerland is in the EU list; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-zero-to-one-search-x7aythln": {
+  "fit": 2,
+  "reason": "Junior software developer in Munich on IT process optimisation and internal tools; partly technical, but mostly internal IT and HR tasks with little ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Fluent German required (language the candidate does not speak); permanent role; no start or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-designer-group-f6nh6aa2": {
+  "fit": 3,
+  "reason": "Junior data engineering (Fabric pipelines, SQL, Python/PySpark, data quality checks) with Power BI reporting; SQL and Python overlap the CV but there is no ML work and Fabric/Power BI are not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "BI/reporting-heavy; Microsoft Fabric not on CV; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:infotainment-software-engineer-graduate-toyota-motor-europe-nv-sa-oddzial-w-polsce-gy36jnbe": {
+  "fit": 2,
+  "reason": "Automotive cockpit frontend and test work on embedded Linux (Dart/Flutter, C++, Java); far from the ML/LLM focus of the CV, and asks for a Master's in CS.",
+  "deadline": "",
+  "start": "December 2026",
+  "concerns": "Dec 2026 start clashes with the UCL MSc (runs to Sep 2027); Wroclaw relocation; contract length undefined.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-sa-state-street-nhkl4fnj": {
+  "fit": 3,
+  "reason": "Junior software engineer on enterprise SPA (React/Angular/TypeScript) and Java/cloud platform work with senior guidance; level fits, but the stack is mostly front-end and finance-platform work not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Qualifications text truncated; Gdansk is not a profile hub; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-verification-engineer-8808-mentor-medical-systems-b-v-legal-entity-ry6gents": {
+  "fit": 2,
+  "reason": "Medical-device software verification (C/C++/Python test work, requirements, Jira, MBSE); not ML or LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Part-time 24h/week; medtech verification with no ML; same text as the jj posting (id fh:junior-software-verification-engineer-jj-binlkgmc).",
+  "scored": "2026-11-08"
+ },
+ "fh:infotainment-software-engineer-graduate-toyota-digital-hub-ssc-tme-nv-sa-ybhke4vc": {
+  "fit": 2,
+  "reason": "Same Toyota cockpit/infotainment frontend role as the Toyota Motor Europe posting: embedded Linux, automotive-grade frontend, not ML-focused; asks for a Master's.",
+  "deadline": "",
+  "start": "December 2026",
+  "concerns": "Dec 2026 start clashes with the UCL MSc (runs to Sep 2027); Wroclaw relocation; hybrid 2-3 days in office.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-verification-engineer-jj-binlkgmc": {
+  "fit": 2,
+  "reason": "Medical-device software verification (C/C++/Python test work, requirements, Jira, MBSE); not ML or LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Part-time 24h/week; medtech verification with no ML; same text as the 8808-Mentor posting.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-java-devops-motorola-solutions-systems-polska-pckkoi4r": {
+  "fit": 3,
+  "reason": "Junior Java and DevOps role on a mission-critical telecom call-handling platform; Java, Docker and AWS overlap the CV, but Kubernetes, Ansible and observability are must-haves that the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Asks for 1+ years of Java and 1+ years of DevOps; Krakow is not a profile hub; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-real-time-aws-pipelines-academic-work-switzerland-sa-5cvadkkl": {
+  "fit": 3,
+  "reason": "Junior data engineering on AWS (S3, Glue, Lambda, Redshift) for energy-trading pipelines; SQL and Python match the CV, but there is no ML and the work is mostly data plumbing.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires a Master or HES-EPFL degree (MSc in progress); French is required, which the CV covers; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:software-engineer-ai-amp-china-partnerships-spyrosoft-rdrfd5se": {
+  "fit": 2,
+  "reason": "Software engineer on AI initiatives and China partnerships; AI interest fits, but native-level Chinese (C1/C2) is a must-have and the candidate does not speak Chinese.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Native Chinese required; candidate does not speak it; business travel.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-solid-professionals-mhb4bjlc": {
+  "fit": 2,
+  "reason": "Junior software engineer title, but the description is placeholder text (lorem-style copy and 'Skill One' bullets), so fit cannot be judged from it.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is boilerplate only, so capped at 3 and scored 2; no employer detail, start date or deadline.",
+  "scored": "2026-11-08"
+ },
+ "fh:abap-developer-m-f-d-limited-contract-1-year-erp-anwendungsentwickler-in-sap-q4urs2mw": {
+  "fit": 2,
+  "reason": "ABAP OO enterprise developer on high-volume data processing and production support; ABAP is not on the CV and the work is not ML.",
+  "deadline": "",
+  "start": "2027-01-01",
+  "concerns": "One-year contract 01.01.2027 to 31.12.2027 clashes with the MSc (ends Sep 2027); posting shows 'Date: 08/31/2026' without a deadline label, so not treated as a deadline; requires profound ABAP OO experience.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-software-engineer-momentum-5qigasly": {
+  "fit": 2,
+  "reason": "Junior AI software engineer building LLM-based AI bots and data-driven apps in Python with Azure; core AI work matches the CV, but the posting is Dutch-only and the role is consulting.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Dutch and the candidate speaks no Dutch; no start date or deadline stated; aims for a Databricks certification.",
+  "scored": "2026-11-08"
+ },
+ "fh:software-engineer-for-cernbox-it-sd-gss-2026-174-grap-cern-m46mig5b": {
+  "fit": 3,
+  "reason": "Software engineer for CERNBox: Go backend, Vue.js frontend, Linux and Kubernetes, with optional AI/ML exploration; French nationality appears to meet the CERN member-state rule, but Go and Vue are not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Eligibility text truncated; Go is required and not on the CV; Kubernetes not on the CV; commitment to learn French; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-poppitechnologies-factorialhr-com-nvebjbl5": {
+  "fit": 3,
+  "reason": "Junior software engineer on low-latency, concurrent, high-availability systems in a compiled language (Rust desirable); C/C++ and Linux-adjacent work overlap the CV, but the focus is systems and finance rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Bari (Italy) is not a profile city tier; Rust and shell scripting not clearly on CV; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-software-engineer-cisco-systems-inc-sonvo5vi": {
+  "fit": 4,
+  "reason": "Graduate software engineer on the Collaboration Technology Group using C++/Qt/Java/JavaScript/Python with agile and TDD; graduate level, EU eligibility and project evidence fit the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "C++/Qt client work not on the CV; not ML-focused; Galway is not a profile hub; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-intelligence-and-surveillance-systems-gmv-vtqtb6ur": {
+  "fit": 3,
+  "reason": "Junior software engineer on defence and surveillance systems in C/C++/Java/.NET; core SWE level fits, but the description is mostly generic and the sector is defence rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Defence sector; nationality or security checks possible (not stated); generic description; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:data-engineer-junior-carrera-formacion-y-proyectos-globales-primeit-tkvkkvwe": {
+  "fit": 2,
+  "reason": "Junior data engineer on ETL/ELT, SQL, data modelling and pipelines; some overlap with the CV, but it asks for a year of data engineering experience that the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Spanish-language posting and the candidate does not speak Spanish; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-qrious-insight-mambfqob": {
+  "fit": 3,
+  "reason": "Junior data engineer maintaining event-data parsing rules, SQL, analytical databases (Athena, ClickHouse, Redshift) and AWS basics; SQL and AWS overlap the CV, but there is no ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Location given only as Ireland; data-engineering focus rather than ML; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-databricks-wwshemi-v4zx47rr": {
+  "fit": 2,
+  "reason": "Junior data engineer on Databricks, PySpark and Azure pipelines; Python and SQL match the CV, but Polish at B2+ is required.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Polish B2+ required and the candidate does not speak Polish; asks for 1-2 years of engineering experience; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-aws-sc-cleared-sr2-7swcry6m": {
+  "fit": 2,
+  "reason": "Junior data engineer on AWS, Kafka and Java for a central government programme; skills overlap the CV, but active SC clearance makes the role effectively unreachable.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Active SC clearance required, which usually needs years of UK residency; sponsorship not stated, so UK work rights (student visa, Graduate visa) are unclear and flagged.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-build-energy-data-hub-nexus-energia-6shst6ei": {
+  "fit": 2,
+  "reason": "Data engineer to build a company data hub: data modelling, advanced SQL, Python and cloud warehouses; asks for warehouse experience the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Spanish-language posting and the candidate does not speak Spanish; no start date or deadline stated; hybrid with 2 remote days a week.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-reeeliance-bphutd44": {
+  "fit": 2,
+  "reason": "Junior data/GenAI engineer with Python, SQL, LangChain, RAG and cloud exposure; strong CV overlap, but German at C1 is required.",
+  "deadline": "",
+  "start": "",
+  "concerns": "German C1 required and the candidate does not speak German (posting flags it); no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-trainee-ai-data-engineer-newto-training-limited-s5os2x2m": {
+  "fit": 2,
+  "reason": "Training-programme advert for AI data engineering with salary and job-guarantee claims; no employer named and no real job description, so fit cannot be judged.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate only (apply to read the full description); looks like a paid training course; UK work rights not stated and flagged; no start date or deadline.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-trainee-ai-data-engineer-newto-training-limited-e3j7rvmw": {
+  "fit": 2,
+  "reason": "Training-programme advert for AI data engineering with salary and job-guarantee claims; no employer named and no real job description, so fit cannot be judged.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate only (apply to read the full description); looks like a paid training course; UK work rights not stated and flagged; no start date or deadline.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-volaris-group-2qatke4l": {
+  "fit": 3,
+  "reason": "Junior software developer on React, Angular, .NET and SQL with Azure, remote in Ireland; React/TypeScript and SQL overlap the CV, but .NET and Azure are not on it and the role leans full-stack.",
+  "deadline": "",
+  "start": "",
+  "concerns": "12-18 months experience desirable but not required; .NET and Azure not on CV; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-people-culture-remote-migros-kciuecz2": {
+  "fit": 2,
+  "reason": "Junior data engineering on BigQuery pipelines for HR data; CS degree fits, but the core domain is people/HR data, not ML or software product work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires German at a fluent (verhandlungssicher) level; German is not among the candidate's languages. Posting is Zurich-based (Switzerland, EU-free for French passport).",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-systems-engineer-cobham-ultra-tlk7xx5d": {
+  "fit": 1,
+  "reason": "Systems engineering (requirements, DOORS, Enterprise Architect, architecture models) is unrelated to the CV's ML, LLM and software work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK security clearance usually needs years of UK residency; 2-year programme extends beyond the 18-month Graduate visa; UK work rights unclear.",
+  "scored": "2026-11-08"
+ },
+ "fh:data-engineer-intern-gen-ai-analytics-temporary-12-months-f-m-x-fossil-3mhqln7o": {
+  "fit": 3,
+  "reason": "Internship on RAG pipelines, embeddings and vector processing, which is adjacent to the CV's LLM work, but the emphasis is data engineering and advanced SQL and DB design, which the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "12-month temporary contract may run past the MSc end (Sep 2027); start date not stated; advanced SQL and dimensional modelling not evidenced on the CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:data-engineer-intern-gen-ai-analytics-temporary-12-months-f-m-x-fossil-group-5jgndsm5": {
+  "fit": 3,
+  "reason": "Same Fossil Group internship as the Fossil posting above (duplicate listing): RAG and embedding pipelines, adjacent to the CV's LLM work, with a data engineering emphasis.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Duplicate of the Fossil listing; 12-month term may run past the MSc end; start date not stated; advanced SQL not evidenced on the CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-internship-sweden-bcg-x-boston-consulting-group-sdjmng5w": {
+  "fit": 3,
+  "reason": "Master's-student internship building AI solutions in Python for clients, which matches the CV's profile and the student stage; the excerpt is thin and mostly repeats the requirements and boilerplate.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is thin (requirements repeated, mostly EEO boilerplate); internship duration and start not stated; client-facing consulting context is uncertain.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-java-archeometra-srl-gvnxek7p": {
+  "fit": 3,
+  "reason": "Junior Java developer role on maintenance of existing apps; the level fits (degree in progress is accepted) and the CV lists Java, but the work is maintenance-focused and not ML or AI.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Location given only as Italy with no city; Italian-language posting context not shown in excerpt; no stated start date.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-just-eat-takeaway-com-v5mtxjpz": {
+  "fit": 3,
+  "reason": "Junior data engineering role building ELT pipelines and CDP datasets in Amsterdam (hub city); CV has SQL and Python but no BigQuery, dbt, Airflow or Datadog.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Stack gap (BigQuery, dbt, Airflow, Datadog); excerpt cut off before the full requirements; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-aws-etl-devops-airflow-redshift-silicondev-spa-jzyq3dzc": {
+  "fit": 2,
+  "reason": "Data engineering and DevOps on Airflow, AWS Lambda, Batch and Redshift; the CV has no AWS data-pipeline work listed beyond SQS/RabbitMQ and the role is mostly ops-oriented.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian, which is not one of the candidate's languages; Milan hybrid; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-rotate-uihtt2vq": {
+  "fit": 3,
+  "reason": "Junior data engineer role in Utrecht needing a completed degree in CS or a related field and hands-on Python, which the CV meets; the excerpt is truncated and begins mid-sentence.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Excerpt is truncated and partly garbled, so the responsibilities cannot be fully judged; data engineering rather than ML focus; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-scientist-ai-engineer-m-w-d-datenbankentwicklung-bi-ingenieur-reply-deutschland-se-ho3umnlj": {
+  "fit": 3,
+  "reason": "Junior data scientist and AI engineer role on the AI lifecycle, LLMs and deep learning with Python, close to the CV's ML and LLM work; Hamburg is a major city.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is written in German, and the excerpt is cut off before any stated German requirement; recruiter-style consulting project model; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-ai-engineer-dutch-required-eur2-600-eur3-300-per-maand-geen-ervaring-xentxcn-blgi3mnq": {
+  "fit": 2,
+  "reason": "Entry-level data and AI traineeship with rotation into client data work; relevant in theme, but the title requires Dutch and the work is generic BI and analytics.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Dutch is required per the title and the posting is in Dutch, which is not among the candidate's languages; staffing-style traineeship placement; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-net-java-ai-devops-categorie-protette-l-68-99-avanade-bologna-devops-release-pay-not-stated-6w-ago-devopsroles-gtam3yhh": {
+  "fit": 2,
+  "reason": "Junior software engineer on .NET or Java enterprise apps with an AI element; the core work is enterprise .NET and Java, not the CV's ML focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian; asks for 1-2 years of software experience; listed under Italy's protected-category (L.68/99) hiring quota, so eligibility is unclear; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:remote-full-stack-engineer-new-grad-ai-product-jobright-ai-ubur7kok": {
+  "fit": 3,
+  "reason": "New-grad full-stack role with React, Node.js and Python on AI-powered product features; the CV shows full-stack work with Next.js and TypeScript, but the role is product-engineering rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK right to work not stated (student visa now, Graduate visa unknown); description is short; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-software-engineer-ai-powered-portfolio-intelligence-pms-banque-lombard-odier-cie-sa-kyph2cfl": {
+  "fit": 4,
+  "reason": "Master's-student internship building LLM and AI services with analytics on portfolio data in Python or Java, which matches the CV's LLM agent work and student stage; Geneva is a major city in the profile.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship duration and start date not stated; Node.js is not on the CV (Java and TypeScript are); finance-domain interest needed; EU passport means no visa issue in Switzerland.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-aml-tech-data-solutions-intesa-sanpaolo-group-otof7dcu": {
+  "fit": 2,
+  "reason": "Junior engineer on AML systems with DB, Python, Java (Spring) and Google Cloud; partly relevant, but it asks for 1-3 years of experience and is mainly banking back-end work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian, which is not one of the candidate's languages; asks for 1-3 years of experience; the posting contains stray unrelated text; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-go-c-security-foundations-engineering-splunk-cisco-basy7uzi": {
+  "fit": 2,
+  "reason": "Junior engineer on platform security services in Go or C++ with on-call duties; the CV has C and C++ but no Go, and the security and operations focus is far from the CV's ML and LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires production Go and/or C++ experience and cybersecurity fundamentals; on-call rotation; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-wiris-ecpcnb74": {
+  "fit": 2,
+  "reason": "Junior developer on MathType integrations with Kanban, tests and CI/CD; general software work, with no ML or AI component in the excerpt.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting asks for Spanish, which is not one of the candidate's languages; Barcelona-based; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-remote-pipelines-pyspark-wwshemi-x7omm2wf": {
+  "fit": 3,
+  "reason": "Junior data engineer role with PySpark, pytest, SQL and CI/CD in Poland (EU); the CV has Python, SQL and Docker, so the core skills overlap.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is a short generic paragraph with no responsibilities or requirements listed, so it is largely boilerplate; no city given; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-centralize-data-power-bi-dashboards-nexus-energia-group-65y7upbl": {
+  "fit": 2,
+  "reason": "Junior data engineer centralising business data, maintaining pipelines and building dashboards; adjacent to the CV, with a BI and reporting emphasis.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Spanish, which is not one of the candidate's languages; Barcelona-based; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-hybrid-build-pipelines-insights-axa-uk-slanibkz": {
+  "fit": 2,
+  "reason": "Junior data engineer role with a hybrid pattern; the excerpt gives only two sentences, with no stated core responsibilities or stack, so the fit cannot be judged beyond the title.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Excerpt is essentially boilerplate; eligibility to work in the UK is a stated precondition and sponsorship is not stated, which conflicts with a student visa; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-axa-group-bud3g2p7": {
+  "fit": 3,
+  "reason": "Junior data engineer building Python and SQL pipelines and running data quality checks, with a fit to the CV's Python, SQL and pipeline work; the level suits a degree or self-directed projects.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK eligibility to work is a listed key requirement and sponsorship is not stated, so the student visa may not cover it; data engineering rather than ML; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-zero-to-one-search-6jrm4qqd": {
+  "fit": 2,
+  "reason": "Junior Python backend role on a travel comparison platform in Leipzig; Python fits the CV, but the work is general backend and the tasks are not ML or AI.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Fluent German is required (German is not among the candidate's languages); Leipzig is not a major city in the profile; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:trainee-ai-automation-engineer-next-plc-ovymonlu": {
+  "fit": 3,
+  "reason": "12-18 month trainee role building Python automation and AI-assisted testing tools, which overlaps with the CV's Python and AI-tooling work; the trainee level fits a student.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK right to work not stated (student visa now, Graduate visa unknown); site operations rather than ML depth; Leicester is outside the profile's city tiers; no start date or deadline stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:2026-machine-learning-center-of-excellence-time-series-reinforcement-learning-summer-associate-jpmc-dev9-fa-oraclecloud-com-cx-pyw7lnse": {
+  "fit": 2,
+  "reason": "Machine learning research and modelling role on time series and RL; topic matches the CV's ML interest, but the required PhD (or final year of one) is above the candidate's MSc level.",
+  "deadline": "",
+  "start": "Summer 2026 (per title)",
+  "concerns": "Requires a PhD or last year of a PhD, which the candidate does not have; summer 2026 start is already past as of 2026-11-08; UK work rights not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:2026-machine-learning-center-of-excellence-time-series-reinforcement-learning-summer-associate-jpmc-dev8-fa-oraclecloud-com-cx-zg2idhxb": {
+  "fit": 2,
+  "reason": "Same JPMC Machine Learning Center of Excellence summer associate role as the listing above (duplicate): ML research on time series and RL, but the PhD requirement is above the candidate's MSc level.",
+  "deadline": "",
+  "start": "Summer 2026 (per title)",
+  "concerns": "Duplicate of the JPMC listing above; requires a PhD or last year of a PhD; summer 2026 start is already past; UK work rights not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-trainee-ai-data-engineer-newto-training-limited-w7fy2pj7": {
+  "fit": 2,
+  "reason": "Trainee AI data engineer role, but the excerpt is mostly marketing boilerplate with no stated tech stack or duties.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate-only description; UK location (Glasgow) with sponsorship not stated; no ML content.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-ai-engineer-analytics-automation-esp-utilities-group-hx7juvng": {
+  "fit": 3,
+  "reason": "Junior Data and AI engineer doing analytics, automation and data platform work; adjacent to my data science and LLM background but not ML-focused.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK onsite in Leatherhead; sponsorship not stated; smaller utility employer.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-backend-engineer-with-devops-new-route-recruitment-limited-nra6x3tj": {
+  "fit": 2,
+  "reason": "Backend and DevOps role (Node, AWS, MySQL, Redis); mostly unrelated to my ML and LLM focus, and the ad mixes junior and senior levels.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter ad with the employer not named; senior level mentioned; UK London with sponsorship not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-capital-markets-python-banor-sim-zsim3uzx": {
+  "fit": 3,
+  "reason": "Junior Python software engineer for capital markets systems on Linux and Windows; relevant language but not ML, and it asks for a computing degree.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language posting (Turbigo, Milan area); finance and trading interest desirable; no ML content.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-data-analysis-automation-big-science-sweden-4y44krgq": {
+  "fit": 3,
+  "reason": "Junior data analysis and automation role on large hardware-commissioning datasets; eligibility suits a French national with a Master's and under 2 years of experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Eligibility requires at most 2 years of experience and no PhD by the deadline; deadline not stated in excerpt; Geneva-based CERN-associated role; data analysis rather than ML.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-build-data-platforms-with-databricks-cadran-analytics-b-v-nrkgnhw3": {
+  "fit": 3,
+  "reason": "Junior data engineer building Databricks and Snowflake platforms with dbt SQL models; adjacent to my data work but not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Netherlands location, EU so no visa issue; employer described briefly; data platform rather than ML.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-growth-collaboration-innovation-ppoar-ue6w5lwm": {
+  "fit": 2,
+  "reason": "Basic Python developer role with a willingness-to-learn requirement; low technical depth relative to my CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Esbjerg, Denmark; salary quoted in USD; generic description with little technical scope.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-platform-data-engineer-today-digital-ny5nxdsc": {
+  "fit": 3,
+  "reason": "Graduate-level data engineering role on BigQuery and dbt with SQL and Python; fits the graduate level but is data engineering rather than ML.",
+  "deadline": "",
+  "start": "Immediate",
+  "concerns": "UK in-office role in Manchester with sponsorship not stated; I only finish the MSc in September 2027; salary GBP 25k to 30k.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-ai-data-engineer-nel-credito-stem-fine-foods-pharmaceuticals-n-t-m-s-p-a-7k326wq3": {
+  "fit": 2,
+  "reason": "Junior AI and data role applying AI to credit processes with Python and SQL; relevant skills but a weak match for the rest of the work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian; Italy (EU) so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-it-technology-engineer-ai-mwd-softwareentwickler-in-schmetterling-international-gmbh-u-co-kg-hfv4ecn6": {
+  "fit": 2,
+  "reason": "Junior IT role mainly on Go, PHP and MariaDB internal tools, with some AI-assisted development; mostly outside my ML focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in German and German is not among my languages; Obertrubach, Germany.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-m-w-d-top-tier-team-peagle-gmbh-mqrlnixb": {
+  "fit": 2,
+  "reason": "Junior general software engineering role in Munich; the requirements emphasise standard software development rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires German at negotiation-level fluency; I do not speak German.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-data-science-ai-engineer-finance-commercial-f-h-air-france-fprtqblf": {
+  "fit": 3,
+  "reason": "Data science and AI internship prototyping a conversational assistant over dashboards, comparing RAG and agentic approaches; close to my LLM and agent work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship duration and start date are not in the excerpt, so a clash with the MSc term is possible; Roissy-en-France, EU so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:sviluppatore-software-junior-crescita-innovazione-in-team-engineering-ingegneria-informatica-spa-mxkmozog": {
+  "fit": 2,
+  "reason": "Junior software developer role with general development duties; no ML content.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian; Naples.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-build-scalable-data-pipelines-prima-p6vo3ghs": {
+  "fit": 3,
+  "reason": "Junior software engineer on scalable data pipelines in insurance tech; London location matches my preference, but the excerpt is mostly generic text.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate-only description, so capped at 3; UK sponsorship not stated; no technical stack named.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-remote-databricks-azure-autoguidovie-spa-4zkczgas": {
+  "fit": 2,
+  "reason": "Data engineer role with 1 to 2 years of experience on Databricks, Spark and Azure pipelines; partly relevant but more data platform than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian; remote from Rome.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-mentored-hands-on-data-pipelines-qrious-insight-limited-l34khxy2": {
+  "fit": 3,
+  "reason": "Junior data engineer maintaining rules-based processing of event data into datasets, with mentoring; relevant to data work but not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Ireland location, EU so no visa issue; excerpt is short.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-platform-software-engineer-f-hoffmann-la-roche-ag-d6nosc7u": {
+  "fit": 3,
+  "reason": "Junior software developer on a data platform team spanning frontend, backend and data layers; broad but relevant software role.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Warsaw, Poland, EU so no visa issue; excerpt is short and the level is described as custom software developer.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-ia-driven-recommendations-pipelines-cegedim-ogrlmuce": {
+  "fit": 3,
+  "reason": "Data pipelines and AI-based commercial recommendation tool; relevant to my data and ML background, but the text reads like a project manager role.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Title says junior data engineer while the text says data project manager, so the level is unclear; French posting, Boulogne-Billancourt.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-im-cross-company-programm-cudos-ag-s5lpvdld": {
+  "fit": 2,
+  "reason": "Junior fullstack engineer rotating across partner projects; general software work with no ML focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires German at C1 level, which I do not have; Zurich, Switzerland, EU so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:praktikum-im-bereich-machine-learning-und-robotik-ab-januar-2027-daimler-truck-o3rveezz": {
+  "fit": 3,
+  "reason": "Machine learning and robotics internship on computer vision and VLA model evaluation; strong match for my ML background.",
+  "deadline": "",
+  "start": "January 2027",
+  "concerns": "Internship during my MSc term, so hours and timing need checking; posting is in German; Leinfelden-Echterdingen, Germany, EU so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:praktikum-im-bereich-machine-learning-und-robotik-ab-januar-2027-daimler-truck-north-america-4l325puy": {
+  "fit": 3,
+  "reason": "Same machine learning and robotics internship text as the Daimler Truck listing, with the same strong ML match.",
+  "deadline": "",
+  "start": "January 2027",
+  "concerns": "Listed under Daimler Truck North America but located in Germany; internship during my MSc term; posting is in German.",
+  "scored": "2026-11-08"
+ },
+ "fh:praktikum-im-bereich-machine-learning-und-robotik-ab-januar-2027-own-retail-x2h545df": {
+  "fit": 2,
+  "reason": "Same internship text, but listed under Own Retail, which does not match the Daimler Truck employer named in the body; ML content is relevant.",
+  "deadline": "",
+  "start": "January 2027",
+  "concerns": "Employer mismatch: the body names Daimler Truck, so the real employer is unclear; internship during my MSc term; posting is in German.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-for-c-m-w-d-delta-electronics-ekpzrgdg": {
+  "fit": 2,
+  "reason": "Junior C# and .NET web developer role with REST APIs and Blazor; mostly outside my ML focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in German (English accepted); Vienna, Austria, EU so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-stema-6myq37un": {
+  "fit": 2,
+  "reason": "Junior data engineer on cloud data platforms (AWS, GCP, Spark, Terraform) with Python or Java; relevant tooling but a data platform role.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian; Milan.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-bi-amp-data-compania-digital-sector-fintech-sabina-divosi-kygmowbh": {
+  "fit": 2,
+  "reason": "Junior data engineer role on databases, pipelines and BI dashboards; needs 2 years of experience and is mostly database work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Spanish and I do not speak Spanish; Madrid, EU so no visa issue; asks for 2 years of experience, the limit in my profile.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-zero-to-one-search-a2ean7zn": {
+  "fit": 2,
+  "reason": "Junior SWE on a travel-sector IT task force; Python is one accepted language but the work is booking platforms and process optimisation, not ML or LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Fluent German required; Augsburg is not a hub city; no deadline stated",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-data-pipelines-growth-targetjobs-uk-lwhrrw4p": {
+  "fit": 3,
+  "reason": "Junior data engineering role building pipelines in Python and SQL; adjacent to the CV's data and ML work rather than core ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter ad (Sparta Global) with a training academy; UK sponsorship or Graduate visa not stated; Manchester is not a hub city",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-mirai-talent-clv4qkdn": {
+  "fit": 3,
+  "reason": "Junior data engineer on a live client platform with Databricks certification funded; adjacent to the CV's data background.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Office presence required in Wilmslow; UK sponsorship or Graduate visa not stated; recruiter ad with client unnamed",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-java-spring-80-100-zurich-allgemeine-plakatgesellschaft-ag-i3hixz2u": {
+  "fit": 2,
+  "reason": "Junior Java/Spring engineer on an ERP core system; the CV's main stack is Python and ML, and the role is mostly enterprise maintenance and support.",
+  "deadline": "",
+  "start": "",
+  "concerns": "German B2 (negotiation-level) required; posting is in German; Java not a CV strength",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-snowflake-dbt-all-genders-opitz-consulting-deutschland-gmbh-ikiph3ih": {
+  "fit": 2,
+  "reason": "Junior data engineer on Snowflake and dbt in client projects; data platform work adjacent to the CV, with little ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in German, so German is likely required; excerpt truncated before the requirements list",
+  "scored": "2026-11-08"
+ },
+ "fh:data-ai-engineer-rotterdam-sytac-bv-odxkzu7t": {
+  "fit": 3,
+  "reason": "Data and AI engineer on RAG, tool-using agents and Databricks pipelines; LLM agent work matches the CV's agentic experience, but the level is unclear.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Not labelled entry-level and the experience bar is unclear; Databricks expertise required; Rotterdam is a major tier city",
+  "scored": "2026-11-08"
+ },
+ "fh:remote-python-engineer-ai-backends-data-pipelines-jobright-ai-uk3da3um": {
+  "fit": 3,
+  "reason": "Python backend and API role with data pipelines; remote, but the excerpt is short and generic and states no level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is brief boilerplate; no level stated; UK sponsorship or Graduate visa not stated; aggregator listing",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-eur3-000-eur4-800-per-maand-gx-u6p4jmx2": {
+  "fit": 2,
+  "reason": "Junior data engineer for a Dutch consultancy on CDP and marketing data tools; mostly data-marketing integration, not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Dutch, so Dutch is likely required; Netherlands location not a named city",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-incentro-6yr66sba": {
+  "fit": 2,
+  "reason": "Junior data engineer on ETL pipelines and data platforms in Python and SQL; relevant skills but the posting is mostly in Dutch.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Dutch; Dutch language requirement unclear; Utrecht is a major tier city",
+  "scored": "2026-11-08"
+ },
+ "fh:stagiaire-r-d-en-machine-learning-et-analyse-d-images-f-h-groupe-ragt-l4ewnahw": {
+  "fit": 3,
+  "reason": "R&D internship in machine learning and image analysis for seed germination; core ML and computer vision, and French is fluent.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Profile asks for a final-year engineering or master's student; start date and length not stated in excerpt; Rodez-area site is not a hub; 20h/week limit",
+  "scored": "2026-11-08"
+ },
+ "fh:software-engineer-intern-ai-data-pipelines-vistalink-iavmo2ei": {
+  "fit": 3,
+  "reason": "Software engineering internship in Python and TypeScript on browser automation, data pipelines and AI features; London location is preferred.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship dates not stated, so timing against the MSc dissertation is unknown; UK sponsorship or Graduate visa not stated; 20h/week limit",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-architecture-systeme-machine-learning-et-optimisation-bayesienne-multi-objectifs-f-h-mbda-france-mpcimmnz": {
+  "fit": 2,
+  "reason": "Internship on Bayesian optimisation for missile system architecture; some ML and Python, but the domain is aerospace and the profile asks for an engineering-cycle student.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires final-year engineering cycle with aerospace or systems specialisation; not an MSc ML fit; start date not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-grow-with-scalable-data-platform-one-big-circle-ltd-hqgipmcd": {
+  "fit": 2,
+  "reason": "Junior software engineer role with a scalable data platform; the excerpt has no concrete responsibilities or stack.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is boilerplate only; no stack or requirements stated; UK sponsorship or Graduate visa not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:embedded-software-engineer-motorola-322vyj47": {
+  "fit": 2,
+  "reason": "Embedded C++17 and Rust role on Linux; mostly unrelated to the CV's ML focus, and asks for two years of prior experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Minimum two years of experience; embedded and signal processing background needed; UK sponsorship or Graduate visa not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-mcs-group-b3srb35n": {
+  "fit": 3,
+  "reason": "Junior backend Python role using FastAPI, with CRUD and API work; close to the CV's Python and software experience but not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Belfast hybrid; UK sponsorship or Graduate visa not stated; recruiter ad with employer unnamed",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-fast-track-learning-databricks-cert-mirai-talent-x7gcolca": {
+  "fit": 3,
+  "reason": "Graduate data engineering pathway starting with SQL and Python, moving to Databricks and Spark; adjacent to the CV's data background.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter ad with employer unnamed; UK sponsorship or Graduate visa not stated; South Manchester location",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-node-js-developer-siantech-cnmpkw6c": {
+  "fit": 3,
+  "reason": "Junior backend role in Python or Node.js with REST APIs and some AI or chatbot features; partly relevant to the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Short generic description; Node.js and NestJS not in CV; UK sponsorship or Graduate visa not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:product-data-science-ai-agents-intern-criteo-lijvcp6u": {
+  "fit": 3,
+  "reason": "Internship building AI agents, LLM evaluation and retrieval systems; very close to the CV's agentic and LLM evaluation work, in Paris.",
+  "deadline": "",
+  "start": "January 2027",
+  "concerns": "Starts January 2027 during the UCL MSc, so timing clashes; 20h/week limit; internship length not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-gcp-data-engineer-business-integration-partners-ttbzen2z": {
+  "fit": 2,
+  "reason": "Junior GCP data engineer on batch and streaming pipelines and ML scheduling; relevant in parts but the posting is in Italian.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and Italian is likely required; Rome location; cloud data platform focus",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-software-developer-full-stack-developer-ali-s-p-a-3e3agwb4": {
+  "fit": 2,
+  "reason": "Graduate full-stack developer role on Java, TypeScript and Python with a good level match for an MSc student; the core work is general software, not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and Italian is likely required despite B2 English; Toscana location; salary EUR 35k to 45k",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-faverli-ab-dmntvctt": {
+  "fit": 2,
+  "reason": "Junior Java backend and React role in a Stockholm-founded startup with some LLM features; a decent fit for the CV in parts.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Swedish is required (work in Swedish and English); posting is in Swedish; Esbjerg, Denmark location",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-software-developer-full-stack-developer-ali-s-p-a-vvnbwv74": {
+  "fit": 2,
+  "reason": "Duplicate of the Ali S.p.A. graduate full-stack role in Italy; general software work, not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and Italian is likely required; location given only as Italy",
+  "scored": "2026-11-08"
+ },
+ "fh:data-engineer-junior-primeit-ibjwdqix": {
+  "fit": 2,
+  "reason": "Data engineer role needing one year of experience on ETL, SQL and cloud; the level is above a junior graduate.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Spanish and Spanish is likely required; asks for at least one year of data engineering experience",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-fast-track-with-mentorship-vantage-ai-c52ejcul": {
+  "fit": 2,
+  "reason": "Data engineer on ML platforms and search with Scala, Kafka and Kubernetes; the stack is mostly outside the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Dutch; asks for more than one year of experience despite junior title; Scala and Kafka not in CV",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-cloud-engineer-neolaureati-it-adecco-talent-attraction-v3xb63cy": {
+  "fit": 2,
+  "reason": "Six-month temporary data and cloud engineering role for recent graduates; the work is adjacent, and the terms are weak.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian posting; recruiter ad with employer unnamed; fixed-term 6 months; Cagliari location; salary EUR 27k to 28k",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-milano-pwc-italy-nd4nebl2": {
+  "fit": 2,
+  "reason": "Junior data engineering at PwC Italy (Informatica PowerCenter, Oracle/SQL Server, PL/SQL) overlaps only partly with the CV (Python, SQL); the enterprise ETL stack is not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language ad (CV lists no Italian); PwC is in already_applied; Informatica and Oracle not on CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-power-platform-scrumconnect-limited-5jjbohm2": {
+  "fit": 2,
+  "reason": "Junior low-code Power Platform developer (Power Apps, Power Automate, Dataverse); little overlap with the CV's ML/LLM or general SWE stack.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK visa sponsorship not stated (must sponsor or accept Graduate visa); no Power Platform experience on CV; Newcastle is not a priority city.",
+  "scored": "2026-11-08"
+ },
+ "fh:android-software-engineer-for-mission-critical-radios-motorola-solutions-m23zlnj2": {
+  "fit": 3,
+  "reason": "Entry-level software engineer on Android platform code for two-way radios (Java/Kotlin); a real SWE role, but Android/Kotlin is not on the CV so the match is partial.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Android/Kotlin not on CV; Cork is not a priority city; no start date stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-helpdesk-data-pipelines-sagacity-5upjce6y": {
+  "fit": 2,
+  "reason": "Junior data engineer on data integrations and APIs with cloud and big-data tools; adjacent to the CV's data work, but the excerpt is one boilerplate line and the helpdesk emphasis is a mismatch.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is boilerplate only (capped at 3); helpdesk focus; UK visa sponsorship not stated; location given only as 'United Kingdom'.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-python-developer-release-backlog-hybrid-proactive-appointments-ltd-atqua75w": {
+  "fit": 3,
+  "reason": "Junior Python developer building features and fixing bugs; Python matches the CV, but the role leans toward backlog and release management in Jira.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK visa sponsorship not stated; text says Exeter while the location field says only 'United Kingdom'; Exeter is not a priority city; release/backlog focus is less ML-adjacent.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-storage-software-engineer-enterprise-data-systems-uk-international-business-machines-corporation-giuzagzc": {
+  "fit": 3,
+  "reason": "Graduate software engineering role on enterprise storage systems; graduate level fits, but the domain is far from the CV's ML focus and the excerpt is cut off after one sentence.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Excerpt truncated (boilerplate only, capped at 3); onsite at Hursley (not a priority city); UK visa sponsorship not stated; required technologies unknown.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-people-culture-data-digitec-galaxus-ag-vseaqmrd": {
+  "fit": 2,
+  "reason": "Junior data engineering on People & Culture data (pipelines, BigQuery) fits the CV's data skills, but the ad is in German and requires German C1.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires German C1 (CV lists English, French, Arabic only); German-language ad; Zurich is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-m-w-d-greenfield-insurtech-check24-5aum7wkk": {
+  "fit": 2,
+  "reason": "Junior full-stack software engineer on a greenfield insurtech product; general SWE fits, but the ad is written in German and the role is on-site in Hamburg.",
+  "deadline": "",
+  "start": "",
+  "concerns": "German-language ad; German requirement not visible in the truncated excerpt; on-site Hamburg; excerpt cut off.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-autoguidovie-spa-g5rlhdgz": {
+  "fit": 2,
+  "reason": "Junior data engineer building pipelines and tables from databases, APIs and files; SQL and Python match the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language ad; Milan is not a priority city; asks 1-2 years of experience, a stretch for a new graduate; same employer as npiu63d7 and okviumpy in this batch.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-aws-etl-devops-silicondev-spa-h733ribg": {
+  "fit": 2,
+  "reason": "Junior data engineer on Airflow, AWS Lambda, Redshift and Python/SQL ETL; strong overlap with the CV's Python, SQL and AWS, but the DevOps and CI/CD emphasis is adjacent.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language ad; hybrid in Milan; CloudFormation and GitHub Actions beyond the CV; would score 3 or 4 if the language were not a barrier.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-eur28-000-eur35-000-all-anno-autoguidovie-npiu63d7": {
+  "fit": 2,
+  "reason": "Junior data engineer on a new Azure/Databricks data platform; relevant data-engineering work, but Azure and Databricks are not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Ad explicitly requires fluent Italian; asks 1-3 years of Azure data experience; Azure and Databricks not on CV; same role as okviumpy in this batch.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-autoguidovie-okviumpy": {
+  "fit": 2,
+  "reason": "Junior data engineer on a new Azure/Databricks data platform; relevant data-engineering work, but Azure and Databricks are not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Ad requires fluent Italian; asks 1-3 years of Azure data experience; Azure and Databricks not on CV; duplicate of npiu63d7 in this batch.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-databricks-m-w-d-collaboration-betters-the-world-gmbh-uddsvtus": {
+  "fit": 2,
+  "reason": "Junior Databricks/Spark data engineer on lakehouse pipelines with SQL and Python; good technical overlap with the CV, but the ad is in German.",
+  "deadline": "",
+  "start": "",
+  "concerns": "German-language ad; German requirement not confirmed in the excerpt; Stuttgart is not a priority city; Databricks and Spark not on CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-sap-data-engineer-gn-inhouse-bis-ca-80k-data-engineer-home-of-jobs-berlin-gmbh-standort-leipzig-dk6pduea": {
+  "fit": 2,
+  "reason": "SAP Datasphere and SAP Analytics Cloud reporting and BI role; SAP tooling is not on the CV and the work is mostly unrelated to ML or software engineering.",
+  "deadline": "",
+  "start": "",
+  "concerns": "German-language ad; SAP BI experience asked; Oldenburg is not a priority city; recruiter-posted via home of jobs.",
+  "scored": "2026-11-08"
+ },
+ "fh:machine-learning-engineer-intern-criteo-qimuwcog": {
+  "fit": 3,
+  "reason": "ML engineer internship on recommendation and prediction models in Python; core ML match with the CV's statistical learning and Python, but intern timing and the experience bar are unclear.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship dates not stated; a summer 2027 start clashes with the MSc dissertation (profile excludes summer internships); asks for final-year BSc/MSc students, and the candidate's MSc runs to Sep 2027; Paris is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:applications-software-engineer-motorola-solutions-inc-6dtgnlzu": {
+  "fit": 2,
+  "reason": "Applications software engineer on embedded C#/.NET/MAUI software; in the SWE family, but the stack is not on the CV and the ad expects proven delivery and guiding junior staff.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK visa sponsorship not stated; C#/.NET/MAUI not on CV; experience bar above junior ('proven delivery', mentoring); Cambridge is a major city; same role as kdymvddy in this batch.",
+  "scored": "2026-11-08"
+ },
+ "fh:applications-software-engineer-motorola-kdymvddy": {
+  "fit": 2,
+  "reason": "Applications software engineer on embedded C#/.NET/MAUI software; in the SWE family, but the stack is not on the CV and the ad expects proven delivery and guiding junior staff.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK visa sponsorship not stated; C#/.NET/MAUI not on CV; experience bar above junior; duplicate of 6dtgnlzu in this batch.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-per-soluzioni-di-gestione-della-conoscenza-stage-cefriel-zyft5yxz": {
+  "fit": 2,
+  "reason": "Internship on knowledge-management software (conversational interfaces, multi-agent systems, MCP, data pipelines); close to the CV's agent work, but the ad is in Italian.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language ad (requires good English); internship dates not stated; the ad offers a thesis option; Milan.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-cordic-ltd-bpchm6bq": {
+  "fit": 3,
+  "reason": "Junior software engineer across the stack with REST APIs and new features; generic SWE that fits the software family, but the ad says little about the work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK visa sponsorship not stated; small company; Swavesey is a village near Cambridge, not a priority city; sparse technical detail.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-backend-engineer-defi-on-chain-systems-accountable-vsdkj4me": {
+  "fit": 3,
+  "reason": "Junior backend engineer on DeFi/lending services (APIs, CI/CD, protocol integration); backend SWE fits, but the on-chain domain is not on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "UK visa sponsorship not stated; no city given; no blockchain experience on CV; crypto/fintech domain.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-master-data-analyst-haughey-recruitment-3ifolazq": {
+  "fit": 2,
+  "reason": "Graduate master-data analyst for FMCG business systems (ERP, master data); mostly business-systems work, not the ML and data-science core of the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter ad, real employer not named; UK visa sponsorship not stated; hybrid; ERP and master data not on CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:black-talent-in-business-engineering-data-science-and-analytics-pwc-rsm3dc6x": {
+  "fit": 2,
+  "reason": "Early-careers insight programme in engineering and data science; wrong level, since it targets first- or second-year undergraduates and the CV already has a completed BSc.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires undergraduate year 1 or 2; PwC is in already_applied; offices in Birmingham or London; three-day programme rather than a job.",
+  "scored": "2026-11-08"
+ },
+ "fh:visiting-forward-deployed-ai-engineer-internship-germany-bcg-x-boston-consulting-group-yg7vo4j2": {
+  "fit": 2,
+  "reason": "Forward-deployed AI engineering internship with strong ML and software fit, but the ad requires German C1/C2 and enrolment in a master's or PhD.",
+  "deadline": "",
+  "start": "",
+  "concerns": "German C1/C2 explicitly required; internship dates and length not stated; excerpt cut off; Munich is a hub city; the candidate's MSc enrolment matches.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-java-adentis-italia-kue7ofcp": {
+  "fit": 2,
+  "reason": "Junior Java developer on a Big Data finance product (Spark, Scala); Java is on the CV, but Spark/Scala and the finance domain are a stretch.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language ad; Brescia is not a priority city; hybrid; Spark and Scala not on CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-itss-recruitment-a3g67zcm": {
+  "fit": 2,
+  "reason": "Junior software engineer on defence C#/Unity/Unreal game-dev tooling; SWE title, but the stack is mostly unrelated to the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter ad, employer not named; UK visa sponsorship not stated; hybrid near Lincoln; salary up to GBP 30,000; game-engine stack not on CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-engineer-till-tieto-bravura-sverige-ab-xyepw4ob": {
+  "fit": 2,
+  "reason": "Junior embedded/telecom software consultant role in Lulea; general programming fit, but the work is embedded systems rather than ML/AI or my data/LLM focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Swedish and I do not speak Swedish; 12-month consultant contract; on-site 4 days/week in Karlstad or Lulea; start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-m-w-d-datenbankentwicklung-bi-ingenieur-reply-deutschland-se-eha7jnrs": {
+  "fit": 2,
+  "reason": "Junior data engineering/BI consulting role with Python and ETL; relevant to my data skills but not ML/LLM work, and asks for existing Data & Analytics experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in German and asks for very good German, which I do not speak; Dusseldorf (Germany, EU); national travel; start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-accenture-italia-4thx3vj7": {
+  "fit": 2,
+  "reason": "Junior data engineering role at a consultancy (data pipelines, modelling, Spark, Python, Kafka); adjacent to my data skills but not ML-focused.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian; Lombardia (Italy, EU); start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:client-ai-software-engineer-intern-electronic-arts-ik3p7jmw": {
+  "fit": 2,
+  "reason": "Client/AI software engineer placement on a live game's data layer (C, relational databases); some AI overlap, but eligibility is for penultimate-year undergraduates only.",
+  "deadline": "",
+  "start": "July 2027",
+  "concerns": "Eligibility says penultimate-year undergraduate, not Master's, so I do not qualify; 12-month placement from July 2027 clashes with the MSc dissertation; UK student visa and no sponsorship stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-pwc-irepjtnv": {
+  "fit": 2,
+  "reason": "Forward Deployed AI Engineer building GenAI into client processes with production code; overlaps part of my LLM work, but it is consulting-embedded and the experience bar is unclear. PwC is already on my applied list.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Dutch and I do not speak Dutch; not labelled entry-level; Amsterdam (Netherlands, EU); company already applied to.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-data-engineer-ai-darogan-uwrsltgq": {
+  "fit": 2,
+  "reason": "Graduate data engineer for AI-assisted experimental data tooling and reporting at a Cardiff deep-tech firm; graduate level fits, but the work is mainly data plumbing rather than ML.",
+  "deadline": "",
+  "start": "Mid-to-late January 2027",
+  "concerns": "Starts during the MSc and runs 30 hours/week, which clashes with UK student-visa work limits in term; sponsorship not stated; hybrid, 3 days/week in Cardiff office.",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-engineer-ai-powered-crm-data-extraction-kyc-support-ch-prog-partner-whatjobs-mixed-cpc-dobon244": {
+  "fit": 3,
+  "reason": "AI engineering internship on OCR, information extraction and validation inside a KYC CRM; matches my LLM and backend skills, but the domain is compliance-heavy document processing.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter/job-board ad, real employer not named; location given only as Switzerland; residence in Switzerland or willingness to relocate required; duration and start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-machine-learning-foundation-model-h-f-parrot-zxsdorbk": {
+  "fit": 3,
+  "reason": "ML internship training self-supervised vision foundation models on a large data lake; strong PyTorch and ML overlap, but computer vision is thinner on my CV than LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Profile asks for an engineering-school student with a vision/deep learning specialisation; duration and start not stated in the excerpt; Paris (France, EU); French is fine.",
+  "scored": "2026-11-08"
+ },
+ "fh:data-ai-engineer-stage-paris-f-h-making-science-zy2tj3z2": {
+  "fit": 4,
+  "reason": "End-of-studies Data & AI engineering internship in Paris covering LLM use cases, RAG and agent frameworks such as LangGraph, which matches my LLM agent experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Designed as an end-of-studies placement, which may clash with the MSc dissertation; GCP and Terraform not on my CV; excerpt cut off so duration is unknown; posting is in French, which I speak.",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-engineer-ai-in-enterprise-java-application-frameworks-banque-lombard-odier-cie-sa-qs7wta4t": {
+  "fit": 3,
+  "reason": "AI engineering internship at a Geneva bank on integrating AI into enterprise apps and evaluating MCP and agent architectures; agent work overlaps my LangGraph experience, but it asks for Spring Boot/Quarkus skills I do not list.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Residence in Switzerland or willingness to relocate required; Java is on my CV but not Spring or Quarkus; duration and start not stated; excerpt cut off.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-software-developer-chiltern-park-recruitment-ltd-v6mj4nzz": {
+  "fit": 2,
+  "reason": "Junior software developer role at a small Tring firm, but the work is mostly customer phone contact, Crystal Reports and maths-heavy training, not ML or software engineering.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Recruiter ad, employer not named; salary up to 20K; UK sponsorship or visa status not stated; Tring (England) is outside my city tiers.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-ddv-mediengruppe-myykwipr": {
+  "fit": 2,
+  "reason": "Junior data engineer role built on Power BI, SSAS and DAX, with prior operations-analyst experience asked for; little overlap with my ML/LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Polish and I do not speak Polish; requires B2 English and warehouse-process experience; Poznan (Poland, EU); employer appears to be Arvato.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-apply-now-ian3w6gw": {
+  "fit": 2,
+  "reason": "Same Arvato junior data engineer role (Power BI, SSAS, DAX, SQL) as the DDV Mediengruppe listing, requiring operations-analyst experience; little overlap with my ML/LLM work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Near-duplicate of the DDV listing; posting is in Polish and I do not speak Polish; employer name is 'Apply now!', real employer only in the text (Arvato); Poznan (Poland, EU).",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-quantyca-data-at-core-v3773qjm": {
+  "fit": 2,
+  "reason": "Junior data engineer at a data consultancy (batch and real-time pipelines, data integration) with some overlap with my Python and data skills, but no ML/LLM focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian; Monza (Italy, EU); start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-gcp-terraform-pyspark-hybrid-deutsche-telekom-r5hlnovx": {
+  "fit": 2,
+  "reason": "Junior data engineer on GCP, Terraform, PySpark and Airflow pipelines; partly relevant tooling, but I have no GCP, Terraform or Spark on my CV and the work is infrastructure-heavy.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in German and I do not speak German; hybrid role in Galicia, Spain (EU, outside my city tiers); start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:full-stack-engineer-kotlin-react-maternity-cover-lounge-by-zalando-all-genders-zalando-75mx6dbc": {
+  "fit": 3,
+  "reason": "Full-stack engineer on a Kotlin backend-for-frontend and React for personalised landing pages; software work in my family, but Kotlin and React are not on my CV and the level is not labelled.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Fixed-term 12-month maternity cover; experience bar unclear; start not stated; Berlin (Germany, EU).",
+  "scored": "2026-11-08"
+ },
+ "fh:ai-engineer-intern-relu-mbd6tdlp": {
+  "fit": 4,
+  "reason": "Master's-level AI engineer internship on model pipelines for a dental automation platform, using PyTorch, TensorFlow and scikit-learn; matches my ML fundamentals and current MSc.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Minimum 6-week internship, dates not stated; healthcare domain is a nice-to-have only; Leuven (Belgium, EU) is outside my city tiers.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-machine-learning-la-javaness-y2ru66q6": {
+  "fit": 4,
+  "reason": "Machine learning internship in Paris on real client data, using Python, pandas, scikit-learn and deep learning frameworks; matches my ML core and French.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Preferred 4-6 months at end of studies, which may clash with the MSc dissertation; not labelled entry-level; start year not stated; Paris (France, EU) is outside my city tiers.",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-internship-france-bcg-x-boston-consulting-group-vc25hdsr": {
+  "fit": 3,
+  "reason": "Forward-deployed AI engineering internship with software development and client-facing delivery; some engineering and LLM overlap, but the role leans consulting.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requirements mention a second-part gap-year or final-year internship, which may not fit MSc timing; consulting-style client work; Paris (France, EU); excerpt cut off before the full requirements; start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-internship-netherlands-bcg-x-boston-consulting-group-d7wyjyjo": {
+  "fit": 3,
+  "reason": "BCG X forward-deployed AI engineering internship in Amsterdam, the same role family as the Paris listing; software and AI overlap, but consulting-led.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires current Master's or PhD enrolment, which I meet; duration and start not stated; excerpt cut off before the full technology list; Amsterdam (Netherlands, EU) is a hub city.",
+  "scored": "2026-11-08"
+ },
+ "fh:alternance-developpeur-machine-learning-ia-gen-h-f-galileo-global-education-3l5bm5ol": {
+  "fit": 2,
+  "reason": "Work-study ML/GenAI developer role in a Paris bank using LangChain, OpenAI API and vector stores, which overlap my agent work; but it is an apprenticeship with a French school.",
+  "deadline": "",
+  "start": "September (year not stated)",
+  "concerns": "Apprenticeship placed through a French school, while I am on a UCL MSc until Sept 2027; September start year not stated and may clash with the MSc; posting is in French, which I speak.",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-llm-based-information-extraction-zurich-switzerland-d-one-value-creation-ag-wo3ejusf": {
+  "fit": 3,
+  "reason": "Internship on LLM-based information extraction, a direct match for my LLM work; capped at 3 because the excerpt is generic boilerplate with no tasks, stack or duration.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Description is boilerplate only; no tasks, tech stack, duration or start; internship level not labelled; Zurich (Switzerland, EU-free per profile).",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-llm-based-information-extraction-zurich-switzerland-d-one-b2kub4zf": {
+  "fit": 3,
+  "reason": "Same LLM-based information extraction internship as the D ONE Value Creation listing, in Zurich; direct LLM match, capped at 3 for boilerplate-only description.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Near-duplicate of the D ONE Value Creation AG listing; description is boilerplate only with no tasks, stack, duration or start; Zurich (Switzerland).",
+  "scored": "2026-11-08"
+ },
+ "fh:software-engineer-all-genders-zalando-iqmxntkc": {
+  "fit": 3,
+  "reason": "Titled Software Engineer but the work is Site Reliability for Zalando Payments (infrastructure automation, IaC, monitoring); adjacent to my software skills rather than my ML focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "SRE/infrastructure focus; experience bar not labelled entry-level; Berlin (Germany, EU); start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:search-machine-learning-engineer-intern-perplexity-ai-7vvot2zo": {
+  "fit": 3,
+  "reason": "Search ML engineer intern on retrieval, ranking and RAG pipelines with PyTorch; strong overlap with my ML and LLM background, Rust is only a plus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Full-time, in-person 12-24 week internship in London; UK student visa limits work in term; a summer 2027 start would clash with the MSc dissertation; sponsorship not stated; start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-internship-denmark-bcg-x-boston-consulting-group-xv2qmiw3": {
+  "fit": 3,
+  "reason": "BCG X client-facing data science and ML delivery internship in Copenhagen; ML and Python fit the CV, but it is consulting-style and asks for significant applied analytics experience the CV only partly shows",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar ('significant experience', 'ability to lead teams') is above a student CV; excerpt cuts off before the requirements end",
+  "scored": "2026-11-08"
+ },
+ "fh:junior-data-engineer-cliente-finale-assunzione-diretta-randstad-digital-italia-uzk7nasp": {
+  "fit": 2,
+  "reason": "Data engineering role in Milan (Azure, DWH, SQL, dashboards) with little ML; the CV's ML and LLM work is not the focus",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires 2-3 years of data engineering experience; Italian-language posting (Italian not in profile languages); recruiter ad, employer not named",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-machine-learning-in-flood-modelling-arcadis-eightfold-ai-arcadis-com-dt2izms2": {
+  "fit": 2,
+  "reason": "MSc thesis placement training ML surrogates for 2D flood simulation: the topic fits the CV's ML work, but the placement dates clash with the UCL MSc",
+  "deadline": "",
+  "start": "October 2026",
+  "concerns": "Runs October 2026 to February 2027, overlapping the UCL MSc; posting is in Dutch; Amersfoort, Netherlands",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-engineer-ai-powered-crm-engagement-churn-analysis-banque-lombard-odier-cie-sa-bnm6c7iy": {
+  "fit": 3,
+  "reason": "Predictive models and engagement analytics on client data for a Geneva bank; ML skills fit, but the role leans to dashboards and backend work rather than LLMs",
+  "deadline": "",
+  "start": "",
+  "concerns": "Swiss residence or willingness to relocate required; posting is in German; start date not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-software-engineer-ai-powered-crm-mobile-crm-features-voice-notes-smart-notifications-banque-lombard-odier-cie-sa-yqbv7ow6": {
+  "fit": 2,
+  "reason": "Mobile app and UX work (voice-to-text, notifications, product design) for a Geneva bank; the CV has no mobile development and the AI part is small",
+  "deadline": "",
+  "start": "",
+  "concerns": "No mobile development in CV; Swiss residence or willingness to relocate required; posting is in German",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-software-engineer-contribution-to-the-design-and-implementation-of-an-agentic-sandbox-platform-banque-lombard-odier-cie-sa-uuk6vygu": {
+  "fit": 3,
+  "reason": "Agent platform work (MCP integrations, developer tools, AI agent architectures) overlaps with the CV's LangGraph agent projects, but the focus is platform and API engineering",
+  "deadline": "",
+  "start": "",
+  "concerns": "Platform and API infrastructure emphasis; Swiss residence or willingness to relocate required; posting is in German",
+  "scored": "2026-11-08"
+ },
+ "fh:software-developer-i-c-kotlin-och-android-toolchain-academix-ab-yazg6bgj": {
+  "fit": 1,
+  "reason": "Embedded C++, Kotlin and Android (AOSP) consulting role; unrelated to the CV's ML and web work",
+  "deadline": "",
+  "start": "",
+  "concerns": "Asks for 5+ years of embedded software experience; posting is in Swedish",
+  "scored": "2026-11-08"
+ },
+ "fh:full-stack-software-engineer-recommendation-lifestyle-intelligence-all-genders-zalando-nzgx7nct": {
+  "fit": 3,
+  "reason": "Full-stack engineering on a Berlin recommendation and embeddings team; software skills fit the CV, but the ML content is light and the level is unclear",
+  "deadline": "",
+  "start": "",
+  "concerns": "Not labelled entry-level and the excerpt ends before the requirements; experience bar unknown",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ai-engineer-polynom-koklkenl": {
+  "fit": 4,
+  "reason": "Internship building LLM applications, multi-agent systems and data pipelines in production; closely matches the CV's LangGraph agent work and pipeline projects, and the posting is in French (fluent)",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start date and duration not in the excerpt; not labelled entry-level, check the experience bar",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-software-engineer-ai-powered-non-regression-test-case-generation-banque-lombard-odier-cie-sa-qci6liog": {
+  "fit": 3,
+  "reason": "LLM-based test generation and business-rule extraction from legacy Java code; the LLM work fits the CV, but the focus is testing and settlement systems",
+  "deadline": "",
+  "start": "",
+  "concerns": "Java-heavy legacy codebase; Swiss residence or willingness to relocate required; posting is in German",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-software-engineer-internship-finland-bcg-x-boston-consulting-group-kljmuh7q": {
+  "fit": 3,
+  "reason": "Forward-deployed AI software internship for enrolled Master's students in Helsinki; Python and AI delivery fit the CV, but it is client-facing consulting",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start and duration not stated; excerpt cuts off in the technology list; client-facing consulting work",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-internship-spain-bcg-x-boston-consulting-group-ygqssbhb": {
+  "fit": 3,
+  "reason": "Forward-deployed AI engineering internship in Madrid for students enrolled in a bachelor's or master's; Python and AI delivery fit, but it is client-facing consulting",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start and duration not stated; excerpt cuts off before the full technology list; client-facing consulting work",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-ai-engineer-internship-norway-bcg-x-boston-consulting-group-tpgk2suv": {
+  "fit": 3,
+  "reason": "Forward-deployed AI engineering internship in Oslo for students enrolled in a master's or PhD; Python and AI delivery fit, but it is client-facing consulting",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start and duration not stated; client-facing consulting work; excerpt cuts off in the technology list",
+  "scored": "2026-11-08"
+ },
+ "fh:backend-engineer-scala-all-genders-zalando-zqsgzo7d": {
+  "fit": 2,
+  "reason": "Scala backend services for content selection on a Tier 1 platform; Scala is not in the CV and the scope suggests an experienced hire",
+  "deadline": "",
+  "start": "",
+  "concerns": "Scala stack not in CV; experience bar unclear (not labelled entry-level); Helsinki, Finland",
+  "scored": "2026-11-08"
+ },
+ "fh:data-scientist-bet3651-mpcui5kz": {
+  "fit": 2,
+  "reason": "Data science role with ML, A/B testing and SQL that matches parts of the CV, but it asks for a PhD and is wrong for an MSc student",
+  "deadline": "",
+  "start": "",
+  "concerns": "PhD degree required; UK sponsorship or Graduate visa status not stated; Manchester, England",
+  "scored": "2026-11-08"
+ },
+ "fh:forward-deployed-engineer-intern-student-bygg-og-ai-buildright-mwqanmeq": {
+  "fit": 1,
+  "reason": "Forward-deployed intern for construction AI in Oslo; asks for a construction, civil or building Master's, which the CV does not show",
+  "deadline": "",
+  "start": "",
+  "concerns": "Fluent Norwegian required (not in profile); construction background required; posting is in Norwegian",
+  "scored": "2026-11-08"
+ },
+ "fh:internship-ai-software-engineer-ai-driven-batch-to-service-migration-for-securities-settlement-banque-lombard-odier-cie-sa-634dgvg3": {
+  "fit": 3,
+  "reason": "LLM-assisted analysis of legacy code and migration to event-driven services; the LLM and backend skills fit, but the work is enterprise Java modernisation",
+  "deadline": "",
+  "start": "",
+  "concerns": "Java legacy focus; Swiss residence or willingness to relocate required; posting is in German",
+  "scored": "2026-11-08"
+ },
+ "fh:data-scientist-ai-engineer-percorso-apprenticeship-manpowergroup-talent-solutions-jszrfo5c": {
+  "fit": 2,
+  "reason": "Data science and AI apprenticeship in Lombardy; asks for 1-2 years of experience and Power Automate and Copilot Studio, which the CV does not show",
+  "deadline": "",
+  "start": "",
+  "concerns": "Italian-language posting (Italian not in profile languages); recruiter ad, employer not named; tool mismatch",
+  "scored": "2026-11-08"
+ },
+ "fh:product-data-scientist-intern-criteo-vst7yi64": {
+  "fit": 2,
+  "reason": "Product data science and ML internship in Paris; the topic fits the CV, but the start is September 2026",
+  "deadline": "",
+  "start": "September 2026",
+  "concerns": "Start in September 2026 clashes with the UCL MSc start",
+  "scored": "2026-11-08"
+ },
+ "fh:ai-engineer-intern-hubexo-f53xgldi": {
+  "fit": 4,
+  "reason": "Student AI engineer role on LLM-based document extraction, entity matching and evaluation frameworks in Stockholm; matches the CV's LLM agent, evaluation and Python pipeline work",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start date and duration not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-ia-machine-learning-donnees-de-simulation-f-h-groupe-sii-6mjl6upx": {
+  "fit": 4,
+  "reason": "R&D internship in Nantes training and comparing ML models on simulation data; core ML and evaluation work matches the CV, and the posting is in French",
+  "deadline": "",
+  "start": "",
+  "concerns": "Asks for modelling and simulation background that the CV does not show; start and duration not in the excerpt",
+  "scored": "2026-11-08"
+ },
+ "fh:devops-engineer-ai-operations-met-office-l7dna2c5": {
+  "fit": 2,
+  "reason": "MLOps and infrastructure-as-code platform work is adjacent to the CV, but the role is DevOps rather than ML",
+  "deadline": "",
+  "start": "",
+  "concerns": "Needs UK security clearance, usually years of UK residency; sponsorship not stated; UK visa route unknown; experience bar unclear",
+  "scored": "2026-11-08"
+ },
+ "fh:data-and-ai-engineer-intern-sanofi-r-d-driven-and-ai-powered-biopharmaceutical-company-zwuet7ia": {
+  "fit": 4,
+  "reason": "Agentic AI, multi-agent and data pipeline internship in Lyon; closely matches the CV's agent and pipeline projects, and the posting is in English",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start date and duration not stated, so overlap with the UCL MSc is unknown; pharma and manufacturing domain",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-e-data-scientist-data-engineer-industrie-toulouse-cs-pwdt7ceb": {
+  "fit": 3,
+  "reason": "Industrial data science and ML internship in Toulouse (predictive maintenance, dashboards, prototypes); core data and ML work fits the CV, but the domain is industrial sensor data",
+  "deadline": "",
+  "start": "",
+  "concerns": "Start and duration not stated; industrial and engineering focus not in CV",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-e-data-scientist-data-engineer-industrie-toulouse-soprasteria1-3bucs7pc": {
+  "fit": 3,
+  "reason": "Six-month data science internship in aerospace data in Toulouse; Python, ML and time-series work fit the CV, but it asks for Spark, Hadoop and Hive which the CV does not show",
+  "deadline": "",
+  "start": "",
+  "concerns": "Big Data stack gap (PySpark, Spark, Hadoop, Hive); start date not stated",
+  "scored": "2026-11-08"
+ },
+ "fh:fresher-software-engineer-pixoate-3ixzwkic": {
+  "fit": 3,
+  "reason": "Fresher full-stack role (Next.js, Node, Python, REST); CV has Next.js/TypeScript/Python experience but the posting is web-app heavy, not ML/AI.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Not labelled entry-level; experience bar unclear; Ireland is EU so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:software-engineer-intern-front-end-or-fullstack-criteo-gdrgu5pt": {
+  "fit": 3,
+  "reason": "Criteo SWE internship in Paris, front-end or full-stack (TypeScript/JavaScript, C#/.NET, Mesos); a real engineering role at a known ad-tech firm, but the stack is mostly outside the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "6-month internship with no start date stated; timing vs MSc may clash; C#/.NET and Mesos not on CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-frontend-ai-products-solv-qswyjlcs": {
+  "fit": 2,
+  "reason": "Frontend associate role (React, TypeScript) for an entry-level graduate, but the posting is written in Italian.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian and I do not speak Italian (profile languages: en, fr, ar); mostly frontend work.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-e-recherche-machine-learning-f-h-dassault-systemes-yzu7lga6": {
+  "fit": 4,
+  "reason": "Master-level ML research internship in Valbonne (France) on modelling and prediction with PyTorch and Python, close to the CV's ML and research work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "5-6 month internship, start date not stated; check it does not clash with the MSc and the summer 2027 dissertation.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-java-syncron-nedb7nrf": {
+  "fit": 2,
+  "reason": "Backend Java/Spring Boot associate role; the CV has no Java/Spring backend work and the posting asks for 1-3 years of experience.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Wrong stack for the CV; experience bar of 1-3 years exceeds the profile max of 2.",
+  "scored": "2026-11-08"
+ },
+ "fh:graduate-software-engineer-motorola-solutions-oesbkr5a": {
+  "fit": 2,
+  "reason": "Graduate software role in Glasgow (hybrid), general programming with some Java; not ML/AI and the stack is mostly outside the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Starts before graduation (Sept 2027); security check requires 3 years of UK residency; sponsorship not stated; UK visa position unclear.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ai-engineer-finops-optimisation-de-contexte-pour-agents-dev-liksi-kb7mtgbb": {
+  "fit": 4,
+  "reason": "AI Engineer internship in Nantes on LLM engineering and context/token optimisation for coding agents, a close match to the CV's LLM agent and fine-tuning work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "4-6 month internship, start date not stated; posting is in French (fluent, fine); small company.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ai-engineer-finops-amp-optimisation-de-contexte-pour-agents-dev-liksi-groupe-7psissw4": {
+  "fit": 4,
+  "reason": "Same Liksi AI Engineer internship in Nantes (LLM and context optimisation for dev agents), a close match to the CV. Duplicate of the Liksi Nantes posting.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Duplicate listing of the same role; 4-6 month internship, start date not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-e-developpement-machine-learning-pour-maintenance-aeronautique-f-h-safran-power-units-tm6r6bs7": {
+  "fit": 3,
+  "reason": "Embedded ML for aircraft health monitoring (model design, deployment to embedded systems, Python); ML core matches but embedded and signal-processing focus is adjacent to the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting asks for a final-year engineering student; 6-month internship with no start date stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-e-developpement-machine-learning-pour-maintenance-aeronautique-f-h-safran-exvfd3t3": {
+  "fit": 3,
+  "reason": "Same Safran Power Units ML health-monitoring internship (Toulouse) listed under a Safran location; embedded ML is adjacent to the CV. Duplicate of the other Safran posting.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Duplicate listing; posting asks for a final-year engineering student; 6-month internship, start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ingenieur-logiciel-machine-learning-f-h-dassault-systemes-up2qwrh4": {
+  "fit": 3,
+  "reason": "Software and ML internship in Vélizy (vectorisation, evaluation of prediction models, unit tests) in Python and Java; partly matches the CV, partly generic software and ontology work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Java is required and the CV shows little Java; Bac+5 level fits; start date not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-platform-sdlc-jpmc-dev6-fa-oraclecloud-com-cx-bqrd2sak": {
+  "fit": 3,
+  "reason": "Platform/SDLC engineering in London (GitHub Actions CI/CD, GoLang tooling, secure pipelines); adjacent to the CV's infra work, not ML or AI.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Sponsorship not stated; UK needs Skilled Worker sponsorship or Graduate visa; GoLang is not on the CV.",
+  "scored": "2026-11-08"
+ },
+ "fh:stagiaire-ai-engineer-h-f-h-f-geodis-kplwurdr": {
+  "fit": 3,
+  "reason": "6-month AI intern role in Hauts-de-Seine (ML models, data analysis, integrating AI into systems) matching basic Python and ML skills; posting is light on detail.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Entry-level scope may be shallow; internship timing and start date not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-ai-engineer-industrialisation-de-l-ia-au-sein-des-equipes-liksi-74ktjpov": {
+  "fit": 4,
+  "reason": "AI Engineer internship in Rennes on AI-assisted code migration and industrialising LLM use in dev teams, a close match to the CV's LLM and agent work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "4-6 month internship, start date not stated; Rennes is not on the city list but France is an allowed country.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-moody-s-wnolv3ay": {
+  "fit": 3,
+  "reason": "Associate software engineer in London for a cloud SaaS compliance platform (APIs, testing, agile); a graduate-level software role, not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Sponsorship not stated; UK visa position unclear; ML/AI is not central to the work.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-data-engineer-asos-com-3pgouvcy": {
+  "fit": 3,
+  "reason": "Associate data engineer in London on Azure data platform work (pipelines, data modelling); adjacent to the CV's data skills, not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Sponsorship not stated; UK visa position unclear; posting text is partly repeated boilerplate.",
+  "scored": "2026-11-08"
+ },
+ "fh:jr-data-engineer-venchi-vsmcfs6r": {
+  "fit": 3,
+  "reason": "Jr Data Engineer in the Milan area (pipelines, ETL, SQL, Databricks) for a Master's holder; adjacent to ML, and close to the CV's Python and data work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Requires 1+ years of data engineering experience; the CV has no formal data engineering role; sponsorship not needed (EU).",
+  "scored": "2026-11-08"
+ },
+ "fh:werkstudent-in-machine-learning-m-w-d-tegtmeier-internet-solutions-gmbh-sinnkontor-t7jqmkuv": {
+  "fit": 2,
+  "reason": "Working-student ML role in Hamburg (recommendations, LLM agents, MLOps) that matches the CV's ML and agent work well.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in German and I do not speak German (profile languages: en, fr, ar); recruiter ad via Sinnkontor.",
+  "scored": "2026-11-08"
+ },
+ "fh:stage-data-scientist-r-d-f-h-safran-aircraft-engines-gpnknidk": {
+  "fit": 4,
+  "reason": "Master 2 R&D data science internship in France on world models and time-series learning with PyTorch and deep learning, a strong match to the CV's ML research work.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship start and duration not stated; check it does not clash with the MSc timing.",
+  "scored": "2026-11-08"
+ },
+ "fh:stagiaire-ecole-f-h-machine-learning-et-detection-de-la-fraude-a-la-carte-bancaire-credit-mutuel-alliance-federale-a5opf5xt": {
+  "fit": 3,
+  "reason": "ML benchmark internship in Nantes on card-fraud detection (neural nets, XGBoost, SHAP) that fits the CV's ML work, but part of the role is web and mainframe development.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Mixed scope (C#/.NET, mainframe); minimum 4-month internship, start not stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-fintech-net-python-growth-blackline-sp-z-o-o-poland-wwec4qma": {
+  "fit": 2,
+  "reason": "Associate SWE in Kraków on a finance automation platform (.NET/C#, Python, React); stack is largely outside the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Mostly .NET/C# work; no ML/AI focus; posting is brief.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-capgemini-engineering-sverige-ab-y6emhyjh": {
+  "fit": 2,
+  "reason": "Associate SWE in Göteborg building C#/.NET Core Blazor and Azure services; the CV has no .NET or Blazor work and the work is not ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Stack mismatch (C#/.NET, Blazor); profile asks for an electrical or CS MSc; Sweden is EU so no visa issue.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-trading-tech-python-javelin-group-2z2zrvwl": {
+  "fit": 3,
+  "reason": "Python associate SWE on trading, logistics and operations systems in London; Python is on the CV and the trading context fits the quant family, but the work is more back-office software.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Sponsorship not stated; UK visa position unclear; no ML focus stated.",
+  "scored": "2026-11-08"
+ },
+ "fh:software-engineer-intern-backend-or-fullstack-criteo-czunsjth": {
+  "fit": 3,
+  "reason": "Criteo SWE internship in Grenoble (backend pipelines, full-stack, data quality) for a final-year student; a real engineering role, partly outside the CV's ML focus.",
+  "deadline": "",
+  "start": "",
+  "concerns": "6-month internship, start not stated; posting requires final-year study and availability for 6 months; stack includes C#/.NET and Mesos.",
+  "scored": "2026-11-08"
+ },
+ "fh:data-scientist-f-h-analyse-de-donnees-pour-le-controle-et-la-lcb-ft-stage-credit-mutuel-alliance-federale-dowsb7zo": {
+  "fit": 3,
+  "reason": "Data science internship in Strasbourg applying unsupervised ML (Isolation Forest, PCA) and SQL to anti-money-laundering controls; the ML methods match the CV, but the domain is insurance compliance.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship timing and start not stated; a Master 2 data or statistics background is preferred.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-fa-extu-dev2-saasfaprod1-fa-ocs-oraclecloud-com-cx-lmkeos6y": {
+  "fit": 2,
+  "reason": "Generic Associate Software Engineer title at Akamai in France, but the description is a placeholder test text with no duties or stack, so the work cannot be matched to the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Boilerplate-only description; level not labelled entry-level, so the experience bar is unknown.",
+  "scored": "2026-11-08"
+ },
+ "fh:hbo-deeltijd-quality-operational-excellence-ict-data-science-asml-rsniwa4y": {
+  "fit": 2,
+  "reason": "Part-time HBO (university of applied sciences) role in manufacturing quality and SPC data analysis; wrong level for an MSc candidate and only loosely related to the ML and SWE work on the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Dutch (Dutch is not on the profile); HBO part-time student role, below the candidate's level; manufacturing SPC focus rather than ML or SWE. Veldhoven is an EU location.",
+  "scored": "2026-11-08"
+ },
+ "fh:associate-software-engineer-integrations-solv-lotfndkz": {
+  "fit": 2,
+  "reason": "Entry-level software engineering on EMR/EHR integrations (data mapping, debugging, legacy systems) is close to the CV's backend and data work, but the posting is written in Italian for an Italian team.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Posting is in Italian, so Italian is likely needed (candidate speaks en, fr, ar); healthcare/EMR domain is learned on the job; degree requirement is cut off in the excerpt, so eligibility is not fully confirmed; no start date or deadline stated.",
+  "scored": "2026-11-08"
  }
 }

@@ -295,6 +295,14 @@
   "first_role": "Junior Data Engineer",
   "token": "reeeliance"
  },
+ "personio:relu": {
+  "added": "2026-11-08",
+  "ats": "personio",
+  "company": "Relu",
+  "fails": 0,
+  "first_role": "AI Engineer - Intern",
+  "token": "relu"
+ },
  "personio:schickler": {
   "added": "2026-11-04",
   "ats": "personio",
@@ -390,6 +398,14 @@
   "fails": 0,
   "first_role": "Software Engineer, SRE",
   "token": "Bet3651"
+ },
+ "smartrecruiters:cern": {
+  "added": "2026-11-08",
+  "ats": "smartrecruiters",
+  "company": "CERN",
+  "fails": 0,
+  "first_role": "Software Engineer for CERNBox (IT-SD-GSS-2026-174-GRAP)",
+  "token": "CERN"
  },
  "smartrecruiters:cordicltd": {
   "added": "2026-11-04",
