@@ -826,6 +826,266 @@
       "fuzzy": "computershare::aiengineer",
       "first_reported": "2026-11-08",
       "status": "reported"
+    },
+    "web:e4a6985c05:tower-research-capital": {
+      "deadline": "2026-11-30",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "web",
+      "fit": 4,
+      "company": "Tower Research Capital",
+      "title": "Quantitative Trader/Researcher Graduate Programme 2027",
+      "url": "https://www.tradermath.org/firms/tower-research-capital/jobs/quantitative-trader-researcher-graduate-programme-2027-in-london-4a744b",
+      "fuzzy": "tower::quantitativetraderresearcher",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:software-engineer-graduate-lysaker-norway-cisco-systems-vaubwkfs": {
+      "deadline": "",
+      "location": "Bærum, Norway",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Cisco Systems",
+      "title": "Software Engineer - Graduate - Lysaker, Norway",
+      "url": "https://no.whatjobs.com/pub_api__cpl__1399830__7138?utm_campaign=publisher&utm_medium=api&geoID=1978",
+      "fuzzy": "cisco::softwareengineerlysakernorway",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:ai-ml-associate-engineer-jpmc-dev9-fa-oraclecloud-com-cx-3xa5qxhh": {
+      "deadline": "",
+      "location": "Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "jpmc-dev9.fa.oraclecloud.com/CX",
+      "title": "AI/ML Associate Engineer",
+      "url": "https://jpmc-dev9.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/210730765",
+      "fuzzy": "jpmcdev9faoraclecloudcomcx::aimlassociateengineer",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "ab:doctolib:35ad728d-b76e-49a8-a949-108beca3c800": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "quant"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Doctolib",
+      "title": "Research Scientist (x/f/m)",
+      "url": "https://jobs.ashbyhq.com/doctolib/35ad728d-b76e-49a8-a949-108beca3c800",
+      "fuzzy": "doctolib::researchscientist",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-trading-tech-c-c-python-amsterdam-quant-society-ldbihljr": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Amsterdam Quant Society",
+      "title": "Graduate Software Engineer, Trading Tech (C#/C++/Python)",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__582023101__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "amsterdamquantsociety::softwareengineertradingtech",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-cisco-systems-inc-sonvo5vi": {
+      "deadline": "",
+      "location": "Galway, Ireland",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Cisco Systems, Inc",
+      "title": "Graduate Software Engineer",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__6015645__7127?utm_campaign=publisher&utm_medium=api&geoID=46",
+      "fuzzy": "cisco::softwareengineer",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "pe:relu:2732562": {
+      "deadline": "",
+      "location": "Leuven",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "personio",
+      "fit": 4,
+      "company": "Relu",
+      "title": "Full-Stack Engineer",
+      "url": "https://relu.jobs.personio.com/job/2732562",
+      "fuzzy": "relu::fullstackengineer",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:internship-ai-software-engineer-ai-powered-portfolio-intelligence-pms-banque-lombard-odier-cie-sa-kyph2cfl": {
+      "deadline": "",
+      "location": "Geneva",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Banque Lombard Odier & Cie SA",
+      "title": "Internship – AI Software Engineer - AI-Powered Portfolio Intelligence (PMS)",
+      "url": "https://www.jobs.ch/de/stellenangebote/detail/8c276ad9-7674-4a54-8d1e-a774bbfd6b05/",
+      "fuzzy": "banquelombardodierciesa::internshipaisoftwareengineeraipoweredportfoliointelligence",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:data-engineer-junior-h-f-boulogne-billancourt-cegedim-2kit2ojw": {
+      "deadline": "",
+      "location": "Boulogne Billancourt, France",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Cegedim",
+      "title": "Data Engineer Junior H/F - Boulogne-Billancourt",
+      "url": "https://fr.whatjobs.com/pub_api__cpl__158439598__7079?utm_campaign=publisher&utm_medium=api&geoID=4490",
+      "fuzzy": "cegedim::dataengineerjuniorhfboulognebillancourt",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:finance-data-engineer-junior-dashboards-pipelines-gewis-3jmzqr55": {
+      "deadline": "",
+      "location": "Netherlands",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Gewis",
+      "title": "Finance Data Engineer (Junior) — Dashboards & Pipelines",
+      "url": "https://nl.whatjobs.com/pub_api__cpl__176938490__7137?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "gewis::financedataengineerdashboardspipelines",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:graduate-python-developer-brightbox-group-m5tyomaq": {
+      "deadline": "",
+      "location": "Manchester, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "BrightBox Group",
+      "title": "Graduate Python Developer",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__582025612__7082?utm_campaign=publisher&utm_medium=api&geoID=19285",
+      "fuzzy": "brightbox::pythondeveloper",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:stage-6-mois-data-scientist-f-h-natixis-i3ailkhb": {
+      "deadline": "",
+      "location": "Paris, France / Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Natixis",
+      "title": "Stage - 6 mois - Data Scientist - F/H",
+      "url": "https://www.aplitrak.com/?adid=ZnJhLjkyNTQ5LjkzODBAbmF0aXhpcy5hcGxpdHJhay5jb20",
+      "fuzzy": "natixis::stage6moisdatascientistfh",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:stage-6-mois-data-scientist-f-h-natixis-2pewoopn": {
+      "deadline": "",
+      "location": "Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Natixis",
+      "title": "Stage - 6 mois - Data Scientist - F/H",
+      "url": "https://www.jobteaser.com/fr/job-offers/f2c80e16-cdc0-4c58-b6d7-3b0a9b1e3048-natixis-stage-6-mois-data-scientist-f-h",
+      "fuzzy": "natixis::stage6moisdatascientistfh",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:junior-data-engineer-ai-driven-pipelines-voltility-peyevnu2": {
+      "deadline": "",
+      "location": "United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Voltility",
+      "title": "Junior Data Engineer - AI-Driven Pipelines",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__591485443__7082?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "voltility::juniordataengineeraidrivenpipelines",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "fh:ai-engineer-data-scientist-internship-alphaguard-anqygwdn": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Alphaguard",
+      "title": "AI Engineer/Data Scientist Internship",
+      "url": "https://ats.welcometothejungle.com/board/alphaguard-XLnOLC/job/966014b9-a52d-4e82-8421-507874d9d87d/apply?referrer=wttj",
+      "fuzzy": "alphaguard::aiengineerdatascientistinternship",
+      "first_reported": "2026-11-09",
+      "status": "reported"
+    },
+    "ab:mistral.ai:f7245b49-92a0-4111-bba1-343183de7d97": {
+      "deadline": "",
+      "location": "Paris / Zurich / Warsaw / London",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Mistral AI",
+      "title": "AI Scientist Intern - (Internship, Masters or Phd)",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/f7245b49-92a0-4111-bba1-343183de7d97",
+      "fuzzy": "mistral::aiscientistintern",
+      "first_reported": "2026-11-09",
+      "status": "reported"
     }
   }
 }

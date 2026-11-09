@@ -407,6 +407,14 @@
   "first_role": "Software Engineer for CERNBox (IT-SD-GSS-2026-174-GRAP)",
   "token": "CERN"
  },
+ "smartrecruiters:constanterphilanthropyservices": {
+  "added": "2026-11-09",
+  "ats": "smartrecruiters",
+  "company": "Constanter",
+  "fails": 0,
+  "first_role": "Prompt Engineer and AI Solutions Intern",
+  "token": "ConstanterPhilanthropyServices"
+ },
  "smartrecruiters:cordicltd": {
   "added": "2026-11-04",
   "ats": "smartrecruiters",
@@ -470,6 +478,14 @@
   "fails": 0,
   "first_role": "Data Engineer (DATABRICKS / PYSPARK)",
   "token": "SigmaSoftware2"
+ },
+ "smartrecruiters:sixt": {
+  "added": "2026-11-09",
+  "ats": "smartrecruiters",
+  "company": "SIXT",
+  "fails": 0,
+  "first_role": "Praktikum als Applied AI Engineer (m/w/d)",
+  "token": "SIXT"
  },
  "smartrecruiters:soprasteria1": {
   "added": "2026-11-04",
