@@ -1086,6 +1086,282 @@
       "fuzzy": "mistral::aiscientistintern",
       "first_reported": "2026-11-09",
       "status": "reported"
+    },
+    "js:8576931002": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "janestreet",
+      "fit": 4,
+      "company": "Jane Street",
+      "title": "Machine Learning Researcher (New Grad)",
+      "url": "https://www.janestreet.com/join-jane-street/position/8576931002/",
+      "fuzzy": "janestreet::machinelearningresearcher",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:junior-python-developer-nevance-vmr7wos6": {
+      "deadline": "",
+      "location": "Milano, Italy",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Nevance",
+      "title": "Junior Python Developer",
+      "url": "https://it.whatjobs.com/pub_api__cpl__258186329__7128?utm_campaign=publisher&utm_medium=api&geoID=1422",
+      "fuzzy": "nevance::juniorpythondeveloper",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-hybrid-in-oslo-cisco-systems-z2x7apny": {
+      "deadline": "",
+      "location": "Norway",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Cisco Systems",
+      "title": "Graduate Software Engineer - Hybrid in Oslo",
+      "url": "https://no.whatjobs.com/pub_api__cpl__1399745__7138?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "cisco::softwareengineerhybridinoslo",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "ab:mistral.ai:e91d8785-a4a1-4fc5-b214-21d285005cd0": {
+      "deadline": "",
+      "location": "Paris / Zurich / Warsaw / London",
+      "region": "uk",
+      "families": [
+        "quant",
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Mistral AI",
+      "title": "Research Software Engineer",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
+      "fuzzy": "mistral::researchsoftwareengineer",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:research-software-engineer-mistral-ai-ufqe5w4c": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "quant",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "Research Software Engineer",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
+      "fuzzy": "mistral::researchsoftwareengineer",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "lv:raidium:e6b9f7e1-1332-4ef9-95ca-198f5a3753a7": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Raidium",
+      "title": "Machine Learning Intern - Learning from radiology reports to detect cancer on CT",
+      "url": "https://jobs.lever.co/raidium/e6b9f7e1-1332-4ef9-95ca-198f5a3753a7",
+      "fuzzy": "raidium::machinelearninginternlearningfromradiologyreportstodetectcanceronct",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "ab:elevenlabs:b8a111fa-9fd5-44d0-97ed-8fd1280be4ef": {
+      "deadline": "",
+      "location": "United Kingdom / Dublin / Spain / Hungary / Bulgaria / Germany / Poland / Italy / Netherlands / France",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "ElevenLabs",
+      "title": "Applied AI Engineer",
+      "url": "https://jobs.ashbyhq.com/ElevenLabs/b8a111fa-9fd5-44d0-97ed-8fd1280be4ef",
+      "fuzzy": "elevenlabs::appliedaiengineer",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "lv:cartrawler:0667119f-e36a-4468-86d1-387069020c78": {
+      "deadline": "",
+      "location": "Dublin",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "CarTrawler",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.lever.co/cartrawler/0667119f-e36a-4468-86d1-387069020c78",
+      "fuzzy": "cartrawler::machinelearningengineer",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "lv:safran-ai:3eedd99a-7f79-4bff-8b8c-46b195ead6c3": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Safran.AI (ex-Preligens)",
+      "title": "AI Engineer (H/F)",
+      "url": "https://jobs.lever.co/safran-ai/3eedd99a-7f79-4bff-8b8c-46b195ead6c3",
+      "fuzzy": "safranexpreligens::aiengineer",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-h-f-richemont-roanybwq": {
+      "deadline": "",
+      "location": "PARIS",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "richemont",
+      "title": "Stage - Data Scientist (H/F)",
+      "url": "https://richemont.wd3.myworkdayjobs.com/richemont/job/PARIS/Stage---Data-Scientist--H-F-_JR135796-1",
+      "fuzzy": "richemont::stagedatascientist",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "lv:raidium:cc860ee6-7209-4a93-bbb8-07c681f1deb7": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Raidium",
+      "title": "Machine Learning Internship - Foundation Models for Radiology",
+      "url": "https://jobs.lever.co/raidium/cc860ee6-7209-4a93-bbb8-07c681f1deb7",
+      "fuzzy": "raidium::machinelearninginternshipfoundationmodelsforradiology",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "ab:mistral.ai:de46ba8b-00cb-4618-83df-66e15a78434e": {
+      "deadline": "",
+      "location": "Paris / London",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Mistral AI",
+      "title": "Applied Scientist  (Internship)",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/de46ba8b-00cb-4618-83df-66e15a78434e",
+      "fuzzy": "mistral::appliedscientist",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "lv:theodo:d51fd8f5-83ab-4223-bd05-6459640ff11c": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Theodo Data & AI",
+      "title": "AI-Native Software Engineer - CDI Paris - Theodo Fintech",
+      "url": "https://jobs.lever.co/theodo/d51fd8f5-83ab-4223-bd05-6459640ff11c",
+      "fuzzy": "theododata::ainativesoftwareengineercdiparistheodofintech",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-ia-agentic-rag-over-heterogeneous-data-sources-chapsvision-4ijl7lij": {
+      "deadline": "",
+      "location": "Paris, FR",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ChapsVision",
+      "title": "Stage Data Scientist IA - Agentic RAG over Heterogeneous Data Sources",
+      "url": "https://careers.chapsvision.com/jobs/8667927-stage-data-scientist-ia-agentic-rag-over-heterogeneous-data-sources",
+      "fuzzy": "chapsvision::stagedatascientistiaagenticragoverheterogeneousdatasources",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:associate-data-scientist-icf-cluqkcjd": {
+      "deadline": "",
+      "location": "Madrid, Spain (ES01) / London (GB80)",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ICF",
+      "title": "Associate Data Scientist",
+      "url": "https://icf.wd5.myworkdayjobs.com/ICFExternal_Career_Site/job/Madrid-Spain-ES01/Associate-Data-Scientist_R2603575",
+      "fuzzy": "icf::associatedatascientist",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "fh:associate-data-scientist-icf-hwk3jpy3": {
+      "deadline": "",
+      "location": "London (GB80)",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ICF",
+      "title": "Associate Data Scientist",
+      "url": "https://icf.wd5.myworkdayjobs.com/ICFExternal_Career_Site/job/London-GB80/Associate-Data-Scientist_R2603454-1",
+      "fuzzy": "icf::associatedatascientist",
+      "first_reported": "2026-11-10",
+      "status": "reported"
+    },
+    "ab:doctolib:1a05fc07-99a5-4148-8b34-2b644d9ed030": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Doctolib",
+      "title": "Machine Learning Engineer Intern (x/f/m)",
+      "url": "https://jobs.ashbyhq.com/doctolib/1a05fc07-99a5-4148-8b34-2b644d9ed030",
+      "fuzzy": "doctolib::machinelearningengineerintern",
+      "first_reported": "2026-11-10",
+      "status": "reported"
     }
   }
 }

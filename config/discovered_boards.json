@@ -231,6 +231,14 @@
   "first_role": "AI Engineer (R-20123)",
   "token": "dnb"
  },
+ "lever:masterborn-2": {
+  "added": "2026-11-10",
+  "ats": "lever",
+  "company": "MasterBorn",
+  "fails": 0,
+  "first_role": "Junior Backend Developer (Python)",
+  "token": "masterborn-2"
+ },
  "lever:pigment": {
   "added": "2026-11-04",
   "ats": "lever",
@@ -446,6 +454,14 @@
   "fails": 0,
   "first_role": "Stage FE - Data Scientist / Analytics Engineer (H-F)",
   "token": "Labelium"
+ },
+ "smartrecruiters:netcompany1": {
+  "added": "2026-11-10",
+  "ats": "smartrecruiters",
+  "company": "Netcompany1",
+  "fails": 0,
+  "first_role": "Data Engineer",
+  "token": "Netcompany1"
  },
  "smartrecruiters:rexel1": {
   "added": "2026-11-06",
