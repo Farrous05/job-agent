@@ -1362,6 +1362,250 @@
       "fuzzy": "doctolib::machinelearningengineerintern",
       "first_reported": "2026-11-10",
       "status": "reported"
+    },
+    "fh:junior-backend-engineer-ai-agents-llm-integration-m-f-d-eigenblue-qt4mb6ob": {
+      "deadline": "",
+      "location": "Munich, Germany",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "eigenblue",
+      "title": "(Junior) Backend Engineer - AI Agents & LLM Integration (m/f/d)",
+      "url": "https://eigenblue.breezy.hr/p/78a5b320022401-junior-backend-engineer-ai-agents-llm-integration-m-f-d",
+      "fuzzy": "eigenblue::backendengineeraiagentsllmintegration",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:ai-engineer-i-build-ai-pipelines-for-global-hr-g-ldiggfh7": {
+      "deadline": "",
+      "location": "County Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "G-",
+      "title": "AI Engineer I: Build AI Pipelines for Global HR",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__6184810__7127?utm_campaign=publisher&utm_medium=api&geoID=1094",
+      "fuzzy": "g::aiengineeribuildaipipelinesforglobalhr",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:data-ai-engineer-stage-paris-f-h-making-science-zy2tj3z2": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Making Science",
+      "title": "Data & AI Engineer - Stage - Paris - F-H",
+      "url": "https://www.welcometothejungle.com/en/companies/makingscience/jobs/data-consultant-stage-paris-f-h_paris",
+      "fuzzy": "makingscience::dataaiengineerstageparisfh",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "ab:almedia:927ae9e7-1bf8-41d3-8f56-8d5fc4dbfd8c": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Almedia",
+      "title": "Data Scientist",
+      "url": "https://jobs.ashbyhq.com/almedia/927ae9e7-1bf8-41d3-8f56-8d5fc4dbfd8c",
+      "fuzzy": "almedia::datascientist",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:machine-learning-intern-helical-o3p6gz4s": {
+      "deadline": "",
+      "location": "London, England, United Kingdom; Luxembourg, Luxembourg, Luxembourg",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Helical",
+      "title": "Machine Learning Intern",
+      "url": "https://apply.workable.com/j/88990169F9",
+      "fuzzy": "helical::machinelearningintern",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-e-r-d-en-intelligence-artificielle-llm-deep-learning-f-h-dassault-systemes-y7fthywp": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE - Ingénieur.e R&D en Intelligence Artificielle (LLM, Deep Learning) (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-ingenieur-e-r-d-en-intelligence-artificielle-llm-deep-learning-f-h-550404",
+      "fuzzy": "dassaultsystmes::stageingnieurerdenintelligenceartificielle",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "lv:pigment:3401c965-2e1a-426d-8d58-9ca56c5054bf": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "lever",
+      "fit": 4,
+      "company": "Pigment",
+      "title": "Data Scientist Internship",
+      "url": "https://jobs.lever.co/pigment/3401c965-2e1a-426d-8d58-9ca56c5054bf",
+      "fuzzy": "pigment::datascientistinternship",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "ab:elevenlabs:9fbd9227-57e0-4221-9255-1a1d967be8ed": {
+      "deadline": "",
+      "location": "United Kingdom / United States / Poland / Bulgaria",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "ElevenLabs",
+      "title": "Research Engineer - Data Infrastructure",
+      "url": "https://jobs.ashbyhq.com/ElevenLabs/9fbd9227-57e0-4221-9255-1a1d967be8ed",
+      "fuzzy": "elevenlabs::researchengineerdatainfrastructure",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "ab:edited:90aec002-864d-4b4b-95a9-07ce42cff287": {
+      "deadline": "",
+      "location": "Sofia Office",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "EDITED",
+      "title": "AI Data Engineer",
+      "url": "https://jobs.ashbyhq.com/edited/90aec002-864d-4b4b-95a9-07ce42cff287",
+      "fuzzy": "edited::aidataengineer",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:ai-engineer-i-global-hr-ai-data-pipelines-g-p-rrk7hkbv": {
+      "deadline": "",
+      "location": "Ireland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "G-P",
+      "title": "AI Engineer I — Global HR AI & Data Pipelines",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__6277320__7127?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "gp::aiengineeriglobalhraidatapipelines",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:stage-machine-learning-la-javaness-y2ru66q6": {
+      "deadline": "",
+      "location": "Paris, Île-de-France, France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "La Javaness",
+      "title": "Stage Machine Learning",
+      "url": "https://apply.workable.com/j/4A4D794A14",
+      "fuzzy": "lajavaness::stagemachinelearning",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:stage-deep-learning-scientist-h-f-safran-ai-ex-preligens-eapk7bqf": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Safran.AI (ex-Preligens)",
+      "title": "Stage - Deep Learning Scientist (H/F)",
+      "url": "https://jobs.lever.co/safran-ai/3ff52c39-28d5-41d4-958c-c16001777e7a/apply",
+      "fuzzy": "safranexpreligens::stagedeeplearningscientist",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:stage-deep-learning-scientist-h-f-safran-ai-rrzc2f54": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Safran.AI",
+      "title": "Stage - Deep Learning Scientist (H/F)",
+      "url": "https://jobs.lever.co/safran-ai/3ff52c39-28d5-41d4-958c-c16001777e7a",
+      "fuzzy": "safran::stagedeeplearningscientist",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "ab:perplexity:71168628-1998-47d3-87a9-be7bc56a430d": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Perplexity AI",
+      "title": "Internship - Search Machine Learning Engineer",
+      "url": "https://jobs.ashbyhq.com/Perplexity/71168628-1998-47d3-87a9-be7bc56a430d",
+      "fuzzy": "perplexity::internshipsearchmachinelearningengineer",
+      "first_reported": "2026-11-11",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-ia-generative-llm-f-h-dassault-systemes-2prgfofe": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE – Ingénieur de Recherche - IA Générative / LLM (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-ingenieur-de-recherche-ia-generative-llm-f-h-550167",
+      "fuzzy": "dassaultsystmes::stageingnieurderechercheiagnrativellm",
+      "first_reported": "2026-11-11",
+      "status": "reported"
     }
   }
 }

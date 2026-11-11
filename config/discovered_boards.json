@@ -439,6 +439,14 @@
   "first_role": "Junior Software Developer for C# (m/w/d)",
   "token": "DeltaElectronics"
  },
+ "smartrecruiters:devoteam": {
+  "added": "2026-11-11",
+  "ats": "smartrecruiters",
+  "company": "Devoteam",
+  "fails": 0,
+  "first_role": "(Junior) Software Developer \u2013 Compilerbau & TTCN-3 (m/w/d)",
+  "token": "Devoteam"
+ },
  "smartrecruiters:iliad-free": {
   "added": "2026-11-04",
   "ats": "smartrecruiters",
