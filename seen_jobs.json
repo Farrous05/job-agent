@@ -1606,6 +1606,281 @@
       "fuzzy": "dassaultsystmes::stageingnieurderechercheiagnrativellm",
       "first_reported": "2026-11-11",
       "status": "reported"
+    },
+    "fh:junior-data-scientist-ravelin-zbn2wsbd": {
+      "deadline": "",
+      "location": "London, London",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Ravelin",
+      "title": "Junior Data Scientist",
+      "url": "https://ravelin.pinpointhq.com/en/postings/f1ee34f5-4260-43c8-b86d-b585a6c9bd9e",
+      "fuzzy": "ravelin::juniordatascientist",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:internship-software-engineering-on-demand-agent-provisioning-in-cellular-test-apple-k7gujufu": {
+      "deadline": "",
+      "location": "Munich",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Apple",
+      "title": "Internship - Software Engineering - On-Demand Agent Provisioning in Cellular Test",
+      "url": "https://jobs.apple.com/en-us/details/200689729/internship-software-engineering-on-demand-agent-provisioning-in-cellular-test",
+      "fuzzy": "apple::internshipsoftwareengineeringondemandagentprovisioningincellulartest",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-h-f-rexel-france-sl73fsoi": {
+      "deadline": "",
+      "location": "Paris, France / Paris, fr",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Rexel France",
+      "title": "Stage - Data Scientist (H/F)",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000159840894-stage-data-scientist-h-f-?sid=9fa97eed-f39f-400a-9fc4-128b3ed356c4",
+      "fuzzy": "rexelfrance::stagedatascientist",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "sr:REXEL1:744000159840894": {
+      "deadline": "",
+      "location": "Paris, fr",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "smartrecruiters",
+      "fit": 3,
+      "company": "Rexel France",
+      "title": "Stage - Data Scientist (H/F)",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000159840894",
+      "fuzzy": "rexelfrance::stagedatascientist",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:r-amp-d-data-scientist-intern-descartes-underwriting-xjuyps2y": {
+      "deadline": "",
+      "location": "Paris, FR",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Descartes Underwriting",
+      "title": "R&amp;D Data Scientist - Intern",
+      "url": "https://careers.descartesunderwriting.com/jobs/8544406-r-d-data-scientist-intern",
+      "fuzzy": "descartesunderwriting::rampddatascientistintern",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "gh:dataiku:5339585004": {
+      "deadline": "",
+      "location": "France, Paris",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Dataiku",
+      "title": "Software Engineer Intern - France, Paris",
+      "url": "https://job-boards.greenhouse.io/dataiku/jobs/5339585004",
+      "fuzzy": "dataiku::softwareengineerinternfranceparis",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:internship-ai-developer-engineer-amadeus-f2ekib4y": {
+      "deadline": "",
+      "location": "Nice",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "amadeus",
+      "title": "Internship - AI Developer Engineer",
+      "url": "https://amadeus.wd502.myworkdayjobs.com/jobs/job/Nice/Internship---AI-Developer-Engineer_R38604",
+      "fuzzy": "amadeus::internshipaideveloperengineer",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-ai-engineer-polynom-koklkenl": {
+      "deadline": "",
+      "location": "Rueil-Malmaison, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Polynom",
+      "title": "Stage - AI Engineer",
+      "url": "https://www.welcometothejungle.com/en/companies/polynom/jobs/stage-ai-engineer_rueil-malmaison",
+      "fuzzy": "polynom::stageaiengineer",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-ia-architecture-d-agents-llm-f-h-dassault-systemes-hk2qsy5k": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE – Ingénieur IA - Architecture d'agents LLM (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-ingenieur-ia-architecture-d-agents-llm-f-h-549585",
+      "fuzzy": "dassaultsystmes::stageingnieuriaarchitecturedagentsllm",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-connaissance-et-donnees-machine-learning-et-classification-f-h-dassault-systemes-zuuqyvys": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE Ingénieur Connaissance et Données, Machine Learning et Classification (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-ingenieur-connaissance-et-donnees-machine-learning-et-classification-f-h-549364",
+      "fuzzy": "dassaultsystmes::stageingnieurconnaissanceetdonnesmachinelearningetclassification",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:ai-driven-full-stack-engineer-i-aumni-pf3npqo3": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Aumni",
+      "title": "AI-Driven Full-Stack Engineer I",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__572280857__7082?utm_campaign=publisher&utm_medium=api&geoID=33",
+      "fuzzy": "aumni::aidrivenfullstackengineeri",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-ai-engineer-llm-agents-muchbetter-ai-muffddjf": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "muchbetter.ai",
+      "title": "Stage AI Engineer (LLM & Agents)",
+      "url": "https://www.welcometothejungle.com/en/companies/muchbetter-ai/jobs/stage-ai-engineer-llm-voix_paris",
+      "fuzzy": "muchbetter::stageaiengineer",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-ai-engineer-llm-paris-h-f-iliad-free-yem35evt": {
+      "deadline": "",
+      "location": "Paris, IDF, fr / Paris, fr",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "iliad-free",
+      "title": "Stage - AI Engineer LLM - Paris -  H/F",
+      "url": "https://jobs.smartrecruiters.com/Iliad-Free/744000158719979-stage-ai-engineer-llm-paris-h-f",
+      "fuzzy": "iliadfree::stageaiengineerllmparishf",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "sr:Iliad-Free:744000158719979": {
+      "deadline": "",
+      "location": "Paris, fr",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "smartrecruiters",
+      "fit": 3,
+      "company": "iliad-free",
+      "title": "Stage - AI Engineer LLM - Paris -  H/F",
+      "url": "https://jobs.smartrecruiters.com/Iliad-Free/744000158719979",
+      "fuzzy": "iliadfree::stageaiengineerllmparishf",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "ab:elevenlabs:2d0016e0-3cc2-4ec7-b164-bc2b83990fb6": {
+      "deadline": "",
+      "location": "London / United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "ElevenLabs",
+      "title": "Forward Deployed Engineer - Software Engineer - United Kingdom",
+      "url": "https://jobs.ashbyhq.com/ElevenLabs/2d0016e0-3cc2-4ec7-b164-bc2b83990fb6",
+      "fuzzy": "elevenlabs::forwarddeployedengineersoftwareengineerunitedkingdom",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-en-ai-generative-pour-l-automatisation-industrielle-f-h-schneider-electric-lchdewae": {
+      "deadline": "",
+      "location": "France-HAUTS-DE-SEINE-RUEIL MALMAISON",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Schneider Electric",
+      "title": "Stage – Data Scientist en AI générative pour l’automatisation industrielle – F/H",
+      "url": "https://careers.se.com/jobs/136649?lang=fr-fr",
+      "fuzzy": "schneiderelectric::stagedatascientistenaignrativepourlautomatisationindustriellefh",
+      "first_reported": "2026-11-12",
+      "status": "reported"
+    },
+    "fh:stage-developpeur-data-scientist-f-h-youngtalentsdays-vinci-energies-com-leklmxz3": {
+      "deadline": "",
+      "location": "Paris, FR",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "VINCI Energies Young Talents Days",
+      "title": "Stage Développeur Data Scientist  F/H",
+      "url": "https://youngtalentsdays.vinci-energies.com/fr/jobs/8507356-stage-developpeur-data-scientist-f-h",
+      "fuzzy": "vincienergiesyoungtalentsdays::stagedveloppeurdatascientistfh",
+      "first_reported": "2026-11-12",
+      "status": "reported"
     }
   }
 }

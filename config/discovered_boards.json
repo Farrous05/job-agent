@@ -95,6 +95,14 @@
   "first_role": "Software Engineer Intern AI/ML - Warsaw (2027)",
   "token": "snowflake"
  },
+ "ashby:statista": {
+  "added": "2026-11-12",
+  "ats": "ashby",
+  "company": "Statista",
+  "fails": 0,
+  "first_role": "Junior Software Developer - Python & Web Applications (m/f/d)",
+  "token": "statista"
+ },
  "greenhouse:aircallioinc": {
   "added": "2026-11-04",
   "ats": "greenhouse",
@@ -230,6 +238,14 @@
   "fails": 0,
   "first_role": "AI Engineer (R-20123)",
   "token": "dnb"
+ },
+ "lever:gravisrobotics": {
+  "added": "2026-11-12",
+  "ats": "lever",
+  "company": "Gravis Robotics",
+  "fails": 0,
+  "first_role": "Software Engineer Intern - Robotics Platform",
+  "token": "gravisrobotics"
  },
  "lever:masterborn-2": {
   "added": "2026-11-10",

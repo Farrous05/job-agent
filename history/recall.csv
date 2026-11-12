@@ -4,3 +4,4 @@ date,postings,fetched_pct,kept_pct,filtered_out,missing,missing_companies
 2026-11-09,6,83,83,0,1,"Cambridge Consultants"
 2026-11-10,5,100,80,1,0,""
 2026-11-11,5,80,60,1,1,"Zaizi"
+2026-11-12,7,71,43,2,2,"Revolut"
