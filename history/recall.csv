@@ -5,3 +5,4 @@ date,postings,fetched_pct,kept_pct,filtered_out,missing,missing_companies
 2026-11-10,5,100,80,1,0,""
 2026-11-11,5,80,60,1,1,"Zaizi"
 2026-11-12,7,71,43,2,2,"Revolut"
+2026-11-13,5,0,0,0,5,"Accenture; Alice & Bob; Batvoice; Deloitte; Doctrine"

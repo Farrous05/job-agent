@@ -207,6 +207,14 @@
   "first_role": "Junior Software Engineer \u2013 Robotics Swarming (All Genders)",
   "token": "skdse"
  },
+ "greenhouse:smartlyio": {
+  "added": "2026-11-13",
+  "ats": "greenhouse",
+  "company": "Smartly",
+  "fails": 0,
+  "first_role": "Smartly Launchpad 2027 (Software Engineer, Developer Platform)",
+  "token": "smartlyio"
+ },
  "greenhouse:veeamsoftware": {
   "added": "2026-11-04",
   "ats": "greenhouse",
@@ -358,6 +366,14 @@
   "fails": 0,
   "first_role": "AI Engineer l Young Talent Program",
   "token": "helloprint"
+ },
+ "recruitee:hemeriagroup": {
+  "added": "2026-11-13",
+  "ats": "recruitee",
+  "company": "hemeriagroup",
+  "fails": 0,
+  "first_role": "Stage: \u00c9valuation et int\u00e9gration d\u2019algorithmes de d\u00e9tection et suivi d\u2019objets par deep learning (F/H)",
+  "token": "hemeriagroup"
  },
  "recruitee:machinelearningreply": {
   "added": "2026-11-04",
@@ -582,5 +598,13 @@
   "fails": 0,
   "first_role": "Internship/Master thesis project in Computer Vision/Machine Learning",
   "token": "manomotion"
+ },
+ "teamtailor:vuonogroup": {
+  "added": "2026-11-13",
+  "ats": "teamtailor",
+  "company": "Vuono Group",
+  "fails": 0,
+  "first_role": "Associate Software Engineer (entry-level)",
+  "token": "vuonogroup"
  }
 }

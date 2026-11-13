@@ -1,0 +1,44 @@
+% Cover letter template used by /apply. Same header and fonts as cv/cv.tex.
+% /apply copies this to applications/<company>-<role>/cover_letter.tex and replaces every placeholder line.
+% Build: scripts/build_letter.sh applications/<company>-<role>   (checks it fits on one page)
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.9in,right=0.9in,top=0.6in,bottom=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{FARES SHRETAH}} \\[3pt]
+    \small +44 7454 768453 $\bullet$ \href{mailto:faresshretah@gmail.com}{faresshretah@gmail.com} $\bullet$ London, UK \\
+    \small \href{https://github.com/Farrous05}{github.com/Farrous05} $\bullet$ \href{https://www.linkedin.com/in/fares-shretah/}{linkedin.com/in/fares-shretah}
+\end{center}
+
+\vspace{6pt}
+12 November 2026
+
+Hiring Team, Artificial Intelligence \\
+Doctolib
+
+\textbf{Application: Machine Learning Engineer Intern (x/f/m), Paris}
+
+Dear Hiring Team,
+
+I am applying for the Machine Learning Research Intern role in Doctolib's AI team. I want to do applied research where the result reaches care teams and patients, and your work on optimising care pathways across Europe is a concrete version of that. I am a Master's student in Machine Learning at UCL, fluent in English and French, and Python is my main language.
+
+At the Max Planck Institute for Human Development I led a self-directed research project on conversational mode collapse in LLMs. I built an 8,504-example dataset from 10,000 self-conversations, labelled by a 31B LLM judge with 95\% of labels validated, and fully fine-tuned Qwen2.5-3B over five versions on an HPC cluster using PyTorch, SLURM and vLLM. The model detects its own collapse in unseen conversations, and I reported honestly that recovery was only temporary.
+
+I also build models end to end outside research. My image-captioning project pairs a pre-trained ResNet-50 encoder with a custom Transformer decoder using cross-attention, evaluated with multi-reference BLEU. At To Ai I shipped LLM agents to production, so I am used to taking an experiment through to something that runs reliably.
+
+I graduate in September 2027 and, as a French citizen, can work in France without sponsorship. I would like to discuss how the April 2027 start fits with my MSc schedule. Thank you for your time; I would be glad to talk about the team's projects.
+
+Kind regards,
+
+Fares Shretah
+
+\end{document}

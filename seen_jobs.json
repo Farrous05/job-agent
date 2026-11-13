@@ -1881,6 +1881,262 @@
       "fuzzy": "vincienergiesyoungtalentsdays::stagedveloppeurdatascientistfh",
       "first_reported": "2026-11-12",
       "status": "reported"
+    },
+    "fh:junior-ai-engineer-proximus-group-momwuyft": {
+      "deadline": "",
+      "location": "Brussels,Brussels / Brussels, BE",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Proximus Group",
+      "title": "Junior AI Engineer",
+      "url": "https://jobs.proximus.com/be/en/job/PIHPROGBREQ20178EXTERNALENBE",
+      "fuzzy": "proximus::junioraiengineer",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-proximus-qdylwy4v": {
+      "deadline": "",
+      "location": "Brussels, BE",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "proximus",
+      "title": "Junior AI Engineer",
+      "url": "https://proximus.csod.com/ux/ats/careersite/10/home/requisition/20178?c=proximus",
+      "fuzzy": "proximus::junioraiengineer",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "ab:statista:fa9658a6-2ff8-4d50-a228-6ac2ffead4a3": {
+      "deadline": "",
+      "location": "Hamburg or Berlin",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Statista",
+      "title": "Data Engineer (m/f/d)",
+      "url": "https://jobs.ashbyhq.com/statista/fa9658a6-2ff8-4d50-a228-6ac2ffead4a3",
+      "fuzzy": "statista::dataengineer",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:forward-deployed-ai-engineer-h-f-alfeor-uviv25xj": {
+      "deadline": "",
+      "location": "PARIS, Ile-de-France, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Alfeor",
+      "title": "Forward Deployed AI Engineer - stage (H/F)",
+      "url": "https://alfeor.factorial.fr/job_posting/forward-deployed-ai-engineer-stage-h-f-333232",
+      "fuzzy": "alfeor::forwarddeployedaiengineerstage",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "ab:elevenlabs:35813150-a851-4821-b732-a037b4e6c4fe": {
+      "deadline": "",
+      "location": "Remote / Europe / Switzerland / Poland / United Kingdom / Netherlands",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "ElevenLabs",
+      "title": "Full-Stack Engineer (Backend Leaning) - Creative Agents",
+      "url": "https://jobs.ashbyhq.com/ElevenLabs/35813150-a851-4821-b732-a037b4e6c4fe",
+      "fuzzy": "elevenlabs::fullstackengineercreativeagents",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:ai-engineer-h-f-stage-6-mois-stage-de-fin-d-etudes-allphins-rrxeyxwg": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Allphins",
+      "title": "AI Engineer (H/F) - Stage 6 mois (stage de fin d’études)",
+      "url": "https://www.welcometothejungle.com/en/companies/allphins/jobs/software-engineer-h-f-stage-6-mois-stage-de-cesure-ou-de-fin-d-etudes-possible_paris",
+      "fuzzy": "allphins::aiengineerstage6mois",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-ia-generative-finetuning-de-modeles-de-speech-to-text-et-de-small-language-model-societe-generale-assurances-lbxrrbf6": {
+      "deadline": "",
+      "location": "Courbevoie, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Société Générale Assurances",
+      "title": "Stage Data Scientist IA Générative : Finetuning de modèles de Speech-to-Text et de Small Language Model",
+      "url": "https://careers.societegenerale.com/offres-d-emploi/stage-data-scientist-ia-generative-finetuning-de-modeles-de-speech-to-text-et-de-small-language-26000NJL-fr?src=JB-BB-21252",
+      "fuzzy": "socitgnraleassurances::stagedatascientistiagnrativefinetuningdemodlesdespeechtotextetdesmalllanguagemodel",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:ai-engineer-intern-hubexo-f53xgldi": {
+      "deadline": "",
+      "location": "Stockholm, Stockholm County, SE",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Hubexo",
+      "title": "AI Engineer Intern",
+      "url": "https://jobs.dayforcehcm.com/en-US/hubexo/candidateportal/jobs/2180",
+      "fuzzy": "hubexo::aiengineerintern",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:data-and-ai-engineer-intern-sanofi-r-d-driven-and-ai-powered-biopharmaceutical-company-zwuet7ia": {
+      "deadline": "",
+      "location": "Lyon, France, FR",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sanofi: R&D-Driven and AI-Powered Biopharmaceutical Company",
+      "title": "Data and AI Engineer Intern",
+      "url": "https://echojobs.io/job/sanofi-r-d-driven-and-ai-powered-biopharmaceutical-company-internship-6-months-data-and-ia-engineer-ylfvo",
+      "fuzzy": "sanofirddrivenandpoweredbiopharmaceuticalcompany::dataandaiengineerintern",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:alternance-data-scientist-h-f-galileo-global-education-ekncut2j": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Galileo Global Education",
+      "title": "Alternance - Data Scientist (H/F)",
+      "url": "https://galileo.wd3.myworkdayjobs.com/pstb-alternance/job/Paris/Alternance---Data-Scientist--H-F-_R-23527",
+      "fuzzy": "galileoglobaleducation::alternancedatascientist",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-e-recherche-machine-learning-f-h-dassault-systemes-yzu7lga6": {
+      "deadline": "",
+      "location": "Valbonne, France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE - Ingénieur.e Recherche – Machine learning (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-ingenieur-e-recherche-machine-learning-f-h-549333",
+      "fuzzy": "dassaultsystmes::stageingnieurerecherchemachinelearning",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:stage-deep-learning-rehaussement-de-la-parole-pour-lunettes-auditives-h-f-essilorluxottica-france-dq3pki37": {
+      "deadline": "",
+      "location": "Sophia-Antipolis, France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "EssilorLuxottica France",
+      "title": "STAGE - Deep Learning - Rehaussement de la parole pour lunettes auditives H/F",
+      "url": "https://luxottica-group-spa.contactrh.com/jobs/10425/44532785",
+      "fuzzy": "essilorluxotticafrance::stagedeeplearningrehaussementdelaparolepourlunettesauditiveshf",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:aerospace-data-scientist-intern-climate-tech-aviation-estuaire-wui2nhqj": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Estuaire",
+      "title": "Aerospace Data Scientist Intern – Climate Tech & Aviation",
+      "url": "https://www.welcometothejungle.com/en/companies/estuaire/jobs/aerospace-data-scientist-intern-climate-tech-aviation_paris",
+      "fuzzy": "estuaire::aerospacedatascientistinternclimatetechaviation",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:stagiaire-data-scientist-h-f-colas-digital-solutions-afgvol22": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Colas Digital Solutions",
+      "title": "Stagiaire Data Scientist H/F",
+      "url": "https://speig.contactrh.com/jobs/10425/44566728",
+      "fuzzy": "colasdigitalsolutions::stagiairedatascientisthf",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-risque-tpe-f-h-bpifrance-fkyqz4dt": {
+      "deadline": "",
+      "location": "Maisons-Alfort, Île-de-France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Bpifrance",
+      "title": "STAGE - Data scientist risque TPE F/H",
+      "url": "https://www.jobteaser.com/fr/job-offers/bef402d8-01eb-4ead-8078-20b73ab980f2-bpifrance-stage-data-scientist-risque-tpe-f-h",
+      "fuzzy": "bpifrance::stagedatascientistrisquetpefh",
+      "first_reported": "2026-11-13",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-f-h-jcdecaux-f5oufzfh": {
+      "deadline": "",
+      "location": "Neuilly-sur-Seine, Ile-de-France, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "JCDecaux",
+      "title": "Stage - Data Scientist F/H",
+      "url": "https://recrutement.jcdecaux.fr/fr/annonce/4645727-stage-data-scientist-fh-92200-neuilly-sur-seine",
+      "fuzzy": "jcdecaux::stagedatascientistfh",
+      "first_reported": "2026-11-13",
+      "status": "reported"
     }
   }
 }
