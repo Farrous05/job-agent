@@ -1976,7 +1976,15 @@
       "url": "https://www.welcometothejungle.com/en/companies/allphins/jobs/software-engineer-h-f-stage-6-mois-stage-de-cesure-ou-de-fin-d-etudes-possible_paris",
       "fuzzy": "allphins::aiengineerstage6mois",
       "first_reported": "2026-11-13",
-      "status": "reported"
+      "status": "applied",
+      "history": [
+        [
+          "2026-11-14",
+          "applied"
+        ]
+      ],
+      "status_date": "2026-11-14",
+      "applied_date": "2026-11-14"
     },
     "fh:stage-data-scientist-ia-generative-finetuning-de-modeles-de-speech-to-text-et-de-small-language-model-societe-generale-assurances-lbxrrbf6": {
       "deadline": "",
