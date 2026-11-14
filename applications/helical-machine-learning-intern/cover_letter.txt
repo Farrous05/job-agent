@@ -1,0 +1,12 @@
+Dear Helical team,
+
+I am applying for the Machine Learning Intern role. I want to work on the part of foundation models that decides whether they are useful: the pipelines that train, evaluate and serve them. Helical's focus on turning bio foundation models into tools that pharma teams already use is a concrete version of that. I am an MSc Machine Learning student at UCL, graduating in September 2027.
+
+At the Max Planck Institute for Human Development I ran a research project end to end. I built an 8,504-example dataset from 10,000 self-conversations, labelled by a 31B LLM judge with 95% of labels validated, then fully fine-tuned Qwen2.5-3B over five versions on an HPC cluster using PyTorch, SLURM and vLLM. That is the loop your role describes: data pipeline, fine-tuning, evaluation, and honest reporting. The model detects its own collapse on unseen conversations, and I reported that recovery was only temporary.
+
+I also build systems that run in production. At To Ai I built LLM agents with LangChain and LangGraph and a message-queue architecture on AWS SQS and RabbitMQ to process webhook events reliably. My image-captioning project pairs a pre-trained ResNet-50 encoder with a custom Transformer decoder. I have not used Ray or Weights & Biases yet, but I work daily with Transformers, Docker and HPC clusters, and I pick up tooling quickly.
+
+I am available from September 2027 and would welcome a longer-term role with you after the internship. I would be glad to talk about what you are building.
+
+Kind regards,
+Fares Shretah

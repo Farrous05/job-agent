@@ -319,6 +319,14 @@
   "first_role": "Junior AI Engineer (m/w/d)",
   "token": "htgf"
  },
+ "personio:lennertz": {
+  "added": "2026-11-14",
+  "ats": "personio",
+  "company": "lennertz",
+  "fails": 0,
+  "first_role": "AI Engineer - Transformation (Graduate m/w/d)",
+  "token": "lennertz"
+ },
  "personio:reeeliance": {
   "added": "2026-11-04",
   "ats": "personio",
@@ -550,6 +558,14 @@
   "fails": 0,
   "first_role": "Data Engineer for Live Intelligence (m/w/d)",
   "token": "SopraSteria1"
+ },
+ "smartrecruiters:sportradar": {
+  "added": "2026-11-14",
+  "ats": "smartrecruiters",
+  "company": "Sportradar",
+  "fails": 0,
+  "first_role": "Forward Deployed AI Engineer (m/f/d)",
+  "token": "Sportradar"
  },
  "smartrecruiters:tieto2": {
   "added": "2026-11-04",

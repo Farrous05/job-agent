@@ -2137,6 +2137,267 @@
       "fuzzy": "jcdecaux::stagedatascientistfh",
       "first_reported": "2026-11-13",
       "status": "reported"
+    },
+    "web:38c0dbb97a:cambridge-consultants": {
+      "deadline": "rolling, closes when filled",
+      "location": "United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "web",
+      "fit": 4,
+      "company": "Cambridge Consultants",
+      "title": "Graduate AI Engineer (2027 start)",
+      "url": "https://job-boards.eu.greenhouse.io/cambridgeconsultantslimited/jobs/4995814101",
+      "fuzzy": "cambridgeconsultants::aiengineer",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:siemens-energy-graduate-program-ai-ml-data-science-engineer-for-industrial-applications-m-f-d-siemens-energy-inc-jwd4vycd": {
+      "deadline": "",
+      "location": "Barcelona, Spain",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Siemens Energy, Inc.",
+      "title": "Siemens Energy Graduate Program - AI/ML & Data Science Engineer for Industrial Applications (m/f/d)",
+      "url": "https://es.whatjobs.com/pub_api__cpl__370751274__7107?utm_campaign=publisher&utm_medium=api&geoID=5046",
+      "fuzzy": "siemensenergy::siemensenergyaimldatascienceengineerforindustrialapplications",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "tt:vuonogroup:c1d751fb-cec0-4080-b10d-232cf6098e28": {
+      "deadline": "",
+      "location": "Helsinki, Finland",
+      "region": "eu",
+      "families": [
+        "data_science",
+        "software"
+      ],
+      "source": "teamtailor",
+      "fit": 4,
+      "company": "Vuono Group",
+      "title": "Associate Full Stack Data Scientist (entry-level)",
+      "url": "https://vuonogroup.teamtailor.com/jobs/8704849-associate-full-stack-data-scientist-entry-level",
+      "fuzzy": "vuono::associatefullstackdatascientist",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "tt:vuonogroup:76a58f9f-316f-4e31-a413-58fe74ae4234": {
+      "deadline": "",
+      "location": "Helsinki, Finland / Helsinki, FI",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "teamtailor",
+      "fit": 4,
+      "company": "Vuono Group",
+      "title": "Associate Software Engineer (entry-level)",
+      "url": "https://vuonogroup.teamtailor.com/jobs/8704752-associate-software-engineer-entry-level",
+      "fuzzy": "vuono::associatesoftwareengineer",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:associate-software-engineer-entry-level-vuono-group-zqcwrh22": {
+      "deadline": "",
+      "location": "Helsinki, FI",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Vuono Group",
+      "title": "Associate Software Engineer (entry-level)",
+      "url": "https://vuonogroup.teamtailor.com/jobs/8704752-associate-software-engineer-entry-level",
+      "fuzzy": "vuono::associatesoftwareengineer",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:industrial-ai-ml-data-science-engineer-graduate-program-siemens-energy-inc-4mgarmwp": {
+      "deadline": "",
+      "location": "Barcelona, Spain",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Siemens Energy, Inc.",
+      "title": "Industrial AI/ML & Data Science Engineer – Graduate Program",
+      "url": "https://es.whatjobs.com/pub_api__cpl__370780679__7107?utm_campaign=publisher&utm_medium=api&geoID=5046",
+      "fuzzy": "siemensenergy::industrialaimldatascienceengineer",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-1-intuit-ddcq7wcc": {
+      "deadline": "",
+      "location": "London, London, City of, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Intuit",
+      "title": "Graduate Software Engineer 1",
+      "url": "https://jobs.intuit.com/job/london/graduate-software-engineer-1/27595/103261389616",
+      "fuzzy": "intuit::softwareengineer1",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-applicative-data-scientist-f-h-dassault-systemes-rvnlkooo": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "STAGE - Applicative Data Scientist (F/H)",
+      "url": "https://www.3ds.com/careers/jobs/stage-applicative-data-scientist-f-h-549933",
+      "fuzzy": "dassaultsystmes::stageapplicativedatascientist",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-ai-engineer-finops-optimisation-de-contexte-pour-agents-dev-liksi-kb7mtgbb": {
+      "deadline": "",
+      "location": "Nantes, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Liksi",
+      "title": "Stage - AI Engineer - FinOps & Optimisation de contexte pour agents dev",
+      "url": "https://recrutement.liksi.fr/jobs/8484723-stage-ai-engineer-finops-optimisation-de-contexte-pour-agents-dev/applications/new?promotion=2229843-welcome-to-the-jungle",
+      "fuzzy": "liksi::stageaiengineerfinopsoptimisationdecontextepouragentsdev",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-ai-engineer-finops-amp-optimisation-de-contexte-pour-agents-dev-liksi-groupe-7psissw4": {
+      "deadline": "",
+      "location": "Nantes, FR",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Liksi Groupe",
+      "title": "Stage - AI Engineer - FinOps &amp; Optimisation de contexte pour agents dev",
+      "url": "https://recrutement.liksi.fr/jobs/8484723-stage-ai-engineer-finops-optimisation-de-contexte-pour-agents-dev",
+      "fuzzy": "liksigroupe::stageaiengineerfinopsampoptimisationdecontextepouragentsdev",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-r-d-f-h-safran-quyc7njr": {
+      "deadline": "",
+      "location": "Europe, France, Ile de France, SEINE ET MARNE (77)",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Safran",
+      "title": "STAGE - Data Scientist R&D F/H",
+      "url": "https://safran.profils.org/offre-de-emploi/emploi-stage-data-scientist-r-d-f-h_190438.aspx",
+      "fuzzy": "safran::stagedatascientistrdfh",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-ingenieur-e-data-scientist-ia-frugale-groupe-sii-h2kd6yvh": {
+      "deadline": "",
+      "location": "Vélizy-Villacoublay, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Groupe SII",
+      "title": "Stage Ingénieur.e Data Scientist - IA Frugale",
+      "url": "https://sii-group.com/fr-FR/offers/aeronautique-spatial-et-defense/stage-ingenieure-data-scientist-ia-frugale?source=WelcomeToTheJungle",
+      "fuzzy": "groupesii::stageingnieuredatascientistiafrugale",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:ai-engineer-cross-skilling-program-xebiacareers-x7s2egp7": {
+      "deadline": "",
+      "location": "Amsterdam, Noord-Holland, Netherlands",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "xebiacareers",
+      "title": "AI Engineer - Apprenticeship Program",
+      "url": "https://xebiacareers.recruitee.com/o/ai-engineer-apprenticeship-program",
+      "fuzzy": "xebiacareers::aiengineerapprenticeship",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-ai-engineer-industrialisation-de-l-ia-au-sein-des-equipes-liksi-74ktjpov": {
+      "deadline": "",
+      "location": "Rennes, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Liksi",
+      "title": "Stage - AI Engineer - Industrialisation de l'IA au sein des équipes",
+      "url": "https://recrutement.liksi.fr/jobs/8476264-stage-ai-engineer-industrialisation-de-l-ia-au-sein-des-equipes/applications/new?promotion=2229864-welcome-to-the-jungle",
+      "fuzzy": "liksi::stageaiengineerindustrialisationdeliaauseindesquipes",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stagiaire-data-scientist-h-f-servier-dwjzaibx": {
+      "deadline": "",
+      "location": "Gif-sur-Yvette, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "SERVIER",
+      "title": "STAGIAIRE Data Scientist (H/F)",
+      "url": "https://servier-group.contactrh.com/jobs/10425/44566165",
+      "fuzzy": "servier::stagiairedatascientist",
+      "first_reported": "2026-11-14",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-r-d-f-h-safran-aircraft-engines-gpnknidk": {
+      "deadline": "",
+      "location": "Montereau-sur-le-Jard, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Safran Aircraft Engines",
+      "title": "STAGE - Data Scientist R&D F/H",
+      "url": "https://www.safran-group.com/fr/talents/Nos%20offres/offer/190438?OriginID=6&LCID=1036&offerReference=2026-190438",
+      "fuzzy": "safranaircraftengines::stagedatascientistrdfh",
+      "first_reported": "2026-11-14",
+      "status": "reported"
     }
   }
 }
