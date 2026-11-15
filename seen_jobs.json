@@ -2406,6 +2406,252 @@
       "fuzzy": "safranaircraftengines::stagedatascientistrdfh",
       "first_reported": "2026-11-14",
       "status": "reported"
+    },
+    "fh:junior-data-scientist-euronet-payments-infrastructure-go3ycdiv": {
+      "deadline": "",
+      "location": "Warsaw, Masovian Voivodeship, Poland",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Euronet Payments Infrastructure",
+      "title": "Junior Data Scientist",
+      "url": "https://apply.workable.com/j/D3DDF72ABB",
+      "fuzzy": "euronetpaymentsinfrastructure::juniordatascientist",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "web:f94e5a7b68:revolut": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "web",
+      "fit": 4,
+      "company": "Revolut",
+      "title": "Graduate Programme 2027: Applied AI Engineer",
+      "url": "https://www.revolut.com/careers/position/d149dd16-43e9-4372-a4f7-e706d7840797/",
+      "fuzzy": "revolut::appliedaiengineer",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "fh:graduate-ml-software-engineer-build-next-gen-ai-systems-arm-sweden-ab-wcc6mj6c": {
+      "deadline": "",
+      "location": "Skåne län, Sweden",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ARM Sweden AB",
+      "title": "Graduate ML Software Engineer: Build Next-Gen AI Systems",
+      "url": "https://se.whatjobs.com/pub_api__cpl__22055767__7150?utm_campaign=publisher&utm_medium=api&geoID=13",
+      "fuzzy": "armswedenab::mlsoftwareengineerbuildnextgenaisystems",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "fh:stagiaire-ingenieur-e-full-stack-datapolitics-mdycmoh6": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Datapolitics",
+      "title": "Stagiaire Ingénieur(e) Full-Stack",
+      "url": "https://www.welcometothejungle.com/en/companies/datapolitics/jobs/stagiaire-ingenieur-full-stack_paris",
+      "fuzzy": "datapolitics::stagiaireingnieurfullstack",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "ab:doctolib:89f0374d-48e3-4774-8a46-edfeb0657e8a": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Doctolib",
+      "title": "Software Engineering Intern - Fullstack (x/f/m) - Paris",
+      "url": "https://jobs.ashbyhq.com/doctolib/89f0374d-48e3-4774-8a46-edfeb0657e8a",
+      "fuzzy": "doctolib::softwareengineeringinternfullstackparis",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "ab:doctolib:f3605428-4d4f-414c-88d1-787b55518e1c": {
+      "deadline": "",
+      "location": "Amsterdam",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Doctolib",
+      "title": "Software Engineer Intern - Fullstack (x/f/m) - Amsterdam",
+      "url": "https://jobs.ashbyhq.com/doctolib/f3605428-4d4f-414c-88d1-787b55518e1c",
+      "fuzzy": "doctolib::softwareengineerinternfullstackamsterdam",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "ab:doctolib:19f389f4-1374-4c61-ae03-aae839f65bf4": {
+      "deadline": "",
+      "location": "Milan",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Doctolib",
+      "title": "Software Engineer Intern - Fullstack (x/f/m) - Milano",
+      "url": "https://jobs.ashbyhq.com/doctolib/19f389f4-1374-4c61-ae03-aae839f65bf4",
+      "fuzzy": "doctolib::softwareengineerinternfullstackmilano",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "gh:imc:4667814101": {
+      "deadline": "",
+      "location": "Aarhus, Central Denmark Region, Denmark; Amsterdam, Netherlands",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "IMC",
+      "title": "Graduate Software Engineer (2027)",
+      "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4667814101",
+      "fuzzy": "imc::softwareengineer",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "gh:imc:4914883101": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "IMC",
+      "title": "Graduate Deep Learning Researcher  - London",
+      "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4914883101",
+      "fuzzy": "imc::deeplearningresearcher",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "gh:jumptrading:7977132": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Jump Trading",
+      "title": "Campus ML Research Engineer (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=7977132",
+      "fuzzy": "jump::campusmlresearchengineer",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "gh:optiverus:8585609002": {
+      "deadline": "",
+      "location": "Amsterdam, North Holland, Netherlands; London, England, United Kingdom",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Optiver",
+      "title": "Graduate Quantitative Researcher (2027 Start)",
+      "url": "https://www.optiver.com/join-us/jobs/8585609002/?gh_jid=8585609002",
+      "fuzzy": "optiver::quantitativeresearcher",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "gh:anthropic:5183044008": {
+      "deadline": "October 30 (January cohort, year not stated; posting also says rolling review)",
+      "location": "London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA",
+      "region": "uk",
+      "families": [
+        "ai"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Anthropic",
+      "title": "Anthropic Fellows Program, AI Safety & Security",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5183044008",
+      "fuzzy": "anthropic::anthropicfellowsaisafetysecurity",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-ing-hubs-ogy2bbwb": {
+      "deadline": "",
+      "location": "Madrid, ES",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ING Hubs",
+      "title": "Junior AI Engineer",
+      "url": "https://careers.ing.com/en/job/madrid/junior-ai-engineer/3121/46847880448",
+      "fuzzy": "inghubs::junioraiengineer",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-ing-k5vuscbb": {
+      "deadline": "",
+      "location": "Madrid (Hubs Spain)",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ING",
+      "title": "Junior AI Engineer",
+      "url": "https://ing.wd3.myworkdayjobs.com/ICSGBLCOR/job/Madrid-Hubs-Spain/Junior-AI-Engineer_REQ-10124600",
+      "fuzzy": "ing::junioraiengineer",
+      "first_reported": "2026-11-15",
+      "status": "reported"
+    },
+    "fh:graduate-ai-ml-and-data-engineer-m-f-d-ericsson-dfakm3cu": {
+      "deadline": "",
+      "location": "Aachen,North Rhine Westphalia,Germany",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Ericsson",
+      "title": "Graduate AI/ML and Data Engineer (m/f/d)",
+      "url": "https://jobs.ericsson.com/careers/job/563121777546816-graduate-ai-ml-and-data-engineer-m-f-d--aachen-north-rhine-westphalia-germany?domain=ericsson.com",
+      "fuzzy": "ericsson::aimlanddataengineer",
+      "first_reported": "2026-11-15",
+      "status": "reported"
     }
   }
 }
