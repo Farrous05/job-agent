@@ -2652,6 +2652,283 @@
       "fuzzy": "ericsson::aimlanddataengineer",
       "first_reported": "2026-11-15",
       "status": "reported"
+    },
+    "fh:junior-quantitative-business-analyst-ai-amp-automation-builder-sendcloud-dvcsxwfp": {
+      "deadline": "",
+      "location": "Eindhoven, NL",
+      "region": "eu",
+      "families": [
+        "ai",
+        "quant"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sendcloud",
+      "title": "Junior Quantitative Business Analyst (AI &amp; Automation builder)",
+      "url": "https://jobs.sendcloud.com/jobs/8525109-junior-quantitative-business-analyst-ai-automation-builder",
+      "fuzzy": "sendcloud::juniorquantitativebusinessanalyst",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "fh:graduate-data-scientist-data-insights-ai-solutions-arup-xzdm4xuh": {
+      "deadline": "",
+      "location": "Dublin, County Dublin",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Arup",
+      "title": "Graduate Data Scientist, Data Insights & AI Solutions",
+      "url": "https://www.jobleads.com/ie/job/graduate-data-scientist-data-insights-ai-solutions--dublin--eb4848dfbdab9fe209e96eb4f59904077",
+      "fuzzy": "arup::datascientistdatainsightsaisolutions",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:anthropic:5439169008": {
+      "deadline": "November 22, 2026, 11:59 PM PT",
+      "location": "London, UK",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Anthropic",
+      "title": "Anthropic Research Resident",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5439169008",
+      "fuzzy": "anthropic::anthropicresearchresident",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-techwolf-3imhv3ya": {
+      "deadline": "",
+      "location": "Ghent, Vlaams Gewest, Belgium",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "techwolf",
+      "title": "Junior AI Engineer",
+      "url": "https://careers.techwolf.ai/o/junior-ai-engineer",
+      "fuzzy": "techwolf::junioraiengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "fh:ai-engineer-faktion-bv-2ihnr3cs": {
+      "deadline": "",
+      "location": "Antwerp, Vlaams Gewest, Belgium",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Faktion BV",
+      "title": "Junior AI Engineer",
+      "url": "https://talent.faktion.com/o/junior-ai-engineer",
+      "fuzzy": "faktionbv::junioraiengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "rc:machinelearningreply:2798366": {
+      "deadline": "",
+      "location": "Munich, Bayern, Germany",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "recruitee",
+      "fit": 3,
+      "company": "Machine Learning Reply",
+      "title": "Agentic AI Software Engineer",
+      "url": "https://machinelearningreply.recruitee.com/o/agentic-ai-software-engineer-16",
+      "fuzzy": "machinelearningreply::agenticaisoftwareengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "fh:graduate-ai-developer-dell-technologies-2m46zhvv": {
+      "deadline": "2026-11-20",
+      "location": "Dublin, Co. Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Dell Technologies",
+      "title": "Graduate AI Developer",
+      "url": "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers/job/D12110",
+      "fuzzy": "dell::aideveloper",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:stripe:8130881": {
+      "deadline": "",
+      "location": "Dublin / London / Bucharest",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130881",
+      "fuzzy": "stripe::softwareengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:stripe:8130930": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130930",
+      "fuzzy": "stripe::softwareengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:stripe:8130922": {
+      "deadline": "",
+      "location": "Bucharest",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130922",
+      "fuzzy": "stripe::softwareengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:databricks:8847747002": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Databricks",
+      "title": "Software Engineer - New Grad (2027 Start) - London",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8847747002",
+      "fuzzy": "databricks::softwareengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:anthropic:5183051008": {
+      "deadline": "",
+      "location": "London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Anthropic",
+      "title": "Anthropic Fellows Program, ML Systems & Reinforcement Learning",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5183051008",
+      "fuzzy": "anthropic::anthropicfellowsmlsystemsreinforcementlearning",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "ab:almedia:ad0fe4c3-0440-4a09-b78b-6f739c3d917d": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Almedia",
+      "title": "Junior Engineer (Typescript / Python / DevOps / AI)",
+      "url": "https://jobs.ashbyhq.com/almedia/ad0fe4c3-0440-4a09-b78b-6f739c3d917d",
+      "fuzzy": "almedia::juniorengineer",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:stripe:8130927": {
+      "deadline": "",
+      "location": "Barcelona",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Stripe",
+      "title": "Software Engineer, New Grad - Frontend",
+      "url": "https://stripe.com/jobs/search?gh_jid=8130927",
+      "fuzzy": "stripe::softwareengineerfrontend",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "ab:pinely:d593ab24-302c-4827-8a27-6ef6ce2eadfb": {
+      "deadline": "",
+      "location": "Amsterdam",
+      "region": "eu",
+      "families": [
+        "quant"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "pinely",
+      "title": "Junior Quantitative Researcher",
+      "url": "https://jobs.ashbyhq.com/pinely/d593ab24-302c-4827-8a27-6ef6ce2eadfb",
+      "fuzzy": "pinely::juniorquantitativeresearcher",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "fh:junior-sre-squarepoint-capital-fi7ufabd": {
+      "deadline": "",
+      "location": "New York, London, Singapore",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Squarepoint Capital",
+      "title": "Junior SRE",
+      "url": "https://www.squarepoint-capital.com/open-opportunities?id=6380892&gh_jid=6380892",
+      "fuzzy": "squarepoint::juniorsre",
+      "first_reported": "2026-11-16",
+      "status": "reported"
+    },
+    "gh:drweng:8007851": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "DRW",
+      "title": "Software Developer",
+      "url": "https://job-boards.greenhouse.io/drweng/jobs/8007851",
+      "fuzzy": "drw::softwaredeveloper",
+      "first_reported": "2026-11-16",
+      "status": "reported"
     }
   }
 }

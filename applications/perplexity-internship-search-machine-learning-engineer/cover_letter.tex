@@ -1,0 +1,44 @@
+% Cover letter template used by /apply. Same header and fonts as cv/cv.tex.
+% /apply copies this to applications/<company>-<role>/cover_letter.tex and replaces every placeholder line.
+% Build: scripts/build_letter.sh applications/<company>-<role>   (checks it fits on one page)
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.9in,right=0.9in,top=0.6in,bottom=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{FARES SHRETAH}} \\[3pt]
+    \small +44 7454 768453 $\bullet$ \href{mailto:faresshretah@gmail.com}{faresshretah@gmail.com} $\bullet$ London, UK \\
+    \small \href{https://github.com/Farrous05}{github.com/Farrous05} $\bullet$ \href{https://www.linkedin.com/in/fares-shretah/}{linkedin.com/in/fares-shretah}
+\end{center}
+
+\vspace{6pt}
+16 November 2026
+
+Hiring Team, Search \\
+Perplexity
+
+\textbf{Application: Internship - Search Machine Learning Engineer, London}
+
+Dear Hiring Team,
+
+I am applying for the Search Machine Learning Engineer internship at Perplexity. Retrieval, ranking and answer generation are where search quality is now decided, and this role puts an intern directly on experiments that change what users see. I am an MSc Machine Learning student at UCL in London, and Python and PyTorch are my daily tools.
+
+The posting asks for training and evaluating models, including LLM-based ones. At the Max Planck Institute for Human Development I led a research project on conversational mode collapse in LLMs. I built an 8,504-example dataset from 10,000 self-conversations, labelled by a 31B LLM judge with 95\% of labels validated, and fully fine-tuned Qwen2.5-3B over five versions on an HPC cluster using PyTorch, SLURM and vLLM. The model detects its own collapse in unseen conversations, and I reported honestly that recovery was only temporary.
+
+Your team also builds RAG pipelines and ships models to production. At To Ai I built LLM agents with LangChain and LangGraph and a message-queue architecture on AWS SQS and RabbitMQ, so I know how to take an experiment to something that runs reliably. My image-captioning project (ResNet-50 encoder, custom Transformer decoder with cross-attention, multi-reference BLEU) taught me to judge a model by its offline metrics before trusting it.
+
+I graduate in September 2027 and am based in London, so working in person in your office is straightforward. I would be glad to discuss dates for the 12 to 24 week programme around my MSc schedule. Thank you for your time.
+
+Kind regards,
+
+Fares Shretah
+
+\end{document}
