@@ -1,0 +1,34 @@
+% Cover letter template used by /apply. Same header and fonts as cv/cv.tex.
+% /apply copies this to applications/<company>-<role>/cover_letter.tex and replaces every placeholder line.
+% Build: scripts/build_letter.sh applications/<company>-<role>   (checks it fits on one page)
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.9in,right=0.9in,top=0.6in,bottom=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\begin{document}
+
+16 November 2026
+
+\textbf{Application: Graduate Quant Developer, London}
+
+Dear Hiring Team,
+
+I am applying for the Graduate Quant Developer role in London. The job is to build the libraries, tools and data workflows that quantitative researchers use every day, and that is the kind of engineering I want to do. I am an MSc Machine Learning student at UCL, and Python and C++ are the languages I work in.
+
+At the Max Planck Institute for Human Development I built a research pipeline end to end on a Linux HPC cluster. I generated 10,000 self-conversations, turned them into an 8,504-example dataset labelled by a 31B LLM judge (95\% of labels validated), and fully fine-tuned Qwen2.5-3B over five versions using SLURM, vLLM and git. Each version had to be reproducible and comparable with the last, which is what researchers need from their tooling.
+
+At To Ai I built a message-queue architecture on AWS SQS and RabbitMQ to process webhook events reliably, plus LLM agents with LangChain and LangGraph, so I have written code that has to keep running. I also use AI tools daily: I built my own job-search tool with Claude that scans career pages and scores roles against my CV.
+
+I graduate in September 2027 and can start in autumn 2027. Thank you for your time.
+
+Kind regards,
+
+Fares Shretah
+
+\end{document}

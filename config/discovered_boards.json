@@ -31,6 +31,14 @@
   "first_role": "Junior Data Scientist",
   "token": "edited"
  },
+ "ashby:harmonic-security-inc": {
+  "added": "2026-11-17",
+  "ats": "ashby",
+  "company": "Harmonic Security",
+  "fails": 0,
+  "first_role": "AI Platform Engineer",
+  "token": "harmonic-security-inc"
+ },
  "ashby:lyceum": {
   "added": "2026-11-04",
   "ats": "ashby",
@@ -103,6 +111,14 @@
   "first_role": "Junior Software Developer - Python & Web Applications (m/f/d)",
   "token": "statista"
  },
+ "ashby:taktile": {
+  "added": "2026-11-17",
+  "ats": "ashby",
+  "company": "Taktile",
+  "fails": 0,
+  "first_role": "Software Engineer Intern",
+  "token": "taktile"
+ },
  "greenhouse:aircallioinc": {
   "added": "2026-11-04",
   "ats": "greenhouse",
@@ -135,6 +151,14 @@
   "first_role": "Junior Data Scientist - Commercial Excellence (m/f/d)",
   "token": "buynomics"
  },
+ "greenhouse:catapultsports": {
+  "added": "2026-11-17",
+  "ats": "greenhouse",
+  "company": "Catapult Sports",
+  "fails": 0,
+  "first_role": "Graduate Software Engineer",
+  "token": "catapultsports"
+ },
  "greenhouse:deliveroo": {
   "added": "2026-11-04",
   "ats": "greenhouse",
@@ -150,6 +174,14 @@
   "fails": 0,
   "first_role": "Graduate Software Engineer (DV Commodities)",
   "token": "dvtrading"
+ },
+ "greenhouse:elwoodtechnologies": {
+  "added": "2026-11-17",
+  "ats": "greenhouse",
+  "company": "Elwood Technologies LLP",
+  "fails": 0,
+  "first_role": "Graduate Software Engineer Backend",
+  "token": "elwoodtechnologies"
  },
  "greenhouse:fanaticsfbg": {
   "added": "2026-11-04",
@@ -175,6 +207,14 @@
   "first_role": "Graduate Cybersecurity Threat Researcher (Position located in Cheltenham, United Kingdom)",
   "token": "knowbe4"
  },
+ "greenhouse:liberis": {
+  "added": "2026-11-17",
+  "ats": "greenhouse",
+  "company": "Liberis Ltd",
+  "fails": 0,
+  "first_role": "Junior Data Scientist",
+  "token": "liberis"
+ },
  "greenhouse:mangroup": {
   "added": "2026-11-04",
   "ats": "greenhouse",
@@ -190,6 +230,14 @@
   "fails": 0,
   "first_role": "2027 - Internship, Business Data Analytics",
   "token": "quberesearchandtechnologies"
+ },
+ "greenhouse:scaleai": {
+  "added": "2026-11-17",
+  "ats": "greenhouse",
+  "company": "Scale AI",
+  "fails": 0,
+  "first_role": "Software Engineer (New Grad)",
+  "token": "scaleai"
  },
  "greenhouse:shifttechnology": {
   "added": "2026-11-04",
@@ -302,6 +350,14 @@
   "fails": 0,
   "first_role": "Data & AI Engineer - stage de fin d'\u00e9tudes - Paris - Theodo Data & IA",
   "token": "theodo"
+ },
+ "personio:accurids-gmbh": {
+  "added": "2026-11-17",
+  "ats": "personio",
+  "company": "Accurids",
+  "fails": 0,
+  "first_role": "(Junior) Data Engineer | Knowledge Graphs & Pharma Data (f/m/d)",
+  "token": "accurids-gmbh"
  },
  "personio:cleopatra-enterprise": {
   "added": "2026-11-04",
@@ -471,6 +527,14 @@
   "first_role": "Junior Software Engineer",
   "token": "CordicLtd"
  },
+ "smartrecruiters:deliveryhero": {
+  "added": "2026-11-17",
+  "ats": "smartrecruiters",
+  "company": "Delivery Hero",
+  "fails": 0,
+  "first_role": "Junior Backend Engineer",
+  "token": "DeliveryHero"
+ },
  "smartrecruiters:deltaelectronics": {
   "added": "2026-11-04",
   "ats": "smartrecruiters",
@@ -614,6 +678,14 @@
   "fails": 0,
   "first_role": "Internship/Master thesis project in Computer Vision/Machine Learning",
   "token": "manomotion"
+ },
+ "teamtailor:payplug": {
+  "added": "2026-11-17",
+  "ats": "teamtailor",
+  "company": "PAYPLUG",
+  "fails": 0,
+  "first_role": "(Stage) Data AI Engineer",
+  "token": "payplug"
  },
  "teamtailor:vuonogroup": {
   "added": "2026-11-13",

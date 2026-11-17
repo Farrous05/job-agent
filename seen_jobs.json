@@ -2929,6 +2929,266 @@
       "fuzzy": "drw::softwaredeveloper",
       "first_reported": "2026-11-16",
       "status": "reported"
+    },
+    "fh:graduate-machine-learning-engineer-g-research-wxo3vqsb": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "G-Research",
+      "title": "Graduate Machine Learning Engineer",
+      "url": "https://www.gradcracker.com/hub/347/g-research/graduate-job/85468/graduate-machine-learning-engineer",
+      "fuzzy": "g::machinelearningengineer",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:software-engineer-new-grad-scale-ai-jck5t5qs": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Scale AI",
+      "title": "Software Engineer (New Grad)",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4730862005",
+      "fuzzy": "scale::softwareengineer",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-ai-driven-insights-pipelines-seedtag-xmrblqkm": {
+      "deadline": "",
+      "location": "Madrid, Comunidad de Madrid",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Seedtag",
+      "title": "Junior Data Scientist: AI-Driven Insights & Pipelines",
+      "url": "https://www.jobleads.com/es/job/junior-data-scientist-ai-driven-insights-pipelines--madrid--e590976e9005e2d2ea790f9a32af44ea3",
+      "fuzzy": "seedtag::juniordatascientistaidriveninsightspipelines",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-ai-software-engineer-ai-assisted-product-delivery-rotterdam-full-time-docheart-5ecchbxm": {
+      "deadline": "",
+      "location": "Rotterdam, South Holland, Netherlands",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "DocHeart",
+      "title": "Junior AI Software Engineer, AI-Assisted Product Delivery (Rotterdam · Full-time)",
+      "url": "https://www.linkedin.com/jobs/view/4490311278/",
+      "fuzzy": "docheart::junioraisoftwareengineeraiassistedproductdelivery",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-at-sellpy-sellpy-basuhxbh": {
+      "deadline": "",
+      "location": "Stockholms län, Sweden",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sellpy",
+      "title": "Junior Software Engineer at Sellpy",
+      "url": "https://se.whatjobs.com/pub_api__cpl__22045313__7150?utm_campaign=publisher&utm_medium=api&geoID=15",
+      "fuzzy": "sellpy::juniorsoftwareengineeratsellpy",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-backend-engineer-delivery-hero-d2dsellb": {
+      "deadline": "",
+      "location": "Barcelona, Catalonia",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Delivery Hero",
+      "title": "Junior Backend Engineer",
+      "url": "https://jobs.smartrecruiters.com/DeliveryHero/744000161824082",
+      "fuzzy": "deliveryhero::juniorbackendengineer",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-bending-spoons-zi4rqjqh": {
+      "deadline": "",
+      "location": "Warsaw, Poland",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Bending Spoons",
+      "title": "Graduate software engineer",
+      "url": "https://pl.whatjobs.com/pub_api__cpl__35764987__7143?utm_campaign=publisher&utm_medium=api&geoID=43714",
+      "fuzzy": "bendingspoons::softwareengineer",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-in-linkoping-axis-communications-ab-i6o6g4i5": {
+      "deadline": "",
+      "location": "Östergötlands län, Sweden",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Axis Communications AB",
+      "title": "Junior software engineer in Linköping",
+      "url": "https://se.whatjobs.com/pub_api__cpl__21985296__7150?utm_campaign=publisher&utm_medium=api&geoID=12",
+      "fuzzy": "axiscommunicationsab::juniorsoftwareengineerinlinkping",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:ai-scientist-intern-internship-masters-or-phd-mistral-ai-dacuo76l": {
+      "deadline": "",
+      "location": "Paris / Warsaw",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Mistral AI",
+      "title": "AI Scientist - (Internship, Masters or Phd)",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/f7245b49-92a0-4111-bba1-343183de7d97",
+      "fuzzy": "mistral::aiscientist",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "ab:mistral.ai:e663da6d-b70e-40e3-a4e9-551ba3d1ca4c": {
+      "deadline": "",
+      "location": "Warsaw",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "AI Scientist",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/e663da6d-b70e-40e3-a4e9-551ba3d1ca4c",
+      "fuzzy": "mistral::aiscientist",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-storytel-g63jshqs": {
+      "deadline": "",
+      "location": "Stockholms län, Sweden",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Storytel",
+      "title": "Junior Software Engineer",
+      "url": "https://se.whatjobs.com/pub_api__cpl__21968274__7150?utm_campaign=publisher&utm_medium=api&geoID=15",
+      "fuzzy": "storytel::juniorsoftwareengineer",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-analytics-engineer-macquarie-group-qyxxfamq": {
+      "deadline": "",
+      "location": "Genf, Switzerland",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Macquarie Group",
+      "title": "Junior Data Scientist & Analytics Engineer",
+      "url": "https://de-ch.whatjobs.com/pub_api__cpl__50640155__7095?utm_campaign=publisher&utm_medium=api&geoID=8",
+      "fuzzy": "macquarie::juniordatascientistanalyticsengineer",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-full-stack-impact-in-circular-tech-sellpy-34vukpr4": {
+      "deadline": "",
+      "location": "Stockholms län, Sweden",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sellpy",
+      "title": "Junior Software Engineer – Full-Stack Impact in Circular Tech",
+      "url": "https://se.whatjobs.com/pub_api__cpl__21973602__7150?utm_campaign=publisher&utm_medium=api&geoID=15",
+      "fuzzy": "sellpy::juniorsoftwareengineerfullstackimpactincirculartech",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "gh:aircallioinc:4506907009": {
+      "deadline": "",
+      "location": "Madrid Office",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 4,
+      "company": "Aircall.io, Inc.",
+      "title": "Software Engineer, AI Voice Agent",
+      "url": "https://job-boards.greenhouse.io/aircallioinc/jobs/4506907009",
+      "fuzzy": "aircallio::softwareengineeraivoiceagent",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:ai-engineer-intern-davis-ai-i6p6yid3": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Davis AI",
+      "title": "AI Engineer Intern",
+      "url": "https://jobs.ashbyhq.com/meetdavis/2923e62b-4958-4f96-9577-aba7c05aa49c",
+      "fuzzy": "davis::aiengineerintern",
+      "first_reported": "2026-11-17",
+      "status": "reported"
+    },
+    "fh:ml-engineer-intern-edge-ai-cv-pipelines-alta-ares-jaknc7yv": {
+      "deadline": "",
+      "location": "Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Alta Ares",
+      "title": "ML Engineer Intern: Edge AI & CV Pipelines",
+      "url": "https://www.jobleads.com/fr/job/ml-engineer-intern-edge-ai-cv-pipelines--paris--ebe0df1c945489674568fd6ba84903143",
+      "fuzzy": "altaares::mlengineerinternedgeaicvpipelines",
+      "first_reported": "2026-11-17",
+      "status": "reported"
     }
   }
 }
