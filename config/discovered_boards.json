@@ -87,6 +87,14 @@
   "first_role": "Machine Learning Researcher (Intern)",
   "token": "pinely"
  },
+ "ashby:quantumdiamonds": {
+  "added": "2026-11-18",
+  "ats": "ashby",
+  "company": "QuantumDiamonds",
+  "fails": 0,
+  "first_role": "Research Software Engineering Intern (f/m/d)",
+  "token": "quantumdiamonds"
+ },
  "ashby:revelrobotics": {
   "added": "2026-11-04",
   "ats": "ashby",
@@ -334,6 +342,14 @@
   "fails": 0,
   "first_role": "Stage - Deep Learning Scientist (H/F)",
   "token": "safran-ai"
+ },
+ "lever:scaleway": {
+  "added": "2026-11-18",
+  "ats": "lever",
+  "company": "Scaleway",
+  "fails": 0,
+  "first_role": "R&D Intern - Machine learning",
+  "token": "scaleway"
  },
  "lever:sonarsource": {
   "added": "2026-11-04",
@@ -647,6 +663,14 @@
   "first_role": "Data Scientist Assistant - Stage (6 mois) Mars 2027 (F/H/NB)",
   "token": "Ubisoft2"
  },
+ "smartrecruiters:veoliaenvironnementsa": {
+  "added": "2026-11-18",
+  "ats": "smartrecruiters",
+  "company": "Veolia",
+  "fails": 0,
+  "first_role": "Data Analyst / Data Scientist Junior",
+  "token": "VeoliaEnvironnementSA"
+ },
  "teamtailor:afterdata": {
   "added": "2026-11-04",
   "ats": "teamtailor",
@@ -694,5 +718,13 @@
   "fails": 0,
   "first_role": "Associate Software Engineer (entry-level)",
   "token": "vuonogroup"
+ },
+ "teamtailor:wiremind-1714146283": {
+  "added": "2026-11-18",
+  "ats": "teamtailor",
+  "company": "Wiremind",
+  "fails": 0,
+  "first_role": "Data Scientist (H/F) - Stage - Paris",
+  "token": "wiremind-1714146283"
  }
 }
