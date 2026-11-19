@@ -3189,6 +3189,252 @@
       "fuzzy": "altaares::mlengineerinternedgeaicvpipelines",
       "first_reported": "2026-11-17",
       "status": "reported"
+    },
+    "fh:junior-applied-ai-engineer-lufinity-ai-cdiekbk3": {
+      "deadline": "",
+      "location": "Munich, Bavaria, Germany",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Lufinity AI",
+      "title": "Junior Applied AI Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4491578463/",
+      "fuzzy": "lufinity::juniorappliedaiengineer",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-friss-bm7jcebm": {
+      "deadline": "",
+      "location": "Utrecht, Netherlands",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "FRISS",
+      "title": "Junior AI Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4483567304/",
+      "fuzzy": "friss::junioraiengineer",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:graduate-ml-engineer-build-scalable-ml-platforms-g-research-7wtvqj5b": {
+      "deadline": "",
+      "location": "Greater London, England",
+      "region": "uk",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "G-Research",
+      "title": "Graduate ML Engineer: Build Scalable ML Platforms",
+      "url": "https://www.jobleads.com/gb/job/graduate-ml-engineer-build-scalable-ml-platforms--greater-london--ebee7ecdab1886cbdf76037dc1e6d9b7c",
+      "fuzzy": "g::mlengineerbuildscalablemlplatforms",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-ai-deep-learning-engineer-apexbuild-solutions-ugplzbk5": {
+      "deadline": "",
+      "location": "Oslo, Oslo",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ApexBuild Solutions",
+      "title": "Junior AI Deep Learning Engineer",
+      "url": "https://www.jobleads.com/no/job/junior-ai-deep-learning-engineer--oslo--e42e5aab96e91f946271dc6d3a72aa0a1",
+      "fuzzy": "apexbuildsolutions::junioraideeplearningengineer",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-ml-engineer-production-ai-hybrid-in-switzerland-giotto-ai-sd23mexy": {
+      "deadline": "",
+      "location": "Lausanne, Waadt",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Giotto.ai",
+      "title": "Junior ML Engineer: Production AI, Hybrid in Switzerland",
+      "url": "https://www.jobleads.com/ch/job/junior-ml-engineer-production-ai-hybrid-in-switzerland--lausanne--e3b7cb8738127be6bfdad8aeed4c415c3",
+      "fuzzy": "giotto::juniormlengineerproductionaihybridinswitzerland",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-mentored-in-c-c-python-susquehanna-international-group-llp-7gr6czvj": {
+      "deadline": "",
+      "location": "Dublin, County Dublin",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Susquehanna International Group, LLP",
+      "title": "Graduate Software Engineer — Mentored in C/C++/Python",
+      "url": "https://www.jobleads.com/ie/job/graduate-software-engineer-mentored-in-c-c-python--dublin--e6648979d93fb08b2c98d3a1960da8872",
+      "fuzzy": "susquehannainternationalllp::softwareengineermentoredinccpython",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:graduate-software-developer-mentored-in-trading-tech-sig-susquehanna-yvt3tuuv": {
+      "deadline": "",
+      "location": "Dublin, County Dublin",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "SIG Susquehanna",
+      "title": "Graduate Software Developer: Mentored in Trading Tech",
+      "url": "https://www.jobleads.com/ie/job/graduate-software-developer-mentored-in-trading-tech--dublin--e982293c366b20ba04121f98a4d385713",
+      "fuzzy": "sigsusquehanna::softwaredevelopermentoredintradingtech",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-fraud-detection-ai-remote-shift-technology-jfs76k6r": {
+      "deadline": "",
+      "location": "Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Shift Technology",
+      "title": "Junior Data Scientist - Fraud Detection & AI (Remote)",
+      "url": "https://www.jobleads.com/fr/job/junior-data-scientist-fraud-detection-ai-remote--paris--e03a61d2b9fd20494d4bf109e7ebe06a1",
+      "fuzzy": "shift::juniordatascientistfrauddetectionai",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-ai-powered-saas-with-ownership-cph-ai-hub-khfrezho": {
+      "deadline": "",
+      "location": "Aarhus, Region Midtjylland",
+      "region": "eu",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Cph Ai Hub",
+      "title": "Junior Software Engineer: AI-Powered SaaS with Ownership",
+      "url": "https://www.jobleads.com/dk/job/junior-software-engineer-ai-powered-saas-with-ownership--aarhus--ea6a5fd1e3526e567898890b8acf85f58",
+      "fuzzy": "cphhub::juniorsoftwareengineeraipoweredsaaswithownership",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-prime19-mwqognaz": {
+      "deadline": "",
+      "location": "Dublin, County Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Prime19",
+      "title": "Graduate Software Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4491718122/",
+      "fuzzy": "prime19::softwareengineer",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-ai-frameworks-python-c-graphcore-2ibsgopl": {
+      "deadline": "",
+      "location": "United Kingdom",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Graphcore",
+      "title": "Graduate Software Engineer - AI Frameworks (Python/C++)",
+      "url": "https://uk.whatjobs.com/pub_api__cpl__634297767__7082?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "graphcore::softwareengineeraiframeworks",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-hybrid-impactful-analytics-dashboards-ten-square-games-s-a-ypgj63kb": {
+      "deadline": "",
+      "location": "Wrocław, Województwo dolnośląskie",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Ten Square Games S.A.",
+      "title": "Junior Data Scientist - Hybrid, Impactful Analytics & Dashboards",
+      "url": "https://www.jobleads.com/pl/job/junior-data-scientist-hybrid-impactful-analytics-dashboards--wroclaw--e123f0f3fe22d724b554a325fdc40e671",
+      "fuzzy": "tensquaregamessa::juniordatascientisthybridimpactfulanalyticsdashboards",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-develop-k4wolyty": {
+      "deadline": "",
+      "location": "London Area, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "develop",
+      "title": "Junior Software Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4485064977/",
+      "fuzzy": "develop::juniorsoftwareengineer",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:student-researcher-medical-ai-melodic-health-gmbh-hcektbc4": {
+      "deadline": "",
+      "location": "Berlin",
+      "region": "eu",
+      "families": [
+        "ai",
+        "quant"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Melodic Health GmbH",
+      "title": "Student Researcher - Medical AI",
+      "url": "https://devglobaljobs.com/jobs/detail/178185046",
+      "fuzzy": "melodichealthgmbh::studentresearchermedicalai",
+      "first_reported": "2026-11-19",
+      "status": "reported"
+    },
+    "fh:associate-software-engineer-junior-full-stack-m-f-global-partner-hr-solutions-e6svimrx": {
+      "deadline": "",
+      "location": "Portugal",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Global Partner HR Solutions",
+      "title": "Associate Software Engineer (Junior Full Stack) (m/f)",
+      "url": "https://www.linkedin.com/jobs/view/4492006659/",
+      "fuzzy": "globalpartnerhrsolutions::associatesoftwareengineer",
+      "first_reported": "2026-11-19",
+      "status": "reported"
     }
   }
 }

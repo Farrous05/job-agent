@@ -31,6 +31,14 @@
   "first_role": "Junior Data Scientist",
   "token": "edited"
  },
+ "ashby:harmattan-ai": {
+  "added": "2026-11-19",
+  "ats": "ashby",
+  "company": "Harmattan AI",
+  "fails": 0,
+  "first_role": "Machine Learning Engineer Intern - Computer Vision",
+  "token": "harmattan-ai"
+ },
  "ashby:harmonic-security-inc": {
   "added": "2026-11-17",
   "ats": "ashby",
