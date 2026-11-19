@@ -3074,7 +3074,15 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/f7245b49-92a0-4111-bba1-343183de7d97",
       "fuzzy": "mistral::aiscientist",
       "first_reported": "2026-11-17",
-      "status": "reported"
+      "status": "applied",
+      "history": [
+        [
+          "2026-11-19",
+          "applied"
+        ]
+      ],
+      "status_date": "2026-11-19",
+      "applied_date": "2026-11-19"
     },
     "ab:mistral.ai:e663da6d-b70e-40e3-a4e9-551ba3d1ca4c": {
       "deadline": "",
