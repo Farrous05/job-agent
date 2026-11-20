@@ -147,7 +147,7 @@
   "added": "2026-11-04",
   "ats": "greenhouse",
   "company": "Anduril Industries",
-  "fails": 0,
+  "fails": 1,
   "first_role": "2027 Early Career Software Engineer",
   "token": "andurilindustries"
  },
@@ -214,6 +214,14 @@
   "fails": 0,
   "first_role": "AI Engineer I",
   "token": "globalizationpartners"
+ },
+ "greenhouse:hrwallingford": {
+  "added": "2026-11-20",
+  "ats": "greenhouse",
+  "company": "HR Wallingford",
+  "fails": 0,
+  "first_role": "Graduate Software Developer",
+  "token": "hrwallingford"
  },
  "greenhouse:knowbe4": {
   "added": "2026-11-04",
@@ -318,6 +326,14 @@
   "fails": 0,
   "first_role": "Software Engineer Intern - Robotics Platform",
   "token": "gravisrobotics"
+ },
+ "lever:malt": {
+  "added": "2026-11-20",
+  "ats": "lever",
+  "company": "Malt",
+  "fails": 0,
+  "first_role": "Machine Learning Engineer Intern",
+  "token": "malt"
  },
  "lever:masterborn-2": {
   "added": "2026-11-10",
@@ -718,6 +734,14 @@
   "fails": 0,
   "first_role": "(Stage) Data AI Engineer",
   "token": "payplug"
+ },
+ "teamtailor:quantumsurgical": {
+  "added": "2026-11-20",
+  "ats": "teamtailor",
+  "company": "Quantum Surgical",
+  "fails": 0,
+  "first_role": "Data Scientist Intern H/F/X",
+  "token": "quantumsurgical"
  },
  "teamtailor:vuonogroup": {
   "added": "2026-11-13",
