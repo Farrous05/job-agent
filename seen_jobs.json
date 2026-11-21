@@ -3702,6 +3702,265 @@
       "fuzzy": "rexel::stagedatascientist",
       "first_reported": "2026-11-20",
       "status": "reported"
+    },
+    "fh:remote-junior-data-scientist-ai-analytics-seedtag-xosf6yr6": {
+      "deadline": "",
+      "location": "Barcelona, Cataluña",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Seedtag",
+      "title": "Remote Junior Data Scientist — AI & Analytics",
+      "url": "https://www.jobleads.com/es/job/remote-junior-data-scientist-ai-analytics--barcelona--e21f7e6df2942f383c446ecbd7eae7b43",
+      "fuzzy": "seedtag::remotejuniordatascientistaianalytics",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:software-developer-graduate-mentored-trading-tech-career-susquehanna-international-group-llp-ndb6pdd3": {
+      "deadline": "",
+      "location": "Dublin, County Dublin",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Susquehanna International Group, LLP",
+      "title": "Software Developer Graduate — Mentored Trading Tech Career",
+      "url": "https://www.jobleads.com/ie/job/software-developer-graduate-mentored-trading-tech-career--dublin--e82754fde5e4ab4a680555d6680ae5a32",
+      "fuzzy": "susquehannainternationalllp::softwaredevelopermentoredtradingtechcareer",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:ai-ml-engineer-ab-eu-amazon-com-oeohvvlu": {
+      "deadline": "",
+      "location": "München, Bayern",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Amazon.com",
+      "title": "AI/ML Engineer, AB EU",
+      "url": "https://www.jobleads.com/de/job/ai-ml-engineer-ab-eu--munchen--e337108f60eaae883bd9c64aa112d0f2d",
+      "fuzzy": "amazoncom::aimlengineerabeu",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:graduate-software-engineer-sybilion-726eovhn": {
+      "deadline": "",
+      "location": "Maia, Porto, Portugal",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Sybilion",
+      "title": "Graduate Software Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4491946704/",
+      "fuzzy": "sybilion::softwareengineer",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:junior-software-engineer-dassault-systemes-fydc2loq": {
+      "deadline": "",
+      "location": "'s-Hertogenbosch, Netherlands",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Dassault Systèmes",
+      "title": "Junior Software Engineer",
+      "url": "https://www.3ds.com/careers/jobs/junior-software-engineer-550851",
+      "fuzzy": "dassaultsystmes::juniorsoftwareengineer",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-build-validate-optimize-data-pipelines-advanced-resource-managers-ltd-kzsoqp6d": {
+      "deadline": "",
+      "location": "Slough, England",
+      "region": "uk",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Advanced Resource Managers Ltd",
+      "title": "Junior Data Scientist: Build, Validate & Optimize Data Pipelines",
+      "url": "https://www.jobleads.com/gb/job/junior-data-scientist-build-validate-optimize-data-pipelines--slough--e1aacae9eafc1ec6f03da907fc7af3f16",
+      "fuzzy": "advancedresourcemanagers::juniordatascientistbuildvalidateoptimizedatapipelines",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:stage-de-fin-d-etudes-ai-engineer-h-f-quickscale-ai-bpa2n3fw": {
+      "deadline": "",
+      "location": "Paris, Île-de-France, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Quickscale AI",
+      "title": "Stage de fin d’études : AI Engineer (H/F)",
+      "url": "https://www.linkedin.com/jobs/view/4490309537/",
+      "fuzzy": "quickscale::stagedefindtudesaiengineer",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "ab:harmattan-ai:8050180e-047d-4b10-af6f-d4a33d8ba21f": {
+      "deadline": "",
+      "location": "Lausanne / Paris",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "ashby",
+      "fit": 4,
+      "company": "Harmattan AI",
+      "title": "Machine Learning Engineer Intern - Computer Vision",
+      "url": "https://jobs.ashbyhq.com/harmattan-ai/8050180e-047d-4b10-af6f-d4a33d8ba21f",
+      "fuzzy": "harmattan::machinelearningengineerinterncomputervision",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:machine-learning-engineer-intern-harmattan-ai-eiogocgm": {
+      "deadline": "",
+      "location": "Lausanne",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Harmattan AI",
+      "title": "Machine Learning Engineer Intern - Computer Vision",
+      "url": "https://jobs.ashbyhq.com/harmattan-ai/8050180e-047d-4b10-af6f-d4a33d8ba21f",
+      "fuzzy": "harmattan::machinelearningengineerinterncomputervision",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "tt:wiremind-1714146283:601a4f57-8210-4bbf-bb41-b392faf59724": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "teamtailor",
+      "fit": 4,
+      "company": "Wiremind",
+      "title": "Data Scientist (H/F) - Stage - Paris",
+      "url": "https://wiremind-1714146283.teamtailor.com/jobs/8758027-data-scientist-h-f-stage-paris",
+      "fuzzy": "wiremind::datascientiststageparis",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:machine-learning-engineer-intern-4-6-months-360learning-nxmqmmbc": {
+      "deadline": "",
+      "location": "Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "360learning",
+      "title": "Machine Learning Engineer Intern (4-6 months)",
+      "url": "https://www.jobleads.com/fr/job/machine-learning-engineer-intern-4-6-months--paris--efa9d94f1dbbc7387cba43fe385811ddc",
+      "fuzzy": "360learning::machinelearningengineerintern",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-m1-m2-paris-idf-gratification-1000-1500eur-6-mois-equancy-groupe-edg-3hd7h3jg": {
+      "deadline": "",
+      "location": "Paris, Île-de-France, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Equancy | Groupe EDG",
+      "title": "Stage Data Scientist (M1 / M2) — Paris/IDF – Gratification 1000-1500€ | 6 mois",
+      "url": "https://www.linkedin.com/jobs/view/4488842295/",
+      "fuzzy": "equancygroupeedg::stagedatascientistparisidfgratification100015006mois",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:remote-ai-engineer-i-build-llm-apps-data-pipelines-globalizationpartners-cj5ok6hn": {
+      "deadline": "",
+      "location": "Ireland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "globalizationpartners",
+      "title": "Remote AI Engineer I — Build LLM Apps & Data Pipelines",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__6503778__7127?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "globalizationpartners::remoteaiengineeribuildllmappsdatapipelines",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:data-science-internship-ml-for-machine-failure-insights-asml-iw757zgd": {
+      "deadline": "",
+      "location": "Veldhoven, Noord-Brabant",
+      "region": "eu",
+      "families": [
+        "ml",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "ASML",
+      "title": "Data Science Internship: ML for Machine Failure Insights",
+      "url": "https://www.jobleads.com/nl/job/data-science-internship-ml-for-machine-failure-insights--veldhoven--ed4b18d769f0b0680a9a110f42ed74008",
+      "fuzzy": "asml::datascienceinternshipmlformachinefailureinsights",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:ai-engineer-data-agentic-systems-stage-h-f-stage-capgemini-france-pqphmudf": {
+      "deadline": "",
+      "location": "Issy les Moulineaux, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "CAPGEMINI FRANCE",
+      "title": "AI Engineer / Data & Agentic Systems - Stage H/F (Stage)",
+      "url": "https://fr.whatjobs.com/pub_api__cpl__164669839__7079?utm_campaign=publisher&utm_medium=api&geoID=4474",
+      "fuzzy": "capgeminifrance::aiengineerdataagenticsystemsstagehf",
+      "first_reported": "2026-11-21",
+      "status": "reported"
+    },
+    "fh:stage-data-scientist-ia-f-h-generali-france-n2ebz36v": {
+      "deadline": "",
+      "location": "Saint-Denis, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Generali France",
+      "title": "STAGE - DATA SCIENTIST & IA - F/H",
+      "url": "https://generali-vie.contactrh.com/jobs/10425/44587569",
+      "fuzzy": "generalifrance::stagedatascientistiafh",
+      "first_reported": "2026-11-21",
+      "status": "reported"
     }
   }
 }
