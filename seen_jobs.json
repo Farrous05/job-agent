@@ -3961,6 +3961,269 @@
       "fuzzy": "generalifrance::stagedatascientistiafh",
       "first_reported": "2026-11-21",
       "status": "reported"
+    },
+    "fh:junior-ai-engineer-to-ai-ml-scientist-early-career-parsionate-zbfmqwfi": {
+      "deadline": "",
+      "location": "Amsterdam, Noord-Holland",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "parsionate",
+      "title": "Junior AI Engineer to AI/ML Scientist - Early Career",
+      "url": "https://www.jobleads.com/nl/job/junior-ai-engineer-to-ai-ml-scientist-early-career--amsterdam--e3b99f037330a19409a4b61b37bfb62a0",
+      "fuzzy": "parsionate::junioraiengineertoaimlscientistearlycareer",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:ai-engineer-i-build-ai-pipelines-for-global-hr-g-p-5g6tuoce": {
+      "deadline": "",
+      "location": "Dublin, County Dublin / County Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "G-P",
+      "title": "AI Engineer I: Build AI Pipelines for Global HR",
+      "url": "https://www.jobleads.com/ie/job/ai-engineer-i-build-ai-pipelines-for-global-hr--dublin--ef75cbada8bc3218514c3a9c378a50088",
+      "fuzzy": "gp::aiengineeribuildaipipelinesforglobalhr",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:ai-engineer-i-build-ai-pipelines-for-global-hr-g-p-etee2bfm": {
+      "deadline": "",
+      "location": "County Dublin, Ireland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "G-P",
+      "title": "AI Engineer I: Build AI Pipelines for Global HR",
+      "url": "https://ie.whatjobs.com/pub_api__cpl__6426439__7127?utm_campaign=publisher&utm_medium=api&geoID=1094",
+      "fuzzy": "gp::aiengineeribuildaipipelinesforglobalhr",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:ml-intern-shape-ai-powered-discovery-ranking-pinterest-inc-7fkq36mp": {
+      "deadline": "",
+      "location": "Dublin, County Dublin",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Pinterest, Inc.",
+      "title": "ML Intern: Shape AI-Powered Discovery & Ranking",
+      "url": "https://www.jobleads.com/ie/job/ml-intern-shape-ai-powered-discovery-ranking--dublin--e7afbe82aa1bbb9ba0d292553df570542",
+      "fuzzy": "pinterest::mlinternshapeaipowereddiscoveryranking",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:machine-learning-engineer-intern-autonomous-systems-harmattan-ai-6kivbi5j": {
+      "deadline": "",
+      "location": "Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Harmattan AI",
+      "title": "Machine Learning Engineer Intern - Autonomous Systems",
+      "url": "https://www.jobleads.com/fr/job/machine-learning-engineer-intern-autonomous-systems--paris--ecb11430dc6cb03cd7eef9daa5e5ca09a",
+      "fuzzy": "harmattan::machinelearningengineerinternautonomoussystems",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:paris-ml-engineer-intern-ai-forecasting-pipelines-wiremind-v6uaz5x4": {
+      "deadline": "",
+      "location": "Paris, Île-de-France",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Wiremind",
+      "title": "Paris ML Engineer Intern - AI Forecasting & Pipelines",
+      "url": "https://www.jobleads.com/fr/job/paris-ml-engineer-intern-ai-forecasting-pipelines--paris--ec6400732302ae15ae4033b4425860bc0",
+      "fuzzy": "wiremind::parismlengineerinternaiforecastingpipelines",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:ai-engineer-stage-de-fin-d-etudes-paris-theodo-data-ai-theodo-data-ai-pog32uia": {
+      "deadline": "",
+      "location": "Paris, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Theodo Data & AI",
+      "title": "AI Engineer - Stage de fin d'études Paris - Theodo Data & AI",
+      "url": "https://jobs.lever.co/theodo/ea95e0c9-5760-4c3c-847c-79752fec198f/apply?lever-origin=applied&lever-source%5B%5D=WTTJ",
+      "fuzzy": "theododata::aiengineerstagedefindtudesparistheododataai",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:intern-machine-learning-for-cad-understanding-and-engineering-ai-w-m-x-bmw-group-fr2pl5nd": {
+      "deadline": "",
+      "location": "München, Bayern",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "BMW Group",
+      "title": "Intern Machine Learning for CAD Understanding and Engineering AI (w/m/x)",
+      "url": "https://www.jobleads.com/de/job/intern-machine-learning-for-cad-understanding-and-engineering-ai-w-m-x--munchen--e9a67034c8e02fd6bcbc1ddd11b7223a1",
+      "fuzzy": "bmw::internmachinelearningforcadunderstandingandengineeringai",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:data-scientist-f-h-en-stage-carrefour-france-gm6y54en": {
+      "deadline": "",
+      "location": "Lyon, Auvergne-Rhône-Alpes",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Carrefour France",
+      "title": "Data Scientist (F/H) en stage",
+      "url": "https://www.jobteaser.com/fr/job-offers/45713c20-66c3-4bc8-a9f2-73d9538424bb-carrefour-france-data-scientist-f-h-en-stage",
+      "fuzzy": "carrefourfrance::datascientistenstage",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:ml-engineering-internship-logmind-edp5yxhq": {
+      "deadline": "",
+      "location": "Lausanne, Waadt",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Logmind",
+      "title": "ML Engineering Internship",
+      "url": "https://www.jobleads.com/ch/job/ml-engineering-internship--lausanne--e0c21cf51b5650ea2fb54cabfcfee186b",
+      "fuzzy": "logmind::mlengineeringinternship",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "tt:quantumsurgical:a34ce590-88f6-4a97-9a1f-3819fdcbcb16": {
+      "deadline": "",
+      "location": "Montpellier, France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "teamtailor",
+      "fit": 4,
+      "company": "Quantum Surgical",
+      "title": "Data Scientist Intern H/F/X",
+      "url": "https://quantumsurgical.teamtailor.com/jobs/8766393-data-scientist-intern-h-f-x",
+      "fuzzy": "quantumsurgical::datascientistinternhfx",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-ing-hubs-spain-pnn4di7o": {
+      "deadline": "",
+      "location": "Madrid, Community of Madrid, Spain",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ING Hubs Spain",
+      "title": "Junior AI Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4490337022/",
+      "fuzzy": "inghubsspain::junioraiengineer",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:graduate-ai-software-developer-reply-742hekmg": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Reply",
+      "title": "Graduate AI Software Developer",
+      "url": "https://www.gradcracker.com/hub/691/reply/graduate-job/85279/graduate-ai-software-developer",
+      "fuzzy": "reply::aisoftwaredeveloper",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:graduate-ai-and-machine-learning-engineer-reply-76gwmkm3": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Reply",
+      "title": "Graduate AI and Machine Learning Engineer",
+      "url": "https://www.gradcracker.com/hub/691/reply/graduate-job/85285/graduate-ai-and-machine-learning-engineer",
+      "fuzzy": "reply::aiandmachinelearningengineer",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:data-scientist-nlp-deep-learning-engineer-revolut-ltd-eq3gpzkq": {
+      "deadline": "",
+      "location": "Portugal",
+      "region": "eu",
+      "families": [
+        "ml",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Revolut Ltd",
+      "title": "Data Scientist (NLP Deep Learning Engineer)",
+      "url": "https://pt.whatjobs.com/pub_api__cpl__16860801__7145?utm_campaign=publisher&utm_medium=api",
+      "fuzzy": "revolut::datascientist",
+      "first_reported": "2026-11-22",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-parsionate-htgy5a5y": {
+      "deadline": "",
+      "location": "Amsterdam, Noord-Holland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "parsionate",
+      "title": "Junior AI Engineer",
+      "url": "https://www.jobleads.com/nl/job/junior-ai-engineer--amsterdam--ec28452d470c05bfb5c9921efce69129a",
+      "fuzzy": "parsionate::junioraiengineer",
+      "first_reported": "2026-11-22",
+      "status": "reported"
     }
   }
 }
