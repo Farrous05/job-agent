@@ -79,6 +79,14 @@
   "first_role": "Applied AI, Forward Deployed Machine Learning Engineer - (Internship)",
   "token": "mistral.ai"
  },
+ "ashby:neuphonic": {
+  "added": "2026-11-23",
+  "ats": "ashby",
+  "company": "Neuphonic",
+  "fails": 0,
+  "first_role": "Machine Learning Researcher",
+  "token": "neuphonic"
+ },
  "ashby:perplexity": {
   "added": "2026-11-04",
   "ats": "ashby",
@@ -387,7 +395,7 @@
   "added": "2026-11-04",
   "ats": "lever",
   "company": "Sonar Source",
-  "fails": 1,
+  "fails": 0,
   "first_role": "Junior Software Engineer (Java)",
   "token": "sonarsource"
  },

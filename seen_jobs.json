@@ -4224,6 +4224,284 @@
       "fuzzy": "parsionate::junioraiengineer",
       "first_reported": "2026-11-22",
       "status": "reported"
+    },
+    "fh:junior-data-scientist-genai-ai-agents-in-healthcare-oliver-james-group-gzdyhyjs": {
+      "deadline": "",
+      "location": "Madrid, Comunidad de Madrid",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Oliver James Group",
+      "title": "Junior Data Scientist - GenAI & AI Agents in Healthcare",
+      "url": "https://www.jobleads.com/es/job/junior-data-scientist-genai-ai-agents-in-healthcare--madrid--e9f1d4c378d7123e280b24022605ce8f9",
+      "fuzzy": "oliverjames::juniordatascientistgenaiaiagentsinhealthcare",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-commercial-excellence-buynomics-5hwqnzrs": {
+      "deadline": "",
+      "location": "Barcelona, Cataluña",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Buynomics",
+      "title": "Junior Data Scientist - Commercial Excellence",
+      "url": "https://www.jobleads.com/es/job/junior-data-scientist-commercial-excellence--barcelona--ea642ff394cbeab9252f7cd7289653c1f",
+      "fuzzy": "buynomics::juniordatascientistcommercialexcellence",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "gh:buynomics:4635870101": {
+      "deadline": "",
+      "location": "Barcelona",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Buynomics",
+      "title": "Junior Data Scientist - Commercial Excellence (m/f/d)",
+      "url": "https://job-boards.eu.greenhouse.io/buynomics/jobs/4635870101",
+      "fuzzy": "buynomics::juniordatascientistcommercialexcellence",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:stagiaire-data-scientist-products-data-h-f-bearingpoint-esc2hfdn": {
+      "deadline": "",
+      "location": "Courbevoie, Île-de-France",
+      "region": "eu",
+      "families": [
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "BearingPoint",
+      "title": "Stagiaire Data Scientist - Products Data (H/F)",
+      "url": "https://www.jobteaser.com/fr/job-offers/ecbf94a2-7815-43cd-be65-0809c559184e-bearingpoint-stagiaire-data-scientist-products-data-h-f",
+      "fuzzy": "bearingpoint::stagiairedatascientistproductsdata",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:ml-intern-hybrid-in-zurich-relocation-support-pinterest-engineering-oqpa2juq": {
+      "deadline": "",
+      "location": "Zürich, Zürich",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Pinterest Engineering",
+      "title": "ML Intern — Hybrid in Zurich | Relocation Support",
+      "url": "https://www.jobleads.com/ch/job/ml-intern-hybrid-in-zurich-relocation-support--zurich--e7e9548af16c1f49c7b8993de748fda55",
+      "fuzzy": "pinterestengineering::mlinternhybridinzurichrelocationsupport",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:ai-engineer-intern-build-real-ai-for-dental-health-relu-yit5omp6": {
+      "deadline": "",
+      "location": "Leuven, Vlaams-Brabant",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Relu",
+      "title": "AI Engineer Intern — Build Real AI for Dental Health",
+      "url": "https://www.jobleads.com/be/job/ai-engineer-intern-build-real-ai-for-dental-health--leuven--ec933f8f58570be1640c0904d0fde2825",
+      "fuzzy": "relu::aiengineerinternbuildrealaifordentalhealth",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:stage-de-fin-d-etudes-bac-5-debruitage-d-images-en-scanographie-dentaire-cbct-par-methodes-de-deep-learning-et-controle-des-hallucinations-6-mois-carestream-dental-2f2rdu3c": {
+      "deadline": "",
+      "location": "Île-de-France",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Carestream Dental",
+      "title": "STAGE DE FIN D'ÉTUDES (BAC+5) — Débruitage d’images en scanographie dentaire (CBCT) par méthodes de deep learning et contrôle des hallucinations (6 mois)",
+      "url": "https://www.jobteaser.com/fr/job-offers/2a14cff0-600a-4a33-95f6-fb562e8f4de7-carestream-dental-stage-de-fin-d-etudes-bac-5-debruitage-d-images-en-scanographie-dentaire-cbct-par-methodes-de-deep-learning-et-controle-des-hallucinations-6-mois",
+      "fuzzy": "carestreamdental::stagedefindtudesdbruitagedimagesenscanographiedentaireparmthodesdedeeplearningetcontrledeshallucinations",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:ai-engineer-intern-x-f-m-paris-doctolib-ssp2kplj": {
+      "deadline": "",
+      "location": "Levallois-Perret, France",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 4,
+      "company": "Doctolib",
+      "title": "AI Engineer Intern (x/f/m) - Paris",
+      "url": "https://careers.doctolib.com/?ashby_jid=4588a32b-f865-48ec-a2b3-2c89d735c7cb",
+      "fuzzy": "doctolib::aiengineerinternparis",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:junior-quant-researcher-ml-alpha-research-squarepoint-capital-jwevtv53": {
+      "deadline": "",
+      "location": "London, New York, Singapore, Boston, Paris, Zug, Geneva, Hong Kong, Bangalore",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Squarepoint Capital",
+      "title": "Junior Quant Researcher - ML Alpha Research",
+      "url": "https://www.squarepoint-capital.com/open-opportunities?id=6069464&gh_jid=6069464",
+      "fuzzy": "squarepoint::juniorquantresearchermlalpharesearch",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:ai-chassis-algorithm-engineer-graduate-program-li-auto-fewth445": {
+      "deadline": "",
+      "location": "München, Bayern",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Li Auto",
+      "title": "AI Chassis Algorithm Engineer-Graduate program",
+      "url": "https://www.jobleads.com/de/job/ai-chassis-algorithm-engineer-graduate-program--munchen--e2fd4289139bc970e446cd0be43e9015f",
+      "fuzzy": "liauto::aichassisalgorithmengineer",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:junior-ai-engineer-accenture-the-netherlands-3w4bnjwz": {
+      "deadline": "",
+      "location": "Amsterdam, Noord-Holland",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Accenture the Netherlands",
+      "title": "Junior AI Engineer",
+      "url": "https://www.jobleads.com/nl/job/junior-ai-engineer--amsterdam--ec34bf5f7f014d3ed89e04408dc682f70",
+      "fuzzy": "accenturethenetherlands::junioraiengineer",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:junior-data-scientist-ai-automation-analytics-julius-baer-group-xes4rpnr": {
+      "deadline": "",
+      "location": "Zürich, Zürich",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Julius Baer Group",
+      "title": "Junior Data Scientist: AI, Automation & Analytics",
+      "url": "https://www.jobleads.com/ch/job/junior-data-scientist-ai-automation-analytics--zurich--e430c4893f0664ed80d2b5d25cc977404",
+      "fuzzy": "juliusbaer::juniordatascientistaiautomationanalytics",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "ab:mistral.ai:fcdb8407-20b9-4179-81b6-f2ca2c79a39b": {
+      "deadline": "",
+      "location": "Paris / London",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "Applied AI, Forward Deployed Machine Learning Engineer - (Internship)",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/fcdb8407-20b9-4179-81b6-f2ca2c79a39b",
+      "fuzzy": "mistral::appliedaiforwarddeployedmachinelearningengineer",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "ab:mistral.ai:4c57adc5-5beb-49d2-9202-1db0807b9cb7": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "Applied AI, Forward Deployed Machine Learning Engineer - London",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/4c57adc5-5beb-49d2-9202-1db0807b9cb7",
+      "fuzzy": "mistral::appliedaiforwarddeployedmachinelearningengineer",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "gh:artefact:7804825002": {
+      "deadline": "",
+      "location": "Brussels-Capital, Belgium",
+      "region": "eu",
+      "families": [
+        "ai",
+        "data_science"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Artefact",
+      "title": "Data Scientist - GenAI",
+      "url": "https://job-boards.greenhouse.io/artefact/jobs/7804825002",
+      "fuzzy": "artefact::datascientistgenai",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:graduate-machine-learning-engineer-central-technology-arm-sweden-ab-s3byo7gy": {
+      "deadline": "",
+      "location": "Lund, Sweden",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "ARM Sweden AB",
+      "title": "Graduate Machine Learning Engineer - Central Technology",
+      "url": "https://europa.eu/eures/portal/jv-se/jv-details/NjM3MjkyMiAxMjE?lang=en",
+      "fuzzy": "armswedenab::machinelearningengineercentraltechnology",
+      "first_reported": "2026-11-23",
+      "status": "reported"
+    },
+    "fh:software-engineer-java-graduate-programme-2027-revolut-3ooti7ct": {
+      "deadline": "",
+      "location": "Barcelona, Catalonia",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "freehire",
+      "fit": 3,
+      "company": "Revolut",
+      "title": "Software Engineer (Java) Graduate Programme 2027",
+      "url": "https://www.revolut.com/careers/position/graduate-programme-2027-software-engineer-java-3b79c804-b7e0-4b1a-9ef6-2fd69723dc7a/",
+      "fuzzy": "revolut::softwareengineer",
+      "first_reported": "2026-11-23",
+      "status": "reported"
     }
   }
 }
