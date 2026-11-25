@@ -10,6 +10,7 @@ import http.client
 import json
 import os
 import re
+import socket
 import time
 import urllib.error
 import urllib.parse
@@ -60,7 +61,11 @@ def _request(url: str, data: dict | None = None, headers: dict | None = None, re
             if e.code in (404, 401, 403, 400):
                 raise SourceError(f"HTTP {e.code} for {url}") from e
             last = e
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, http.client.HTTPException, OSError) as e:
+        except urllib.error.URLError as e:
+            if isinstance(e.reason, socket.gaierror):  # offline/DNS: retrying just burns time
+                raise SourceError(f"DNS failure for {url}") from e
+            last = e
+        except (TimeoutError, json.JSONDecodeError, http.client.HTTPException, OSError) as e:
             last = e
         time.sleep(2 * (attempt + 1))
     raise SourceError(f"{type(last).__name__}: {last} for {url}")
@@ -198,7 +203,13 @@ def reed(queries: list[str], location: str = "London") -> list[Job]:
     for q in queries:
         qs = urllib.parse.urlencode({"keywords": q, "locationName": location, "graduate": "true",
                                      "resultsToTake": 100})
-        data = _request(f"https://www.reed.co.uk/api/1.0/search?{qs}", headers={"Authorization": auth})
+        try:
+            data = _request(f"https://www.reed.co.uk/api/1.0/search?{qs}", headers={"Authorization": auth},
+                            retries=1)
+        except SourceError:
+            if out:
+                continue  # keep results from earlier queries; one bad query shouldn't lose them
+            raise
         for j in data.get("results", []):
             if j["jobId"] in seen:
                 continue
