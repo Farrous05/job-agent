@@ -25646,5 +25646,173 @@
   "start": "",
   "concerns": "Supply chain focus rather than ML research; Cork is a smaller, non-preferred city; start date not stated; hybrid.",
   "scored": "2026-11-23"
+ },
+ "ab:almedia:ebbef1cb-ea12-4e5d-93ec-3e18359457e1": {
+  "fit": 4,
+  "reason": "Junior software engineer role with AI-native focus; TypeScript, Python, DevOps and AI tracks match CV's Python, TypeScript, LLM and agent work. Berlin is a hub city.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Excerpt truncated in batch file; track-specific requirements beyond the visible text not checked. EU role, no sponsorship needed.",
+  "scored": "2026-11-26"
+ },
+ "ab:neuphonic:ec217aa1-756f-4997-a6eb-57a2f48c529c": {
+  "fit": 2,
+  "reason": "Posting says several years of research or industry ML experience is required and it is not a graduate role; CV has one research internship and an MSc starting Sep 2026. Speech/TTS focus is not in CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar too high (wrong level). Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:abound:4aa0397c-9465-4269-b7af-db20f2ee1347": {
+  "fit": 3,
+  "reason": "Junior Python backend role at a London fintech with Python, SQL and Postgres overlap with CV; level and stack are a reasonable fit, but work is fintech lending rather than ML.",
+  "deadline": "",
+  "start": "",
+  "concerns": "London, hybrid (3 days in office). UK visa: sponsorship not stated, so Graduate visa or sponsorship needs checking. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:alan:2e09e54e-fc8a-4f61-9b19-36804d5413c6": {
+  "fit": 3,
+  "reason": "Fullstack software engineer on a medical clinic platform in France; CV has TypeScript, Next.js and SQL experience, but the role is fullstack product work and seniority is not stated.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience level not stated in visible text. EU role, no sponsorship needed. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:mistral.ai:f2443351-6105-44fb-8024-f31b9ba60d0b": {
+  "fit": 2,
+  "reason": "Research internship on agentic engineering data for LLMs in Paris; topic is close to CV's agent and LLM work, but it is aimed at late-stage Master's or PhD candidates.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship timing clashes with the UCL MSc (summer 2027 dissertation). Internship hours under student visa need checking. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:lyceum:f2817b43-3130-4dab-86b3-2c8179c0db11": {
+  "fit": 1,
+  "reason": "Legal role requiring a law student on the German First State Examination track; unrelated to CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Wrong field entirely.",
+  "scored": "2026-11-26"
+ },
+ "ab:mistral.ai:75ea432f-765f-4481-b138-29e832a61c39": {
+  "fit": 2,
+  "reason": "Backend and distributed systems engineer on Mistral's inference serving stack in Paris; requires several years of production backend experience, which the CV does not have.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar too high (wrong level). EU role, no sponsorship needed.",
+  "scored": "2026-11-26"
+ },
+ "ab:mistral.ai:36f5f453-92c1-4f55-ac2a-bcfad5ffe2d2": {
+  "fit": 2,
+  "reason": "Physics foundation-model research internship in Paris; ML training is relevant, but domain is CFD, structural mechanics and EDA, with no CV match, and it targets late-stage Master's or PhD candidates.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Internship timing clashes with the UCL MSc (summer 2027). Domain mismatch. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "gh:xtxmarketstechnologies:7634431003": {
+  "fit": 3,
+  "reason": "Systems engineer on research infrastructure at a quant firm in London; ML compute and data overlap with CV, but the role is systems engineering and is not labelled entry-level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar not stated. Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:harmonic-security-inc:f1368e84-0f17-43be-80db-77c7bbac9985": {
+  "fit": 3,
+  "reason": "AI enablement engineer owning AI coding tooling, skills, MCP and agent evaluations; CV's agentic and LLM work is related, but the role asks for shipped software experience and seniority is unclear.",
+  "deadline": "",
+  "start": "",
+  "concerns": "London hybrid/remote. Sponsorship not stated. Experience bar not stated. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:mistral.ai:4271fd7a-bc7a-4c8d-905f-1a38940f0185": {
+  "fit": 2,
+  "reason": "Backend and distributed systems engineer on Mistral's inference stack in London; requires several years of production backend experience, which the CV lacks.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar too high (wrong level). Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "lv:palantir:53fb4c05-f949-4146-a046-5c063c36a628": {
+  "fit": 2,
+  "reason": "Forward deployed software engineer working with customers in Madrid; mixes engineering with customer delivery and expects senior autonomy, so the level looks too high for the CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar not stated as graduate. Flag mentions UK security clearance (years of UK residency), which does not fit a French passport holder in Spain. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "gh:databricks:8438263002": {
+  "fit": 1,
+  "reason": "Senior executive sales role for US Department of War work requiring 15+ years of experience and security clearance; unrelated to CV.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Senior level and wrong field. Remote in Washington D.C., with US clearance requirements.",
+  "scored": "2026-11-26"
+ },
+ "gh:n26:8203962": {
+  "fit": 3,
+  "reason": "Data analyst for the Investments product in Barcelona; experimentation, causal inference and dashboards are adjacent to CV's ML and data work, and Barcelona is a major city.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Analyst role rather than ML; experience bar not stated. EU role, no sponsorship needed. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:backmarket:ae0b69b8-4051-4a31-a11f-f624be54b4e8": {
+  "fit": 2,
+  "reason": "AI quality and evaluation internship on LLM evaluation in Paris; topic is a strong match with CV's LLM-as-a-judge and fine-tuning work, but the start date clashes with the UCL MSc.",
+  "deadline": "",
+  "start": "January 2027",
+  "concerns": "Internship timing clash: starts Jan 2027, before the MSc ends (Sep 2027), and asks for a Master 2 degree. Full-time 35h/week under student visa rules needs checking. EU role, no sponsorship needed.",
+  "scored": "2026-11-26"
+ },
+ "gh:helsing:5047139101": {
+  "fit": 2,
+  "reason": "Simulation backend engineer in Rust and C++ on distributed real-time systems; systems-heavy role with no CV match for those languages or the protocols, and not entry-level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar not stated as graduate. Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:neuphonic:50becba1-ff61-4a7b-8e44-59f4b7a4adc5": {
+  "fit": 2,
+  "reason": "Infrastructure and platform engineer owning GCP, Kubernetes, Terraform and on-call for production inference in London; adjacent to CV's infra experience (SLURM, AWS, Docker) but needs ownership at a senior level.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Not labelled entry-level, with autonomy and on-call duties. Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "lv:spotify:71eb64a0-ce99-4166-8462-bad3901a967c": {
+  "fit": 2,
+  "reason": "Backend engineer on platform security and GRC tooling in London or Stockholm; asks for Java and production distributed services experience, which the CV does not show.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar not stated as graduate. Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:qonto:1c527138-c252-417d-92cb-a9793857ca10": {
+  "fit": 2,
+  "reason": "Go backend engineer on a large-scale backoffice platform in London; asks for strong backend and large-scale platform experience, and the CV's Go experience is absent.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Experience bar too high (wrong level). Sponsorship not stated for London. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
+ },
+ "ab:harmonic-security-inc:42c05e65-f630-43da-86a6-407119aed54f": {
+  "fit": 1,
+  "reason": "UX researcher role on a security product; research-practice work with no CV match.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Wrong field entirely. London hybrid/remote, sponsorship not stated.",
+  "scored": "2026-11-26"
+ },
+ "ab:edited:6a91224c-07e8-4405-b5da-ea32a5e52dee": {
+  "fit": 3,
+  "reason": "Platform SRE in Sofia on a high-volume product; automation, Terraform and monitoring fit CV's AWS, Docker and SLURM work, but this is infra/SRE rather than ML, and it is on-call duty.",
+  "deadline": "",
+  "start": "",
+  "concerns": "Adjacent field (SRE). Experience bar not stated as graduate. EU role, no sponsorship needed. Excerpt truncated in batch file.",
+  "scored": "2026-11-26"
  }
 }

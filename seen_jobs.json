@@ -4502,6 +4502,250 @@
       "fuzzy": "revolut::softwareengineer",
       "first_reported": "2026-11-23",
       "status": "reported"
+    },
+    "lv:palantir:d372c805-d0cd-4a10-9522-fbecc78d6f3e": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "lever",
+      "fit": 3,
+      "company": "Palantir",
+      "title": "Software Engineer, New Grad",
+      "url": "https://jobs.lever.co/palantir/d372c805-d0cd-4a10-9522-fbecc78d6f3e",
+      "fuzzy": "palantir::softwareengineer",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "lv:palantir:9265acce-12cd-4179-8c50-55d15963532b": {
+      "deadline": "",
+      "location": "London, United Kingdom",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "lever",
+      "fit": 3,
+      "company": "Palantir",
+      "title": "Software Engineer, New Grad - Infrastructure",
+      "url": "https://jobs.lever.co/palantir/9265acce-12cd-4179-8c50-55d15963532b",
+      "fuzzy": "palantir::softwareengineerinfrastructure",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "ab:harmattan-ai:785027fc-f918-4503-91f6-1b9c5a3c6e07": {
+      "deadline": "",
+      "location": "Paris / Lausanne / Zurich",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Harmattan AI",
+      "title": "Machine Learning Engineer (Detect & Track Distillation)",
+      "url": "https://jobs.ashbyhq.com/harmattan-ai/785027fc-f918-4503-91f6-1b9c5a3c6e07",
+      "fuzzy": "harmattan::machinelearningengineer",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "ab:harmattan-ai:1c0ee96e-51f5-49d7-85db-89fabfed41b4": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Harmattan AI",
+      "title": "Computer Vision Engineer",
+      "url": "https://jobs.ashbyhq.com/harmattan-ai/1c0ee96e-51f5-49d7-85db-89fabfed41b4",
+      "fuzzy": "harmattan::computervisionengineer",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "pe:merantix:2777150": {
+      "deadline": "",
+      "location": "Berlin; London",
+      "region": "uk",
+      "families": [
+        "ai",
+        "software"
+      ],
+      "source": "personio",
+      "fit": 3,
+      "company": "Merantix",
+      "title": "Product Engineer (Backend/AI) @Briink",
+      "url": "https://merantix.jobs.personio.com/job/2777150",
+      "fuzzy": "merantix::productengineerbriink",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "gh:jumptrading:8050801": {
+      "deadline": "",
+      "location": "London; Amsterdam",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Jump Trading",
+      "title": "Campus Quantitative Trader (Full-Time)",
+      "url": "https://www.jumptrading.com/hr/job?gh_jid=8050801",
+      "fuzzy": "jump::campusquantitativetrader",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "wk:huggingface:81B46579FE": {
+      "deadline": "",
+      "location": "Paris, France; Remote",
+      "region": "eu",
+      "families": [
+        "ml"
+      ],
+      "source": "workable",
+      "fit": 3,
+      "company": "Hugging Face",
+      "title": "Open-Source Machine Learning Engineer - EMEA Remote",
+      "url": "https://apply.workable.com/j/81B46579FE",
+      "fuzzy": "huggingface::opensourcemachinelearningengineeremearemote",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "ab:mistral.ai:37108a18-4eaa-4554-af3c-39e3556191cb": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ml",
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "Applied AI, Forward Deployed Machine Learning Engineer - Paris",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/37108a18-4eaa-4554-af3c-39e3556191cb",
+      "fuzzy": "mistral::appliedaiforwarddeployedmachinelearningengineerparis",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "ab:statista:63575639-feab-4739-8714-5c76e26dff80": {
+      "deadline": "",
+      "location": "Hamburg or Berlin",
+      "region": "eu",
+      "families": [
+        "software"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Statista",
+      "title": "Junior Software Developer - Python & Web Applications (m/f/d)",
+      "url": "https://jobs.ashbyhq.com/statista/63575639-feab-4739-8714-5c76e26dff80",
+      "fuzzy": "statista::juniorsoftwaredeveloperpythonwebapplications",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "gh:anthropic:5112018008": {
+      "deadline": "",
+      "location": "Zürich, CH",
+      "region": "eu",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Anthropic",
+      "title": "Research Engineer, Production Model Post-Training",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5112018008",
+      "fuzzy": "anthropic::researchengineerproductionmodelposttraining",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "ab:mistral.ai:9873f968-d5b2-4fb0-b268-7a274a4a2029": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "LLM Scientist, AI for Science",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/9873f968-d5b2-4fb0-b268-7a274a4a2029",
+      "fuzzy": "mistral::llmscientistaiforscience",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "gh:wehrtyou:7398013": {
+      "deadline": "",
+      "location": "Chicago, Illinois, United States; London, United Kingdom; New York, NY, United States",
+      "region": "uk",
+      "families": [
+        "software"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Hudson River Trading",
+      "title": "Software Engineer - Python",
+      "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=7398013",
+      "fuzzy": "hudsonriver::softwareengineerpython",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "gh:drweng:7996648": {
+      "deadline": "",
+      "location": "London",
+      "region": "uk",
+      "families": [
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "DRW",
+      "title": "Quant Researcher - Compute Markets",
+      "url": "https://job-boards.greenhouse.io/drweng/jobs/7996648",
+      "fuzzy": "drw::quantresearchercomputemarkets",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "ab:mistral.ai:5e6f3efd-36a5-48ab-8643-843edaeee578": {
+      "deadline": "",
+      "location": "Paris",
+      "region": "eu",
+      "families": [
+        "ai"
+      ],
+      "source": "ashby",
+      "fit": 3,
+      "company": "Mistral AI",
+      "title": "Evaluation Engineer, Applied AI",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/5e6f3efd-36a5-48ab-8643-843edaeee578",
+      "fuzzy": "mistral::evaluationengineerappliedai",
+      "first_reported": "2026-11-26",
+      "status": "reported"
+    },
+    "gh:anthropic:4610158008": {
+      "deadline": "",
+      "location": "London, UK",
+      "region": "uk",
+      "families": [
+        "ml",
+        "quant"
+      ],
+      "source": "greenhouse",
+      "fit": 3,
+      "company": "Anthropic",
+      "title": "[Expression of Interest] Research Engineer / Scientist, Alignment - London",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/4610158008",
+      "fuzzy": "anthropic::expressionofinterestresearchengineerscientistalignment",
+      "first_reported": "2026-11-26",
+      "status": "reported"
     }
   }
 }
