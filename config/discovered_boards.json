@@ -3,7 +3,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Abound",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Junior Software Engineer",
   "token": "abound"
  },
@@ -11,7 +11,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Almedia",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Junior Data Scientist",
   "token": "almedia"
  },
@@ -19,7 +19,7 @@
   "added": "2026-11-06",
   "ats": "ashby",
   "company": "Alta Ares",
-  "fails": 0,
+  "fails": 1,
   "first_role": "ML Engineer - Internship",
   "token": "alta-ares"
  },
@@ -27,7 +27,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "EDITED",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Junior Data Scientist",
   "token": "edited"
  },
@@ -35,7 +35,7 @@
   "added": "2026-11-19",
   "ats": "ashby",
   "company": "Harmattan AI",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Machine Learning Engineer Intern - Computer Vision",
   "token": "harmattan-ai"
  },
@@ -43,7 +43,7 @@
   "added": "2026-11-17",
   "ats": "ashby",
   "company": "Harmonic Security",
-  "fails": 0,
+  "fails": 1,
   "first_role": "AI Platform Engineer",
   "token": "harmonic-security-inc"
  },
@@ -51,7 +51,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Lyceum",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Forward Deployed Engineer \u2013 AI Inference (Intern)",
   "token": "lyceum"
  },
@@ -59,7 +59,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Marshmallow",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Junior Pricing Data Scientist",
   "token": "marshmallow"
  },
@@ -67,7 +67,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Davis AI",
-  "fails": 0,
+  "fails": 1,
   "first_role": "AI Engineer Intern",
   "token": "meetdavis"
  },
@@ -75,7 +75,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Mistral AI",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Applied AI, Forward Deployed Machine Learning Engineer - (Internship)",
   "token": "mistral.ai"
  },
@@ -83,7 +83,7 @@
   "added": "2026-11-23",
   "ats": "ashby",
   "company": "Neuphonic",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Machine Learning Researcher",
   "token": "neuphonic"
  },
@@ -91,7 +91,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Perplexity AI",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Machine Learning Research Engineer Internship",
   "token": "perplexity"
  },
@@ -99,7 +99,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "pinely",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Machine Learning Researcher (Intern)",
   "token": "pinely"
  },
@@ -107,7 +107,7 @@
   "added": "2026-11-18",
   "ats": "ashby",
   "company": "QuantumDiamonds",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Research Software Engineering Intern (f/m/d)",
   "token": "quantumdiamonds"
  },
@@ -115,7 +115,7 @@
   "added": "2026-11-04",
   "ats": "ashby",
   "company": "Revel Robotics",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Computer Vision Engineer",
   "token": "revelrobotics"
  },
@@ -123,7 +123,7 @@
   "added": "2026-11-12",
   "ats": "ashby",
   "company": "Statista",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Junior Software Developer - Python & Web Applications (m/f/d)",
   "token": "statista"
  },
@@ -131,7 +131,7 @@
   "added": "2026-11-17",
   "ats": "ashby",
   "company": "Taktile",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Software Engineer Intern",
   "token": "taktile"
  },
@@ -139,7 +139,7 @@
   "added": "2026-11-04",
   "ats": "greenhouse",
   "company": "Aircall.io, Inc.",
-  "fails": 0,
+  "fails": 1,
   "first_role": "Software Engineer \u2013 Professional Practice Contract",
   "token": "aircallioinc"
  }
